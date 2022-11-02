@@ -1,0 +1,8 @@
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "Access denied";
+}
+
+<h1>@L["1"]</h1>
+
+<p>@L["2"] "@Context.Request.Query["ReturnUrl"]".</p>

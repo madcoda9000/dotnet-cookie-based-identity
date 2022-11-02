@@ -1,0 +1,33 @@
+@model UpsertRoleViewModel
+
+@{
+    var modelIsNull = Model?.Id != null;
+    ViewData["Title"] = modelIsNull ? "Update role" : "Create role";
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card shadow p-3 mb-5 rounded">
+            <h5 class="card-header">@(modelIsNull ? "Update role" : "Create role")</h5>
+            <div class="card-body">
+                <form asp-action="UpsertRole">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input asp-for="Id" type="hidden" />
+
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-3">
+                        <a asp-controller="Admin" asp-action="Roles" class="btn btn-link">Roles</a>
+                        <button type="submit" class="btn btn-primary">@(modelIsNull ? "Update" :
+                            "Create")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

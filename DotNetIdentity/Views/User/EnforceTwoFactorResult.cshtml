@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Sign In";
+    Layout = "_AuthLayout";
+}
+
+<div class="auth-logo">
+    <a href="index.html"><img src="~/assets/images/logo/logo_colored.png" alt="Logo"
+            style="height:3.5rem !important;"></a>
+</div>
+<h1 class="auth-title">2fa activated</h1>
+<p class="auth-subtitle mb-5">2fa is activated for your account now.</p>
+
+@{
+    var recoveryCodes = TempData["RecoveryCodes"];
+    if (recoveryCodes != null)
+    {
+        <div class="alert alert-warning">
+            <h4 class="alert-heading">You've successfully configured 2fa with an authenticatzor app!</h4>
+            <p>Please find Your two-factor authenticator recovery codes below.<br /><br />
+                <b>@string.Join(",", recoveryCodes as string[] ?? new string[] {})</b>
+                <br /><br />
+                <b>NOTE:</b> put this codes into a save place! They can never be displayed again! You can use one of
+                this codes to login with 2fa if you've lost or forgotten your mobile.
+            </p>
+        </div>
+    }
+}
+
+<div class="form-check form-check-lg d-flex align-items-end">
+    <input class="form-check-input me-2" type="checkbox" id="reccode" name="reccode" onclick="checkReccode();" autofocus>
+    <label class="form-check-label text-gray-600" for="reccode">I have backed up my recovery codes!</label>
+</div>
+
+<button id="lgn" class="btn btn-primary btn-block btn-lg shadow-lg mt-5" disabled onclick="doIt(this);">Let me login now!</button>
+
+@section scripts {
+    <script>
+        function checkReccode() {
+            if($('#reccode').prop('checked')) {
+                $('#lgn').prop("disabled", false);
+            } else {
+                $('#lgn').prop("disabled", true);
+            }
+        }
+
+        function doIt(button) {
+            if($('#reccode').prop('checked')) {
+                window.location.href = "/User/Login";
+            }
+        }
+    </script>
+}

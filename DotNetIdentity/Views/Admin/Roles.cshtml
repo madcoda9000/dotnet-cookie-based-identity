@@ -1,0 +1,194 @@
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model List<AppRole>
+    @inject IViewLocalizer L
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>@L["1"]</h3>
+            <p class="text-subtitle text-muted">@L["2"] </p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Admin / Roles</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+@{
+    if (TempData["Error"]!=null)
+    {
+        <div class="alert alert-danger">
+            <h4 class="alert-heading">@L["3"]</h4>
+            <p>
+                @TempData["Error"]!.ToString()
+            </p>
+        </div>
+    }
+}
+        
+@TempData["Error"]
+<div class="card card shadow p-3 mb-5 rounded">
+    <div class="card-header d-flex flex-row-reverse">
+        <h5></h5>
+        <div class="d-flex flex-row-reverse">
+            <!--
+            <a asp-action="UpsertRole" class="btn btn-primary ">Add new Role</a>
+            -->
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editRole">@L["4"]</button>
+        </div>
+    </div>
+      <div class="card-body">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Ops</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model ?? new())
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>
+                            @if(item.Name.ToLower()=="admin" || item.Name.ToLower()=="user") {
+                                <span class="text-danger">@L["5"]</span>
+                            } else {
+                                <div class="btn-group" role="group" aria-label="role actions">
+                                <!--<a asp-action="UpsertRole" asp-route-id="@item.Id"><span class="btn btn-sm btn-primary me-2">Edit</span></a> -->
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editRole" data-roleId="@item.Id" data-roleName="@item.Name">@L["6"]</button>&nbsp; 
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#danger" data-roleId="@item.Id" data-roleName="@item.Name">@L["7"]</button>
+                            </div>
+                            }                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Modal dialog for deletion -->
+<div class="modal fade text-left" id="danger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title white" id="myModalLabel120">Danger Modal
+                </h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">@L["11"]</span>
+                </button>
+                <form id="delForm" action="" method="post">
+                    <button class="btn btn-sm btn-danger">@L["12"]</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End modal dialog for deletion -->
+
+<!--Modal dialog for role edit -->
+<div class="modal fade text-left" id="editRole" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <form id="editRoleForm" action="" method="post">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title white" id="myModalLabel120">Danger Modal
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="text-light" data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="idHid" type="hidden" id="" name="id" value="" />
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input class="form-control" type="text" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" value="" onblur="checkIfEmptyRoleField('submEditBtn');" onkeydown="releaseButton('submEditBtn');">
+                        <span id="rVal" class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">@L["11"]</span>
+                    </button>
+                    <button id="submEditBtn" class="btn btn-sm btn-primary" type="submit">@L["13"]</button>
+                </div>
+            </form>        
+        </div>
+    </div>
+</div>
+<!-- End modal dialog for role edit -->
+
+<!-- Begin Script section -->
+@section scripts {
+    <script>
+    // set modal dialog variables
+    $('#danger').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var roleId = button.attr('data-roleId'); // Extract info from data-* attributes
+        var roleName = button.attr('data-roleName'); // Extract info from data-* attributes
+        $("#delForm").attr('action', '/Admin/DeleteRole/' + roleId); // set form action        
+        var modal = $(this);
+        modal.find('.modal-title').text('@L["8"] ' + roleName + '?'); // set modal title
+        modal.find('.modal-body').html('@L["9"] <b>' + roleName + '</b>?<br>@L["10"]'); // set modal content text        
+    });
+
+    // set modal dialog variables
+    $('#editRole').on('show.bs.modal', function (event) {
+        var modal = $(this);
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var roleId = button.attr('data-roleId'); // Extract info from data-* attributes
+        var roleName = button.attr('data-roleName'); // Extract info from data-* attributes
+        if(roleId) {
+            $("#editRoleForm").attr('action', '/Admin/UpSertRole/' + roleId); // set form action
+            $('.idHid').attr('id', roleId);
+            $('.idHid').attr('value', roleId);
+        } else {
+            $("#editRoleForm").attr('action', '/Admin/UpSertRole'); // set form action
+        }
+        if(roleName) {
+            $('#Name').attr('value', roleName);        
+            modal.find('.modal-title').text('@L["14"] ' + roleName + '?'); // set modal title    
+        } else {
+            $('#Name').attr('value', '');  
+            modal.find('.modal-title').text('@L["15"]..'); // set modal title 
+        }      
+         
+    });
+
+    function checkIfEmptyRoleField(submitBtnId) {
+        if($('#Name').val()=="") {
+            $('#' + submitBtnId).prop("disabled",true);
+            $('#rVal').html("@L["16"]");
+        }
+    }
+
+    function releaseButton(submitBtnId) {
+        $('#' + submitBtnId).prop("disabled",false);
+        $('#rVal').html("");
+    }
+</script>
+}

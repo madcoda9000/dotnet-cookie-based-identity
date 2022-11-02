@@ -1,0 +1,145 @@
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "Error";
+    Layout = "_ErrorLayout";
+}
+<style>
+    pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f5023c;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: none !important;
+            border-color: inherit !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            
+        }
+        *:focus {
+            outline: none !important;
+        }
+        input[type=text]:focus {
+         
+        }
+        .form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-clip: padding-box;
+            background-color: #fff;
+            border: 1px solid #dce7f1;
+            border-radius: .25rem;
+            color: #607080;
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: .375rem .75rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            width: 100%;
+        }
+        .bg-danger {
+            background-color: #f5023c !important;
+        }
+        .bg-success {
+            background-color: #00c853 !important;
+        }
+        .bg-warning {
+            background-color: #ff9800 !important;
+        }
+        .bg-primary {
+            background-color: #090251 !important;
+        }
+        .bg-info {
+            background-color: #2196f3 !important;
+        }
+        .text-danger {
+            color: #f5023c !important;
+        }
+        .text-success {
+            color: #00c853 !important;
+        }
+        .text-warning {
+            color: #ff9800 !important;
+        }
+        .text-primary {
+            color: #090251 !important;
+        }
+        .text-info {
+            color: #2196f3 !important;
+        }
+        .sidebar-wrapper .menu .submenu .submenu-item.active>a {
+            border-radius: 0.5rem;
+            background-color: #f2f7ff;
+            color: #090251;
+            font-weight: 700;
+        }
+</style>
+<!--
+    
+@ViewBag.StackTrace
+-->
+
+<div class="page-404">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <!--BEGIN CONTENT-->
+                <div class="inner-circle"><i class="bi bi-shield-fill-exclamation" data-bs-toggle="modal" data-bs-target="#stackTrace"></i><span>500</span></div>
+                <span class="inner-status">@L["1"] @ViewBag.ErrorMessage</span>
+                <span class="inner-detail">@L["2"]</span>
+                <a class="btn btn-primary btn-block btn-lg shadow-sm mt-5" href="/User/Login">@L["3"]</a>
+                <!--END CONTENT-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal dialog for stacktrace edit -->
+<div class="modal modal-xl fade text-left" id="stackTrace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title white" id="myModalLabel120">Exception Details
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="text-light" data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <b class="text-primary">Route of Exception:</b>&nbsp;@ViewBag.RouteOfException
+                    <br><br>
+                    <b class="text-primary">Exception Stack Trace</b>
+                    <pre>
+                        @ViewBag.StackTrace
+                    </pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                </div>       
+        </div>
+    </div>
+</div>
+<!-- End modal dialog for stacktrace edit -->
+
+@section scripts {
+
+}

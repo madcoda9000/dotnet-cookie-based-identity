@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Authentication;
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "User Session Information";
+}
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>@L["1"]</h3>
+            <p class="text-subtitle text-muted">@L["2"] </p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User / DebugUserInfo</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="card card shadow p-3 mb-5 rounded">
+    <div class="card-body">
+        <div class="mb-5">
+            <h5 class="card-title">@L["3"]</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                            <th>Issuer</th>
+                            <th>Subject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in User.Claims)
+                        {
+                            <tr>
+                                <td>@item.Type</td>
+                                <td>@item.Value</td>
+                                <td>@item.Issuer</td>
+                                <td>@item.Subject</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h5 class="card-title">@L["4"]</h5>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var result = await Context.AuthenticateAsync();
+                        foreach (var item in result.Properties?.Items ?? new Dictionary<string, string?>())
+                        {
+                            <tr>
+                                <td>@item.Key</td>
+                                <td>@item.Value</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+</div>

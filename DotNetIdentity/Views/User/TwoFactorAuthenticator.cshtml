@@ -1,0 +1,61 @@
+@model TwoFactorAuthenticatorViewModel
+
+@{
+    ViewData["Title"] = "2FA Authentication Type";
+}
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>Setup Twofactor Authentication</h3>
+            <p class="text-subtitle text-muted">please complete your 2fa configuration</p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User / TwoFactorAuthenticator</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="card card shadow p-3 mb-5 rounded">
+    <div class="card-body">
+
+                <form asp-action="TwoFactorAuthenticator">
+                    <div class="alert alert-info mb-3">Scan the code below into the google/microsoft authenticator
+                        application on your phone or enter the code below on your phone.</div>
+                    <div class="mb-3" id="qr-code"></div>
+
+                    <strong class="mb-3">@Model?.SharedKey</strong>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input asp-for="AuthenticationUri" type="hidden" />
+                    <input asp-for="SharedKey" type="hidden" />
+
+                    <div class="form-group">
+                        <label asp-for="VerificationCode"></label>
+                        <input asp-for="VerificationCode" class="form-control">
+                        <span asp-validation-for="VerificationCode" class="text-danger"></span>
+                    </div>
+
+                 <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-primary btn-lg shadow-lg mt-5">Finish 2fa Setup</button>
+                 </div>
+                </form>
+</div>
+</div>
+
+@section Scripts{
+<script src="~/lib/qrcode.min.js"></script>
+<script>
+    new QRCode(document.getElementById('qr-code'), {
+        text: '@Model?.AuthenticationUri',
+        width: 250,
+        height: 250,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+</script>
+}

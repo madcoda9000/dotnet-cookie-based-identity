@@ -1,0 +1,120 @@
+@model SignInViewModel
+@inject IViewLocalizer L
+
+@{
+    ViewData["Title"] = L["Title"];
+    Layout = "_AuthLayout";
+    Microsoft.Extensions.Primitives.StringValues queryVal;
+}
+
+<style>
+    #langBtn {
+        text-decoration: none !important;
+        margin-left: -12px !important;
+        color: #090251 !important;
+    }
+
+    #langBtn:hover {
+        text-decoration: none !important;
+        margin-left: -12px !important;
+        color: #f5023c !important;
+    }
+
+    .langIc {
+        color: #090251 !important;
+    }
+
+    .langIc:hover {
+        color: #f5023c !important;
+    }
+</style>
+
+<div class="auth-logo">
+    <a href="index.html"><img src="~/assets/images/logo/logo_colored.png" alt="Logo"
+            style="height:3.5rem !important;"></a>
+</div>
+<h1 class="auth-title">@L["1"]</h1>
+<p class="auth-subtitle mb-5">@L["2"]</p>
+<form id="lgnFrm" asp-action="Login">
+    <!-- <div asp-validation-summary="ModelOnly"></div> -->
+    @if (ViewData.ModelState[""] != null && ViewData.ModelState[""]!.Errors.Count > 0)
+    {
+        <div class="alert alert-light-danger alert-dismissible show fade">
+            @Html.ValidationSummary()
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["3"]"></button>
+        </div>
+    }
+
+    @if (Context.Request.Query.TryGetValue("res", out queryVal) &&
+    queryVal.FirstOrDefault() == "sesst")
+    {
+        <div class="alert alert-danger">
+            @L["11"]
+        </div>
+    }
+
+    <div class="form-group position-relative has-icon-left mb-4">
+
+        <input asp-for="UserName" class="form-control form-control-xl" placeholder="@L["4"]" autofocus />
+        <div class="form-control-icon">
+            <i class="bi bi-person"></i>
+        </div>
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group position-relative has-icon-left mb-4">
+        <input asp-for="Password" class="form-control form-control-xl" type="password" />
+        <div class="form-control-icon">
+            <i class="bi bi-shield-lock"></i>
+        </div>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-check form-check-lg d-flex align-items-end">
+        <input class="form-check-input me-2" type="checkbox" asp-for="RememberMe">
+        <label class="form-check-label text-gray-600" asp-for="RememberMe">@L["9"]</label>
+    </div>
+    <button id="btnLogn" type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">@L["5"]</button>
+</form>
+<div class="text-center mt-5 text-lg fs-4">
+    <p class="text-gray-600">@L["7"] <a asp-controller="User" asp-action="Register" class="font-bold">@L["8"]</a>.</p>
+    <p><a class="font-bold" asp-controller="User" asp-action="ForgotPassword">@L["6"]</a></p>
+</div>
+<div class="text-center mt-5 text-lg fs-4">
+    @{
+        var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" :
+            $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+        var culture = System.Globalization.CultureInfo.CurrentCulture.ToString().ToLower();
+        <form id="selectLanguage" asp-controller="Culture" asp-action="SetCulture" asp-route-returnUrl="@returnUrl"
+        method="post">
+            <a class="langIc dropdown-item"><i class=" icon-mid bi bi-translate me-2"></i>
+                @if (culture == "en")
+                {
+                    <input type="hidden" name="culture" value="de" />
+                    <button id="langBtn" type="submit" class="btn btn-link">German</button>
+                }
+                else if (culture == "de")
+                {
+                    <input type="hidden" name="culture" value="en" />
+                    <button id="langBtn" type="submit" class="btn btn-link">English</button>
+                }
+            </a>
+        </form>
+    }
+
+</div>
+
+@section scripts {
+<script>
+    $(document).ready(function () {
+        $("#btnLogn").click(function () {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> @L["10"]');
+            // submit the form
+            $('form#lgnFrm').submit();
+        });
+    });
+</script>
+}

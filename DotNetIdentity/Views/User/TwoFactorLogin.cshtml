@@ -1,0 +1,35 @@
+@model TwoFactorLoginVieWModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "2fa Sign In";
+    Layout = "_AuthLayout";
+}
+
+<div class="auth-logo">
+    <a href="index.html"><img src="~/assets/images/logo/logo_colored.png" alt="Logo" style="height:3.5rem !important;"></a>
+</div>
+<h1 class="auth-title">@L["1"]</h1>
+<p class="auth-subtitle mb-5">@L["2"]</p>
+<form asp-action="TwoFactorLogin">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input asp-for="TwoFactorType" type="hidden" />
+
+    <div class="form-group position-relative has-icon-left mb-4">
+        <input asp-for="VerificationCode" class="form-control form-control-xl" autofocus/>
+        <div class="form-control-icon">
+            <i class="bi bi-shield-lock"></i>
+        </div>
+        <span asp-validation-for="VerificationCode"></span>
+    </div>
+
+    @if (Model?.TwoFactorType == TwoFactorType.Authenticator)
+    {
+        <div class="form-group">
+            <input asp-for="IsRecoveryCode" type="checkbox" />
+            <label asp-for="IsRecoveryCode" class="control-label">@L["3"]</label>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">@L["4"]</button>
+</form>

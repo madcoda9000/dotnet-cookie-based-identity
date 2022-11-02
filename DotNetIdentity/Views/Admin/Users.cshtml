@@ -1,0 +1,235 @@
+@using DatatableJS;
+@model List<AppUser>
+@inject IViewLocalizer L
+
+@{
+    ViewData["Title"] = "Users";
+}
+<link rel="stylesheet" href="~/assets/extensions/toastify-js/src/toastify.css">
+<link rel="stylesheet" href="~/assets/css/pages/toastify.css">
+<link rel="stylesheet" type="text/css" href="~/assets/extensions/dataTablesjs-1.12.1/dataTables.bootstrap5.min.css">
+<script>
+function ExtendGrid() {
+            $('#PersonGrid_filter').append('&nbsp;&nbsp;<a class=\"btn btn-primary\" href=\"/Admin/NewUser\">@L["0"]</a>');
+            $('#PersonGrid_filter').parent('div').parent('div').addClass('mb-5');
+            $('.dataTables_paginate').parent('div').parent('div').addClass('mt-3');
+        }
+    </script>
+<style>
+    .dataTables_filter {
+        
+    }
+
+</style>
+
+<div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>@L["1"]</h3>
+                <p class="text-subtitle text-muted">@L["2"]</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Admin / Users</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+<div class="card card shadow p-3 mb-5 rounded">
+    <div class="card-body">
+        @{
+            var langRes = "/assets/extensions/dataTablesjs-1.12.1/english.json";
+            var culture = System.Globalization.CultureInfo.CurrentCulture;
+            if(culture.ToString().ToLower()=="de") {
+                langRes = "/assets/extensions/dataTablesjs-1.12.1/german.json";
+            }
+        }
+        @(Html.JS().Datatable<AppUser>()
+            .Name("PersonGrid")
+            .Selecting(true)
+            .Class("table table-striped")
+            .Language("" + @langRes + "")
+            .Columns(cols =>
+            {
+                cols.Field(a => a.Id).Visible(false);
+                cols.Field(a => a.ProfilePicture).Width(1).Orderable(false).Title("Avatar").Template("(data==null) ? '<div class=\"avatar avatar-md\"><img src=\"/assets/images/faces/user.png\" height=\"32\"></div>' : '<div class=\"avatar avatar-md\"><img src=\"' + data + '\" height=\"32\"></div>'");
+                cols.Field(a=>a.UserName).Width(2);
+                cols.Field(a=>a.Email).Width(2);
+                cols.Field(a=>a.Id).Width(40).Orderable(false).Title("Roles").Template("'role here'");
+                cols.Field(a => a.Id).Orderable(false).Title("2fa-act").Template("(data==true) ? '<div class=\"form-check form-check-success\"><input class=\"form-check-input\" type=\"radio\"></div>' : '<div class=\"form-check form-check-danger\"><input class=\"form-check-input\" type=\"radio\"></div>'");
+                cols.Field(a => a.IsMfaForce).Orderable(false).Title("2fa-enf").Template("(data==false) ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>'");
+                cols.Field(a => a.IsLdapLogin).Orderable(false).Title("Ldap").Template("(data==false) ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>'");
+                cols.Field(a => a.IsEnabled).Orderable(false).Title("Active").Template("(data==false) ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>'");
+                cols.Field(a => a.Id).Orderable(false).Title("Ops").Template("'<div class=\"btn-group\" role=\"group\" aria-label=\"role actions\"><a href=\"/Admin/EditUser/' + row.Id + '\" class=\"btn btn-primary btn-sm\">Edit</a>&nbsp;<a href=\"#\" class=\"btn btn-danger btn-sm\" data-bs-toggle=\"modal\" data-bs-target=\"#danger\" data-userid=\"' + row.Id + '\" data-username=\"' + row.UserName + '\">Delete</a></div>'");
+            })
+            .URL(Url.Action("GetUsers", "Admin"), "POST")
+            .ServerSide(true)
+            .FunctionAfterLoad("ExtendGrid")
+            .Render()
+        )
+        
+    </div>
+</div>
+
+<!--Modal dialog for deletion -->
+<div class="modal fade text-left" id="danger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title white" id="myModalLabel120">Danger Modal
+                </h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">@L["3"]</span>
+                </button>
+                <form id="delForm" action="" method="post">
+                    <button class="btn btn-danger">@L["4"]</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End modal dialog for deletion -->
+
+@section scripts {    
+  
+    <script type="text/javascript" charset="utf8" src="~/assets/extensions/dataTablesjs-1.12.1/jquery.dataTables.min.js"></script>
+    <script src="~/assets/extensions/dataTablesjs-1.12.1/dataTables.bootstrap5.min.js"></script>
+    <script src="~/assets/extensions/toastify-js/src/toastify.js"></script>     
+    <script>   
+
+        $('#danger').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var userId = button.attr('data-userid'); // Extract info from data-* attributes
+            var userName = button.attr('data-username'); // Extract info from data-* attributes
+            $("#delForm").attr('action', '/Admin/DeleteUser/' + userId); // set form action        
+            var modal = $(this);
+            modal.find('.modal-title').text('@L["5"] ' + userName + '?'); // set modal title
+            modal.find('.modal-body').html('@L["6"] <b>' + userName + '</b>?<br>@L["7"]'); // set modal content text     
+        });   
+
+        function toggleAccountEnabled(UserId) {
+                var actionUrl = "";
+                var result = "";
+
+                if ($('#active' + UserId).attr('checked') != 'checked') {
+                    actionUrl = "/Admin/EnableUser/?UserId=" + UserId;
+                    result = "@L["8"]";
+                    $('#active' + UserId).attr('checked', 'checked');
+
+                } else if ($('#active' + UserId).attr('checked') == 'checked') {
+                    actionUrl = "/Admin/DisableUser/?UserId=" + UserId;
+                    result = "@L["9"]";
+                    $('#active' + UserId).removeAttr('checked');
+                }
+
+                $.ajax({
+                    url: actionUrl,
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.success == true) {
+                            Toastify({
+                                text: result,
+                                duration: 3000,
+                                close: true,
+                                gravity: "bottom",
+                                position: "right",
+                                stopOnFocus: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        $('.alMsg').html('<div class="alert alert-light-danger"><i class="bi bi-check-circle"></i> There was an error!</div>');
+                    }
+                });
+            }
+
+        function toggleLdapLogin(UserId) {
+            var actionUrl = "";
+                var result = "";
+
+                if ($('#ldap' + UserId).attr('checked') != 'checked') {
+                    actionUrl = "/Admin/EnableLdapLogin/?UserId=" + UserId;
+                    result = "@L["10"]";
+                    $('#ldap' + UserId).attr('checked', 'checked');
+
+                } else if ($('#ldap' + UserId).attr('checked') == 'checked') {
+                    actionUrl = "/Admin/DisableLdapLogin/?UserId=" + UserId;
+                    result = "@L["11"]";
+                    $('#ldap' + UserId).removeAttr('checked');
+                }
+
+                $.ajax({
+                    url: actionUrl,
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.success == true) {
+                            Toastify({
+                                text: result,
+                                duration: 3000,
+                                close: true,
+                                gravity: "bottom",
+                                position: "right",
+                                stopOnFocus: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        $('.alMsg').html('<div class="alert alert-light-danger"><i class="bi bi-check-circle"></i> There was an error!</div>');
+                    }
+                });
+            }
+
+        function toggleMfaForce(UserId) {
+            var actionUrl = "";
+                var result = "";
+
+                if ($('#2fa' + UserId).attr('checked') != 'checked') {
+                    actionUrl = "/Admin/EnableMfaForce/?UserId=" + UserId;
+                    result = "@L["12"]";
+                    $('#2fa' + UserId).attr('checked', 'checked');
+
+                } else if ($('#2fa' + UserId).attr('checked') == 'checked') {
+                    actionUrl = "/Admin/DisableMfaForce/?UserId=" + UserId;
+                    result = "@L["13"]";
+                    $('#2fa' + UserId).removeAttr('checked');
+                }
+
+                $.ajax({
+                    url: actionUrl,
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.success == true) {
+                            Toastify({
+                                text: result,
+                                duration: 3000,
+                                close: true,
+                                gravity: "bottom",
+                                position: "right",
+                                stopOnFocus: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        $('.alMsg').html('<div class="alert alert-light-danger"><i class="bi bi-check-circle"></i> There was an error!</div>');
+                    }
+                });
+            }            
+    </script>
+}

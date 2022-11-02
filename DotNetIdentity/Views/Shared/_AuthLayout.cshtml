@@ -1,0 +1,58 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - @Configuration.GetSection("AppSettings")["ApplicationName"]</title>
+    <link rel="stylesheet" href="~/assets/css/main/app.css">
+    <link rel="stylesheet" href="~/assets/css/pages/auth.css">
+    <link rel="shortcut icon" href="~/assets/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/assets/images/logo/favicon-16x16.png" type="image/png">
+    <script src="~/assets/extensions/jquery/jquery.min.js"></script>
+    <style>
+        #auth-right {
+            background: url("/assets/images/bg/bg.jpg") center no-repeat !important;
+            background-size: cover !important;
+            height: 100vh !important;
+        }
+
+        .alert-danger {
+            background-color: #f5023c !important;
+        }
+
+        .alert-warning {
+            background-color: #ff9800 !important;
+        }
+
+        .alert-success {
+            background-color: #00c853 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth">
+
+        <div class="row h-100">
+            <div class="col-lg-5 col-12">
+                <div id="auth-left">
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="col-lg-7 d-none d-lg-block">
+                <div id="auth-right">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="~/assets/js/bootstrap.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

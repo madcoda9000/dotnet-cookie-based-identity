@@ -1,0 +1,65 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@inject IViewLocalizer L  
+
+@if (Context.User.Identity?.IsAuthenticated ?? false)
+{
+    var _path = Context.Request.Path.ToString();
+
+    <li class="sidebar-item has-sub @(_path.Contains("User/") && !_path.Contains("EditUser/") ? "active" : "")">
+        <a href="#" class='sidebar-link'>
+            <i class="bi bi-person-fill text-primary"></i>
+            <span>@L["1"]</span>
+        </a>
+        <ul class="submenu @(_path.Contains("User/") && !_path.Contains("EditUser/") ? "active" : "")" >
+            <li class="submenu-item @(_path.Contains("Profile") ? "active" : "")">
+                <a href="/User/Profile">@L["2"]</a>
+            </li>
+            <li class="submenu-item @(_path.Contains("TwoFactorType") ? "active" : "")">
+                <a href="/User/TwoFactorType">@L["3"]</a>
+            </li>
+            <li class="submenu-item @(_path.Contains("ChangePassword") ? "active" : "")">
+                <a href="/User/ChangePassword">@L["4"]</a>
+            </li>
+            <li class="submenu-item @(_path.Contains("debugUserInfo") ? "active" : "")">
+                <a href="/User/debugUserInfo">@L["5"]</a>
+            </li>
+            <li class="submenu-item">
+                <a asp-controller="User" asp-action="Logout" asp-route-returnUrl="/Home/Index">@L["6"]</a>
+            </li>
+        </ul>
+    </li>
+    if(Context.User.IsInRole("Admin")) {
+        <li class="sidebar-item has-sub @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "active" : "")">
+            <a href="#" class='sidebar-link '>
+                <i class="bi bi-gear-fill text-primary"></i>
+                <span>@L["7"]</span>
+            </a>            
+            <ul class="submenu @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "active" : "")">
+                <li class="submenu-item @(_path.Contains("Users") ? "active" : "")">
+                    <a href="/Admin/Users">@L["8"]</a>
+                </li>
+                <li class="submenu-item @(_path.Contains("Roles") ? "active" : "")">
+                    <a href="/Admin/Roles">@L["9"]</a>
+                </li>                
+            </ul>
+        </li>
+        <li class="sidebar-item has-sub @(_path.Contains("Logs") ? "active" : "")">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-archive-fill text-primary"></i>
+                <span>@L["10"]</span>
+            </a>
+            <ul class="submenu @(_path.Contains("Logs") ? "active" : "")">
+                <li class="submenu-item @(_path.Contains("Audit") ? "active" : "")">
+                    <a href="/Admin/AuditLogs">@L["11"]</a>
+                </li>
+                <li class="submenu-item @(_path.Contains("SystemLogs") ? "active" : "")">
+                    <a href="/Admin/SystemLogs">@L["12"]</a>
+                </li>
+                <li class="submenu-item @(_path.Contains("ErrorLogs") ? "active" : "")">
+                    <a href="/Admin/ErrorLogs">@L["13"]</a>
+                </li>
+            </ul>
+        </li>
+    }
+}

@@ -1,0 +1,47 @@
+@model TwoFactorAuthenticatorViewModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "Sign In";
+    Layout = "_AuthLayout";
+}
+
+<div class="auth-logo">
+    <a href="index.html"><img src="~/assets/images/logo/logo_colored.png" alt="Logo" style="height:3.5rem !important;"></a>
+</div>
+<h1 class="auth-title">@L["1"]</h1>
+<p class="auth-subtitle mb-5">@L["2"]</p>
+
+<form asp-action="EnforceTwoFactorAuthenticator">
+                    <div class="alert alert-info mb-3">@L["3"]</div>
+                    <div class="mb-3" id="qr-code"></div>
+
+                    <strong class="mb-3">@Model?.SharedKey</strong>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input asp-for="AuthenticationUri" type="hidden" />
+                    <input asp-for="SharedKey" type="hidden" />
+
+                    <div class="form-group">
+                        <label asp-for="VerificationCode"></label>
+                        <input asp-for="VerificationCode" class="form-control"  autofocus>
+                        <span asp-validation-for="VerificationCode" class="text-danger"></span>
+                    </div>
+
+                 <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-primary btn-lg shadow-lg mt-5">@L["4"]</button>
+                 </div>
+                </form>
+
+
+@section Scripts{
+<script src="~/lib/qrcode.min.js"></script>
+<script>
+    new QRCode(document.getElementById('qr-code'), {
+        text: '@Model?.AuthenticationUri',
+        width: 250,
+        height: 250,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+</script>
+}

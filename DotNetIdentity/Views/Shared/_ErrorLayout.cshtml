@@ -1,0 +1,130 @@
+
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - @Configuration.GetSection("AppSettings")["ApplicationName"]</title>
+    <link rel="stylesheet" href="~/assets/css/main/app.css">
+    <link rel="stylesheet" href="~/assets/css/pages/auth.css">
+    <link rel="shortcut icon" href="~/assets/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/assets/images/logo/favicon-16x16.png" type="image/png">
+    <script src="~/assets/extensions/jquery/jquery.min.js"></script>
+    <style>
+        .clearfix:before,
+.clearfix:after {
+    display: table;
+
+    content: ' ';
+}
+.clearfix:after {
+    clear: both;
+}
+body {
+    background: #f2f7ff !important;
+}
+.page-404 .outer {
+    position: absolute;
+    top: 0;
+
+    display: table;
+
+    width: 100%;
+    height: 100%;
+}
+.page-404 .outer .middle {
+    display: table-cell;
+
+    vertical-align: middle;
+}
+.page-404 .outer .middle .inner {
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.page-404 .outer .middle .inner .inner-circle {
+    height: 300px;
+
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+.page-404 .outer .middle .inner .inner-circle:hover i {
+    color: #090251!important;
+    background-color: #fff;
+    box-shadow: 0 0 0 15px #f5023c;
+}
+.page-404 .outer .middle .inner .inner-circle:hover span {
+    color: #f5023c;
+}
+.page-404 .outer .middle .inner .inner-circle i {
+    font-size: 5em;
+    line-height: 1em;
+
+    float: right;
+
+    width: 1.6em;
+    height: 1.6em;
+    margin-top: -.7em;
+    margin-right: -.5em;
+    padding: 20px;
+
+    -webkit-transition: all .4s;
+            transition: all .4s;
+    text-align: center;
+
+    color: #f5023c!important;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 0 15px #090251;
+}
+.page-404 .outer .middle .inner .inner-circle span {
+    font-size: 11em;
+    font-weight: 700;
+    line-height: 1.2em;
+
+    display: block;
+
+    -webkit-transition: all .4s;
+            transition: all .4s;
+    text-align: center;
+
+    color: #090251;
+}
+.page-404 .outer .middle .inner .inner-status {
+    font-size: 20px;
+
+    display: block;
+
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    text-align: center;
+
+    color: #f5023c;
+}
+.page-404 .outer .middle .inner .inner-detail {
+    line-height: 1.4em;
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    color: #090251;
+}
+    </style>
+</head>
+
+<body>
+    @RenderBody()
+    <script src="~/assets/js/bootstrap.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
