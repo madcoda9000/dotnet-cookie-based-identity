@@ -43,10 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DatatableJS">
-      <HintPath>..\..\DatatableJS\DatatableJS\bin\Debug\netstandard2.0\DatatableJS.dll</HintPath>
+      <HintPath>..\DatatableJS\DatatableJS\bin\Debug\netstandard2.0\DatatableJS.dll</HintPath>
     </Reference>
     <Reference Include="DatatableJS.Data">
-      <HintPath>..\..\DatatableJS\DatatableJS.Data\bin\Debug\netstandard2.0\DatatableJS.Data.dll</HintPath>
+      <HintPath>..\DatatableJS\DatatableJS.Data\bin\Debug\netstandard2.0\DatatableJS.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
