@@ -26,9 +26,9 @@ namespace DotNetIdentity.Helpers
 
             var smtp = new SmtpClient
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
+                Host = _settings.SmtpServer,
+                Port = Convert.ToInt32(_settings.SmtpPort),
+                EnableSsl = _settings.SmtpUseTls,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(_settings.UserName, _settings.Password)
