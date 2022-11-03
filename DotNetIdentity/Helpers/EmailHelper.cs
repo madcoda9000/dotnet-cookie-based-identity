@@ -32,7 +32,7 @@ namespace DotNetIdentity.Helpers
                 EnableSsl = Convert.ToBoolean(_sett.Mail.SmtpUseTls),
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(_sett.Mail.UserName, _sett.Mail.Password)
+                Credentials = new NetworkCredential(_sett.Mail.Username, _sett.Mail.Password)
             };
 
             mail.To.Add(model.To);
