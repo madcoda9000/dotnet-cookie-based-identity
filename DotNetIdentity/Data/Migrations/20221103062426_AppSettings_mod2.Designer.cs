@@ -3,6 +3,7 @@ using System;
 using DotNetIdentity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetIdentity.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221103062426_AppSettings_mod2")]
+    partial class AppSettings_mod2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,12 +124,6 @@ namespace DotNetIdentity.Data.Migrations
                             Name = "SmtpUseTls",
                             Type = "MailSettings",
                             Value = "true"
-                        },
-                        new
-                        {
-                            Name = "SmtpFromAddress",
-                            Type = "MailSettings",
-                            Value = "YOUR_From_Address"
                         });
                 });
 
@@ -163,7 +159,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "3925e099-a2d3-4d89-8bfe-7ba70f5cb040",
+                            ConcurrencyStamp = "ad46a111-7454-4b19-9878-0b8d84923a75",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -171,7 +167,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "6d4a6a0a-f3c1-4f81-b00d-4382531940c7",
+                            ConcurrencyStamp = "daa71e4e-ff83-44b1-bb2e-dcbaa3b00265",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -179,7 +175,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "619d5df4-b945-445c-80e9-1374fd8efcb0",
+                            ConcurrencyStamp = "72e790a9-ac63-407c-9a32-b3d41af38a69",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -187,7 +183,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "c59f82da-57a3-407c-824b-5e302ee2ed5d",
+                            ConcurrencyStamp = "6ce6fbc4-b166-4a04-89ef-e78130eea6ba",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -296,7 +292,7 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "e289740f-25ea-4af7-8adf-ea5f2a685447",
+                            ConcurrencyStamp = "3f45b80a-1f8a-4474-ada7-fc686a93c3f2",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -310,9 +306,9 @@ namespace DotNetIdentity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOTyCG3wnT1huKQ5dB3Wn125QqDaNVsR/hbK9waxmO+d7FAy3fIcX9msY62WUgzaYQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKYruXvdO8qnqS4MWSkp181H8BoSg6OiAW3N0jtTvkQml85Q78/rNaDEV3PIHhrHjg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8292556-e17a-4aed-8e8e-14d50546c4fc",
+                            SecurityStamp = "6355838e-c29a-43f3-bc67-67d4476abba1",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"

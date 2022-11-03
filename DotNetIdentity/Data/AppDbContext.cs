@@ -2,6 +2,7 @@ using DotNetIdentity.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using DotNetIdentity.Models.BusinessModels;
 
 namespace DotNetIdentity.Data
 {
@@ -11,10 +12,29 @@ namespace DotNetIdentity.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {        
         }
         public DbSet<AppLogs>? AppLogs {get;set;}
+        public DbSet<ApplicationSettings>? AppSettings {get;set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);            
+            base.OnModelCreating(builder);      
+
+            builder.Entity<ApplicationSettings>()
+                    .HasKey(x => new { x.Name, x.Type });
+
+            builder.Entity<ApplicationSettings>()
+                        .Property(x => x.Value);    
+
+            // seeding default settings
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "ApplicationName", Type = "GlobalSettings", Value = "SecPass"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SessionTimeoutWarnAfter", Type = "GlobalSettings", Value = "50000"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SessionTimeoutRedirAfter", Type = "GlobalSettings", Value = "70000"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SessionCookieExpiration", Type = "GlobalSettings", Value = "7"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "Username", Type = "MailSettings", Value = "YOUR_Smtp_Username"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "Password", Type = "MailSettings", Value = "YOUR_SmtpPassword"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpServer", Type = "MailSettings", Value = "YOUR_SmtpServer"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpPort", Type = "MailSettings", Value = "587"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpUseTls", Type = "MailSettings", Value = "true"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpFromAddress", Type = "MailSettings", Value = "YOUR_From_Address"}); 
 
             //Seeding roles to AspNetRoles table
             builder.Entity<AppRole>().HasData(new AppRole { Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca", Name = "Admin", NormalizedName = "ADMIN".ToUpper() });
@@ -34,7 +54,7 @@ namespace DotNetIdentity.Data
                     Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3", // primary key
                     UserName = "super.admin",
                     NormalizedUserName = "SUPER.ADMIN",
-                    PasswordHash = hasher.HashPassword(null, "Test1000!"),
+                    PasswordHash = hasher.HashPassword(null!, "Test1000!"),
                     Email = "super.admin@local.app",
                     NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                     EmailConfirmed = true,

@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Mail;
+using DotNetIdentity.Data;
 using DotNetIdentity.Models.BusinessModels;
 using Microsoft.Extensions.Options;
 
@@ -7,11 +8,11 @@ namespace DotNetIdentity.Helpers
 {
     public class EmailHelper
     {
-        private readonly EmailSettings _settings;
+        private ISettingsService _sett;
 
-        public EmailHelper(IOptions<EmailSettings> options)
+        public EmailHelper(ISettingsService sett)
         {
-            _settings = options.Value;
+            _sett = sett;
         }
 
         public async Task SendAsync(EmailModel model)
@@ -20,18 +21,18 @@ namespace DotNetIdentity.Helpers
             {
                 Subject = model.Subject,
                 Body = model.Body,
-                From = new MailAddress(_settings.UserName),
+                From = new MailAddress(_sett.Mail.SmtpFromAddress!),
                 IsBodyHtml = true
             };
-
+            
             var smtp = new SmtpClient
-            {
-                Host = _settings.SmtpServer,
-                Port = Convert.ToInt32(_settings.SmtpPort),
-                EnableSsl = _settings.SmtpUseTls,
+            {                
+                Host = _sett.Mail.SmtpServer!,
+                Port = Convert.ToInt32(_sett.Mail.SmtpPort),
+                EnableSsl = Convert.ToBoolean(_sett.Mail.SmtpUseTls),
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(_settings.UserName, _settings.Password)
+                Credentials = new NetworkCredential(_sett.Mail.UserName, _sett.Mail.Password)
             };
 
             mail.To.Add(model.To);

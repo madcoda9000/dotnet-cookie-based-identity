@@ -3,6 +3,7 @@ using System;
 using DotNetIdentity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetIdentity.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221103052109_AppSettings")]
+    partial class AppSettings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,76 +61,14 @@ namespace DotNetIdentity.Data.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Type")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Value")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Name", "Type");
+                    b.HasKey("Name");
 
                     b.ToTable("AppSettings");
-
-                    b.HasData(
-                        new
-                        {
-                            Name = "ApplicationName",
-                            Type = "GlobalSettings",
-                            Value = "SecPass"
-                        },
-                        new
-                        {
-                            Name = "SessionTimeoutWarnAfter",
-                            Type = "GlobalSettings",
-                            Value = "50000"
-                        },
-                        new
-                        {
-                            Name = "SessionTimeoutRedirAfter",
-                            Type = "GlobalSettings",
-                            Value = "70000"
-                        },
-                        new
-                        {
-                            Name = "SessionCookieExpiration",
-                            Type = "GlobalSettings",
-                            Value = "7"
-                        },
-                        new
-                        {
-                            Name = "Username",
-                            Type = "MailSettings",
-                            Value = "YOUR_Smtp_Username"
-                        },
-                        new
-                        {
-                            Name = "Password",
-                            Type = "MailSettings",
-                            Value = "YOUR_SmtpPassword"
-                        },
-                        new
-                        {
-                            Name = "SmtpServer",
-                            Type = "MailSettings",
-                            Value = "YOUR_SmtpServer"
-                        },
-                        new
-                        {
-                            Name = "SmtpPort",
-                            Type = "MailSettings",
-                            Value = "587"
-                        },
-                        new
-                        {
-                            Name = "SmtpUseTls",
-                            Type = "MailSettings",
-                            Value = "true"
-                        },
-                        new
-                        {
-                            Name = "SmtpFromAddress",
-                            Type = "MailSettings",
-                            Value = "YOUR_From_Address"
-                        });
                 });
 
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppRole", b =>
@@ -163,7 +103,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "3925e099-a2d3-4d89-8bfe-7ba70f5cb040",
+                            ConcurrencyStamp = "1a7a29e0-601f-41e3-a3b4-14a6628faad4",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -171,7 +111,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "6d4a6a0a-f3c1-4f81-b00d-4382531940c7",
+                            ConcurrencyStamp = "5254072f-995a-4b70-99a3-d627423ff200",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -179,7 +119,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "619d5df4-b945-445c-80e9-1374fd8efcb0",
+                            ConcurrencyStamp = "34d6eee3-227a-49be-abc6-0eb59fed1316",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -187,7 +127,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "c59f82da-57a3-407c-824b-5e302ee2ed5d",
+                            ConcurrencyStamp = "953f2e6d-5ec2-4aa4-9de8-64aaccb646e6",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -296,7 +236,7 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "e289740f-25ea-4af7-8adf-ea5f2a685447",
+                            ConcurrencyStamp = "260ee23b-34ae-42b1-8f38-58d5ff00bad2",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -310,9 +250,9 @@ namespace DotNetIdentity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOTyCG3wnT1huKQ5dB3Wn125QqDaNVsR/hbK9waxmO+d7FAy3fIcX9msY62WUgzaYQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKA1AN9dd61jrDmkQUJ445m33xfWDOCbMdaebQPp64d6y0LfFl2rb6yi543uy0daVQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8292556-e17a-4aed-8e8e-14d50546c4fc",
+                            SecurityStamp = "b58f0267-71e2-4fdf-bb7c-bdd4169f9205",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"

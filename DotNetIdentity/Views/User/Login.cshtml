@@ -1,6 +1,5 @@
 @model SignInViewModel
 @inject IViewLocalizer L
-
 @{
     ViewData["Title"] = L["Title"];
     Layout = "_AuthLayout";
@@ -44,7 +43,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["3"]"></button>
         </div>
     }
-
+    
     @if (Context.Request.Query.TryGetValue("res", out queryVal) &&
     queryVal.FirstOrDefault() == "sesst")
     {

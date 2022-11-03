@@ -1,5 +1,6 @@
 global using System.Globalization;
 global using Microsoft.AspNetCore.Localization;
+global using DotNetIdentity.Services.SettingsService;
 using System.Net;
 using DotNetIdentity.Data;
 using DotNetIdentity.Helpers;
@@ -48,12 +49,11 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
-
+builder.Services.AddScoped<ISettingsService, SettingsService>();
 builder.Services.AddScoped<IClaimsTransformation, ClaimsTransformation>();
 builder.Services.AddScoped<IAuthorizationHandler, FreeTrialExpireHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, MinimumAgeHandler>();
 builder.Services.AddTransient<UserManager<AppUser>>();
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddScoped<EmailHelper>();
 builder.Services.AddScoped<TwoFactorAuthenticationService>();
 

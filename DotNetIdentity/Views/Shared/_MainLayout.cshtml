@@ -1,11 +1,12 @@
 @using Microsoft.Extensions.Configuration;
 @using Microsoft.AspNetCore.Authentication;
 @inject IConfiguration Configuration;
-@inject IViewLocalizer L
+@inject IViewLocalizer L;
+@inject ISettingsService _sett;
 
 @{
-    var SessionTimeoutWarnAfter = @Configuration.GetSection("AppSettings")["SessionTimeoutWarnAfter"];
-    var SessionTimeoutRedirAfter = @Configuration.GetSection("AppSettings")["SessionTimeoutRedirAfter"];
+    var SessionTimeoutWarnAfter = @_sett.Global.SessionTimeoutWarnAfter;
+    var SessionTimeoutRedirAfter = @_sett.Global.SessionTimeoutRedirAfter;
 }
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - @Configuration.GetSection("AppSettings")["ApplicationName"]</title> 
+    <title>@ViewData["Title"] - @_sett.Global.ApplicationName</title> 
 
     <link rel="stylesheet" href="~/assets/css/main/app.css">
     <link rel="stylesheet" href="~/assets/css/main/app-dark.css">
