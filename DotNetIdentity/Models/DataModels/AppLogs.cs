@@ -1,4 +1,4 @@
-namespace DotNetIdentity.Data {
+namespace DotNetIdentity.Models.DataModels {
     public class AppLogs {
         public int id {get;set;}
         public string? Exception {get;set;}

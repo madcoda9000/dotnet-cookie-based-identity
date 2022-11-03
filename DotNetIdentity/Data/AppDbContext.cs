@@ -2,7 +2,7 @@ using DotNetIdentity.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using DotNetIdentity.Models.BusinessModels;
+using DotNetIdentity.Models.DataModels;
 
 namespace DotNetIdentity.Data
 {

@@ -1,6 +1,6 @@
 using System.Reflection;
 using DotNetIdentity.Data;
-using DotNetIdentity.Models.BusinessModels;
+using DotNetIdentity.Models.DataModels;
 
 namespace DotNetIdentity.Services.SettingsService {
     public abstract class AppSettingsBase {

@@ -3,6 +3,7 @@ using DotNetIdentity.Models;
 using DotNetIdentity.Data;
 using DotNetIdentity.Models.Identity;
 using DotNetIdentity.Models.ViewModels;
+using DotNetIdentity.Models.DataModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

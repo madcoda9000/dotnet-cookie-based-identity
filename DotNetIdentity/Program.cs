@@ -107,8 +107,8 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(Convert.ToInt32(builder.Configuration.GetSection("AppSettings").GetSection("SessionCookieExpiration").Value));
 });
-
 builder.Services.AddAuthentication();
+
 /*
 .AddFacebook(options =>
 {
@@ -162,18 +162,18 @@ var app = builder.Build();
 // enable localization in request parameters
 app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    
 
-}
 // use a custom Error Page for exceptions
 app.UseExceptionHandler("/Errors/ErrorEx");
 // use custom pages for Statuscodes;
 app.UseStatusCodePagesWithReExecute("/Errors/ErrorCd/{0}");
-// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-app.UseHsts();
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
     
 
 app.UseHttpsRedirection();
