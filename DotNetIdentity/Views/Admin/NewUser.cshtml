@@ -3,6 +3,12 @@
 @{
     ViewData["Title"] = "Edit user";
 }
+<style>
+    .chkBx {
+        margin-left:20px !important;
+        margin-top:5px !important;
+    }
+</style>
 
 <div class="page-title">
     <div class="row">
@@ -26,8 +32,8 @@
         @if (ViewData["message"] != null)
         {
             <div class="alert alert-light-success"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
-                ViewData["message"] = null;
-            }
+            ViewData["message"] = null;
+        }
     </div>
     <div class="card-body">
         <form asp-action="NewUser" >
@@ -90,11 +96,11 @@
                 <div class="col-md-4 col-12">
                     <div class="form-group">
                         <label style="margin-bottom:5px !important;">@L["10"]</label>
-                        @for (var i = 0; i < Model?.Roles.Count(); i++)
+                        @for (var i = 0; i < Model.Roles.Count(); i++)
                         {
                             <div class="form-check form-check-lg">
                                 <input asp-for="@Model.Roles[i].IsAssigned" class="form-check-input">
-                                <label asp-for="@Model.Roles[i].IsAssigned" class="form-check-label text-gray-600" style="margin-left:20px !important;margin-top:5px !important;">@Model.Roles[i].RoleName</label>
+                                <label asp-for="@Model.Roles[i].IsAssigned" class="form-check-label text-gray-600 chkBx">@Model.Roles[i].RoleName</label>
                                 <input asp-for="@Model.Roles[i].RoleId" type="hidden" />
                                 <input asp-for="@Model.Roles[i].RoleName" type="hidden" />
                             </div>
@@ -106,7 +112,7 @@
                         <label style="margin-bottom:5px !important;">@L["11"]</label>
                         <div class="form-check form-check-lg">
                             <input asp-for="@Model.IsLdapLogin" class="form-check-input" />
-                            <label asp-for="@Model.IsLdapLogin" class="form-check-label text-gray-600" style="margin-left:20px !important; margin-top:5px !important;">Ldap Login</label>
+                            <label asp-for="@Model.IsLdapLogin" class="form-check-label text-gray-600 chkBx">Ldap Login</label>
                         </div>
                     </div>
                 </div>
@@ -115,7 +121,7 @@
                         <label style="margin-bottom:5px !important;">@L["12"]</label>
                         <div class="form-check form-check-lg">
                             <input asp-for="@Model.IsMfaForce" class="form-check-input" />
-                            <label asp-for="@Model.IsMfaForce" class="form-check-label text-gray-600" style="margin-left:20px !important;margin-top:5px !important;">Enforce MFA</label>
+                            <label asp-for="@Model.IsMfaForce" class="form-check-label text-gray-600 chekBx">Enforce MFA</label>
                         </div>
                     </div>
                 </div>

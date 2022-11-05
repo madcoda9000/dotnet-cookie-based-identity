@@ -186,8 +186,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Controller Class for User views </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>add translation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00019">19</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00020">20</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1199d2ceaa094253de20bede99df3bf5" name="a1199d2ceaa094253de20bede99df3bf5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1199d2ceaa094253de20bede99df3bf5">&#9670;&nbsp;</a></span>UserController()</h2>
@@ -267,16 +268,16 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00060">60</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>        {</div>
-<div class="line"><span class="lineno">   62</span>            _userManager = userManager;</div>
-<div class="line"><span class="lineno">   63</span>            _signInManager = signInManager;</div>
-<div class="line"><span class="lineno">   64</span>            _emailHelper = emailHelper;</div>
-<div class="line"><span class="lineno">   65</span>            _twoFactorAuthService = twoFactorAuthService;</div>
-<div class="line"><span class="lineno">   66</span>            _hostEnvironment = webhostEnviroment;</div>
-<div class="line"><span class="lineno">   67</span>            _logger = log;</div>
-<div class="line"><span class="lineno">   68</span>            _localizer = localizer;</div>
-<div class="line"><span class="lineno">   69</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00061">61</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>        {</div>
+<div class="line"><span class="lineno">   63</span>            _userManager = userManager;</div>
+<div class="line"><span class="lineno">   64</span>            _signInManager = signInManager;</div>
+<div class="line"><span class="lineno">   65</span>            _emailHelper = emailHelper;</div>
+<div class="line"><span class="lineno">   66</span>            _twoFactorAuthService = twoFactorAuthService;</div>
+<div class="line"><span class="lineno">   67</span>            _hostEnvironment = webhostEnviroment;</div>
+<div class="line"><span class="lineno">   68</span>            _logger = log;</div>
+<div class="line"><span class="lineno">   69</span>            _localizer = localizer;</div>
+<div class="line"><span class="lineno">   70</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,38 +335,38 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action Index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00408">408</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  409</span>        {</div>
-<div class="line"><span class="lineno">  410</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
-<div class="line"><span class="lineno">  411</span>            {</div>
-<div class="line"><span class="lineno">  412</span>                var me = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  413</span> </div>
-<div class="line"><span class="lineno">  414</span>                var passwordValid = await _userManager.CheckPasswordAsync(me, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#aa600a32a0dae8d36c7376f77a1a0aa14">Password</a>);</div>
-<div class="line"><span class="lineno">  415</span>                <span class="keywordflow">if</span> (passwordValid)</div>
-<div class="line"><span class="lineno">  416</span>                {</div>
-<div class="line"><span class="lineno">  417</span>                    var result = await _userManager.ChangePasswordAsync(me, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#aa600a32a0dae8d36c7376f77a1a0aa14">Password</a>, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#a6c19c7afdccf4aeb60cebccb1f313fcb">NewPassword</a>);</div>
-<div class="line"><span class="lineno">  418</span>                    <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  419</span>                    {</div>
-<div class="line"><span class="lineno">  420</span>                        await _userManager.UpdateSecurityStampAsync(me);</div>
-<div class="line"><span class="lineno">  421</span> </div>
-<div class="line"><span class="lineno">  422</span>                        await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  423</span>                        await _signInManager.SignInAsync(me, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  424</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot; successfully changed own password!&quot;</span>);</div>
-<div class="line"><span class="lineno">  425</span> </div>
-<div class="line"><span class="lineno">  426</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Admin&quot;</span>);</div>
-<div class="line"><span class="lineno">  427</span>                    }</div>
-<div class="line"><span class="lineno">  428</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot;tried to change password. Error: &quot;</span> + result.Errors.FirstOrDefault()!.ToString());</div>
-<div class="line"><span class="lineno">  429</span>                    result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
-<div class="line"><span class="lineno">  430</span>                }</div>
-<div class="line"><span class="lineno">  431</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  432</span>                {</div>
-<div class="line"><span class="lineno">  433</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot; tried to change password. But provided invalid current pasword!&quot;</span>);</div>
-<div class="line"><span class="lineno">  434</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;8&quot;</span>]);</div>
-<div class="line"><span class="lineno">  435</span>                }</div>
-<div class="line"><span class="lineno">  436</span>            }</div>
-<div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span>            <span class="keywordflow">return</span> View();</div>
-<div class="line"><span class="lineno">  439</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00410">410</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  411</span>        {</div>
+<div class="line"><span class="lineno">  412</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><span class="lineno">  413</span>            {</div>
+<div class="line"><span class="lineno">  414</span>                var me = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  415</span> </div>
+<div class="line"><span class="lineno">  416</span>                var passwordValid = await _userManager.CheckPasswordAsync(me, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#aa600a32a0dae8d36c7376f77a1a0aa14">Password</a>);</div>
+<div class="line"><span class="lineno">  417</span>                <span class="keywordflow">if</span> (passwordValid)</div>
+<div class="line"><span class="lineno">  418</span>                {</div>
+<div class="line"><span class="lineno">  419</span>                    var result = await _userManager.ChangePasswordAsync(me, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#aa600a32a0dae8d36c7376f77a1a0aa14">Password</a>, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#a6c19c7afdccf4aeb60cebccb1f313fcb">NewPassword</a>);</div>
+<div class="line"><span class="lineno">  420</span>                    <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  421</span>                    {</div>
+<div class="line"><span class="lineno">  422</span>                        await _userManager.UpdateSecurityStampAsync(me);</div>
+<div class="line"><span class="lineno">  423</span> </div>
+<div class="line"><span class="lineno">  424</span>                        await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  425</span>                        await _signInManager.SignInAsync(me, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  426</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot; successfully changed own password!&quot;</span>);</div>
+<div class="line"><span class="lineno">  427</span> </div>
+<div class="line"><span class="lineno">  428</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Admin&quot;</span>);</div>
+<div class="line"><span class="lineno">  429</span>                    }</div>
+<div class="line"><span class="lineno">  430</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot;tried to change password. Error: &quot;</span> + result.Errors.FirstOrDefault()!.ToString());</div>
+<div class="line"><span class="lineno">  431</span>                    result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
+<div class="line"><span class="lineno">  432</span>                }</div>
+<div class="line"><span class="lineno">  433</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  434</span>                {</div>
+<div class="line"><span class="lineno">  435</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot; tried to change password. But provided invalid current pasword!&quot;</span>);</div>
+<div class="line"><span class="lineno">  436</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;8&quot;</span>]);</div>
+<div class="line"><span class="lineno">  437</span>                }</div>
+<div class="line"><span class="lineno">  438</span>            }</div>
+<div class="line"><span class="lineno">  439</span> </div>
+<div class="line"><span class="lineno">  440</span>            <span class="keywordflow">return</span> View();</div>
+<div class="line"><span class="lineno">  441</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model_html_a6c19c7afdccf4aeb60cebccb1f313fcb"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#a6c19c7afdccf4aeb60cebccb1f313fcb">DotNetIdentity.Models.ViewModels.ChangePasswordViewModel.NewPassword</a></div><div class="ttdeci">string NewPassword</div><div class="ttdoc">the new password</div><div class="ttdef"><b>Definition:</b> <a href="_change_password_view_model_8cs_source.html#l00019">ChangePasswordViewModel.cs:19</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model_html_aa600a32a0dae8d36c7376f77a1a0aa14"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model.html#aa600a32a0dae8d36c7376f77a1a0aa14">DotNetIdentity.Models.ViewModels.ChangePasswordViewModel.Password</a></div><div class="ttdeci">string Password</div><div class="ttdoc">the password</div><div class="ttdef"><b>Definition:</b> <a href="_change_password_view_model_8cs_source.html#l00014">ChangePasswordViewModel.cs:14</a></div></div>
 </div><!-- fragment -->
@@ -417,20 +418,20 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action Index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00544">544</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  545</span>        {</div>
-<div class="line"><span class="lineno">  546</span>            var user = await _userManager.FindByIdAsync(userId);</div>
-<div class="line"><span class="lineno">  547</span>            <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  548</span>            {</div>
-<div class="line"><span class="lineno">  549</span>                var result = await _userManager.ConfirmEmailAsync(user, token);</div>
-<div class="line"><span class="lineno">  550</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  551</span>                {</div>
-<div class="line"><span class="lineno">  552</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; successfully confirmed email addres!&quot;</span>);</div>
-<div class="line"><span class="lineno">  553</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>);</div>
-<div class="line"><span class="lineno">  554</span>                }</div>
-<div class="line"><span class="lineno">  555</span>            }</div>
-<div class="line"><span class="lineno">  556</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
-<div class="line"><span class="lineno">  557</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00546">546</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  547</span>        {</div>
+<div class="line"><span class="lineno">  548</span>            var user = await _userManager.FindByIdAsync(userId);</div>
+<div class="line"><span class="lineno">  549</span>            <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  550</span>            {</div>
+<div class="line"><span class="lineno">  551</span>                var result = await _userManager.ConfirmEmailAsync(user, token);</div>
+<div class="line"><span class="lineno">  552</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  553</span>                {</div>
+<div class="line"><span class="lineno">  554</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; successfully confirmed email addres!&quot;</span>);</div>
+<div class="line"><span class="lineno">  555</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>);</div>
+<div class="line"><span class="lineno">  556</span>                }</div>
+<div class="line"><span class="lineno">  557</span>            }</div>
+<div class="line"><span class="lineno">  558</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
+<div class="line"><span class="lineno">  559</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,25 +481,25 @@ Public Member Functions</h2></td></tr>
 <p>controller action for view EnforceTwoFactorAuthenticator </p>
 <dl class="section return"><dt>Returns</dt><dd>view EnforceTwoFactorAuthenticator</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00601">601</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  602</span>        {</div>
-<div class="line"><span class="lineno">  603</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  604</span>            user.TwoFactorType = Models.TwoFactorType.Authenticator;</div>
-<div class="line"><span class="lineno">  605</span>            await _userManager.UpdateAsync(user);</div>
-<div class="line"><span class="lineno">  606</span> </div>
-<div class="line"><span class="lineno">  607</span>            var authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
-<div class="line"><span class="lineno">  608</span>            <span class="keywordflow">if</span> (authenticatorKey == <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  609</span>            {</div>
-<div class="line"><span class="lineno">  610</span>                await _userManager.ResetAuthenticatorKeyAsync(user);</div>
-<div class="line"><span class="lineno">  611</span>                authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
-<div class="line"><span class="lineno">  612</span>            }</div>
-<div class="line"><span class="lineno">  613</span> </div>
-<div class="line"><span class="lineno">  614</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html">TwoFactorAuthenticatorViewModel</a></div>
-<div class="line"><span class="lineno">  615</span>            {</div>
-<div class="line"><span class="lineno">  616</span>                SharedKey = authenticatorKey,</div>
-<div class="line"><span class="lineno">  617</span>                AuthenticationUri = _twoFactorAuthService.<a class="code hl_function" href="class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service.html#a1116184c6f680db3998c5510c15457aa">GenerateQrCodeUri</a>(user.Email, authenticatorKey)</div>
-<div class="line"><span class="lineno">  618</span>            });</div>
-<div class="line"><span class="lineno">  619</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00603">603</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  604</span>        {</div>
+<div class="line"><span class="lineno">  605</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  606</span>            user.TwoFactorType = Models.TwoFactorType.Authenticator;</div>
+<div class="line"><span class="lineno">  607</span>            await _userManager.UpdateAsync(user);</div>
+<div class="line"><span class="lineno">  608</span> </div>
+<div class="line"><span class="lineno">  609</span>            var authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
+<div class="line"><span class="lineno">  610</span>            <span class="keywordflow">if</span> (authenticatorKey == <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  611</span>            {</div>
+<div class="line"><span class="lineno">  612</span>                await _userManager.ResetAuthenticatorKeyAsync(user);</div>
+<div class="line"><span class="lineno">  613</span>                authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
+<div class="line"><span class="lineno">  614</span>            }</div>
+<div class="line"><span class="lineno">  615</span> </div>
+<div class="line"><span class="lineno">  616</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html">TwoFactorAuthenticatorViewModel</a></div>
+<div class="line"><span class="lineno">  617</span>            {</div>
+<div class="line"><span class="lineno">  618</span>                SharedKey = authenticatorKey,</div>
+<div class="line"><span class="lineno">  619</span>                AuthenticationUri = _twoFactorAuthService.<a class="code hl_function" href="class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service.html#a1116184c6f680db3998c5510c15457aa">GenerateQrCodeUri</a>(user.Email, authenticatorKey)</div>
+<div class="line"><span class="lineno">  620</span>            });</div>
+<div class="line"><span class="lineno">  621</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_html_a1116184c6f680db3998c5510c15457aa"><div class="ttname"><a href="class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service.html#a1116184c6f680db3998c5510c15457aa">DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService.GenerateQrCodeUri</a></div><div class="ttdeci">string GenerateQrCodeUri(string email, string authenticatorKey)</div><div class="ttdoc">method to generate a barcode for 2fa configuration</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_authentication_service_8cs_source.html#l00042">TwoFactorAuthenticationService.cs:42</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html">DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel</a></div><div class="ttdoc">model for TwoFactorAuthenticator view</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_authenticator_view_model_8cs_source.html#l00006">TwoFactorAuthenticatorViewModel.cs:7</a></div></div>
 </div><!-- fragment -->
@@ -537,26 +538,26 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action EnforceTwoFactorResult</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00627">627</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  628</span>        {</div>
-<div class="line"><span class="lineno">  629</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  630</span>            </div>
-<div class="line"><span class="lineno">  631</span>            var verificationCode = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html#ae3424579e7c9add11c9a52c3e1f87020">VerificationCode</a>.Replace(<span class="stringliteral">&quot; &quot;</span>, <span class="keywordtype">string</span>.Empty).Replace(<span class="stringliteral">&quot;-&quot;</span>, <span class="keywordtype">string</span>.Empty);</div>
-<div class="line"><span class="lineno">  632</span> </div>
-<div class="line"><span class="lineno">  633</span>            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);</div>
-<div class="line"><span class="lineno">  634</span>            <span class="keywordflow">if</span> (isTokenValid)</div>
-<div class="line"><span class="lineno">  635</span>            {</div>
-<div class="line"><span class="lineno">  636</span>                <span class="keywordflow">if</span>(user.IsMfaForce &amp;&amp; user.TwoFactorEnabled==<span class="keyword">false</span>) {</div>
-<div class="line"><span class="lineno">  637</span>                    await _userManager.SetTwoFactorEnabledAsync(user, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  638</span>                    user.IsMfaForce = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  639</span>                    await _userManager.UpdateAsync(user);</div>
-<div class="line"><span class="lineno">  640</span>                }</div>
-<div class="line"><span class="lineno">  641</span>                </div>
-<div class="line"><span class="lineno">  642</span>                TempData[<span class="stringliteral">&quot;RecoveryCodes&quot;</span>] = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);</div>
-<div class="line"><span class="lineno">  643</span>            }</div>
-<div class="line"><span class="lineno">  644</span>            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; successfully configured 2fa after enforcement. Redirecting to action: EnforceTwoFactorResult&quot;</span>);</div>
-<div class="line"><span class="lineno">  645</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;EnforceTwoFactorResult&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  646</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00629">629</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  630</span>        {</div>
+<div class="line"><span class="lineno">  631</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  632</span>            </div>
+<div class="line"><span class="lineno">  633</span>            var verificationCode = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html#ae3424579e7c9add11c9a52c3e1f87020">VerificationCode</a>.Replace(<span class="stringliteral">&quot; &quot;</span>, <span class="keywordtype">string</span>.Empty).Replace(<span class="stringliteral">&quot;-&quot;</span>, <span class="keywordtype">string</span>.Empty);</div>
+<div class="line"><span class="lineno">  634</span> </div>
+<div class="line"><span class="lineno">  635</span>            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);</div>
+<div class="line"><span class="lineno">  636</span>            <span class="keywordflow">if</span> (isTokenValid)</div>
+<div class="line"><span class="lineno">  637</span>            {</div>
+<div class="line"><span class="lineno">  638</span>                <span class="keywordflow">if</span>(user.IsMfaForce &amp;&amp; user.TwoFactorEnabled==<span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  639</span>                    await _userManager.SetTwoFactorEnabledAsync(user, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  640</span>                    user.IsMfaForce = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  641</span>                    await _userManager.UpdateAsync(user);</div>
+<div class="line"><span class="lineno">  642</span>                }</div>
+<div class="line"><span class="lineno">  643</span>                </div>
+<div class="line"><span class="lineno">  644</span>                TempData[<span class="stringliteral">&quot;RecoveryCodes&quot;</span>] = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);</div>
+<div class="line"><span class="lineno">  645</span>            }</div>
+<div class="line"><span class="lineno">  646</span>            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; successfully configured 2fa after enforcement. Redirecting to action: EnforceTwoFactorResult&quot;</span>);</div>
+<div class="line"><span class="lineno">  647</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;EnforceTwoFactorResult&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  648</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model_html_ae3424579e7c9add11c9a52c3e1f87020"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html#ae3424579e7c9add11c9a52c3e1f87020">DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel.VerificationCode</a></div><div class="ttdeci">string VerificationCode</div><div class="ttdoc">the otp code</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_authenticator_view_model_8cs_source.html#l00022">TwoFactorAuthenticatorViewModel.cs:22</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_two_factor_authenticator_view_model_8cs_source.html#l00022">DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel.VerificationCode</a>.</p>
@@ -589,11 +590,11 @@ Public Member Functions</h2></td></tr>
 <p>controller action for view EnforceTwoFactorResult </p>
 <dl class="section return"><dt>Returns</dt><dd>view EnforceTwoFactorResult</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00652">652</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  652</span>                                                                  {</div>
-<div class="line"><span class="lineno">  653</span>            await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  654</span>            <span class="keywordflow">return</span> View();</div>
-<div class="line"><span class="lineno">  655</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00654">654</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  654</span>                                                                  {</div>
+<div class="line"><span class="lineno">  655</span>            await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  656</span>            <span class="keywordflow">return</span> View();</div>
+<div class="line"><span class="lineno">  657</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -650,37 +651,37 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action Index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00453">453</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  454</span>        {</div>
-<div class="line"><span class="lineno">  455</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
-<div class="line"><span class="lineno">  456</span>            {</div>
-<div class="line"><span class="lineno">  457</span>                var user = await _userManager.FindByEmailAsync(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model.html#a83243ef26b4a8255a4e25716be13b0c0">Email</a>);</div>
-<div class="line"><span class="lineno">  458</span>                <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  459</span>                {</div>
-<div class="line"><span class="lineno">  460</span>                    var passwordResetToken = await _userManager.GeneratePasswordResetTokenAsync(user);</div>
-<div class="line"><span class="lineno">  461</span> </div>
-<div class="line"><span class="lineno">  462</span>                    var passwordLink = Url.Action(<span class="stringliteral">&quot;ResetPassword&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>, <span class="keyword">new</span></div>
-<div class="line"><span class="lineno">  463</span>                    {</div>
-<div class="line"><span class="lineno">  464</span>                        userId = user.Id,</div>
-<div class="line"><span class="lineno">  465</span>                        token = passwordResetToken</div>
-<div class="line"><span class="lineno">  466</span>                    }, HttpContext.Request.Scheme);</div>
-<div class="line"><span class="lineno">  467</span> </div>
-<div class="line"><span class="lineno">  468</span>                    await _emailHelper.<a class="code hl_function" href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">SendAsync</a>(<span class="keyword">new</span>()</div>
-<div class="line"><span class="lineno">  469</span>                    {</div>
-<div class="line"><span class="lineno">  470</span>                        Subject = <span class="stringliteral">&quot;Reset password&quot;</span>,</div>
-<div class="line"><span class="lineno">  471</span>                        Body = $<span class="stringliteral">&quot;Please &lt;a href=&#39;{passwordLink}&#39;&gt;click&lt;/a&gt; to reset your password.&quot;</span>,</div>
-<div class="line"><span class="lineno">  472</span>                        To = user.Email</div>
-<div class="line"><span class="lineno">  473</span>                    });</div>
-<div class="line"><span class="lineno">  474</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; requested a password reset!&quot;</span>);</div>
-<div class="line"><span class="lineno">  475</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
-<div class="line"><span class="lineno">  476</span>                }</div>
-<div class="line"><span class="lineno">  477</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  478</span>                {</div>
-<div class="line"><span class="lineno">  479</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;9&quot;</span>]);</div>
-<div class="line"><span class="lineno">  480</span>                }</div>
-<div class="line"><span class="lineno">  481</span>            }</div>
-<div class="line"><span class="lineno">  482</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">  483</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00455">455</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  456</span>        {</div>
+<div class="line"><span class="lineno">  457</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><span class="lineno">  458</span>            {</div>
+<div class="line"><span class="lineno">  459</span>                var user = await _userManager.FindByEmailAsync(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model.html#a83243ef26b4a8255a4e25716be13b0c0">Email</a>);</div>
+<div class="line"><span class="lineno">  460</span>                <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  461</span>                {</div>
+<div class="line"><span class="lineno">  462</span>                    var passwordResetToken = await _userManager.GeneratePasswordResetTokenAsync(user);</div>
+<div class="line"><span class="lineno">  463</span> </div>
+<div class="line"><span class="lineno">  464</span>                    var passwordLink = Url.Action(<span class="stringliteral">&quot;ResetPassword&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>, <span class="keyword">new</span></div>
+<div class="line"><span class="lineno">  465</span>                    {</div>
+<div class="line"><span class="lineno">  466</span>                        userId = user.Id,</div>
+<div class="line"><span class="lineno">  467</span>                        token = passwordResetToken</div>
+<div class="line"><span class="lineno">  468</span>                    }, HttpContext.Request.Scheme);</div>
+<div class="line"><span class="lineno">  469</span> </div>
+<div class="line"><span class="lineno">  470</span>                    await _emailHelper.<a class="code hl_function" href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">SendAsync</a>(<span class="keyword">new</span>()</div>
+<div class="line"><span class="lineno">  471</span>                    {</div>
+<div class="line"><span class="lineno">  472</span>                        Subject = <span class="stringliteral">&quot;Reset password&quot;</span>,</div>
+<div class="line"><span class="lineno">  473</span>                        Body = $<span class="stringliteral">&quot;Please &lt;a href=&#39;{passwordLink}&#39;&gt;click&lt;/a&gt; to reset your password.&quot;</span>,</div>
+<div class="line"><span class="lineno">  474</span>                        To = user.Email</div>
+<div class="line"><span class="lineno">  475</span>                    });</div>
+<div class="line"><span class="lineno">  476</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; requested a password reset!&quot;</span>);</div>
+<div class="line"><span class="lineno">  477</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
+<div class="line"><span class="lineno">  478</span>                }</div>
+<div class="line"><span class="lineno">  479</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  480</span>                {</div>
+<div class="line"><span class="lineno">  481</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;9&quot;</span>]);</div>
+<div class="line"><span class="lineno">  482</span>                }</div>
+<div class="line"><span class="lineno">  483</span>            }</div>
+<div class="line"><span class="lineno">  484</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">  485</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_helpers_1_1_email_helper_html_a039078f9e8bf831ba45feb21e07e1f50"><div class="ttname"><a href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">DotNetIdentity.Helpers.EmailHelper.SendAsync</a></div><div class="ttdeci">async Task SendAsync(EmailModel model)</div><div class="ttdoc">method to send a mail</div><div class="ttdef"><b>Definition:</b> <a href="_email_helper_8cs_source.html#l00033">EmailHelper.cs:33</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model_html_a83243ef26b4a8255a4e25716be13b0c0"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model.html#a83243ef26b4a8255a4e25716be13b0c0">DotNetIdentity.Models.ViewModels.ForgotPasswordViewModel.Email</a></div><div class="ttdeci">string Email</div><div class="ttdoc">the user email</div><div class="ttdef"><b>Definition:</b> <a href="_forgot_password_view_model_8cs_source.html#l00012">ForgotPasswordViewModel.cs:12</a></div></div>
 </div><!-- fragment -->
@@ -713,72 +714,73 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Controller POST method for Login view </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement Ldap Login </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Redirect to action</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00160">160</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  161</span>        {</div>
-<div class="line"><span class="lineno">  162</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
-<div class="line"><span class="lineno">  163</span>            {</div>
-<div class="line"><span class="lineno">  164</span>                var user = await _userManager.FindByNameAsync(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#a68573c747dcfe26a736fd7e4b7627cab">UserName</a>);</div>
-<div class="line"><span class="lineno">  165</span>                <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  166</span>                {</div>
-<div class="line"><span class="lineno">  167</span>                    await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  168</span> </div>
-<div class="line"><span class="lineno">  169</span>                    var result = await _signInManager.PasswordSignInAsync(user, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#aaba1c559f342991e2f0c75ec6f25c293">Password</a>, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#ad312aae5c5974fb92e56e686bdc9eab3">RememberMe</a>, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  170</span>                    <span class="keywordflow">if</span>(result.Succeeded &amp;&amp; user.IsEnabled==<span class="keyword">false</span>) {</div>
-<div class="line"><span class="lineno">  171</span>                        await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  172</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But account is disabled!&quot;</span>);</div>
-<div class="line"><span class="lineno">  173</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;1&quot;</span>]);</div>
-<div class="line"><span class="lineno">  174</span>                    }</div>
-<div class="line"><span class="lineno">  175</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(result.Succeeded &amp;&amp; user.IsMfaForce==<span class="keyword">true</span>) {</div>
-<div class="line"><span class="lineno">  176</span>                        await _userManager.ResetAccessFailedCountAsync(user);</div>
-<div class="line"><span class="lineno">  177</span>                        await _userManager.SetLockoutEndDateAsync(user, <span class="keyword">null</span>);</div>
-<div class="line"><span class="lineno">  178</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But MFA is enforced. Redirecting to action: EnforceTwoFactorAuthenticator&quot;</span>);</div>
-<div class="line"><span class="lineno">  179</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;EnforceTwoFactorAuthenticator&quot;</span>);</div>
-<div class="line"><span class="lineno">  180</span>                    }</div>
-<div class="line"><span class="lineno">  181</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.Succeeded &amp;&amp; user.IsMfaForce==<span class="keyword">false</span>)</div>
-<div class="line"><span class="lineno">  182</span>                    {</div>
-<div class="line"><span class="lineno">  183</span>                        await _userManager.ResetAccessFailedCountAsync(user);</div>
-<div class="line"><span class="lineno">  184</span>                        await _userManager.SetLockoutEndDateAsync(user, <span class="keyword">null</span>);</div>
-<div class="line"><span class="lineno">  185</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully.&quot;</span>);</div>
-<div class="line"><span class="lineno">  186</span>                        var returnUrl = TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>];</div>
-<div class="line"><span class="lineno">  187</span>                        <span class="keywordflow">if</span> (returnUrl != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  188</span>                        {</div>
-<div class="line"><span class="lineno">  189</span>                            <span class="keywordflow">return</span> Redirect(returnUrl.ToString() ?? <span class="stringliteral">&quot;/&quot;</span>);</div>
-<div class="line"><span class="lineno">  190</span>                        }</div>
-<div class="line"><span class="lineno">  191</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Admin&quot;</span>);</div>
-<div class="line"><span class="lineno">  192</span>                    }</div>
-<div class="line"><span class="lineno">  193</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.RequiresTwoFactor)</div>
-<div class="line"><span class="lineno">  194</span>                    {</div>
-<div class="line"><span class="lineno">  195</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But MFA is enabled. Redirecting to action: TwoFactorLogin&quot;</span>);</div>
-<div class="line"><span class="lineno">  196</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorLogin&quot;</span>, <span class="keyword">new</span> { ReturnUrl = TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>] });</div>
-<div class="line"><span class="lineno">  197</span>                    }</div>
-<div class="line"><span class="lineno">  198</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.IsLockedOut)</div>
-<div class="line"><span class="lineno">  199</span>                    {</div>
-<div class="line"><span class="lineno">  200</span>                        var lockoutEndUtc = await _userManager.GetLockoutEndDateAsync(user);</div>
-<div class="line"><span class="lineno">  201</span>                        var timeLeft = lockoutEndUtc.Value - DateTime.UtcNow;</div>
-<div class="line"><span class="lineno">  202</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But Account is locked out for at least another &quot;</span> + timeLeft.Minutes + <span class="stringliteral">&quot;minutes!&quot;</span>);</div>
-<div class="line"><span class="lineno">  203</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;2&quot;</span>, timeLeft.Minutes.ToString()]);</div>
-<div class="line"><span class="lineno">  204</span>                    }</div>
-<div class="line"><span class="lineno">  205</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.IsNotAllowed)</div>
-<div class="line"><span class="lineno">  206</span>                    {</div>
-<div class="line"><span class="lineno">  207</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But email is not confirmed!&quot;</span>);</div>
-<div class="line"><span class="lineno">  208</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;3&quot;</span>]);</div>
-<div class="line"><span class="lineno">  209</span>                    }</div>
-<div class="line"><span class="lineno">  210</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  211</span>                    {</div>
-<div class="line"><span class="lineno">  212</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; login in failed. Invalid username or password!&quot;</span>);</div>
-<div class="line"><span class="lineno">  213</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;4&quot;</span>]);</div>
-<div class="line"><span class="lineno">  214</span>                    }</div>
-<div class="line"><span class="lineno">  215</span>                }</div>
-<div class="line"><span class="lineno">  216</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  217</span>                {</div>
-<div class="line"><span class="lineno">  218</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + <span class="stringliteral">&quot;Login in failed. Invalid username or password!&quot;</span>);</div>
-<div class="line"><span class="lineno">  219</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;4&quot;</span>]);</div>
-<div class="line"><span class="lineno">  220</span>                }</div>
-<div class="line"><span class="lineno">  221</span>            }</div>
-<div class="line"><span class="lineno">  222</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">  223</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00162">162</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  163</span>        {</div>
+<div class="line"><span class="lineno">  164</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><span class="lineno">  165</span>            {</div>
+<div class="line"><span class="lineno">  166</span>                var user = await _userManager.FindByNameAsync(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#a68573c747dcfe26a736fd7e4b7627cab">UserName</a>);</div>
+<div class="line"><span class="lineno">  167</span>                <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  168</span>                {</div>
+<div class="line"><span class="lineno">  169</span>                    await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  170</span> </div>
+<div class="line"><span class="lineno">  171</span>                    var result = await _signInManager.PasswordSignInAsync(user, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#aaba1c559f342991e2f0c75ec6f25c293">Password</a>, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#ad312aae5c5974fb92e56e686bdc9eab3">RememberMe</a>, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  172</span>                    <span class="keywordflow">if</span>(result.Succeeded &amp;&amp; user.IsEnabled==<span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  173</span>                        await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  174</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But account is disabled!&quot;</span>);</div>
+<div class="line"><span class="lineno">  175</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;1&quot;</span>]);</div>
+<div class="line"><span class="lineno">  176</span>                    }</div>
+<div class="line"><span class="lineno">  177</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(result.Succeeded &amp;&amp; user.IsMfaForce==<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  178</span>                        await _userManager.ResetAccessFailedCountAsync(user);</div>
+<div class="line"><span class="lineno">  179</span>                        await _userManager.SetLockoutEndDateAsync(user, <span class="keyword">null</span>);</div>
+<div class="line"><span class="lineno">  180</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But MFA is enforced. Redirecting to action: EnforceTwoFactorAuthenticator&quot;</span>);</div>
+<div class="line"><span class="lineno">  181</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;EnforceTwoFactorAuthenticator&quot;</span>);</div>
+<div class="line"><span class="lineno">  182</span>                    }</div>
+<div class="line"><span class="lineno">  183</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.Succeeded &amp;&amp; user.IsMfaForce==<span class="keyword">false</span>)</div>
+<div class="line"><span class="lineno">  184</span>                    {</div>
+<div class="line"><span class="lineno">  185</span>                        await _userManager.ResetAccessFailedCountAsync(user);</div>
+<div class="line"><span class="lineno">  186</span>                        await _userManager.SetLockoutEndDateAsync(user, <span class="keyword">null</span>);</div>
+<div class="line"><span class="lineno">  187</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully.&quot;</span>);</div>
+<div class="line"><span class="lineno">  188</span>                        var returnUrl = TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>];</div>
+<div class="line"><span class="lineno">  189</span>                        <span class="keywordflow">if</span> (returnUrl != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  190</span>                        {</div>
+<div class="line"><span class="lineno">  191</span>                            <span class="keywordflow">return</span> Redirect(returnUrl.ToString() ?? <span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><span class="lineno">  192</span>                        }</div>
+<div class="line"><span class="lineno">  193</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Admin&quot;</span>);</div>
+<div class="line"><span class="lineno">  194</span>                    }</div>
+<div class="line"><span class="lineno">  195</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.RequiresTwoFactor)</div>
+<div class="line"><span class="lineno">  196</span>                    {</div>
+<div class="line"><span class="lineno">  197</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But MFA is enabled. Redirecting to action: TwoFactorLogin&quot;</span>);</div>
+<div class="line"><span class="lineno">  198</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorLogin&quot;</span>, <span class="keyword">new</span> { ReturnUrl = TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>] });</div>
+<div class="line"><span class="lineno">  199</span>                    }</div>
+<div class="line"><span class="lineno">  200</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.IsLockedOut)</div>
+<div class="line"><span class="lineno">  201</span>                    {</div>
+<div class="line"><span class="lineno">  202</span>                        var lockoutEndUtc = await _userManager.GetLockoutEndDateAsync(user);</div>
+<div class="line"><span class="lineno">  203</span>                        var timeLeft = lockoutEndUtc.Value - DateTime.UtcNow;</div>
+<div class="line"><span class="lineno">  204</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But Account is locked out for at least another &quot;</span> + timeLeft.Minutes + <span class="stringliteral">&quot;minutes!&quot;</span>);</div>
+<div class="line"><span class="lineno">  205</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;2&quot;</span>, timeLeft.Minutes.ToString()]);</div>
+<div class="line"><span class="lineno">  206</span>                    }</div>
+<div class="line"><span class="lineno">  207</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (result.IsNotAllowed)</div>
+<div class="line"><span class="lineno">  208</span>                    {</div>
+<div class="line"><span class="lineno">  209</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; logged in successfully. But email is not confirmed!&quot;</span>);</div>
+<div class="line"><span class="lineno">  210</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;3&quot;</span>]);</div>
+<div class="line"><span class="lineno">  211</span>                    }</div>
+<div class="line"><span class="lineno">  212</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  213</span>                    {</div>
+<div class="line"><span class="lineno">  214</span>                        _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; login in failed. Invalid username or password!&quot;</span>);</div>
+<div class="line"><span class="lineno">  215</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;4&quot;</span>]);</div>
+<div class="line"><span class="lineno">  216</span>                    }</div>
+<div class="line"><span class="lineno">  217</span>                }</div>
+<div class="line"><span class="lineno">  218</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  219</span>                {</div>
+<div class="line"><span class="lineno">  220</span>                    _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + <span class="stringliteral">&quot;Login in failed. Invalid username or password!&quot;</span>);</div>
+<div class="line"><span class="lineno">  221</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;4&quot;</span>]);</div>
+<div class="line"><span class="lineno">  222</span>                }</div>
+<div class="line"><span class="lineno">  223</span>            }</div>
+<div class="line"><span class="lineno">  224</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">  225</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model_html_a68573c747dcfe26a736fd7e4b7627cab"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#a68573c747dcfe26a736fd7e4b7627cab">DotNetIdentity.Models.ViewModels.SignInViewModel.UserName</a></div><div class="ttdeci">string UserName</div><div class="ttdoc">the username</div><div class="ttdef"><b>Definition:</b> <a href="_sign_in_view_model_8cs_source.html#l00012">SignInViewModel.cs:12</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model_html_aaba1c559f342991e2f0c75ec6f25c293"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#aaba1c559f342991e2f0c75ec6f25c293">DotNetIdentity.Models.ViewModels.SignInViewModel.Password</a></div><div class="ttdeci">string Password</div><div class="ttdoc">the password</div><div class="ttdef"><b>Definition:</b> <a href="_sign_in_view_model_8cs_source.html#l00017">SignInViewModel.cs:17</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model_html_ad312aae5c5974fb92e56e686bdc9eab3"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model.html#ad312aae5c5974fb92e56e686bdc9eab3">DotNetIdentity.Models.ViewModels.SignInViewModel.RememberMe</a></div><div class="ttdeci">bool RememberMe</div><div class="ttdoc">the set cookie persisten option</div><div class="ttdef"><b>Definition:</b> <a href="_sign_in_view_model_8cs_source.html#l00022">SignInViewModel.cs:22</a></div></div>
@@ -820,15 +822,15 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>view Login</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00145">145</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  146</span>        {</div>
-<div class="line"><span class="lineno">  147</span>            await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  148</span>            <span class="keywordflow">if</span> (returnUrl != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  149</span>            {</div>
-<div class="line"><span class="lineno">  150</span>                TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>] = returnUrl;</div>
-<div class="line"><span class="lineno">  151</span>            }</div>
-<div class="line"><span class="lineno">  152</span>            <span class="keywordflow">return</span> View();</div>
-<div class="line"><span class="lineno">  153</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00146">146</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>        {</div>
+<div class="line"><span class="lineno">  148</span>            await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  149</span>            <span class="keywordflow">if</span> (returnUrl != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  150</span>            {</div>
+<div class="line"><span class="lineno">  151</span>                TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>] = returnUrl;</div>
+<div class="line"><span class="lineno">  152</span>            }</div>
+<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">return</span> View();</div>
+<div class="line"><span class="lineno">  154</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -898,23 +900,23 @@ Public Member Functions</h2></td></tr>
 <p>controller action for Profile view </p>
 <dl class="section return"><dt>Returns</dt><dd>view Profile</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00303">303</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  304</span>        {</div>
-<div class="line"><span class="lineno">  305</span>            var me = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  306</span>            <span class="keywordflow">if</span> (me == <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  307</span>            {</div>
-<div class="line"><span class="lineno">  308</span>                await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  309</span>                <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
-<div class="line"><span class="lineno">  310</span>            }</div>
-<div class="line"><span class="lineno">  311</span>            var mod = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html">UpdateProfileViewModel</a>();</div>
-<div class="line"><span class="lineno">  312</span>            mod.Email = me.Email;</div>
-<div class="line"><span class="lineno">  313</span>            mod.BirthDay = me.BirthDay;</div>
-<div class="line"><span class="lineno">  314</span>            mod.UserName = me.UserName;</div>
-<div class="line"><span class="lineno">  315</span>            mod.PhoneNumber = me.PhoneNumber;</div>
-<div class="line"><span class="lineno">  316</span>            mod.Gender = me.Gender;            </div>
-<div class="line"><span class="lineno">  317</span>            <span class="comment">//return View(me.Adapt&lt;UpdateProfileViewModel&gt;());</span></div>
-<div class="line"><span class="lineno">  318</span>            <span class="keywordflow">return</span> View(mod);</div>
-<div class="line"><span class="lineno">  319</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00305">305</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  306</span>        {</div>
+<div class="line"><span class="lineno">  307</span>            var me = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  308</span>            <span class="keywordflow">if</span> (me == <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  309</span>            {</div>
+<div class="line"><span class="lineno">  310</span>                await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  311</span>                <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
+<div class="line"><span class="lineno">  312</span>            }</div>
+<div class="line"><span class="lineno">  313</span>            var mod = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html">UpdateProfileViewModel</a>();</div>
+<div class="line"><span class="lineno">  314</span>            mod.Email = me.Email;</div>
+<div class="line"><span class="lineno">  315</span>            mod.BirthDay = me.BirthDay;</div>
+<div class="line"><span class="lineno">  316</span>            mod.UserName = me.UserName;</div>
+<div class="line"><span class="lineno">  317</span>            mod.PhoneNumber = me.PhoneNumber;</div>
+<div class="line"><span class="lineno">  318</span>            mod.Gender = me.Gender;            </div>
+<div class="line"><span class="lineno">  319</span>            <span class="comment">//return View(me.Adapt&lt;UpdateProfileViewModel&gt;());</span></div>
+<div class="line"><span class="lineno">  320</span>            <span class="keywordflow">return</span> View(mod);</div>
+<div class="line"><span class="lineno">  321</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html">DotNetIdentity.Models.ViewModels.UpdateProfileViewModel</a></div><div class="ttdoc">model for UpdateProfile view</div><div class="ttdef"><b>Definition:</b> <a href="_update_profile_view_model_8cs_source.html#l00006">UpdateProfileViewModel.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -952,71 +954,71 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action Index</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00328">328</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  329</span>        {</div>
-<div class="line"><span class="lineno">  330</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
-<div class="line"><span class="lineno">  331</span>            {</div>
-<div class="line"><span class="lineno">  332</span>                var me = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  333</span>                <span class="keywordflow">if</span> (me != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  334</span>                {</div>
-<div class="line"><span class="lineno">  335</span>                    <span class="keywordflow">if</span> (me.PhoneNumber != viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a61135d58f621a5bd0a6f9871e45f58dc">PhoneNumber</a> &amp;&amp; _userManager.Users.Any(a =&gt; a.PhoneNumber == viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a61135d58f621a5bd0a6f9871e45f58dc">PhoneNumber</a>))</div>
-<div class="line"><span class="lineno">  336</span>                    {</div>
-<div class="line"><span class="lineno">  337</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;6&quot;</span>]);</div>
-<div class="line"><span class="lineno">  338</span>                    }</div>
-<div class="line"><span class="lineno">  339</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  340</span>                    {</div>
-<div class="line"><span class="lineno">  341</span>                        <span class="keywordflow">if</span>(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a56284c2eafe0a725c9efa0438e74f230">ProfilePicture</a>!=<span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  342</span>                            <span class="keyword">using</span> (var memoryStream = <span class="keyword">new</span> MemoryStream())</div>
-<div class="line"><span class="lineno">  343</span>                            {</div>
-<div class="line"><span class="lineno">  344</span>                                await viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a56284c2eafe0a725c9efa0438e74f230">ProfilePicture</a>.CopyToAsync(memoryStream);</div>
-<div class="line"><span class="lineno">  345</span> </div>
-<div class="line"><span class="lineno">  346</span>                                <span class="comment">// Upload the file if less than 2 MB</span></div>
-<div class="line"><span class="lineno">  347</span>                                <span class="keywordflow">if</span> (memoryStream.Length &lt; 2097152)</div>
-<div class="line"><span class="lineno">  348</span>                                {</div>
-<div class="line"><span class="lineno">  349</span>                                    var format = <span class="stringliteral">&quot;image/png&quot;</span>;</div>
-<div class="line"><span class="lineno">  350</span>                                    var Content = memoryStream.ToArray();</div>
-<div class="line"><span class="lineno">  351</span>                                    var imageData = $<span class="stringliteral">&quot;data:{format};base64,{Convert.ToBase64String(Content)}&quot;</span>;</div>
-<div class="line"><span class="lineno">  352</span>                                    me.ProfilePicture = imageData;</div>
-<div class="line"><span class="lineno">  353</span> </div>
-<div class="line"><span class="lineno">  354</span>                                }</div>
-<div class="line"><span class="lineno">  355</span>                                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  356</span>                                {</div>
-<div class="line"><span class="lineno">  357</span>                                    ModelState.AddModelError(<span class="stringliteral">&quot;File&quot;</span>, _localizer[<span class="stringliteral">&quot;7&quot;</span>]);</div>
-<div class="line"><span class="lineno">  358</span>                                }</div>
-<div class="line"><span class="lineno">  359</span>                            }</div>
-<div class="line"><span class="lineno">  360</span>                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  361</span>                            me.ProfilePicture = <span class="keyword">null</span>;</div>
-<div class="line"><span class="lineno">  362</span>                        }                     </div>
-<div class="line"><span class="lineno">  363</span> </div>
-<div class="line"><span class="lineno">  364</span>                        me.UserName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a2ad72713ef3a19fa1ac334bfd45a592c">UserName</a>;</div>
-<div class="line"><span class="lineno">  365</span>                        me.Email = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a66c798bbc99bf782c32e30621e0bdc11">Email</a>;</div>
-<div class="line"><span class="lineno">  366</span>                        me.PhoneNumber = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a61135d58f621a5bd0a6f9871e45f58dc">PhoneNumber</a>;</div>
-<div class="line"><span class="lineno">  367</span>                        me.Gender = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#ae60b023646210361a1b8a2e303a5f621">Gender</a>;</div>
-<div class="line"><span class="lineno">  368</span>                        me.BirthDay = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a5c244c58682d36b32c16a00362924ffa">BirthDay</a>;</div>
-<div class="line"><span class="lineno">  369</span>                        <span class="comment">//me.Department = viewModel.Department.ToString();</span></div>
-<div class="line"><span class="lineno">  370</span> </div>
-<div class="line"><span class="lineno">  371</span>                        var result = await _userManager.UpdateAsync(me);</div>
-<div class="line"><span class="lineno">  372</span>                        <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  373</span>                        {</div>
-<div class="line"><span class="lineno">  374</span>                            await _userManager.UpdateSecurityStampAsync(me);</div>
-<div class="line"><span class="lineno">  375</span>                            await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  376</span>                            await _signInManager.SignInAsync(me, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  377</span> </div>
-<div class="line"><span class="lineno">  378</span>                            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot;successfully updated own user profile&quot;</span>);</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00330">330</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  331</span>        {</div>
+<div class="line"><span class="lineno">  332</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><span class="lineno">  333</span>            {</div>
+<div class="line"><span class="lineno">  334</span>                var me = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  335</span>                <span class="keywordflow">if</span> (me != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  336</span>                {</div>
+<div class="line"><span class="lineno">  337</span>                    <span class="keywordflow">if</span> (me.PhoneNumber != viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a61135d58f621a5bd0a6f9871e45f58dc">PhoneNumber</a> &amp;&amp; _userManager.Users.Any(a =&gt; a.PhoneNumber == viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a61135d58f621a5bd0a6f9871e45f58dc">PhoneNumber</a>))</div>
+<div class="line"><span class="lineno">  338</span>                    {</div>
+<div class="line"><span class="lineno">  339</span>                        ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;6&quot;</span>]);</div>
+<div class="line"><span class="lineno">  340</span>                    }</div>
+<div class="line"><span class="lineno">  341</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  342</span>                    {</div>
+<div class="line"><span class="lineno">  343</span>                        <span class="keywordflow">if</span>(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a56284c2eafe0a725c9efa0438e74f230">ProfilePicture</a>!=<span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  344</span>                            <span class="keyword">using</span> (var memoryStream = <span class="keyword">new</span> MemoryStream())</div>
+<div class="line"><span class="lineno">  345</span>                            {</div>
+<div class="line"><span class="lineno">  346</span>                                await viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a56284c2eafe0a725c9efa0438e74f230">ProfilePicture</a>.CopyToAsync(memoryStream);</div>
+<div class="line"><span class="lineno">  347</span> </div>
+<div class="line"><span class="lineno">  348</span>                                <span class="comment">// Upload the file if less than 2 MB</span></div>
+<div class="line"><span class="lineno">  349</span>                                <span class="keywordflow">if</span> (memoryStream.Length &lt; 2097152)</div>
+<div class="line"><span class="lineno">  350</span>                                {</div>
+<div class="line"><span class="lineno">  351</span>                                    var format = <span class="stringliteral">&quot;image/png&quot;</span>;</div>
+<div class="line"><span class="lineno">  352</span>                                    var Content = memoryStream.ToArray();</div>
+<div class="line"><span class="lineno">  353</span>                                    var imageData = $<span class="stringliteral">&quot;data:{format};base64,{Convert.ToBase64String(Content)}&quot;</span>;</div>
+<div class="line"><span class="lineno">  354</span>                                    me.ProfilePicture = imageData;</div>
+<div class="line"><span class="lineno">  355</span> </div>
+<div class="line"><span class="lineno">  356</span>                                }</div>
+<div class="line"><span class="lineno">  357</span>                                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  358</span>                                {</div>
+<div class="line"><span class="lineno">  359</span>                                    ModelState.AddModelError(<span class="stringliteral">&quot;File&quot;</span>, _localizer[<span class="stringliteral">&quot;7&quot;</span>]);</div>
+<div class="line"><span class="lineno">  360</span>                                }</div>
+<div class="line"><span class="lineno">  361</span>                            }</div>
+<div class="line"><span class="lineno">  362</span>                        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  363</span>                            me.ProfilePicture = <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">  364</span>                        }                     </div>
+<div class="line"><span class="lineno">  365</span> </div>
+<div class="line"><span class="lineno">  366</span>                        me.UserName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a2ad72713ef3a19fa1ac334bfd45a592c">UserName</a>;</div>
+<div class="line"><span class="lineno">  367</span>                        me.Email = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a66c798bbc99bf782c32e30621e0bdc11">Email</a>;</div>
+<div class="line"><span class="lineno">  368</span>                        me.PhoneNumber = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a61135d58f621a5bd0a6f9871e45f58dc">PhoneNumber</a>;</div>
+<div class="line"><span class="lineno">  369</span>                        me.Gender = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#ae60b023646210361a1b8a2e303a5f621">Gender</a>;</div>
+<div class="line"><span class="lineno">  370</span>                        me.BirthDay = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a5c244c58682d36b32c16a00362924ffa">BirthDay</a>;</div>
+<div class="line"><span class="lineno">  371</span>                        <span class="comment">//me.Department = viewModel.Department.ToString();</span></div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>                        var result = await _userManager.UpdateAsync(me);</div>
+<div class="line"><span class="lineno">  374</span>                        <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  375</span>                        {</div>
+<div class="line"><span class="lineno">  376</span>                            await _userManager.UpdateSecurityStampAsync(me);</div>
+<div class="line"><span class="lineno">  377</span>                            await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  378</span>                            await _signInManager.SignInAsync(me, <span class="keyword">true</span>);</div>
 <div class="line"><span class="lineno">  379</span> </div>
-<div class="line"><span class="lineno">  380</span>                            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
-<div class="line"><span class="lineno">  381</span>                        }</div>
-<div class="line"><span class="lineno">  382</span>                        result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
-<div class="line"><span class="lineno">  383</span>                    }</div>
-<div class="line"><span class="lineno">  384</span>                }</div>
-<div class="line"><span class="lineno">  385</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  386</span>                {</div>
-<div class="line"><span class="lineno">  387</span>                    await _signInManager.SignOutAsync();</div>
-<div class="line"><span class="lineno">  388</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
-<div class="line"><span class="lineno">  389</span>                }</div>
-<div class="line"><span class="lineno">  390</span>            }</div>
-<div class="line"><span class="lineno">  391</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">  392</span>        }</div>
+<div class="line"><span class="lineno">  380</span>                            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + me.UserName + <span class="stringliteral">&quot;successfully updated own user profile&quot;</span>);</div>
+<div class="line"><span class="lineno">  381</span> </div>
+<div class="line"><span class="lineno">  382</span>                            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
+<div class="line"><span class="lineno">  383</span>                        }</div>
+<div class="line"><span class="lineno">  384</span>                        result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
+<div class="line"><span class="lineno">  385</span>                    }</div>
+<div class="line"><span class="lineno">  386</span>                }</div>
+<div class="line"><span class="lineno">  387</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  388</span>                {</div>
+<div class="line"><span class="lineno">  389</span>                    await _signInManager.SignOutAsync();</div>
+<div class="line"><span class="lineno">  390</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
+<div class="line"><span class="lineno">  391</span>                }</div>
+<div class="line"><span class="lineno">  392</span>            }</div>
+<div class="line"><span class="lineno">  393</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">  394</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_html_a2ad72713ef3a19fa1ac334bfd45a592c"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a2ad72713ef3a19fa1ac334bfd45a592c">DotNetIdentity.Models.ViewModels.UpdateProfileViewModel.UserName</a></div><div class="ttdeci">string UserName</div><div class="ttdoc">the username</div><div class="ttdef"><b>Definition:</b> <a href="_update_profile_view_model_8cs_source.html#l00012">UpdateProfileViewModel.cs:12</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_html_a56284c2eafe0a725c9efa0438e74f230"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a56284c2eafe0a725c9efa0438e74f230">DotNetIdentity.Models.ViewModels.UpdateProfileViewModel.ProfilePicture</a></div><div class="ttdeci">IFormFile? ProfilePicture</div><div class="ttdoc">the profile picture</div><div class="ttdef"><b>Definition:</b> <a href="_update_profile_view_model_8cs_source.html#l00037">UpdateProfileViewModel.cs:37</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_html_a5c244c58682d36b32c16a00362924ffa"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model.html#a5c244c58682d36b32c16a00362924ffa">DotNetIdentity.Models.ViewModels.UpdateProfileViewModel.BirthDay</a></div><div class="ttdeci">DateTime BirthDay</div><div class="ttdoc">the birthday</div><div class="ttdef"><b>Definition:</b> <a href="_update_profile_view_model_8cs_source.html#l00032">UpdateProfileViewModel.cs:32</a></div></div>
@@ -1081,49 +1083,49 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Redirect to action Login </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00097">97</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   98</span>        {</div>
-<div class="line"><span class="lineno">   99</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
-<div class="line"><span class="lineno">  100</span>            {</div>
-<div class="line"><span class="lineno">  101</span>                var user = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html">AppUser</a></div>
-<div class="line"><span class="lineno">  102</span>                {</div>
-<div class="line"><span class="lineno">  103</span>                    FirstName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a1ba8aef8d147d967d1089c533b5c3d32">FirstName</a>,</div>
-<div class="line"><span class="lineno">  104</span>                    LastName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a4d7f7a98121021f0377b366004ec0ff8">LastName</a>,</div>
-<div class="line"><span class="lineno">  105</span>                    UserName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a8909ba7880178f08706503054565a8d0">UserName</a>,</div>
-<div class="line"><span class="lineno">  106</span>                    <a class="code hl_enumvalue" href="namespace_dot_net_identity_1_1_models.html#a208c3cb5b7741432907291976d50c6faace8ae9da5b7cd6c3df2929543a9af92d">Email</a> = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#ade8b1ecca6d6508060163fe6512c62f9">Email</a>,</div>
-<div class="line"><span class="lineno">  107</span>                    <a class="code hl_enumeration" href="namespace_dot_net_identity_1_1_models.html#a5fc190d2f7643b0388a1a35f79870c44">Gender</a> = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#aa1b0d9c175deb4121fa9bcaa28f10043">Gender</a>,</div>
-<div class="line"><span class="lineno">  108</span>                    BirthDay = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#abbb82fe3912565bb53d32f30f53b9c7f">BirthDay</a>,</div>
-<div class="line"><span class="lineno">  109</span>                    <a class="code hl_enumeration" href="namespace_dot_net_identity_1_1_models.html#a0c2566102c085d8fb8859ba2cc48f7f5">Department</a> = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#ae0991a86173239bbbf223395d45d0138">Department</a>.ToString(),</div>
-<div class="line"><span class="lineno">  110</span>                    <a class="code hl_function" href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">TwoFactorType</a> = Models.TwoFactorType.None,</div>
-<div class="line"><span class="lineno">  111</span>                    CreatedOn = DateTime.UtcNow,</div>
-<div class="line"><span class="lineno">  112</span>                    IsEnabled = <span class="keyword">true</span></div>
-<div class="line"><span class="lineno">  113</span>                };</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>                var result = await _userManager.CreateAsync(user, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a0c833e54d8bf9ba8f39e5af0831fddf7">Password</a>);</div>
-<div class="line"><span class="lineno">  116</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  117</span>                {</div>
-<div class="line"><span class="lineno">  118</span>                    await _userManager.AddToRoleAsync(user, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  119</span>                    var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);</div>
-<div class="line"><span class="lineno">  120</span>                    var confirmationLink = Url.Action(<span class="stringliteral">&quot;ConfirmEmail&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>, <span class="keyword">new</span></div>
-<div class="line"><span class="lineno">  121</span>                    {</div>
-<div class="line"><span class="lineno">  122</span>                        userId = user.Id,</div>
-<div class="line"><span class="lineno">  123</span>                        token = confirmationToken</div>
-<div class="line"><span class="lineno">  124</span>                    }, HttpContext.Request.Scheme);</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>                    await _emailHelper.<a class="code hl_function" href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">SendAsync</a>(<span class="keyword">new</span>()</div>
-<div class="line"><span class="lineno">  127</span>                    {</div>
-<div class="line"><span class="lineno">  128</span>                        Subject = <span class="stringliteral">&quot;Confirm e-mail&quot;</span>,</div>
-<div class="line"><span class="lineno">  129</span>                        Body = $<span class="stringliteral">&quot;Please &lt;a href=&#39;{confirmationLink}&#39;&gt;click&lt;/a&gt; to confirm your e-mail address.&quot;</span>,</div>
-<div class="line"><span class="lineno">  130</span>                        To = user.Email</div>
-<div class="line"><span class="lineno">  131</span>                    });</div>
-<div class="line"><span class="lineno">  132</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + <span class="stringliteral">&quot;registered successfully new user: &quot;</span> + user.UserName);</div>
-<div class="line"><span class="lineno">  133</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>);</div>
-<div class="line"><span class="lineno">  134</span>                }</div>
-<div class="line"><span class="lineno">  135</span>                result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
-<div class="line"><span class="lineno">  136</span>            }</div>
-<div class="line"><span class="lineno">  137</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">  138</span>        }</div>
-<div class="ttc" id="aclass_dot_net_identity_1_1_controllers_1_1_user_controller_html_a47b0ae2eca9307b2b2366efc5ee72a56"><div class="ttname"><a href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">DotNetIdentity.Controllers.UserController.TwoFactorType</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; TwoFactorType()</div><div class="ttdoc">controller action for view TwiFactorType</div><div class="ttdef"><b>Definition:</b> <a href="_user_controller_8cs_source.html#l00564">UserController.cs:564</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00098">98</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>        {</div>
+<div class="line"><span class="lineno">  100</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><span class="lineno">  101</span>            {</div>
+<div class="line"><span class="lineno">  102</span>                var user = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html">AppUser</a></div>
+<div class="line"><span class="lineno">  103</span>                {</div>
+<div class="line"><span class="lineno">  104</span>                    FirstName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a1ba8aef8d147d967d1089c533b5c3d32">FirstName</a>,</div>
+<div class="line"><span class="lineno">  105</span>                    LastName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a4d7f7a98121021f0377b366004ec0ff8">LastName</a>,</div>
+<div class="line"><span class="lineno">  106</span>                    UserName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a8909ba7880178f08706503054565a8d0">UserName</a>,</div>
+<div class="line"><span class="lineno">  107</span>                    <a class="code hl_enumvalue" href="namespace_dot_net_identity_1_1_models.html#a208c3cb5b7741432907291976d50c6faace8ae9da5b7cd6c3df2929543a9af92d">Email</a> = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#ade8b1ecca6d6508060163fe6512c62f9">Email</a>,</div>
+<div class="line"><span class="lineno">  108</span>                    <a class="code hl_enumeration" href="namespace_dot_net_identity_1_1_models.html#a5fc190d2f7643b0388a1a35f79870c44">Gender</a> = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#aa1b0d9c175deb4121fa9bcaa28f10043">Gender</a>,</div>
+<div class="line"><span class="lineno">  109</span>                    BirthDay = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#abbb82fe3912565bb53d32f30f53b9c7f">BirthDay</a>,</div>
+<div class="line"><span class="lineno">  110</span>                    <a class="code hl_enumeration" href="namespace_dot_net_identity_1_1_models.html#a0c2566102c085d8fb8859ba2cc48f7f5">Department</a> = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#ae0991a86173239bbbf223395d45d0138">Department</a>.ToString(),</div>
+<div class="line"><span class="lineno">  111</span>                    <a class="code hl_function" href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">TwoFactorType</a> = Models.TwoFactorType.None,</div>
+<div class="line"><span class="lineno">  112</span>                    CreatedOn = DateTime.UtcNow,</div>
+<div class="line"><span class="lineno">  113</span>                    IsEnabled = <span class="keyword">true</span></div>
+<div class="line"><span class="lineno">  114</span>                };</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>                var result = await _userManager.CreateAsync(user, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a0c833e54d8bf9ba8f39e5af0831fddf7">Password</a>);</div>
+<div class="line"><span class="lineno">  117</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  118</span>                {</div>
+<div class="line"><span class="lineno">  119</span>                    await _userManager.AddToRoleAsync(user, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  120</span>                    var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);</div>
+<div class="line"><span class="lineno">  121</span>                    var confirmationLink = Url.Action(<span class="stringliteral">&quot;ConfirmEmail&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>, <span class="keyword">new</span></div>
+<div class="line"><span class="lineno">  122</span>                    {</div>
+<div class="line"><span class="lineno">  123</span>                        userId = user.Id,</div>
+<div class="line"><span class="lineno">  124</span>                        token = confirmationToken</div>
+<div class="line"><span class="lineno">  125</span>                    }, HttpContext.Request.Scheme);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>                    await _emailHelper.<a class="code hl_function" href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">SendAsync</a>(<span class="keyword">new</span>()</div>
+<div class="line"><span class="lineno">  128</span>                    {</div>
+<div class="line"><span class="lineno">  129</span>                        Subject = <span class="stringliteral">&quot;Confirm e-mail&quot;</span>,</div>
+<div class="line"><span class="lineno">  130</span>                        Body = $<span class="stringliteral">&quot;Please &lt;a href=&#39;{confirmationLink}&#39;&gt;click&lt;/a&gt; to confirm your e-mail address.&quot;</span>,</div>
+<div class="line"><span class="lineno">  131</span>                        To = user.Email</div>
+<div class="line"><span class="lineno">  132</span>                    });</div>
+<div class="line"><span class="lineno">  133</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + <span class="stringliteral">&quot;registered successfully new user: &quot;</span> + user.UserName);</div>
+<div class="line"><span class="lineno">  134</span>                    <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>);</div>
+<div class="line"><span class="lineno">  135</span>                }</div>
+<div class="line"><span class="lineno">  136</span>                result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
+<div class="line"><span class="lineno">  137</span>            }</div>
+<div class="line"><span class="lineno">  138</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">  139</span>        }</div>
+<div class="ttc" id="aclass_dot_net_identity_1_1_controllers_1_1_user_controller_html_a47b0ae2eca9307b2b2366efc5ee72a56"><div class="ttname"><a href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">DotNetIdentity.Controllers.UserController.TwoFactorType</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; TwoFactorType()</div><div class="ttdoc">controller action for view TwiFactorType</div><div class="ttdef"><b>Definition:</b> <a href="_user_controller_8cs_source.html#l00566">UserController.cs:566</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_identity_1_1_app_user_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html">DotNetIdentity.Models.Identity.AppUser</a></div><div class="ttdoc">class to define a user object</div><div class="ttdef"><b>Definition:</b> <a href="_app_user_8cs_source.html#l00008">AppUser.cs:9</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_html_a0c833e54d8bf9ba8f39e5af0831fddf7"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a0c833e54d8bf9ba8f39e5af0831fddf7">DotNetIdentity.Models.ViewModels.SignUpViewModel.Password</a></div><div class="ttdeci">string Password</div><div class="ttdoc">the password</div><div class="ttdef"><b>Definition:</b> <a href="_sign_up_view_model_8cs_source.html#l00037">SignUpViewModel.cs:37</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_html_a1ba8aef8d147d967d1089c533b5c3d32"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html#a1ba8aef8d147d967d1089c533b5c3d32">DotNetIdentity.Models.ViewModels.SignUpViewModel.FirstName</a></div><div class="ttdeci">string FirstName</div><div class="ttdoc">the firstname</div><div class="ttdef"><b>Definition:</b> <a href="_sign_up_view_model_8cs_source.html#l00042">SignUpViewModel.cs:42</a></div></div>
@@ -1174,32 +1176,32 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action Login</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00511">511</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  512</span>        {</div>
-<div class="line"><span class="lineno">  513</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
-<div class="line"><span class="lineno">  514</span>            {</div>
-<div class="line"><span class="lineno">  515</span>                var user = await _userManager.FindByIdAsync(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#ab9247f677964dc7fff608a020df0ae9a">UserId</a>);</div>
-<div class="line"><span class="lineno">  516</span>                <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  517</span>                {</div>
-<div class="line"><span class="lineno">  518</span>                    var result = await _userManager.ResetPasswordAsync(user, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#af157ef7ad10cf7cb6bc0f24d41722ca3">Token</a>, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#a86620419749568fc30ed1dbe098fe84a">Password</a>);</div>
-<div class="line"><span class="lineno">  519</span>                    <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  520</span>                    {</div>
-<div class="line"><span class="lineno">  521</span>                        await _userManager.UpdateSecurityStampAsync(user);</div>
-<div class="line"><span class="lineno">  522</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;successfully resetted own password.&quot;</span>);</div>
-<div class="line"><span class="lineno">  523</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  524</span>                    }</div>
-<div class="line"><span class="lineno">  525</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  526</span>                    {</div>
-<div class="line"><span class="lineno">  527</span>                        result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
-<div class="line"><span class="lineno">  528</span>                    }</div>
-<div class="line"><span class="lineno">  529</span>                }</div>
-<div class="line"><span class="lineno">  530</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  531</span>                {</div>
-<div class="line"><span class="lineno">  532</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, <span class="stringliteral">&quot;User not found.&quot;</span>);</div>
-<div class="line"><span class="lineno">  533</span>                }</div>
-<div class="line"><span class="lineno">  534</span>            }</div>
-<div class="line"><span class="lineno">  535</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">  536</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00513">513</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  514</span>        {</div>
+<div class="line"><span class="lineno">  515</span>            <span class="keywordflow">if</span> (ModelState.IsValid)</div>
+<div class="line"><span class="lineno">  516</span>            {</div>
+<div class="line"><span class="lineno">  517</span>                var user = await _userManager.FindByIdAsync(viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#ab9247f677964dc7fff608a020df0ae9a">UserId</a>);</div>
+<div class="line"><span class="lineno">  518</span>                <span class="keywordflow">if</span> (user != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  519</span>                {</div>
+<div class="line"><span class="lineno">  520</span>                    var result = await _userManager.ResetPasswordAsync(user, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#af157ef7ad10cf7cb6bc0f24d41722ca3">Token</a>, viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#a86620419749568fc30ed1dbe098fe84a">Password</a>);</div>
+<div class="line"><span class="lineno">  521</span>                    <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  522</span>                    {</div>
+<div class="line"><span class="lineno">  523</span>                        await _userManager.UpdateSecurityStampAsync(user);</div>
+<div class="line"><span class="lineno">  524</span>                        _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;successfully resetted own password.&quot;</span>);</div>
+<div class="line"><span class="lineno">  525</span>                        <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  526</span>                    }</div>
+<div class="line"><span class="lineno">  527</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  528</span>                    {</div>
+<div class="line"><span class="lineno">  529</span>                        result.Errors.ToList().ForEach(f =&gt; ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, f.Description));</div>
+<div class="line"><span class="lineno">  530</span>                    }</div>
+<div class="line"><span class="lineno">  531</span>                }</div>
+<div class="line"><span class="lineno">  532</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  533</span>                {</div>
+<div class="line"><span class="lineno">  534</span>                    ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, <span class="stringliteral">&quot;User not found.&quot;</span>);</div>
+<div class="line"><span class="lineno">  535</span>                }</div>
+<div class="line"><span class="lineno">  536</span>            }</div>
+<div class="line"><span class="lineno">  537</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">  538</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_html_a86620419749568fc30ed1dbe098fe84a"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#a86620419749568fc30ed1dbe098fe84a">DotNetIdentity.Models.ViewModels.ResetPasswordViewModel.Password</a></div><div class="ttdeci">string Password</div><div class="ttdoc">the password</div><div class="ttdef"><b>Definition:</b> <a href="_reset_password_view_model_8cs_source.html#l00022">ResetPasswordViewModel.cs:22</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_html_ab9247f677964dc7fff608a020df0ae9a"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#ab9247f677964dc7fff608a020df0ae9a">DotNetIdentity.Models.ViewModels.ResetPasswordViewModel.UserId</a></div><div class="ttdeci">string UserId</div><div class="ttdoc">the user id</div><div class="ttdef"><b>Definition:</b> <a href="_reset_password_view_model_8cs_source.html#l00012">ResetPasswordViewModel.cs:12</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_html_af157ef7ad10cf7cb6bc0f24d41722ca3"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html#af157ef7ad10cf7cb6bc0f24d41722ca3">DotNetIdentity.Models.ViewModels.ResetPasswordViewModel.Token</a></div><div class="ttdeci">string Token</div><div class="ttdoc">the reset token</div><div class="ttdef"><b>Definition:</b> <a href="_reset_password_view_model_8cs_source.html#l00017">ResetPasswordViewModel.cs:17</a></div></div>
@@ -1252,19 +1254,19 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>view ResetPassword</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00491">491</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  492</span>        {</div>
-<div class="line"><span class="lineno">  493</span>            <span class="keywordflow">if</span> (userId == <span class="keyword">null</span> || token == <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  494</span>            {</div>
-<div class="line"><span class="lineno">  495</span>                <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  496</span>            }</div>
-<div class="line"><span class="lineno">  497</span> </div>
-<div class="line"><span class="lineno">  498</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html">ResetPasswordViewModel</a></div>
-<div class="line"><span class="lineno">  499</span>            {</div>
-<div class="line"><span class="lineno">  500</span>                UserId = userId,</div>
-<div class="line"><span class="lineno">  501</span>                Token = token</div>
-<div class="line"><span class="lineno">  502</span>            });</div>
-<div class="line"><span class="lineno">  503</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00493">493</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  494</span>        {</div>
+<div class="line"><span class="lineno">  495</span>            <span class="keywordflow">if</span> (userId == <span class="keyword">null</span> || token == <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  496</span>            {</div>
+<div class="line"><span class="lineno">  497</span>                <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Login&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  498</span>            }</div>
+<div class="line"><span class="lineno">  499</span> </div>
+<div class="line"><span class="lineno">  500</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html">ResetPasswordViewModel</a></div>
+<div class="line"><span class="lineno">  501</span>            {</div>
+<div class="line"><span class="lineno">  502</span>                UserId = userId,</div>
+<div class="line"><span class="lineno">  503</span>                Token = token</div>
+<div class="line"><span class="lineno">  504</span>            });</div>
+<div class="line"><span class="lineno">  505</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model.html">DotNetIdentity.Models.ViewModels.ResetPasswordViewModel</a></div><div class="ttdoc">model for ResetPassword view</div><div class="ttdef"><b>Definition:</b> <a href="_reset_password_view_model_8cs_source.html#l00006">ResetPasswordViewModel.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1295,26 +1297,26 @@ Public Member Functions</h2></td></tr>
 <p>controller action for view TwoFActorAuthenticator </p>
 <dl class="section return"><dt>Returns</dt><dd>view TwoFActorAuthenticator</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00661">661</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  662</span>        {</div>
-<div class="line"><span class="lineno">  663</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  664</span>            <span class="keywordflow">if</span> (user.TwoFactorEnabled &amp;&amp; user.TwoFactorType == Models.TwoFactorType.Authenticator)</div>
-<div class="line"><span class="lineno">  665</span>            {</div>
-<div class="line"><span class="lineno">  666</span>                var authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
-<div class="line"><span class="lineno">  667</span>                <span class="keywordflow">if</span> (authenticatorKey == <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  668</span>                {</div>
-<div class="line"><span class="lineno">  669</span>                    await _userManager.ResetAuthenticatorKeyAsync(user);</div>
-<div class="line"><span class="lineno">  670</span>                    authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
-<div class="line"><span class="lineno">  671</span>                }</div>
-<div class="line"><span class="lineno">  672</span> </div>
-<div class="line"><span class="lineno">  673</span>                <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html">TwoFactorAuthenticatorViewModel</a></div>
-<div class="line"><span class="lineno">  674</span>                {</div>
-<div class="line"><span class="lineno">  675</span>                    SharedKey = authenticatorKey,</div>
-<div class="line"><span class="lineno">  676</span>                    AuthenticationUri = _twoFactorAuthService.<a class="code hl_function" href="class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service.html#a1116184c6f680db3998c5510c15457aa">GenerateQrCodeUri</a>(user.Email, authenticatorKey)</div>
-<div class="line"><span class="lineno">  677</span>                });</div>
-<div class="line"><span class="lineno">  678</span>            }</div>
-<div class="line"><span class="lineno">  679</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
-<div class="line"><span class="lineno">  680</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00663">663</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  664</span>        {</div>
+<div class="line"><span class="lineno">  665</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  666</span>            <span class="keywordflow">if</span> (user.TwoFactorEnabled &amp;&amp; user.TwoFactorType == Models.TwoFactorType.Authenticator)</div>
+<div class="line"><span class="lineno">  667</span>            {</div>
+<div class="line"><span class="lineno">  668</span>                var authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
+<div class="line"><span class="lineno">  669</span>                <span class="keywordflow">if</span> (authenticatorKey == <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  670</span>                {</div>
+<div class="line"><span class="lineno">  671</span>                    await _userManager.ResetAuthenticatorKeyAsync(user);</div>
+<div class="line"><span class="lineno">  672</span>                    authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);</div>
+<div class="line"><span class="lineno">  673</span>                }</div>
+<div class="line"><span class="lineno">  674</span> </div>
+<div class="line"><span class="lineno">  675</span>                <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html">TwoFactorAuthenticatorViewModel</a></div>
+<div class="line"><span class="lineno">  676</span>                {</div>
+<div class="line"><span class="lineno">  677</span>                    SharedKey = authenticatorKey,</div>
+<div class="line"><span class="lineno">  678</span>                    AuthenticationUri = _twoFactorAuthService.<a class="code hl_function" href="class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service.html#a1116184c6f680db3998c5510c15457aa">GenerateQrCodeUri</a>(user.Email, authenticatorKey)</div>
+<div class="line"><span class="lineno">  679</span>                });</div>
+<div class="line"><span class="lineno">  680</span>            }</div>
+<div class="line"><span class="lineno">  681</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;Index&quot;</span>, <span class="stringliteral">&quot;Home&quot;</span>);</div>
+<div class="line"><span class="lineno">  682</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1351,26 +1353,26 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>redirect to action TwoFactorType</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00688">688</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  689</span>        {</div>
-<div class="line"><span class="lineno">  690</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  691</span>            </div>
-<div class="line"><span class="lineno">  692</span>            var verificationCode = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html#ae3424579e7c9add11c9a52c3e1f87020">VerificationCode</a>.Replace(<span class="stringliteral">&quot; &quot;</span>, <span class="keywordtype">string</span>.Empty).Replace(<span class="stringliteral">&quot;-&quot;</span>, <span class="keywordtype">string</span>.Empty);</div>
-<div class="line"><span class="lineno">  693</span> </div>
-<div class="line"><span class="lineno">  694</span>            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);</div>
-<div class="line"><span class="lineno">  695</span>            <span class="keywordflow">if</span> (isTokenValid)</div>
-<div class="line"><span class="lineno">  696</span>            {</div>
-<div class="line"><span class="lineno">  697</span>                <span class="keywordflow">if</span>(user.IsMfaForce &amp;&amp; user.TwoFactorEnabled==<span class="keyword">false</span>) {</div>
-<div class="line"><span class="lineno">  698</span>                    await _userManager.SetTwoFactorEnabledAsync(user, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  699</span>                    user.IsMfaForce = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  700</span>                    await _userManager.UpdateAsync(user);</div>
-<div class="line"><span class="lineno">  701</span>                }</div>
-<div class="line"><span class="lineno">  702</span>                </div>
-<div class="line"><span class="lineno">  703</span>                TempData[<span class="stringliteral">&quot;RecoveryCodes&quot;</span>] = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);</div>
-<div class="line"><span class="lineno">  704</span>            }</div>
-<div class="line"><span class="lineno">  705</span>            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; successfully configured 2fa!&quot;</span>);</div>
-<div class="line"><span class="lineno">  706</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorType&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  707</span>        }       </div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00690">690</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  691</span>        {</div>
+<div class="line"><span class="lineno">  692</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  693</span>            </div>
+<div class="line"><span class="lineno">  694</span>            var verificationCode = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model.html#ae3424579e7c9add11c9a52c3e1f87020">VerificationCode</a>.Replace(<span class="stringliteral">&quot; &quot;</span>, <span class="keywordtype">string</span>.Empty).Replace(<span class="stringliteral">&quot;-&quot;</span>, <span class="keywordtype">string</span>.Empty);</div>
+<div class="line"><span class="lineno">  695</span> </div>
+<div class="line"><span class="lineno">  696</span>            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);</div>
+<div class="line"><span class="lineno">  697</span>            <span class="keywordflow">if</span> (isTokenValid)</div>
+<div class="line"><span class="lineno">  698</span>            {</div>
+<div class="line"><span class="lineno">  699</span>                <span class="keywordflow">if</span>(user.IsMfaForce &amp;&amp; user.TwoFactorEnabled==<span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  700</span>                    await _userManager.SetTwoFactorEnabledAsync(user, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  701</span>                    user.IsMfaForce = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  702</span>                    await _userManager.UpdateAsync(user);</div>
+<div class="line"><span class="lineno">  703</span>                }</div>
+<div class="line"><span class="lineno">  704</span>                </div>
+<div class="line"><span class="lineno">  705</span>                TempData[<span class="stringliteral">&quot;RecoveryCodes&quot;</span>] = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);</div>
+<div class="line"><span class="lineno">  706</span>            }</div>
+<div class="line"><span class="lineno">  707</span>            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; successfully configured 2fa!&quot;</span>);</div>
+<div class="line"><span class="lineno">  708</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorType&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  709</span>        }       </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_two_factor_authenticator_view_model_8cs_source.html#l00022">DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel.VerificationCode</a>.</p>
 
@@ -1409,31 +1411,31 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>view TwoFactorLogin</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00230">230</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  231</span>        {</div>
-<div class="line"><span class="lineno">  232</span>            <span class="keywordflow">if</span> (returnUrl != <span class="keyword">null</span>)</div>
-<div class="line"><span class="lineno">  233</span>            {</div>
-<div class="line"><span class="lineno">  234</span>                TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>] = returnUrl;</div>
-<div class="line"><span class="lineno">  235</span>            }</div>
-<div class="line"><span class="lineno">  236</span> </div>
-<div class="line"><span class="lineno">  237</span>            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00232">232</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  233</span>        {</div>
+<div class="line"><span class="lineno">  234</span>            <span class="keywordflow">if</span> (returnUrl != <span class="keyword">null</span>)</div>
+<div class="line"><span class="lineno">  235</span>            {</div>
+<div class="line"><span class="lineno">  236</span>                TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>] = returnUrl;</div>
+<div class="line"><span class="lineno">  237</span>            }</div>
 <div class="line"><span class="lineno">  238</span> </div>
-<div class="line"><span class="lineno">  239</span>            <span class="keywordflow">if</span>(user.TwoFactorType == <a class="code hl_namespace" href="namespace_dot_net_identity.html">DotNetIdentity</a>.<a class="code hl_namespace" href="namespace_dot_net_identity_1_1_models.html">Models</a>.TwoFactorType.Email) {</div>
-<div class="line"><span class="lineno">  240</span>                var token = await _userManager.GenerateTwoFactorTokenAsync(user, <span class="stringliteral">&quot;Email&quot;</span>);</div>
-<div class="line"><span class="lineno">  241</span>                await _emailHelper.<a class="code hl_function" href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">SendAsync</a>(<span class="keyword">new</span>()</div>
-<div class="line"><span class="lineno">  242</span>                    {</div>
-<div class="line"><span class="lineno">  243</span>                        Subject = <span class="stringliteral">&quot;Your 2fa code&quot;</span>,</div>
-<div class="line"><span class="lineno">  244</span>                        Body = $<span class="stringliteral">&quot;Please use this &quot;</span> + token + <span class="stringliteral">&quot; 2fa code to verify your login.&quot;</span>,</div>
-<div class="line"><span class="lineno">  245</span>                        To = user.Email</div>
-<div class="line"><span class="lineno">  246</span>                    });</div>
-<div class="line"><span class="lineno">  247</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: send otp code to &quot;</span> + user.Email);</div>
-<div class="line"><span class="lineno">  248</span>            }</div>
-<div class="line"><span class="lineno">  249</span> </div>
-<div class="line"><span class="lineno">  250</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html">TwoFactorLoginVieWModel</a></div>
-<div class="line"><span class="lineno">  251</span>            {</div>
-<div class="line"><span class="lineno">  252</span>                <a class="code hl_function" href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">TwoFactorType</a> = user.TwoFactorType,</div>
-<div class="line"><span class="lineno">  253</span>            });</div>
-<div class="line"><span class="lineno">  254</span>        }</div>
+<div class="line"><span class="lineno">  239</span>            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();</div>
+<div class="line"><span class="lineno">  240</span> </div>
+<div class="line"><span class="lineno">  241</span>            <span class="keywordflow">if</span>(user.TwoFactorType == <a class="code hl_namespace" href="namespace_dot_net_identity.html">DotNetIdentity</a>.<a class="code hl_namespace" href="namespace_dot_net_identity_1_1_models.html">Models</a>.TwoFactorType.Email) {</div>
+<div class="line"><span class="lineno">  242</span>                var token = await _userManager.GenerateTwoFactorTokenAsync(user, <span class="stringliteral">&quot;Email&quot;</span>);</div>
+<div class="line"><span class="lineno">  243</span>                await _emailHelper.<a class="code hl_function" href="class_dot_net_identity_1_1_helpers_1_1_email_helper.html#a039078f9e8bf831ba45feb21e07e1f50">SendAsync</a>(<span class="keyword">new</span>()</div>
+<div class="line"><span class="lineno">  244</span>                    {</div>
+<div class="line"><span class="lineno">  245</span>                        Subject = <span class="stringliteral">&quot;Your 2fa code&quot;</span>,</div>
+<div class="line"><span class="lineno">  246</span>                        Body = $<span class="stringliteral">&quot;Please use this &quot;</span> + token + <span class="stringliteral">&quot; 2fa code to verify your login.&quot;</span>,</div>
+<div class="line"><span class="lineno">  247</span>                        To = user.Email</div>
+<div class="line"><span class="lineno">  248</span>                    });</div>
+<div class="line"><span class="lineno">  249</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: send otp code to &quot;</span> + user.Email);</div>
+<div class="line"><span class="lineno">  250</span>            }</div>
+<div class="line"><span class="lineno">  251</span> </div>
+<div class="line"><span class="lineno">  252</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html">TwoFactorLoginVieWModel</a></div>
+<div class="line"><span class="lineno">  253</span>            {</div>
+<div class="line"><span class="lineno">  254</span>                <a class="code hl_function" href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">TwoFactorType</a> = user.TwoFactorType,</div>
+<div class="line"><span class="lineno">  255</span>            });</div>
+<div class="line"><span class="lineno">  256</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html">DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel</a></div><div class="ttdoc">the model for TwoFactorLogin view</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_login_vie_w_model_8cs_source.html#l00006">TwoFactorLoginVieWModel.cs:7</a></div></div>
 <div class="ttc" id="anamespace_dot_net_identity_1_1_models_html"><div class="ttname"><a href="namespace_dot_net_identity_1_1_models.html">DotNetIdentity.Models</a></div><div class="ttdef"><b>Definition:</b> <a href="_email_model_8cs_source.html#l00001">EmailModel.cs:2</a></div></div>
 <div class="ttc" id="anamespace_dot_net_identity_html"><div class="ttname"><a href="namespace_dot_net_identity.html">DotNetIdentity</a></div><div class="ttdef"><b>Definition:</b> <a href="_admin_controller_8cs_source.html#l00017">AdminController.cs:18</a></div></div>
@@ -1475,35 +1477,35 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>rediret to return url</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00262">262</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  263</span>        {</div>
-<div class="line"><span class="lineno">  264</span>            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();</div>
-<div class="line"><span class="lineno">  265</span> </div>
-<div class="line"><span class="lineno">  266</span>            <span class="keywordflow">if</span> (user.TwoFactorType == Models.TwoFactorType.Authenticator)</div>
-<div class="line"><span class="lineno">  267</span>            {</div>
-<div class="line"><span class="lineno">  268</span>                var result = vieWModel.IsRecoveryCode ? await _signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>) : await _signInManager.TwoFactorAuthenticatorSignInAsync(vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>, <span class="keyword">true</span>, <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">  269</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  270</span>                {</div>
-<div class="line"><span class="lineno">  271</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Authenticator 2fa verified successfully&quot;</span>);</div>
-<div class="line"><span class="lineno">  272</span>                    <span class="keywordflow">return</span> Redirect(TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>]?.ToString() ?? <span class="stringliteral">&quot;/&quot;</span>);</div>
-<div class="line"><span class="lineno">  273</span>                }</div>
-<div class="line"><span class="lineno">  274</span>                _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Authenticator 2fa verification failed. Invalid otp code&quot;</span>);</div>
-<div class="line"><span class="lineno">  275</span>                ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;5&quot;</span>]);</div>
-<div class="line"><span class="lineno">  276</span>            }</div>
-<div class="line"><span class="lineno">  277</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (user.TwoFactorType == Models.TwoFactorType.Email)</div>
-<div class="line"><span class="lineno">  278</span>            {</div>
-<div class="line"><span class="lineno">  279</span>                var result = vieWModel.IsRecoveryCode ? await _signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>) : await _signInManager.TwoFactorSignInAsync(<span class="stringliteral">&quot;Email&quot;</span>, vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>, <span class="keyword">true</span>, <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">  280</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
-<div class="line"><span class="lineno">  281</span>                {</div>
-<div class="line"><span class="lineno">  282</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Email 2fa verified successfully&quot;</span>);</div>
-<div class="line"><span class="lineno">  283</span>                    <span class="keywordflow">return</span> Redirect(TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>]?.ToString() ?? <span class="stringliteral">&quot;/&quot;</span>);</div>
-<div class="line"><span class="lineno">  284</span>                }</div>
-<div class="line"><span class="lineno">  285</span>                _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Email 2fa verification failed. Invalid otp code&quot;</span>);</div>
-<div class="line"><span class="lineno">  286</span>                ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;5&quot;</span>]);</div>
-<div class="line"><span class="lineno">  287</span>            }</div>
-<div class="line"><span class="lineno">  288</span> </div>
-<div class="line"><span class="lineno">  289</span>            <span class="keywordflow">return</span> View(vieWModel);</div>
-<div class="line"><span class="lineno">  290</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00264">264</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  265</span>        {</div>
+<div class="line"><span class="lineno">  266</span>            var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();</div>
+<div class="line"><span class="lineno">  267</span> </div>
+<div class="line"><span class="lineno">  268</span>            <span class="keywordflow">if</span> (user.TwoFactorType == Models.TwoFactorType.Authenticator)</div>
+<div class="line"><span class="lineno">  269</span>            {</div>
+<div class="line"><span class="lineno">  270</span>                var result = vieWModel.IsRecoveryCode ? await _signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>) : await _signInManager.TwoFactorAuthenticatorSignInAsync(vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>, <span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  271</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  272</span>                {</div>
+<div class="line"><span class="lineno">  273</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Authenticator 2fa verified successfully&quot;</span>);</div>
+<div class="line"><span class="lineno">  274</span>                    <span class="keywordflow">return</span> Redirect(TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>]?.ToString() ?? <span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><span class="lineno">  275</span>                }</div>
+<div class="line"><span class="lineno">  276</span>                _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Authenticator 2fa verification failed. Invalid otp code&quot;</span>);</div>
+<div class="line"><span class="lineno">  277</span>                ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;5&quot;</span>]);</div>
+<div class="line"><span class="lineno">  278</span>            }</div>
+<div class="line"><span class="lineno">  279</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (user.TwoFactorType == Models.TwoFactorType.Email)</div>
+<div class="line"><span class="lineno">  280</span>            {</div>
+<div class="line"><span class="lineno">  281</span>                var result = vieWModel.IsRecoveryCode ? await _signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>) : await _signInManager.TwoFactorSignInAsync(<span class="stringliteral">&quot;Email&quot;</span>, vieWModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">VerificationCode</a>, <span class="keyword">true</span>, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  282</span>                <span class="keywordflow">if</span> (result.Succeeded)</div>
+<div class="line"><span class="lineno">  283</span>                {</div>
+<div class="line"><span class="lineno">  284</span>                    _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Email 2fa verified successfully&quot;</span>);</div>
+<div class="line"><span class="lineno">  285</span>                    <span class="keywordflow">return</span> Redirect(TempData[<span class="stringliteral">&quot;ReturnUrl&quot;</span>]?.ToString() ?? <span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><span class="lineno">  286</span>                }</div>
+<div class="line"><span class="lineno">  287</span>                _logger.LogWarning(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot;Email 2fa verification failed. Invalid otp code&quot;</span>);</div>
+<div class="line"><span class="lineno">  288</span>                ModelState.AddModelError(<span class="keywordtype">string</span>.Empty, _localizer[<span class="stringliteral">&quot;5&quot;</span>]);</div>
+<div class="line"><span class="lineno">  289</span>            }</div>
+<div class="line"><span class="lineno">  290</span> </div>
+<div class="line"><span class="lineno">  291</span>            <span class="keywordflow">return</span> View(vieWModel);</div>
+<div class="line"><span class="lineno">  292</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model_html_acef4e3b64ec4ac16429aa8a7dc2e71fb"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model.html#acef4e3b64ec4ac16429aa8a7dc2e71fb">DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel.VerificationCode</a></div><div class="ttdeci">string VerificationCode</div><div class="ttdoc">the otp code</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_login_vie_w_model_8cs_source.html#l00012">TwoFactorLoginVieWModel.cs:12</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_two_factor_login_vie_w_model_8cs_source.html#l00012">DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel.VerificationCode</a>.</p>
@@ -1536,15 +1538,15 @@ Public Member Functions</h2></td></tr>
 <p>controller action for view TwiFactorType </p>
 <dl class="section return"><dt>Returns</dt><dd>view TwoFactorTaype</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00564">564</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  565</span>        {</div>
-<div class="line"><span class="lineno">  566</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  567</span> </div>
-<div class="line"><span class="lineno">  568</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html">TwoFactorTypeViewModel</a></div>
-<div class="line"><span class="lineno">  569</span>            {</div>
-<div class="line"><span class="lineno">  570</span>                <a class="code hl_function" href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">TwoFactorType</a> = user.TwoFactorType</div>
-<div class="line"><span class="lineno">  571</span>            });</div>
-<div class="line"><span class="lineno">  572</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00566">566</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  567</span>        {</div>
+<div class="line"><span class="lineno">  568</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  569</span> </div>
+<div class="line"><span class="lineno">  570</span>            <span class="keywordflow">return</span> View(<span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html">TwoFactorTypeViewModel</a></div>
+<div class="line"><span class="lineno">  571</span>            {</div>
+<div class="line"><span class="lineno">  572</span>                <a class="code hl_function" href="class_dot_net_identity_1_1_controllers_1_1_user_controller.html#a47b0ae2eca9307b2b2366efc5ee72a56">TwoFactorType</a> = user.TwoFactorType</div>
+<div class="line"><span class="lineno">  573</span>            });</div>
+<div class="line"><span class="lineno">  574</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html">DotNetIdentity.Models.ViewModels.TwoFactorTypeViewModel</a></div><div class="ttdoc">model for TwoFactorType view</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_type_view_model_8cs_source.html#l00006">TwoFactorTypeViewModel.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1582,21 +1584,21 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>rediorect to action TwoFactorType</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00581">581</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  582</span>        {</div>
-<div class="line"><span class="lineno">  583</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
-<div class="line"><span class="lineno">  584</span>            user.TwoFactorType = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html#aa8293185923b93febe0a66be34b6bf4e">TwoFactorType</a>;</div>
-<div class="line"><span class="lineno">  585</span>            await _userManager.UpdateAsync(user);</div>
-<div class="line"><span class="lineno">  586</span>            await _userManager.SetTwoFactorEnabledAsync(user, user.TwoFactorType != Models.TwoFactorType.None);</div>
-<div class="line"><span class="lineno">  587</span> </div>
-<div class="line"><span class="lineno">  588</span>            <span class="keywordflow">if</span> (viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html#aa8293185923b93febe0a66be34b6bf4e">TwoFactorType</a> == Models.TwoFactorType.Authenticator)</div>
-<div class="line"><span class="lineno">  589</span>            {</div>
-<div class="line"><span class="lineno">  590</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; set authenticator as 2fa method. Redirecting to action: TwoFactorAuthenticator&quot;</span>);</div>
-<div class="line"><span class="lineno">  591</span>                <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorAuthenticator&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  592</span>            }</div>
-<div class="line"><span class="lineno">  593</span>            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; set &quot;</span> + user.TwoFactorType.ToString() + <span class="stringliteral">&quot; as 2fa method.&quot;</span>);</div>
-<div class="line"><span class="lineno">  594</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorType&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
-<div class="line"><span class="lineno">  595</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_user_controller_8cs_source.html#l00583">583</a> of file <a class="el" href="_user_controller_8cs_source.html">UserController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  584</span>        {</div>
+<div class="line"><span class="lineno">  585</span>            var user = await _userManager.FindByNameAsync(User.Identity?.Name);</div>
+<div class="line"><span class="lineno">  586</span>            user.TwoFactorType = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html#aa8293185923b93febe0a66be34b6bf4e">TwoFactorType</a>;</div>
+<div class="line"><span class="lineno">  587</span>            await _userManager.UpdateAsync(user);</div>
+<div class="line"><span class="lineno">  588</span>            await _userManager.SetTwoFactorEnabledAsync(user, user.TwoFactorType != Models.TwoFactorType.None);</div>
+<div class="line"><span class="lineno">  589</span> </div>
+<div class="line"><span class="lineno">  590</span>            <span class="keywordflow">if</span> (viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html#aa8293185923b93febe0a66be34b6bf4e">TwoFactorType</a> == Models.TwoFactorType.Authenticator)</div>
+<div class="line"><span class="lineno">  591</span>            {</div>
+<div class="line"><span class="lineno">  592</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; set authenticator as 2fa method. Redirecting to action: TwoFactorAuthenticator&quot;</span>);</div>
+<div class="line"><span class="lineno">  593</span>                <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorAuthenticator&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  594</span>            }</div>
+<div class="line"><span class="lineno">  595</span>            _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + user.UserName + <span class="stringliteral">&quot; set &quot;</span> + user.TwoFactorType.ToString() + <span class="stringliteral">&quot; as 2fa method.&quot;</span>);</div>
+<div class="line"><span class="lineno">  596</span>            <span class="keywordflow">return</span> RedirectToAction(<span class="stringliteral">&quot;TwoFactorType&quot;</span>, <span class="stringliteral">&quot;User&quot;</span>);</div>
+<div class="line"><span class="lineno">  597</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model_html_aa8293185923b93febe0a66be34b6bf4e"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model.html#aa8293185923b93febe0a66be34b6bf4e">DotNetIdentity.Models.ViewModels.TwoFactorTypeViewModel.TwoFactorType</a></div><div class="ttdeci">TwoFactorType TwoFactorType</div><div class="ttdoc">the 2fa type</div><div class="ttdef"><b>Definition:</b> <a href="_two_factor_type_view_model_8cs_source.html#l00012">TwoFactorTypeViewModel.cs:12</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_two_factor_type_view_model_8cs_source.html#l00012">DotNetIdentity.Models.ViewModels.TwoFactorTypeViewModel.TwoFactorType</a>.</p>

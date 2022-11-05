@@ -13,6 +13,7 @@ using Microsoft.Extensions.Localization;
 
 namespace DotNetIdentity.Controllers
 {
+    /// \todo add translation
     /// <summary>
     /// Controller Class for User views
     /// </summary>
@@ -136,7 +137,7 @@ namespace DotNetIdentity.Controllers
             }
             return View(viewModel);
         }
-
+        
         /// <summary>
         /// Controller action for Login view
         /// </summary>
@@ -152,6 +153,7 @@ namespace DotNetIdentity.Controllers
             return View();
         }
 
+        /// \todo Implement Ldap Login
         /// <summary>
         /// Controller POST method for Login view
         /// </summary>

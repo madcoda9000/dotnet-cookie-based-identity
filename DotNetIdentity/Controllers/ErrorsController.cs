@@ -10,6 +10,7 @@ using Serilog.Sinks.MariaDB.Extensions;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace DotNetIdentity.Controllers {
+    /// \todo add translation
     /// <summary>
     /// Controller for error views
     /// </summary>

@@ -16,6 +16,7 @@ using DatatableJS.Data;
 
 namespace DotNetIdentity.Controllers
 {
+    /// \todo add translation
     /// <summary>
     /// Controller Class for Admin views
     /// </summary>
