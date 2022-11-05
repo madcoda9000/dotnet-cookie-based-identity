@@ -39,7 +39,7 @@ This boilerplate provides the following features:
   assign roles\
   enable / disable users
 * provides role management\
-  create / edit roles\
+  create / edit roles
 * provides user selfservice\
   reset password\
   change password\
