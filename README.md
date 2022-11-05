@@ -48,6 +48,8 @@ This boilerplate provides the following features:
 * provides a bootstrap based theme
   only three layout files (Main, Auth, Error)
   easy to customize
+* provides doxygen generated class documentation\
+  take a look [here](https://htmlpreview.github.io/?https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/generated/html/index.html)
 
 ### Ahhh, that's exactly what i need. How can i use that?
 
