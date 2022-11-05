@@ -2,7 +2,7 @@ using System.Reflection;
 using DotNetIdentity.Data;
 using DotNetIdentity.Models.DataModels;
 
-namespace DotNetIdentity.Services.SettingsService {
+namespace DotNetIdentity.Services.SettingsService {    
     /// <summary>
     /// base class for Settings classes
     /// </summary>

@@ -2,6 +2,7 @@ using DotNetIdentity.Data;
 using DotNetIdentity.Models.BusinessModels;
 
 namespace DotNetIdentity.Services.SettingsService {
+    /// \todo add ldap settings class
     /// <summary>
     /// class for settings service
     /// </summary>
