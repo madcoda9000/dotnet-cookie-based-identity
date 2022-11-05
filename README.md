@@ -11,44 +11,44 @@ This boilerplate provides the following features:
 * using .NET Core 6
 * using entity Framework
 * supports MySql, MariaDb and SqlServer
-* Provides Authentication with Identity Framework and LDAP\
-  Login\
-  Register\
-  Forgot Password\
-  Change Password\
-  optional email verification\
-  2fa by Authenticator App (Microsoft or Google)\
+* Provides Authentication with Identity Framework and LDAP
+  Login
+  Register
+  Forgot Password
+  Change Password
+  optional email verification
+  2fa by Authenticator App (Microsoft or Google)
   2fa by email
-* Provides Authorization\
-  Claim based\
+* Provides Authorization
+  Claim based
   role based
-* provides global error handling\
-  for status errors\
+* provides global error handling
+  for status errors
   for exceptions
-* provides application settings service\
+* provides application settings service
   easy to extend settings service with own settings classes\
 * provides session cache in database
-* provides loggin using serilog\
-  audit logging\
-  exception logging\
+* provides loggin using serilog
+  audit logging
+  exception logging
   application logging
-* provides usermanagement\
-  create, edit users\
-  enforce 2fa\
-  set ldap login\
-  assign roles\
+* provides usermanagement
+  create, edit users
+  enforce 2fa
+  set ldap login
+  assign roles
   enable / disable users
-* provides role management\
+* provides role management
   create / edit roles
-* provides user selfservice\
-  reset password\
-  change password\
-  edit profile\
+* provides user selfservice
+  reset password
+  change password
+  edit profile
   edit profile picture (stored in database)
-* provides a bootstrap based theme\
-  only three layout files (Main, Auth, Error)\
+* provides a bootstrap based theme
+  only three layout files (Main, Auth, Error)
   easy to customize
 
-Ahhh, that's exactly what i need. How can i use that?
+### Ahhh, that's exactly what i need. How can i use that?
 
 so, than take a look at the install [instructions](https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/Install.md).
