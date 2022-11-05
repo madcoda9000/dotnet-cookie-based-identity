@@ -33,6 +33,8 @@ builder.Services.AddMvc()
     .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
 
+
+
 // configure localization options
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -61,12 +63,46 @@ builder.Services.AddScoped<TwoFactorAuthenticationService>();
 if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "MySql")
 {
     var connectionString = builder.Configuration.GetConnectionString("MySql");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient); ;
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient); 
+
+    // add distributed mysql server session cache
+    builder.Services.AddDistributedMySqlCache(options => {
+        options.ConnectionString = builder.Configuration.GetConnectionString("MySql");
+        options.SchemaName = "IdentityTest";
+        options.TableName = "AppSessionCache";
+        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);
+    });
+    builder.Services.AddSession(options =>
+        {
+            options.Cookie.Name = "SessionCookie";
+            options.IdleTimeout = TimeSpan.FromMinutes(180);
+            options.Cookie.IsEssential = true;
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            options.Cookie.SameSite = SameSiteMode.Lax;
+        });
 }
 else if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqlServer")
 {
     var connectionString = builder.Configuration.GetConnectionString("SqlServer");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient); ;
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient); 
+
+    // add distributed mysql server session cache
+    builder.Services.AddDistributedSqlServerCache(options => {
+        options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
+        options.SchemaName = "IdentityTest";
+        options.TableName = "AppSessionCache";
+        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);
+    });
+    builder.Services.AddSession(options =>
+        {
+            options.Cookie.Name = "SessionCookie";
+            options.IdleTimeout = TimeSpan.FromMinutes(180);
+            options.Cookie.IsEssential = true;
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            options.Cookie.SameSite = SameSiteMode.Lax;
+        });
 }
 
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
@@ -102,31 +138,14 @@ builder.Services.ConfigureApplicationCookie(options =>
         Name = "IdentityCookie",
         HttpOnly = true,
         SameSite = SameSiteMode.Lax,
-        SecurePolicy = CookieSecurePolicy.Always     
+        SecurePolicy = CookieSecurePolicy.Always
     };    
     options.SlidingExpiration = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(Convert.ToInt32(builder.Configuration.GetSection("AppSettings").GetSection("SessionCookieExpiration").Value));
 });
 builder.Services.AddAuthentication();
 
-/*
-.AddFacebook(options =>
-{
-    options.AppId = builder.Configuration.GetValue<string>("ExternalLoginProviders:Facebook:AppId");
-    options.AppSecret = builder.Configuration.GetValue<string>("ExternalLoginProviders:Facebook:AppSecret");
-    // options.CallbackPath = new PathString("/User/FacebookCallback");
-})
-.AddGoogle(options =>
-{
-    options.ClientId = builder.Configuration.GetValue<string>("ExternalLoginProviders:Google:ClientId");
-    options.ClientSecret = builder.Configuration.GetValue<string>("ExternalLoginProviders:Google:ClientSecret");
-})
-.AddMicrosoftAccount(options =>
-{
-    options.ClientId = builder.Configuration.GetValue<string>("ExternalLoginProviders:Microsoft:ClientId");
-    options.ClientSecret = builder.Configuration.GetValue<string>("ExternalLoginProviders:Microsoft:ClientSecret");
-});
-*/
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("HrDepartmentPolicy", policy =>
@@ -184,6 +203,8 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 // if you want to log every request detail, enable this
 //app.UseSerilogRequestLogging();

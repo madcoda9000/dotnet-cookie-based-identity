@@ -16,15 +16,46 @@ using DatatableJS.Data;
 
 namespace DotNetIdentity.Controllers
 {
+    /// <summary>
+    /// Controller Class for Admin views
+    /// </summary>
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
+        /// <summary>
+        /// Property of type Microsoft.AspNetCore.Identity.UserManager
+        /// </summary>
         private readonly UserManager<AppUser> _userManager;
+        /// <summary>
+        /// Property of type Microsoft.AspNetCore.Identity.RoleManager
+        /// </summary>
         private readonly RoleManager<AppRole> _roleManager;
+        /// <summary>
+        /// Property of type Microsoft.AspNetCore.Identity.SignInManager
+        /// </summary>
         private readonly SignInManager<AppUser> _signInManager;
+        /// <summary>
+        /// Property of type Microsoft.Extensions.Configuration.IConfiguration
+        /// </summary>
         private readonly IConfiguration _configuration;
+        /// <summary>
+        /// Property of type Microsoft.Extensions.Logging.ILogger
+        /// </summary>
         private readonly ILogger<AdminController> _logger;
+        /// <summary>
+        /// Property of type DotNetIdentity.Data.AppDbContext
+        /// </summary>
         private readonly AppDbContext _context;
+
+        /// <summary>
+        /// Controller Class constructor
+        /// </summary>
+        /// <param name="db">type DotNetIdentity.Data.AppDbContext</param>
+        /// <param name="log">type Microsoft.Extensions.Logging.ILogger</param>
+        /// <param name="conf">type Microsoft.Extensions.Configuration.IConfiguration</param>
+        /// <param name="userManager">type Microsoft.AspNetCore.Identity.UserManager</param>
+        /// <param name="roleManager">type Microsoft.AspNetCore.Identity.RoleManager</param>
+        /// <param name="signInManager">type Microsoft.AspNetCore.Identity.SignInManager</param>
         public AdminController(AppDbContext db, ILogger<AdminController> log, IConfiguration conf, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
@@ -35,16 +66,42 @@ namespace DotNetIdentity.Controllers
             _context = db;
         }
 
+        /// <summary>
+        /// Controller Action for Index
+        /// </summary>
+        /// <returns>View of type DotnetIdentity.Views.Admin.Index</returns>
         public IActionResult Index() => View();
+        /// <summary>
+        /// Controller Action for SystemLogs
+        /// </summary>
+        /// <returns>View of type DotnetIdentity.Views.Admin.SystemLogs</returns>
         public IActionResult SystemLogs() => View();
-
+        /// <summary>
+        /// Controller Action for AutditLogs
+        /// </summary>
+        /// <returns>View of type DotnetIdentity.Views.Admin.AuditLogs</returns>
         public IActionResult AuditLogs() => View();
+        /// <summary>
+        /// Controller Action for ErrorLogs
+        /// </summary>
+        /// <returns>View of type DotnetIdentity.Views.Admin.Errorogs</returns>
         public IActionResult ErrorLogs() => View();
-
-        public async Task<IActionResult> Users() => View(await _userManager.Users.ToListAsync());
-        
+        /// <summary>
+        /// Controller Action for Users
+        /// </summary>
+        /// <returns>View of type DotnetIdentity.Views.Admin.Users</returns>
+        public async Task<IActionResult> Users() => View(await _userManager.Users.ToListAsync());      
+        /// <summary>
+        /// Controller Action for Roles
+        /// </summary>
+        /// <returns>View of type DotnetIdentity.Views.Admin.Users</returns>  
         public async Task<IActionResult> Roles() => View(await _roleManager.Roles.ToListAsync());
 
+        /// <summary>
+        /// Controller Post Method to fetch ErrorLogs
+        /// </summary>
+        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
+        /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
         public IActionResult GetErrorLogs(DataRequest request)
         {
@@ -52,6 +109,11 @@ namespace DotNetIdentity.Controllers
             return Json(result);
         }
 
+        /// <summary>
+        /// Controller Post Method to fetch Applicationlogs
+        /// </summary>
+        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
+        /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
         public IActionResult GetAppLogs(DataRequest request)
         {
@@ -59,6 +121,11 @@ namespace DotNetIdentity.Controllers
             return Json(result);
         }
 
+        /// <summary>
+        /// Controller Post Method to fetch AuditLogs
+        /// </summary>
+        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
+        /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
         public IActionResult GetAuditLogs(DataRequest request)
         {
@@ -66,53 +133,21 @@ namespace DotNetIdentity.Controllers
             return Json(result);
         }
 
+        /// <summary>
+        /// Controller Post Method to fetch Users
+        /// </summary>
+        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
+        /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
         public JsonResult GetUsers(DataRequest request) {
             DataResult<AppUser> result = _userManager.Users.ToDataResult(request);
             return Json(result);
         }
 
-        [HttpPost]
-        public IActionResult GetUsersVanillaDatatableJs()
-        {
-            try
-            {
-                var draw = Request.Form["draw"].FirstOrDefault();
-                var start = Request.Form["start"].FirstOrDefault();
-                var length = Request.Form["length"].FirstOrDefault();
-                var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
-                var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
-                var searchValue = Request.Form["search[value]"].FirstOrDefault();
-                int pageSize = length != null ? Convert.ToInt32(length) : 0;
-                int skip = start != null ? Convert.ToInt32(start) : 0;
-                int recordsTotal = 0;
-                var customerData = (from us in _userManager.Users select us);
-                if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
-                {
-                    if(sortColumn!.ToLower()=="email") {
-                        customerData = customerData.OrderBy(u=>u.Email);
-                    } else if(sortColumn.ToLower()=="username") {
-                        customerData = customerData.OrderBy(u=>u.Email);
-                    }                    
-                }
-                if (!string.IsNullOrEmpty(searchValue))
-                {
-                    customerData = customerData.Where(m => m.FirstName!.Contains(searchValue) 
-                                                || m.LastName!.Contains(searchValue) 
-                                                || m.UserName.Contains(searchValue) 
-                                                || m.Email.Contains(searchValue) );
-                }
-                recordsTotal = customerData.Count();
-                var data = customerData.Skip(skip).Take(pageSize).ToList();
-                var jsonData = new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data };
-                return Ok(jsonData);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        /// Controller Action for NewUser view
+        /// </summary>
+        /// <returns>view of type DotnetIdentity.Views.Admin.NewUser</returns>
         public async Task<IActionResult> NewUser() {
             var mod = new NewUserModel();
             mod.Roles = await _roleManager.Roles.Select(s => new AssignRoleViewModel
@@ -125,6 +160,11 @@ namespace DotNetIdentity.Controllers
             return View(mod);
         }
 
+        /// <summary>
+        /// controler Post Method to save a new User
+        /// </summary>
+        /// <param name="viewModel">type DotnetIdentity.Models.ViewModels.NewUserModel</param>
+        /// <returns>view of type DotnetIdentity.Views.Admin.NewUser</returns>
         [HttpPost]
         public async Task<ActionResult> NewUser(NewUserModel viewModel)
         {
@@ -165,7 +205,11 @@ namespace DotNetIdentity.Controllers
             return View(new NewUserModel());
         }
 
-
+        /// <summary>
+        /// Controller Action for view UpsertRole
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>view of type Dotnetidentity.Views.Admin.UpsertRole</returns>
         public async Task<IActionResult> UpsertRole(string? id)
         {
             if (id != null)
@@ -177,6 +221,11 @@ namespace DotNetIdentity.Controllers
             return View(new UpsertRoleViewModel());
         }
 
+        /// <summary>
+        /// Controller GET Method to disable a user account
+        /// </summary>
+        /// <param name="UserId">the id of the user</param>
+        /// <returns>json object (true / false)</returns>
         [HttpGet]
         public async Task<ActionResult> DisableUser(string UserId) {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -189,6 +238,11 @@ namespace DotNetIdentity.Controllers
             return Json(new {success = true});
         }
 
+        /// <summary>
+        /// Controller GET Method to enable a user account
+        /// </summary>
+        /// <param name="UserId">the id of the user</param>
+        /// <returns>json object (true / false)</returns>
         [HttpGet]
         public async Task<ActionResult> EnableUser(string UserId) {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -201,6 +255,11 @@ namespace DotNetIdentity.Controllers
             return Json(new {success = true});
         }
 
+        /// <summary>
+        /// Controller GET Method to enable ldap login for a user account
+        /// </summary>
+        /// <param name="UserId">the id of the user</param>
+        /// <returns>json object (true / false)</returns>
         [HttpGet]
         public async Task<ActionResult> EnableLdapLogin(string UserId) {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -213,6 +272,11 @@ namespace DotNetIdentity.Controllers
             return Json(new {success = true});
         }
 
+        /// <summary>
+        /// Controller GET Method to disable ldap login for a user account
+        /// </summary>
+        /// <param name="UserId">the id of the user</param>
+        /// <returns>json object (true / false)</returns>
         [HttpGet]
         public async Task<ActionResult> DisableLdapLogin(string UserId) {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -225,6 +289,11 @@ namespace DotNetIdentity.Controllers
             return Json(new {success = true});
         }
 
+        /// <summary>
+        /// Controller GET Method to enable mfa enforcement for a user account
+        /// </summary>
+        /// <param name="UserId">the id of the user</param>
+        /// <returns>json object (true / false)</returns>
         [HttpGet]
         public async Task<ActionResult> EnableMfaForce(string UserId) {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -237,6 +306,11 @@ namespace DotNetIdentity.Controllers
             return Json(new {success = true});
         }
 
+        /// <summary>
+        /// Controller GET Method to disable mfa enforcement for a user account
+        /// </summary>
+        /// <param name="UserId">the id of the user</param>
+        /// <returns>json object (true / false)</returns>
         [HttpGet]
         public async Task<ActionResult> DisableMfaForce(string UserId) {
             var user = await _userManager.FindByIdAsync(UserId);
@@ -249,6 +323,11 @@ namespace DotNetIdentity.Controllers
             return Json(new {success = true});
         }
 
+        /// <summary>
+        /// Controller POST Method to enable a user account
+        /// </summary>
+        /// <param name="viewModel">tmodel of type Dotnetidentity.Models.ViewModels.UpsertRoleViewModel</param>
+        /// <returns>redirect to controller action Roles</returns>
         [HttpPost]
         public async Task<IActionResult> UpsertRole(UpsertRoleViewModel viewModel)
         {
@@ -282,6 +361,11 @@ namespace DotNetIdentity.Controllers
             return RedirectToAction("Roles");
         }
 
+        /// <summary>
+        /// Controller POST Method to delete a user account
+        /// </summary>
+        /// <param name="id">the id of the user</param>
+        /// <returns>redirect to controller action Users</returns>
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string id) {
             var user = await _userManager.FindByIdAsync(id);
@@ -297,6 +381,11 @@ namespace DotNetIdentity.Controllers
             return RedirectToAction("Users");
         }
 
+        /// <summary>
+        /// Controller POST Method to enable a role
+        /// </summary>
+        /// <param name="id">id of the role</param>
+        /// <returns>redirect to controller action Roles</returns>
         [HttpPost]
         public async Task<IActionResult> DeleteRole(string id)
         {
@@ -317,6 +406,11 @@ namespace DotNetIdentity.Controllers
             return RedirectToAction("Roles");
         }
 
+        /// <summary>
+        /// Controller action to serve the EditUserView
+        /// </summary>
+        /// <param name="id">the id of the user</param>
+        /// <returns>view of type DotNetIdentity.Models.ViewModels.EditUserViewModel</returns>
         public async Task<IActionResult> EditUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -344,6 +438,11 @@ namespace DotNetIdentity.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// Controller POST Method to save user changes
+        /// </summary>
+        /// <param name="viewModel">a model of type Dotnetidentity.Models.ViewModels.EditUserViewModel</param>
+        /// <returns>view of type Dotnetidentity.Views.Admin.EditUser</returns>
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserViewModel viewModel)
         {

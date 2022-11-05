@@ -3,8 +3,17 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DotNetIdentity.IdentitySettings.Validators
 {
+    /// <summary>
+    /// class to validate IdentityUser
+    /// </summary>
     public class UserValidator : IUserValidator<AppUser>
     {
+        /// <summary>
+        /// Task to validate IdentityUser
+        /// </summary>
+        /// <param name="manager">UserManager</param>
+        /// <param name="user">AppUser</param>
+        /// <returns>Task of type IdentiyResult</returns>
         public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user)
         {
             var errors = new List<IdentityError>();

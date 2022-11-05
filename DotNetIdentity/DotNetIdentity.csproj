@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>d9d51d69-d281-49a8-8ef6-c4a35f42b6a6</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,12 +19,14 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="6.0.10" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Pomelo.Extensions.Caching.MySql" Version="2.1.2" />
     <PackageReference Include="serilog.aspnetcore" Version="6.0.1" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
     <PackageReference Include="serilog.Sinks.Mariadb" Version="1.0.1" />
@@ -37,6 +40,7 @@
     <None Remove="DatatableJS" />
     <None Remove="DatatableJS.Data" />
     <None Remove="Newtonsoft.Json" />
+    <None Remove="docfx.console" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\assets\images\bg\4853433.png" />

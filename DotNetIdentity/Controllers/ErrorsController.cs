@@ -10,8 +10,15 @@ using Serilog.Sinks.MariaDB.Extensions;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace DotNetIdentity.Controllers {
+    /// <summary>
+    /// Controller for error views
+    /// </summary>
     public class ErrorsController : Controller
     {
+        /// <summary>
+        /// controller action for ErrorEx view
+        /// </summary>
+        /// <returns>view ErrorEx</returns>
         public IActionResult ErrorEx()
         {
             var exceptionFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
@@ -28,6 +35,11 @@ namespace DotNetIdentity.Controllers {
             return View();
         }
 
+        /// <summary>
+        /// Controller action for ErrorCd view
+        /// </summary>
+        /// <param name="statusCode"></param>
+        /// <returns> view ErrorCd</returns>
         [Route("Errors/ErrorCd/{statusCode}")]
         public IActionResult ErrorCd(int statusCode)
         {

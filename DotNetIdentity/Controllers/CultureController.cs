@@ -11,9 +11,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetIdentity.Controllers
 {
+    /// <summary>
+    /// controller for culture settings
+    /// </summary>
     public class CultureController : Controller
     {
-
+        /// <summary>
+        /// controller POST method to set current culture
+        /// </summary>
+        /// <param name="culture">the culture as string</param>
+        /// <param name="returnUrl">the return url as string</param>
+        /// <returns>a local redirect to variable returnUrl</returns>
         [HttpPost]
         public IActionResult SetCulture(string culture, string returnUrl)
         {

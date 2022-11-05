@@ -6,14 +6,38 @@ using DotNetIdentity.Models.DataModels;
 
 namespace DotNetIdentity.Data
 {
+    /// <summary>
+    /// Application Database context class
+    /// </summary>
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
-        
+        /// <summary>
+        /// class constructor
+        /// </summary>
+        /// <param name="options">type DbContextOptions</param>
+        /// <returns></returns>
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {        
         }
+        /// <summary>
+        /// Property AppLogs
+        /// </summary>
+        /// <value></value>
         public DbSet<AppLogs>? AppLogs {get;set;}
+        /// <summary>
+        /// property AppSettings
+        /// </summary>
+        /// <value></value>
         public DbSet<ApplicationSettings>? AppSettings {get;set;}
+        /// <summary>
+        /// property AppSessionCache
+        /// </summary>
+        /// <value></value>
+        public DbSet<SessionCache>? AppSessionCache {get;set;}
 
+        /// <summary>
+        /// Overriding OnModelCreation to seed intitial data
+        /// </summary>
+        /// <param name="builder">type ModelBuilder</param>
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);      

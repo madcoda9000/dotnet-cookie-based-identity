@@ -3,8 +3,18 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DotNetIdentity.IdentitySettings.Validators
 {
+    /// <summary>
+    /// class to validate a password
+    /// </summary>
     public class PasswordValidator : IPasswordValidator<AppUser>
     {
+        /// <summary>
+        /// Task to validate a password
+        /// </summary>
+        /// <param name="manager">UserManager</param>
+        /// <param name="user">AppUser</param>
+        /// <param name="password">string</param>
+        /// <returns>Task of type IdentityResult</returns>
         public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user, string password)
         {
             var errors = new List<IdentityError>();

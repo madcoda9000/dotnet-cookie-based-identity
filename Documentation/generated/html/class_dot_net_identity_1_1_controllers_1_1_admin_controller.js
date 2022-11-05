@@ -1,0 +1,28 @@
+var class_dot_net_identity_1_1_controllers_1_1_admin_controller =
+[
+    [ "AdminController", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a125d56d01c513f83a34167f903d1b2e2", null ],
+    [ "AuditLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a56a981db0e34d5b95d97da053d59f90c", null ],
+    [ "DeleteRole", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#aa570b5cef28f1c3dda939971a2bc0f44", null ],
+    [ "DeleteUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#ab1c7981b89ddff2100c7bd201cf45766", null ],
+    [ "DisableLdapLogin", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#adec1057b9574f3fdb012e75c5c425409", null ],
+    [ "DisableMfaForce", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a17c792f0c3526066cfca21d73fabd569", null ],
+    [ "DisableUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a868434f4412ed75643c1e09b3772896e", null ],
+    [ "EditUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a5af2b4d9b15eee2ef5d28600aacc6ace", null ],
+    [ "EditUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#afe437521759b5fd93d0bb4bbbddfce15", null ],
+    [ "EnableLdapLogin", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a968549db1c46319c67839ab9a29db384", null ],
+    [ "EnableMfaForce", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a717d7b1ad7653611b7cd5b507bdedeb1", null ],
+    [ "EnableUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#acafca207dc626b8405c100dae372339e", null ],
+    [ "ErrorLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a21e35248bf081cd805ef51cbeb87f729", null ],
+    [ "GetAppLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#ae837cd1bca6ffa486e8ef1d124be8c45", null ],
+    [ "GetAuditLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a765780fbe678b84fb1532c873f761015", null ],
+    [ "GetErrorLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a33a0ae1d862e6fc8fe837379f1e71871", null ],
+    [ "GetUsers", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#ab36c5deb1c4f3f99e316543f66b40b58", null ],
+    [ "Index", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a5f4b2842f8473f14a5e10470d3bd1d5b", null ],
+    [ "NewUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#adaca6a26e3d091e4670aa37d0aa26095", null ],
+    [ "NewUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a64bc568ac775c29e358c37f1b6eb9a6f", null ],
+    [ "Roles", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a35b4e53a2140e145b65b14f83f490c1e", null ],
+    [ "SystemLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a013444bd9f40b5a78e04c0c7a2463736", null ],
+    [ "UpsertRole", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a9da4db41821b95a045487b957546ad4e", null ],
+    [ "UpsertRole", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a94f52c0e032a774cc8d1590d6688d101", null ],
+    [ "Users", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a190d9931cae4a99e50d8f47730b8445e", null ]
+];

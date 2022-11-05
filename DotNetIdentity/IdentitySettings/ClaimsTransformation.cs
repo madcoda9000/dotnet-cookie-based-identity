@@ -5,17 +5,36 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DotNetIdentity.IdentitySettings
 {
+    /// <summary>
+    /// class to define own claims
+    /// </summary>
     public class ClaimsTransformation : IClaimsTransformation
     {
+        /// <summary>
+        /// UserManager property
+        /// </summary>
         private readonly UserManager<AppUser> _userManager;
+        /// <summary>
+        /// RoleManager property
+        /// </summary>
         private readonly RoleManager<AppRole> _roleManager;
 
+        /// <summary>
+        /// class constructor
+        /// </summary>
+        /// <param name="userManager">UserManager</param>
+        /// <param name="roleManager">RoleManager</param>
         public ClaimsTransformation(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
         }
 
+        /// <summary>
+        /// Task to add claims to identoty
+        /// </summary>
+        /// <param name="principal">ClaimsPrincipal</param>
+        /// <returns>ClaimsPrincipal</returns>
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
             var identity = principal.Identity as ClaimsIdentity;

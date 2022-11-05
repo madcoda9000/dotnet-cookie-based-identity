@@ -3,12 +3,23 @@ using DotNetIdentity.Data;
 using DotNetIdentity.Models.DataModels;
 
 namespace DotNetIdentity.Services.SettingsService {
+    /// <summary>
+    /// base class for Settings classes
+    /// </summary>
     public abstract class AppSettingsBase {
 
-        // 1 name and properties cached in readonly fields
+        /// <summary>
+        /// name property
+        /// </summary>
         private readonly string _name;
+        /// <summary>
+        /// propertyinfo array
+        /// </summary>
         private readonly PropertyInfo[] _properties;
 
+        /// <summary>
+        /// class constructor
+        /// </summary>
         public AppSettingsBase()
         {
             var type = this.GetType();
@@ -17,6 +28,10 @@ namespace DotNetIdentity.Services.SettingsService {
             _properties = type.GetProperties();
         }
 
+        /// <summary>
+        /// load method
+        /// </summary>
+        /// <param name="unitOfWork">type DbContext</param>
         public virtual void Load(AppDbContext unitOfWork)
         {
             // ARGUMENT CHECKING SKIPPED FOR BREVITY
@@ -35,6 +50,10 @@ namespace DotNetIdentity.Services.SettingsService {
             }
         }
 
+        /// <summary>
+        /// save method
+        /// </summary>
+        /// <param name="unitOfWork">type DbContext</param>
         public virtual void Save(AppDbContext unitOfWork)
         {
             // 5 load existing settings for this type

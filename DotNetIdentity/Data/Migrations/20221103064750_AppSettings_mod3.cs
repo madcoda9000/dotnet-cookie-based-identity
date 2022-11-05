@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+#pragma warning disable 1591
 
 namespace DotNetIdentity.Data.Migrations
 {
@@ -93,3 +94,4 @@ namespace DotNetIdentity.Data.Migrations
         }
     }
 }
+#pragma warning restore 1591 

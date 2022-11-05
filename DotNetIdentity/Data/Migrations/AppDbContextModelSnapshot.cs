@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
+#pragma warning disable 1591
 
 namespace DotNetIdentity.Data.Migrations
 {
@@ -19,41 +20,7 @@ namespace DotNetIdentity.Data.Migrations
                 .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("DotNetIdentity.Data.AppLogs", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Exception")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Level")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("MessageTemplate")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Properties")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Timestamp")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AppLogs");
-                });
-
-            modelBuilder.Entity("DotNetIdentity.Models.BusinessModels.ApplicationSettings", b =>
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.ApplicationSettings", b =>
                 {
                     b.Property<string>("Name")
                         .HasColumnType("varchar(255)");
@@ -131,6 +98,62 @@ namespace DotNetIdentity.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.AppLogs", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Exception")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("MessageTemplate")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Properties")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Timestamp")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.ToTable("AppLogs");
+                });
+
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.SessionCache", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTime?>("AbsoluteExpiration")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("ExpiresAtTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("SlidingExpirationInSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("Value")
+                        .HasColumnType("longblob");
+
+                    b.HasKey("id");
+
+                    b.ToTable("AppSessionCache");
+                });
+
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
@@ -163,7 +186,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "3925e099-a2d3-4d89-8bfe-7ba70f5cb040",
+                            ConcurrencyStamp = "fcca32ee-4cee-445f-8be0-92375f7a12d1",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -171,7 +194,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "6d4a6a0a-f3c1-4f81-b00d-4382531940c7",
+                            ConcurrencyStamp = "6594291f-d352-4269-855b-8abc0ab18e01",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -179,7 +202,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "619d5df4-b945-445c-80e9-1374fd8efcb0",
+                            ConcurrencyStamp = "99b2b129-74d0-40ec-8892-e679d560c74f",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -187,7 +210,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "c59f82da-57a3-407c-824b-5e302ee2ed5d",
+                            ConcurrencyStamp = "07f2c15c-a1a3-4840-87a6-645446d15f0f",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -296,7 +319,7 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "e289740f-25ea-4af7-8adf-ea5f2a685447",
+                            ConcurrencyStamp = "0bd8f427-6b8a-444c-b34e-ba42537137da",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -310,9 +333,9 @@ namespace DotNetIdentity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOTyCG3wnT1huKQ5dB3Wn125QqDaNVsR/hbK9waxmO+d7FAy3fIcX9msY62WUgzaYQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEImvoKdoqh4RAms6fLIxbS8vshGY7MoW37zCdI/DIKK/br9dE33l7dugU7bxT4YiTQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8292556-e17a-4aed-8e8e-14d50546c4fc",
+                            SecurityStamp = "9188049f-056e-45f0-bb3b-706ce2102631",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"
@@ -478,7 +501,7 @@ namespace DotNetIdentity.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618
+#pragma warning restore 612, 618, 1591
         }
     }
 }

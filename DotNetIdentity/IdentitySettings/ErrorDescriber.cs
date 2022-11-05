@@ -2,17 +2,25 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DotNetIdentity.IdentitySettings
 {
+    /// <summary>
+    /// class to override IdentityErrorDescriber IdentotyError messages
+    /// </summary>
     public class ErrorDescriber : IdentityErrorDescriber
-    {
-        public override IdentityError InvalidUserName(string userName) => new() { Code = "InvalidUserName", Description = $"\"{userName}\" kullanıcı adı geçersiz." };
-
-        public override IdentityError DuplicateEmail(string email) => new() { Code = "DuplicateEmail", Description = $"\"{email}\" adresi kullanımdadır." };
-
-        public override IdentityError PasswordTooShort(int length) => new() { Code = "PasswordTooShort", Description = $"Şifre en az {length} karakter olmalıdır." };
-
-        // Custom Errors
+    {       
+        /// <summary>
+        /// custom IdentityError if password contains username
+        /// </summary>
+        /// <returns>IdentityError</returns>
         public static IdentityError PasswordContainsUsername() => new() { Code = "PasswordContainsUsername", Description = "Password can not contains user name." };
+        /// <summary>
+        /// custom IdentityError if username length is too short
+        /// </summary>
+        /// <returns>IdentityError</returns>
         public static IdentityError UserNameLength() => new() { Code = "UserNameLength", Description = "User name must be at least 6 characters." };
+        /// <summary>
+        /// custom IdentityError if username contains user email
+        /// </summary>
+        /// <returns>IdentityError</returns>
         public static IdentityError UserNameContainsEmail() => new() { Code = "UserNameContainsEmail", Description = "User name can not contains email name." };
     }
 }

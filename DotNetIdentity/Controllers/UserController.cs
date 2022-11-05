@@ -13,16 +13,50 @@ using Microsoft.Extensions.Localization;
 
 namespace DotNetIdentity.Controllers
 {
+    /// <summary>
+    /// Controller Class for User views
+    /// </summary>
     public class UserController : Controller
     {
+        /// <summary>
+        /// Property of type UserManager
+        /// </summary>
         private readonly UserManager<AppUser> _userManager;
+        /// <summary>
+        /// Property of type SignInManager
+        /// </summary>
         private readonly SignInManager<AppUser> _signInManager;
+        /// <summary>
+        /// Property of type IWebHostEnviroment
+        /// </summary>
         private readonly IWebHostEnvironment _hostEnvironment;
+        /// <summary>
+        /// Property of type EmailHelper
+        /// </summary>
         private readonly EmailHelper _emailHelper;
+        /// <summary>
+        /// Property of type TwoFactorAUthenticationService
+        /// </summary>
         private readonly TwoFactorAuthenticationService _twoFactorAuthService;
+        /// <summary>
+        /// Property of type ILogger
+        /// </summary>
         private readonly ILogger<UserController> _logger;
+        /// <summary>
+        /// Property of type IStringLocalizer
+        /// </summary>
         private readonly IStringLocalizer<UserController> _localizer;
 
+        /// <summary>
+        /// Controller constructor
+        /// </summary>
+        /// <param name="localizer">type IStringLocalizer</param>
+        /// <param name="log">type ILogger</param>
+        /// <param name="webhostEnviroment">type IwebHostEnviroment</param>
+        /// <param name="userManager">type UserManager</param>
+        /// <param name="signInManager">type SIgnInManager</param>
+        /// <param name="twoFactorAuthService">type TwoFactorAuthService</param>
+        /// <param name="emailHelper">työe EmailHelper</param>
         public UserController(IStringLocalizer<UserController> localizer, ILogger<UserController> log, IWebHostEnvironment webhostEnviroment, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TwoFactorAuthenticationService twoFactorAuthService, EmailHelper emailHelper)
         {
             _userManager = userManager;
@@ -34,14 +68,31 @@ namespace DotNetIdentity.Controllers
             _localizer = localizer;
         }
 
+        /// <summary>
+        /// Controller action for Register view
+        /// </summary>
+        /// <returns>view Register</returns>
         public IActionResult Register() => View();
 
+        /// <summary>
+        /// Controller action for DebugUserInfo view
+        /// </summary>
+        /// <returns>view DebugUserInfo</returns>
         [Authorize]
         public IActionResult debugUserInfo() => View();
 
+        /// <summary>
+        /// Controller action for Ping view
+        /// </summary>
+        /// <returns>view Ping</returns>
         [Authorize]
         public IActionResult ping() => View();
 
+        /// <summary>
+        /// Controller POST method for Register view
+        /// </summary>
+        /// <param name="viewModel"></param>
+        /// <returns>Redirect to action Login </returns>
         [HttpPost]
         public async Task<IActionResult> Register(SignUpViewModel viewModel)
         {
@@ -86,6 +137,11 @@ namespace DotNetIdentity.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// Controller action for Login view
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns>view Login</returns>
         public async Task<IActionResult> Login(string? returnUrl)
         {
             await _signInManager.SignOutAsync();
@@ -96,6 +152,10 @@ namespace DotNetIdentity.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Controller POST method for Login view
+        /// </summary>
+        /// <returns>Redirect to action</returns>
         [HttpPost]
         public async Task<IActionResult> Login(SignInViewModel viewModel)
         {
@@ -162,6 +222,11 @@ namespace DotNetIdentity.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// Controller action for view TwoFactorLogin
+        /// </summary>
+        /// <param name="returnUrl">optional return url as string</param>
+        /// <returns>view TwoFactorLogin</returns>
         public async Task<IActionResult> TwoFactorLogin(string? returnUrl)
         {
             if (returnUrl != null)
@@ -188,6 +253,11 @@ namespace DotNetIdentity.Controllers
             });
         }
 
+        /// <summary>
+        /// controller POST method for TwoFactorLogin view
+        /// </summary>
+        /// <param name="vieWModel">tyle TwoFactorLoginVieWModel</param>
+        /// <returns>rediret to return url</returns>
         [HttpPost]
         public async Task<IActionResult> TwoFactorLogin(TwoFactorLoginVieWModel vieWModel)
         {
@@ -219,8 +289,16 @@ namespace DotNetIdentity.Controllers
             return View(vieWModel);
         }
 
+        /// <summary>
+        /// controller action for Logout
+        /// </summary>
+        /// <returns></returns>
         public async Task Logout() => await _signInManager.SignOutAsync();
 
+        /// <summary>
+        /// controller action for Profile view
+        /// </summary>
+        /// <returns>view Profile</returns>
         [Authorize]
         public async Task<IActionResult> Profile()
         {
@@ -240,6 +318,11 @@ namespace DotNetIdentity.Controllers
             return View(mod);
         }
 
+        /// <summary>
+        /// controller POST methood for Profile view
+        /// </summary>
+        /// <param name="viewModel">type UpdateProfileViewModel</param>
+        /// <returns>redirect to action Index</returns>
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> Profile(UpdateProfileViewModel viewModel)
@@ -308,9 +391,18 @@ namespace DotNetIdentity.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// controller action for ChangePassword view
+        /// </summary>
+        /// <returns>view ChangePassword</returns>
         [Authorize]
         public IActionResult ChangePassword() => View();
 
+        /// <summary>
+        /// controller POST method for ChangePassword view
+        /// </summary>
+        /// <param name="viewModel">ChangePasswordViewModel</param>
+        /// <returns>redirect to action Index</returns>
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel viewModel)
@@ -346,8 +438,17 @@ namespace DotNetIdentity.Controllers
             return View();
         }
 
+        /// <summary>
+        /// controller action for ForgotPassword view
+        /// </summary>
+        /// <returns>view ForgotPassword</returns>
         public IActionResult ForgotPassword() => View();
 
+        /// <summary>
+        /// controller POST method for ForgotPassword view
+        /// </summary>
+        /// <param name="viewModel">ForgotPasswordViewModel</param>
+        /// <returns>redirect to action Index</returns>
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel viewModel)
         {
@@ -381,6 +482,12 @@ namespace DotNetIdentity.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// controller action for ResetPassword view
+        /// </summary>
+        /// <param name="userId">the user id</param>
+        /// <param name="token">the reset token</param>
+        /// <returns>view ResetPassword</returns>
         public IActionResult ResetPassword(string userId, string token)
         {
             if (userId == null || token == null)
@@ -395,6 +502,11 @@ namespace DotNetIdentity.Controllers
             });
         }
 
+        /// <summary>
+        /// controller POST method for ResetPassword view
+        /// </summary>
+        /// <param name="viewModel">type ResetPasswordViewModel</param>
+        /// <returns>redirect to action Login</returns>
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel viewModel)
         {
@@ -423,6 +535,12 @@ namespace DotNetIdentity.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// controller action for ConfirmEmail view
+        /// </summary>
+        /// <param name="userId">the user id</param>
+        /// <param name="token">the confirmation token</param>
+        /// <returns>redirect to action Index</returns>
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -438,6 +556,10 @@ namespace DotNetIdentity.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// controller action for view TwiFactorType
+        /// </summary>
+        /// <returns>view TwoFactorTaype</returns>
         [Authorize]
         public async Task<IActionResult> TwoFactorType()
         {
@@ -449,6 +571,11 @@ namespace DotNetIdentity.Controllers
             });
         }
 
+        /// <summary>
+        /// controller POST method for view TwoFactorType
+        /// </summary>
+        /// <param name="viewModel">TwoFactorTypeViewModel</param>
+        /// <returns>rediorect to action TwoFactorType</returns>
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> TwoFactorType(TwoFactorTypeViewModel viewModel)
@@ -464,9 +591,13 @@ namespace DotNetIdentity.Controllers
                 return RedirectToAction("TwoFactorAuthenticator", "User");
             }
             _logger.LogInformation("AUDIT: " + user.UserName + " set " + user.TwoFactorType.ToString() + " as 2fa method.");
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("TwoFactorType", "User");
         }
 
+        /// <summary>
+        /// controller action for view EnforceTwoFactorAuthenticator
+        /// </summary>
+        /// <returns>view EnforceTwoFactorAuthenticator</returns>
         public async Task<IActionResult> EnforceTwoFactorAuthenticator()
         {
             var user = await _userManager.FindByNameAsync(User.Identity?.Name);
@@ -487,6 +618,11 @@ namespace DotNetIdentity.Controllers
             });
         }
 
+        /// <summary>
+        /// controller POST method for view EnforceTwoFactorAuthenticator
+        /// </summary>
+        /// <param name="viewModel">type TwoFactorAuthenticatorViewModel</param>
+        /// <returns>redirect to action EnforceTwoFactorResult</returns>
         [HttpPost]
         public async Task<IActionResult> EnforceTwoFactorAuthenticator(TwoFactorAuthenticatorViewModel viewModel)
         {
@@ -509,11 +645,19 @@ namespace DotNetIdentity.Controllers
             return RedirectToAction("EnforceTwoFactorResult", "User");
         }
 
+        /// <summary>
+        /// controller action for view EnforceTwoFactorResult
+        /// </summary>
+        /// <returns>view EnforceTwoFactorResult</returns>
         public async Task<IActionResult> EnforceTwoFactorResult() {
             await _signInManager.SignOutAsync();
             return View();
         }
 
+        /// <summary>
+        /// controller action for view TwoFActorAuthenticator
+        /// </summary>
+        /// <returns>view TwoFActorAuthenticator</returns>
         public async Task<IActionResult> TwoFactorAuthenticator()
         {
             var user = await _userManager.FindByNameAsync(User.Identity?.Name);
@@ -535,6 +679,11 @@ namespace DotNetIdentity.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// controller POST method for view TwoFActorAuthenticator
+        /// </summary>
+        /// <param name="viewModel">type TwoFactorAuthenticatorViewModel</param>
+        /// <returns>redirect to action TwoFactorType</returns>
         [HttpPost]
         public async Task<IActionResult> TwoFactorAuthenticator(TwoFactorAuthenticatorViewModel viewModel)
         {
@@ -555,133 +704,6 @@ namespace DotNetIdentity.Controllers
             }
             _logger.LogInformation("AUDIT: " + user.UserName + " successfully configured 2fa!");
             return RedirectToAction("TwoFactorType", "User");
-        }        
-
-        public IActionResult FacebookLogin(string returnUrl)
-        {
-            var redirectUrl = Url.Action("ExternalResponse", "User", new { ReturnUrl = returnUrl });
-            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Facebook", redirectUrl);
-            return new ChallengeResult("Facebook", properties);
-        }
-
-        public IActionResult GoogleLogin(string returnUrl)
-        {
-            var redirectUrl = Url.Action("ExternalResponse", "User", new { ReturnUrl = returnUrl });
-            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
-            return new ChallengeResult("Google", properties);
-        }
-
-        public IActionResult MicrosoftLogin(string returnUrl)
-        {
-            var redirectUrl = Url.Action("ExternalResponse", "User", new { ReturnUrl = returnUrl });
-            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Microsoft", redirectUrl);
-            return new ChallengeResult("Microsoft", properties);
-        }
-
-        public async Task<IActionResult> ExternalResponse(string ReturnUrl = "/")
-        {
-            var loginInfo = await _signInManager.GetExternalLoginInfoAsync();
-            if (loginInfo == null)
-            {
-                return RedirectToAction("Login");
-            }
-
-            var externalLoginResult = await _signInManager.ExternalLoginSignInAsync(loginInfo.LoginProvider, loginInfo.ProviderKey, true);
-            if (externalLoginResult.Succeeded)
-            {
-                return Redirect(ReturnUrl);
-            }
-
-            var externalUserId = loginInfo.Principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var externalEmail = loginInfo.Principal.FindFirst(ClaimTypes.Email)?.Value;
-
-            var existUser = await _userManager.FindByEmailAsync(externalEmail);
-            if (existUser == null)
-            {
-                var user = new AppUser { Email = externalEmail };
-
-                if (loginInfo.Principal.HasClaim(c => c.Type == ClaimTypes.Name))
-                {
-                    var userName = loginInfo.Principal.FindFirst(ClaimTypes.Name)?.Value;
-                    if (userName != null)
-                    {
-                        userName = userName.Replace(' ', '-').ToLower() + externalUserId?.Substring(0, 5);
-                        user.UserName = userName;
-                    }
-                    else
-                    {
-                        user.UserName = user.Email;
-                    }
-                }
-                else
-                {
-                    user.UserName = user.Email;
-                }
-
-                var createResult = await _userManager.CreateAsync(user);
-                if (createResult.Succeeded)
-                {
-                    var loginResult = await _userManager.AddLoginAsync(user, loginInfo);
-                    if (loginResult.Succeeded)
-                    {
-                        // await SignInManager.SignInAsync(user, true);
-                        await _signInManager.ExternalLoginSignInAsync(loginInfo.LoginProvider, loginInfo.ProviderKey, true);
-                        return Redirect(ReturnUrl);
-                    }
-                    else
-                    {
-                        loginResult.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));
-                    }
-                }
-                else
-                {
-                    createResult.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));
-                }
-            }
-            else
-            {
-                var loginResult = await _userManager.AddLoginAsync(existUser, loginInfo);
-                if (loginResult.Succeeded)
-                {
-                    // await SignInManager.SignInAsync(user, true);
-                    await _signInManager.ExternalLoginSignInAsync(loginInfo.LoginProvider, loginInfo.ProviderKey, true);
-                    return Redirect(ReturnUrl);
-                }
-                else
-                {
-                    loginResult.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));
-                }
-            }
-
-            var errors = ModelState.Values.SelectMany(s => s.Errors).Select(s => s.ErrorMessage).ToList();
-
-            return View("Error", errors);
-        }
-
-        public async Task ClaimsPrincipalExample()
-        {
-            var licenceClaims = new List<Claim>
-            {
-                new(ClaimTypes.Name, "Burak"),
-                new("LicenceType", "B"),
-                new("ValidUntil", "2022-09"),
-            };
-
-            var passportClaims = new List<Claim>
-            {
-                new(ClaimTypes.Name, "Burak"),
-                new("ValidUntil", "2042-07"),
-                new(ClaimTypes.Country, "Turkey")
-            };
-
-            var licenceIdentity = new ClaimsIdentity(licenceClaims, "LicenceIdentity");
-            var passportIdentity = new ClaimsIdentity(passportClaims, "PassportIdentity");
-
-            var userPrincipal = new ClaimsPrincipal(new[] { licenceIdentity, passportIdentity });
-
-            var authenticationProperties = new AuthenticationProperties { IsPersistent = true };
-
-            await HttpContext.SignInAsync(userPrincipal, authenticationProperties);
-        }
+        }       
     }
 }

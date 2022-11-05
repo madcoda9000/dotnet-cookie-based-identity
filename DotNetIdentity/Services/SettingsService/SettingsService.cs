@@ -2,16 +2,37 @@ using DotNetIdentity.Data;
 using DotNetIdentity.Models.BusinessModels;
 
 namespace DotNetIdentity.Services.SettingsService {
+    /// <summary>
+    /// class for settings service
+    /// </summary>
     public class SettingsService : ISettingsService {
-        // 1
+    /// <summary>
+    /// global settings property (lazy)
+    /// </summary>
     private readonly Lazy<GlobalSettings> _globalSettings;
-    // 2
+    /// <summary>
+    /// global settings property
+    /// </summary>
+    /// <value></value>
     public GlobalSettings Global { get { return _globalSettings.Value; } }
-
+    /// <summary>
+    /// mail settings property (lazy)
+    /// </summary>
     private readonly Lazy<MailSettings> _mailSettings;
+    /// <summary>
+    /// mail settzings property
+    /// </summary>
+    /// <value></value>
     public MailSettings Mail { get { return _mailSettings.Value; } }
-
+    /// <summary>
+    /// dbcontext property
+    /// </summary>
     private readonly AppDbContext _unitOfWork;
+
+    /// <summary>
+    /// class constructor
+    /// </summary>
+    /// <param name="unitOfWork"></param>
     public SettingsService(AppDbContext unitOfWork)
     {
         // ARGUMENT CHECKING SKIPPED FOR BREVITY
@@ -21,6 +42,9 @@ namespace DotNetIdentity.Services.SettingsService {
         _mailSettings = new Lazy<MailSettings>(CreateSettings<MailSettings>);
     }
 
+    /// <summary>
+    /// sve method
+    /// </summary>
     public void Save()
     {
         // only save changes to settings that have been loaded
@@ -32,7 +56,11 @@ namespace DotNetIdentity.Services.SettingsService {
 
         _unitOfWork.SaveChanges();
     }
-    // 4
+    /// <summary>
+    /// method to create instance of the settings classes
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     private T CreateSettings<T>() where T : AppSettingsBase, new()
     {
         var settings = new T();

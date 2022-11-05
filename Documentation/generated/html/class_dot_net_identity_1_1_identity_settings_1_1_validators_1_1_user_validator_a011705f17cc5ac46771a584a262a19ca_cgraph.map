@@ -1,0 +1,5 @@
+<map id="DotNetIdentity.IdentitySettings.Validators.UserValidator.ValidateAsync" name="DotNetIdentity.IdentitySettings.Validators.UserValidator.ValidateAsync">
+<area shape="rect" id="node1" title="Task to validate IdentityUser" alt="" coords="5,39,252,80"/>
+<area shape="rect" id="node2" href="$class_dot_net_identity_1_1_identity_settings_1_1_error_describer.html#a0b9d619e23c2e3ff14d4b6412aa3cb4f" title="custom IdentityError if username contains user email" alt="" coords="300,5,557,47"/>
+<area shape="rect" id="node3" href="$class_dot_net_identity_1_1_identity_settings_1_1_error_describer.html#a705ebf72e225a8ec38ede8185d091860" title="custom IdentityError if username length is too short" alt="" coords="323,71,534,112"/>
+</map>

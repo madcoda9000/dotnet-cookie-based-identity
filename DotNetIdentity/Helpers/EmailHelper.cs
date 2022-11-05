@@ -6,15 +6,30 @@ using Microsoft.Extensions.Options;
 
 namespace DotNetIdentity.Helpers
 {
+    /// <summary>
+    /// class for email methods
+    /// </summary>
     public class EmailHelper
     {
+        /// <summary>
+        /// Settings calss property
+        /// </summary>
         private ISettingsService _sett;
 
+        /// <summary>
+        /// class constructor
+        /// </summary>
+        /// <param name="sett">type ISettingsService</param>
         public EmailHelper(ISettingsService sett)
         {
             _sett = sett;
         }
 
+        /// <summary>
+        /// method to send a mail
+        /// </summary>
+        /// <param name="model">type EmailModel</param>
+        /// <returns></returns>
         public async Task SendAsync(EmailModel model)
         {
             var mail = new MailMessage
