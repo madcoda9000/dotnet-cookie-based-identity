@@ -51,4 +51,4 @@ This boilerplate provides the following features:
 
 Ahhh, that's exactly what i need. How can i use that?
 
-so, than take a look at the install [instructions](../Documentation/Install.md).
+so, than take a look at the install [instructions](https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/Install.md).
