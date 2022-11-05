@@ -11,8 +11,8 @@ This boilerplate provides the following features:
 * using .NET Core 6
 * using entity Framework
 * supports MySql, MariaDb and SqlServer
-* Provides Authentication with Identity Framework and LDAP
-  Login
+* Provides Authentication with Identity Framework and LDAP 
+  Login 
   Register
   Forgot Password
   Change Password
