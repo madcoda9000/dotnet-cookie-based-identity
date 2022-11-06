@@ -4,7 +4,7 @@
 
 Everyone knows, if you start a new project you've to implement core things like: Authentication, Authorization, User management, Roles management, Logging, Errorhandling etc...
 
-I was tired of doing so and created this boilerplate. I was inspired by this Article [ASP.NET Core Identity: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
+I was tired of doing so and created this boilerplate. I was isnpired by this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
 
 This boilerplate provides the following features:
 
@@ -21,13 +21,13 @@ This boilerplate provides the following features:
   2fa by email
 * Provides Authorization\
   Claim based\
-  role based
+  role based\
 * provides global error handling\
   for status errors\
   for exceptions
-* provides application settings service
-  easy to extend settings service with own settings classes
-* provides session cache in database\
+* provides application settings service\
+  easy to extend settings service with own settings classes\
+* provides session cache in database
 * provides loggin using serilog\
   audit logging\
   exception logging\
@@ -53,4 +53,4 @@ This boilerplate provides the following features:
 
 ### Ahhh, that's exactly what i need. How can i use that?
 
-so, than take a look at the install [instructions](https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/Install.md).
+so, then take a look at the install [instrunctions](INSTALL.md)
