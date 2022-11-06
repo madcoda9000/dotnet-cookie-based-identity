@@ -11,46 +11,57 @@ This boilerplate provides the following features:
 * using .NET Core 6
 * using entity Framework
 * supports MySql, MariaDb and SqlServer
-* Provides Authentication with Identity Framework and LDAP\
-  Login\
-  Register\
-  Forgot Password\
-  Change Password\
-  optional email verification\
-  2fa by Authenticator App (Microsoft or Google)\
-  2fa by email
-* Provides Authorization\
-  Claim based\
-  role based\
-* provides global error handling\
-  for status errors\
-  for exceptions
-* provides application settings service\
-  easy to extend settings service with own settings classes\
+* Provides Authentication with Identity Framework and LDAP
+    * Login
+    * Register
+    * Forgot Password
+    * Change Password
+    * optional email verification
+    * 2fa by Authenticator App (Microsoft or Google)
+    * 2fa by email
+* Provides Authorization
+    * Claim based
+    * role based
+* provides global error handling
+    * for status errors
+    * for exceptions
+* provides application settings service
+    * easy to extend settings service with own settings classes
 * provides session cache in database
-* provides loggin using serilog\
-  audit logging\
-  exception logging\
-  application logging
-* provides usermanagement\
-  create, edit users\
-  enforce 2fa\
-  set ldap login\
-  assign roles\
-  enable / disable users
-* provides role management\
-  create / edit roles
-* provides user selfservice\
-  reset password\
-  change password\
-  edit profile\
-  edit profile picture (stored in database)
-* provides a bootstrap based theme\
-  only three layout files (Main, Auth, Error)\
-  easy to customize
+* provides session timeout due to inactivity
+* provides loggin using serilog
+    * audit logging
+    * exception logging
+    * application logging
+* provides usermanagement
+    * create, edit users
+    * enforce 2fa
+    * set ldap login
+    * assign roles
+    * enable / disable users
+* provides role management
+    * create / edit roles
+* provides user selfservice
+    * reset password
+    * change password
+    * edit profile
+    * edit profile picture (stored in database)
+* provides a bootstrap based theme
+    * only three layout files (Main, Auth, Error)
+    * easy to customize
 * provides doxygen generated class documentation\
-  take a look [here](https://htmlpreview.github.io/?https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/generated/html/index.html)
+    * take a look [here](https://htmlpreview.github.io/?https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/generated/html/index.html)
+
+### Huhhh, sounds interesting! Can i take a look at it?
+
+sure, I've prepared a few [Screesnhots](Documntation/SCREENSHOTS.md) for you!
+
+### Damn! Yoou've coded that al by yourself?
+
+No! I've used the following Librarys / Projects in this Project:
+
+
 
 ### Ahhh, that's exactly what i need. How can i use that?
 
-so, then take a look at the install [instrunctions](INSTALL.md)
+so, then take a look at the install [instrunctions](Documentation/INSTALLmd)
