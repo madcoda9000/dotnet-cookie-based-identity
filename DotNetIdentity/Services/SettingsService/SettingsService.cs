@@ -2,11 +2,19 @@ using DotNetIdentity.Data;
 using DotNetIdentity.Models.BusinessModels;
 
 namespace DotNetIdentity.Services.SettingsService {
-    /// \todo add ldap settings class
     /// <summary>
     /// class for settings service
     /// </summary>
     public class SettingsService : ISettingsService {
+    /// <summary>
+    /// global settings property (lazy)
+    /// </summary>
+    private readonly Lazy<LdapSettings> _ldapSettings;
+    /// <summary>
+    /// global settings property
+    /// </summary>
+    /// <value></value>
+    public LdapSettings Ldap { get { return _ldapSettings.Value; } }
     /// <summary>
     /// global settings property (lazy)
     /// </summary>
@@ -41,21 +49,26 @@ namespace DotNetIdentity.Services.SettingsService {
         // 3
         _globalSettings = new Lazy<GlobalSettings>(CreateSettings<GlobalSettings>);
         _mailSettings = new Lazy<MailSettings>(CreateSettings<MailSettings>);
+        _ldapSettings = new Lazy<LdapSettings>(CreateSettings<LdapSettings>);
     }
 
     /// <summary>
-    /// sve method
+    /// save method
     /// </summary>
-    public void Save()
+    /// <returns></returns>
+    public async Task Save()
     {
         // only save changes to settings that have been loaded
         if (_globalSettings.IsValueCreated)
-            _globalSettings.Value.Save(_unitOfWork);
+            await _globalSettings.Value.Save(_unitOfWork);
 
         if (_mailSettings.IsValueCreated)
-            _mailSettings.Value.Save(_unitOfWork);
+            await _mailSettings.Value.Save(_unitOfWork);
 
-        _unitOfWork.SaveChanges();
+        if (_ldapSettings.IsValueCreated)
+            await _ldapSettings.Value.Save(_unitOfWork);
+
+        await _unitOfWork.SaveChangesAsync();
     }
     /// <summary>
     /// method to create instance of the settings classes

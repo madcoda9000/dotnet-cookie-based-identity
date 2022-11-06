@@ -39,49 +39,54 @@
 \DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00059}00059             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpPort"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}587"{}}\}); }
 \DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00060}00060             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpUseTls"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}true"{}}\}); }
 \DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00061}00061             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpFromAddress"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_From\_Address"{}}\}); }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00062}00062 }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00063}00063             \textcolor{comment}{//Seeding roles to AspNetRoles table}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00064}00064             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}}, Name = \textcolor{stringliteral}{"{}Admin"{}}, NormalizedName = \textcolor{stringliteral}{"{}ADMIN"{}}.ToUpper() \});}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00065}00065             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}f8a527ac-\/d7f6-\/4d9d-\/aca6-\/46b2261b042b"{}}, Name = \textcolor{stringliteral}{"{}User"{}}, NormalizedName = \textcolor{stringliteral}{"{}USER"{}}.ToUpper() \});}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00066}00066             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}g7a527ac-\/d7t6-\/4d7z-\/aca6-\/45t2261b042b"{}}, Name = \textcolor{stringliteral}{"{}Editor"{}}, NormalizedName = \textcolor{stringliteral}{"{}EDITOR"{}}.ToUpper() \});}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00067}00067             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}p9a527ac-\/d77w-\/4d3r-\/aca6-\/35b2261b042b"{}}, Name = \textcolor{stringliteral}{"{}Moderator"{}}, NormalizedName = \textcolor{stringliteral}{"{}MODERATOR"{}}.ToUpper() \});}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00068}00068 }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00069}00069                       }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00070}00070                 }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00071}00071             \textcolor{comment}{//a hasher to hash the password before seeding the user to the db}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00072}00072             var hasher = \textcolor{keyword}{new} PasswordHasher<AppUser>();}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00062}00062             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}LdapDomainController"{}}, Type = \textcolor{stringliteral}{"{}LdapSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_Domaincontroller\_FQDN"{}}\}); }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00063}00063             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}LdapDomainName"{}}, Type = \textcolor{stringliteral}{"{}LdapSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_Domainname"{}}\}); }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00064}00064             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}LdapBaseDn"{}}, Type = \textcolor{stringliteral}{"{}LdapSettings"{}}, Value = \textcolor{stringliteral}{"{}DC=YOUR,DC=Domain,DC=com"{}}\}); }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00065}00065             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}LdapGroup"{}}, Type = \textcolor{stringliteral}{"{}LdapSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_Ldap\_Group"{}}\}); }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00066}00066             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}LdapEnabled"{}}, Type = \textcolor{stringliteral}{"{}LdapSettings"{}}, Value = \textcolor{stringliteral}{"{}true"{}}\}); }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00068}00068             \textcolor{comment}{//Seeding roles to AspNetRoles table}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00069}00069             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}}, Name = \textcolor{stringliteral}{"{}Admin"{}}, NormalizedName = \textcolor{stringliteral}{"{}ADMIN"{}}.ToUpper() \});}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00070}00070             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}f8a527ac-\/d7f6-\/4d9d-\/aca6-\/46b2261b042b"{}}, Name = \textcolor{stringliteral}{"{}User"{}}, NormalizedName = \textcolor{stringliteral}{"{}USER"{}}.ToUpper() \});}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00071}00071             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}g7a527ac-\/d7t6-\/4d7z-\/aca6-\/45t2261b042b"{}}, Name = \textcolor{stringliteral}{"{}Editor"{}}, NormalizedName = \textcolor{stringliteral}{"{}EDITOR"{}}.ToUpper() \});}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00072}00072             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}p9a527ac-\/d77w-\/4d3r-\/aca6-\/35b2261b042b"{}}, Name = \textcolor{stringliteral}{"{}Moderator"{}}, NormalizedName = \textcolor{stringliteral}{"{}MODERATOR"{}}.ToUpper() \});}
 \DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00073}00073 }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00074}00074             \textcolor{comment}{//Seeding the Admin User to AspNetUsers table}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00075}00075             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}>().HasData(}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00076}00076                 \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00077}00077                 \{}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00078}00078                     Id = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}, \textcolor{comment}{// primary key}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00079}00079                     UserName = \textcolor{stringliteral}{"{}super.admin"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00080}00080                     NormalizedUserName = \textcolor{stringliteral}{"{}SUPER.ADMIN"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00081}00081                     PasswordHash = hasher.HashPassword(\textcolor{keyword}{null}!, \textcolor{stringliteral}{"{}Test1000!"{}}),}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00082}00082                     Email = \textcolor{stringliteral}{"{}super.admin@local.app"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00083}00083                     NormalizedEmail = \textcolor{stringliteral}{"{}SUPER.ADMIN@LOCAL.APP"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00084}00084                     EmailConfirmed = \textcolor{keyword}{true},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00085}00085                     FirstName = \textcolor{stringliteral}{"{}Super"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00086}00086                     LastName = \textcolor{stringliteral}{"{}Admin"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00087}00087                     IsMfaForce = \textcolor{keyword}{false},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00088}00088                     IsLdapLogin = \textcolor{keyword}{false},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00089}00089                     IsEnabled = \textcolor{keyword}{true}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00090}00090                 \}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00091}00091             );}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00092}00092 }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00093}00093             \textcolor{comment}{//Seeding the relation between our user and role to AspNetUserRoles table}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00094}00094             builder.Entity<IdentityUserRole<string>>().HasData(}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00095}00095                 \textcolor{keyword}{new} IdentityUserRole<string>}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00096}00096                 \{}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00097}00097                     RoleId = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}},}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00098}00098                     UserId = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00099}00099                 \}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00100}00100             );}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00101}00101         \}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00102}00102     \}}
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00103}00103 }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00104}00104     }
-\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00074}00074                       }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00075}00075                 }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00076}00076             \textcolor{comment}{//a hasher to hash the password before seeding the user to the db}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00077}00077             var hasher = \textcolor{keyword}{new} PasswordHasher<AppUser>();}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00079}00079             \textcolor{comment}{//Seeding the Admin User to AspNetUsers table}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00080}00080             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}>().HasData(}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00081}00081                 \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00082}00082                 \{}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00083}00083                     Id = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}, \textcolor{comment}{// primary key}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00084}00084                     UserName = \textcolor{stringliteral}{"{}super.admin"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00085}00085                     NormalizedUserName = \textcolor{stringliteral}{"{}SUPER.ADMIN"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00086}00086                     PasswordHash = hasher.HashPassword(\textcolor{keyword}{null}!, \textcolor{stringliteral}{"{}Test1000!"{}}),}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00087}00087                     Email = \textcolor{stringliteral}{"{}super.admin@local.app"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00088}00088                     NormalizedEmail = \textcolor{stringliteral}{"{}SUPER.ADMIN@LOCAL.APP"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00089}00089                     EmailConfirmed = \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00090}00090                     FirstName = \textcolor{stringliteral}{"{}Super"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00091}00091                     LastName = \textcolor{stringliteral}{"{}Admin"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00092}00092                     IsMfaForce = \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00093}00093                     IsLdapLogin = \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00094}00094                     IsEnabled = \textcolor{keyword}{true}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00095}00095                 \}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00096}00096             );}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00098}00098             \textcolor{comment}{//Seeding the relation between our user and role to AspNetUserRoles table}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00099}00099             builder.Entity<IdentityUserRole<string>>().HasData(}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00100}00100                 \textcolor{keyword}{new} IdentityUserRole<string>}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00101}00101                 \{}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00102}00102                     RoleId = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}},}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00103}00103                     UserId = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00104}00104                 \}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00105}00105             );}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00106}00106         \}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00107}00107     \}}
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00109}00109     }
+\DoxyCodeLine{\Hypertarget{_app_db_context_8cs_source_l00110}00110 \}}
 
 \end{DoxyCode}

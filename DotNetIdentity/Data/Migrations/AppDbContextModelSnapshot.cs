@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
-#pragma warning disable 1591
 
 namespace DotNetIdentity.Data.Migrations
 {
@@ -95,6 +94,36 @@ namespace DotNetIdentity.Data.Migrations
                             Name = "SmtpFromAddress",
                             Type = "MailSettings",
                             Value = "YOUR_From_Address"
+                        },
+                        new
+                        {
+                            Name = "LdapDomainController",
+                            Type = "LdapSettings",
+                            Value = "YOUR_Domaincontroller_FQDN"
+                        },
+                        new
+                        {
+                            Name = "LdapDomainName",
+                            Type = "LdapSettings",
+                            Value = "YOUR_Domainname"
+                        },
+                        new
+                        {
+                            Name = "LdapBaseDn",
+                            Type = "LdapSettings",
+                            Value = "DC=YOUR,DC=Domain,DC=com"
+                        },
+                        new
+                        {
+                            Name = "LdapGroup",
+                            Type = "LdapSettings",
+                            Value = "YOUR_Ldap_Group"
+                        },
+                        new
+                        {
+                            Name = "LdapEnabled",
+                            Type = "LdapSettings",
+                            Value = "true"
                         });
                 });
 
@@ -186,7 +215,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "fcca32ee-4cee-445f-8be0-92375f7a12d1",
+                            ConcurrencyStamp = "4055a78d-dabc-435f-bd4d-4d6c7993bbe8",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -194,7 +223,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "6594291f-d352-4269-855b-8abc0ab18e01",
+                            ConcurrencyStamp = "51cc2d45-f378-442d-bda7-32f1901cc1b5",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -202,7 +231,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "99b2b129-74d0-40ec-8892-e679d560c74f",
+                            ConcurrencyStamp = "05d0a390-7945-4758-a811-7a98b5b36fbc",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -210,7 +239,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "07f2c15c-a1a3-4840-87a6-645446d15f0f",
+                            ConcurrencyStamp = "4db6f761-1658-4f3e-b1bd-57a001b1fa8a",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -319,7 +348,7 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "0bd8f427-6b8a-444c-b34e-ba42537137da",
+                            ConcurrencyStamp = "db4123c5-2bb9-4a6c-bc11-8e41f472a3cd",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -333,9 +362,9 @@ namespace DotNetIdentity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEImvoKdoqh4RAms6fLIxbS8vshGY7MoW37zCdI/DIKK/br9dE33l7dugU7bxT4YiTQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPVaj06s+VHLDthZsu27xIrQsFUHebsnoeN3e8ExT102TIF+vUa+Zlbj4g7EUl09vQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9188049f-056e-45f0-bb3b-706ce2102631",
+                            SecurityStamp = "1cfee861-b100-4e49-a10b-72cb02cde9d7",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"
@@ -501,7 +530,7 @@ namespace DotNetIdentity.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618, 1591
+#pragma warning restore 612, 618
         }
     }
 }

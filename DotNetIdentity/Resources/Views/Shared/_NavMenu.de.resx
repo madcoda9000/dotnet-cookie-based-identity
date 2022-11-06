@@ -169,4 +169,20 @@
     <value>Error Logs</value>
     <comment/>
   </data>
+  <data name="14" xml:space="preserve">
+    <value>LDAP-Einstellungen</value>
+    <comment/>
+  </data>
+  <data name="15" xml:space="preserve">
+    <value>Mail-Einstellungen</value>
+    <comment/>
+  </data>
+  <data name="16" xml:space="preserve">
+    <value>App-Einstellungen</value>
+    <comment/>
+  </data>
+  <data name="17" xml:space="preserve">
+    <value>Einstellungen</value>
+    <comment/>
+  </data>
 </root>

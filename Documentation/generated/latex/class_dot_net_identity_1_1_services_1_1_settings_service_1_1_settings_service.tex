@@ -19,11 +19,13 @@ Inheritance diagram for Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Sett
 \item 
 \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a9cddb7dc0447c0f9b2e52918d503f474}{Settings\+Service}} (\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} unit\+Of\+Work)
 \begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0128e6f46b7a5bf603aa7a568a6c0a00}{Save}} ()
-\begin{DoxyCompactList}\small\item\em sve method \end{DoxyCompactList}\end{DoxyCompactItemize}
+async Task \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a42d54242d6fed4fc7ca20575c1c5df3e}{Save}} ()
+\begin{DoxyCompactList}\small\item\em save method \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{Ldap\+Settings}} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a8c1185252a31e6e05c46e4c20331b758}{Ldap}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em global settings property \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{Global\+Settings}} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0c21a140efa1e50482935de29e586c55}{Global}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em global settings property \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{Mail\+Settings}} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_aeb3647a56baffb62c1dad995915ce91e}{Mail}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
@@ -33,11 +35,7 @@ void \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1
 \doxysubsection{Detailed Description}
 class for settings service 
 
-\begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]add ldap settings class \end{DoxyRefDesc}
-
-
-Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00009}{9}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
 
 
 
@@ -59,52 +57,59 @@ class constructor
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00037}{37}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00045}{45}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00038     \{}
-\DoxyCodeLine{00039         \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
-\DoxyCodeLine{00040         \_unitOfWork = unitOfWork;}
-\DoxyCodeLine{00041         \textcolor{comment}{// 3}}
-\DoxyCodeLine{00042         \_globalSettings = \textcolor{keyword}{new} Lazy<GlobalSettings>(CreateSettings<GlobalSettings>);}
-\DoxyCodeLine{00043         \_mailSettings = \textcolor{keyword}{new} Lazy<MailSettings>(CreateSettings<MailSettings>);}
-\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00046     \{}
+\DoxyCodeLine{00047         \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
+\DoxyCodeLine{00048         \_unitOfWork = unitOfWork;}
+\DoxyCodeLine{00049         \textcolor{comment}{// 3}}
+\DoxyCodeLine{00050         \_globalSettings = \textcolor{keyword}{new} Lazy<GlobalSettings>(CreateSettings<GlobalSettings>);}
+\DoxyCodeLine{00051         \_mailSettings = \textcolor{keyword}{new} Lazy<MailSettings>(CreateSettings<MailSettings>);}
+\DoxyCodeLine{00052         \_ldapSettings = \textcolor{keyword}{new} Lazy<LdapSettings>(CreateSettings<LdapSettings>);}
+\DoxyCodeLine{00053     \}}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0128e6f46b7a5bf603aa7a568a6c0a00}\label{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0128e6f46b7a5bf603aa7a568a6c0a00}} 
+\mbox{\Hypertarget{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a42d54242d6fed4fc7ca20575c1c5df3e}\label{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a42d54242d6fed4fc7ca20575c1c5df3e}} 
 \index{DotNetIdentity.Services.SettingsService.SettingsService@{DotNetIdentity.Services.SettingsService.SettingsService}!Save@{Save}}
 \index{Save@{Save}!DotNetIdentity.Services.SettingsService.SettingsService@{DotNetIdentity.Services.SettingsService.SettingsService}}
 \doxysubsubsection{\texorpdfstring{Save()}{Save()}}
-{\footnotesize\ttfamily void Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Settings\+Service.\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Settings\+Service.\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-sve method 
+save method 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c8a7b0e9c15ce80495b3d9df19bad60}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISettings\+Service}}.
 
 
 
-Implements \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_add3cc3009bddf3b1bb75a26393826c1d}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISettings\+Service}}.
-
-
-
-Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00050     \{}
-\DoxyCodeLine{00051         \textcolor{comment}{// only save changes to settings that have been loaded}}
-\DoxyCodeLine{00052         \textcolor{keywordflow}{if} (\_globalSettings.IsValueCreated)}
-\DoxyCodeLine{00053             \_globalSettings.Value.Save(\_unitOfWork);}
-\DoxyCodeLine{00054 }
-\DoxyCodeLine{00055         \textcolor{keywordflow}{if} (\_mailSettings.IsValueCreated)}
-\DoxyCodeLine{00056             \_mailSettings.Value.Save(\_unitOfWork);}
-\DoxyCodeLine{00057 }
-\DoxyCodeLine{00058         \_unitOfWork.SaveChanges();}
-\DoxyCodeLine{00059     \}}
+\DoxyCodeLine{00060     \{}
+\DoxyCodeLine{00061         \textcolor{comment}{// only save changes to settings that have been loaded}}
+\DoxyCodeLine{00062         \textcolor{keywordflow}{if} (\_globalSettings.IsValueCreated)}
+\DoxyCodeLine{00063             await \_globalSettings.Value.Save(\_unitOfWork);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065         \textcolor{keywordflow}{if} (\_mailSettings.IsValueCreated)}
+\DoxyCodeLine{00066             await \_mailSettings.Value.Save(\_unitOfWork);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068         \textcolor{keywordflow}{if} (\_ldapSettings.IsValueCreated)}
+\DoxyCodeLine{00069             await \_ldapSettings.Value.Save(\_unitOfWork);}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071         await \_unitOfWork.SaveChangesAsync();}
+\DoxyCodeLine{00072     \}}
 
 \end{DoxyCode}
 
@@ -126,11 +131,34 @@ Implements \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings
 
 
 
-Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00018 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_globalSettings.Value; \} \}}
+\DoxyCodeLine{00026 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_globalSettings.Value; \} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a8c1185252a31e6e05c46e4c20331b758}\label{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a8c1185252a31e6e05c46e4c20331b758}} 
+\index{DotNetIdentity.Services.SettingsService.SettingsService@{DotNetIdentity.Services.SettingsService.SettingsService}!Ldap@{Ldap}}
+\index{Ldap@{Ldap}!DotNetIdentity.Services.SettingsService.SettingsService@{DotNetIdentity.Services.SettingsService.SettingsService}}
+\doxysubsubsection{\texorpdfstring{Ldap}{Ldap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{Ldap\+Settings}} Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Settings\+Service.\+Ldap\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+global settings property 
+
+
+
+Implements \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a43af25d26d08a9fb6579028518546026}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISettings\+Service}}.
+
+
+
+Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_ldapSettings.Value; \} \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_aeb3647a56baffb62c1dad995915ce91e}\label{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_aeb3647a56baffb62c1dad995915ce91e}} 
@@ -149,10 +177,10 @@ Implements \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings
 
 
 
-Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_service_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_settings_service_8cs_source}{Settings\+Service.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00027 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_mailSettings.Value; \} \}}
+\DoxyCodeLine{00035 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_mailSettings.Value; \} \}}
 
 \end{DoxyCode}

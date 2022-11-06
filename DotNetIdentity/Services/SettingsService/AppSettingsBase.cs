@@ -1,6 +1,7 @@
 using System.Reflection;
 using DotNetIdentity.Data;
 using DotNetIdentity.Models.DataModels;
+using Microsoft .EntityFrameworkCore;
 
 namespace DotNetIdentity.Services.SettingsService {    
     /// <summary>
@@ -36,6 +37,7 @@ namespace DotNetIdentity.Services.SettingsService {
         {
             // ARGUMENT CHECKING SKIPPED FOR BREVITY
             // 3 get settings for this type name
+
             var settings = unitOfWork.AppSettings!.Where(w => w.Type == _name).ToList();
 
             foreach (var propertyInfo in _properties)
@@ -54,7 +56,7 @@ namespace DotNetIdentity.Services.SettingsService {
         /// save method
         /// </summary>
         /// <param name="unitOfWork">type DbContext</param>
-        public virtual void Save(AppDbContext unitOfWork)
+        public virtual async Task Save(AppDbContext unitOfWork)
         {
             // 5 load existing settings for this type
             var settings = unitOfWork.AppSettings!.Where(w => w.Type == _name).ToList();
@@ -79,7 +81,7 @@ namespace DotNetIdentity.Services.SettingsService {
                         Type = _name,
                         Value = value,
                     };
-                    unitOfWork.AppSettings!.Add(newSetting);
+                    await unitOfWork.AppSettings!.AddAsync(newSetting);
                 }
             }
         }

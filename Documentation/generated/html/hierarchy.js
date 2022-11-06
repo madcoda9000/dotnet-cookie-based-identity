@@ -2,6 +2,9 @@ var hierarchy =
 [
     [ "DotNetIdentity.Models.DataModels.ApplicationSettings", "class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings.html", null ],
     [ "DotNetIdentity.Models.DataModels.AppLogs", "class_dot_net_identity_1_1_models_1_1_data_models_1_1_app_logs.html", null ],
+    [ "AppSettingsBase", null, [
+      [ "DotNetIdentity.Models.BusinessModels.LdapSettings", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html", null ]
+    ] ],
     [ "DotNetIdentity.Services.SettingsService.AppSettingsBase", "class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html", [
       [ "DotNetIdentity.Models.BusinessModels.GlobalSettings", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html", null ],
       [ "DotNetIdentity.Models.BusinessModels.MailSettings", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html", null ]
@@ -19,6 +22,7 @@ var hierarchy =
       [ "DotNetIdentity.Controllers.ErrorsController", "class_dot_net_identity_1_1_controllers_1_1_errors_controller.html", null ],
       [ "DotNetIdentity.Controllers.HomeController", "class_dot_net_identity_1_1_controllers_1_1_home_controller.html", null ],
       [ "DotNetIdentity.Controllers.RoleBasedController", "class_dot_net_identity_1_1_controllers_1_1_role_based_controller.html", null ],
+      [ "DotNetIdentity.Controllers.SettingsController", "class_dot_net_identity_1_1_controllers_1_1_settings_controller.html", null ],
       [ "DotNetIdentity.Controllers.UserController", "class_dot_net_identity_1_1_controllers_1_1_user_controller.html", null ]
     ] ],
     [ "DotNetIdentity.Models.ViewModels.EditUserViewModel", "class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model.html", null ],

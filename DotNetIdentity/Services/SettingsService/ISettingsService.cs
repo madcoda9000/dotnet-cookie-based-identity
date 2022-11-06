@@ -1,4 +1,5 @@
 using DotNetIdentity.Models.BusinessModels;
+using System.Threading.Tasks;
 
 namespace DotNetIdentity.Services.SettingsService {
     /// <summary>
@@ -16,8 +17,13 @@ namespace DotNetIdentity.Services.SettingsService {
         /// <value>MailSettings</value>
         MailSettings Mail { get; }
         /// <summary>
+        /// property mail settings
+        /// </summary>
+        /// <value>MailSettings</value>
+        LdapSettings Ldap { get; }
+        /// <summary>
         /// save method
         /// </summary>
-        void Save();
+        Task Save();
     }
 }

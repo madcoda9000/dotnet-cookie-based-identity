@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_status_codes_model.html" target="_top" xlink:title="model for Error Statuscodes">
+<g id="a_node1"><a xlink:href="class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model.html" target="_top" xlink:title="model for Register view">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 138,-30.5 138,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">DotNetIdentity.Models.View</text>
-<text text-anchor="middle" x="69" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Models.StatusCodesModel</text>
+<text text-anchor="middle" x="69" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Models.SignUpViewModel</text>
 </a>
 </g>
 </g>

@@ -6,5 +6,6 @@ var namespace_dot_net_identity_1_1_controllers =
     [ "ErrorsController", "class_dot_net_identity_1_1_controllers_1_1_errors_controller.html", "class_dot_net_identity_1_1_controllers_1_1_errors_controller" ],
     [ "HomeController", "class_dot_net_identity_1_1_controllers_1_1_home_controller.html", "class_dot_net_identity_1_1_controllers_1_1_home_controller" ],
     [ "RoleBasedController", "class_dot_net_identity_1_1_controllers_1_1_role_based_controller.html", "class_dot_net_identity_1_1_controllers_1_1_role_based_controller" ],
+    [ "SettingsController", "class_dot_net_identity_1_1_controllers_1_1_settings_controller.html", "class_dot_net_identity_1_1_controllers_1_1_settings_controller" ],
     [ "UserController", "class_dot_net_identity_1_1_controllers_1_1_user_controller.html", "class_dot_net_identity_1_1_controllers_1_1_user_controller" ]
 ];

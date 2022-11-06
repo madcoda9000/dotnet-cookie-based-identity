@@ -17,7 +17,7 @@ Inheritance diagram for Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISet
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_add3cc3009bddf3b1bb75a26393826c1d}{Save}} ()
+Task \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c8a7b0e9c15ce80495b3d9df19bad60}{Save}} ()
 \begin{DoxyCompactList}\small\item\em save method \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Properties}
 \begin{DoxyCompactItemize}
@@ -25,22 +25,24 @@ void \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_servi
 \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{Global\+Settings}} \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_ad77a6ff81fa9a8f8a989d069e1297693}{Global}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em property global settings \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{Mail\+Settings}} \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c7a664b5a4a7b384e2cf59eadcd3608}{Mail}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em property mail settings \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{Ldap\+Settings}} \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a43af25d26d08a9fb6579028518546026}{Ldap}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em property mail settings \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Interface class for \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service}{Settings\+Service}} 
 
-Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00007}{7}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_add3cc3009bddf3b1bb75a26393826c1d}\label{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_add3cc3009bddf3b1bb75a26393826c1d}} 
+\mbox{\Hypertarget{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c8a7b0e9c15ce80495b3d9df19bad60}\label{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c8a7b0e9c15ce80495b3d9df19bad60}} 
 \index{DotNetIdentity.Services.SettingsService.ISettingsService@{DotNetIdentity.Services.SettingsService.ISettingsService}!Save@{Save}}
 \index{Save@{Save}!DotNetIdentity.Services.SettingsService.ISettingsService@{DotNetIdentity.Services.SettingsService.ISettingsService}}
 \doxysubsubsection{\texorpdfstring{Save()}{Save()}}
-{\footnotesize\ttfamily void Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISettings\+Service.\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Task Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISettings\+Service.\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -48,7 +50,7 @@ save method
 
 
 
-Implemented in \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0128e6f46b7a5bf603aa7a568a6c0a00}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Settings\+Service}}.
+Implemented in \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a42d54242d6fed4fc7ca20575c1c5df3e}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Settings\+Service}}.
 
 
 
@@ -69,11 +71,34 @@ Implemented in \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings
 
 
 
-Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00013}{13}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012 \{ \textcolor{keyword}{get}; \}}
+\DoxyCodeLine{00013 \{ \textcolor{keyword}{get}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a43af25d26d08a9fb6579028518546026}\label{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a43af25d26d08a9fb6579028518546026}} 
+\index{DotNetIdentity.Services.SettingsService.ISettingsService@{DotNetIdentity.Services.SettingsService.ISettingsService}!Ldap@{Ldap}}
+\index{Ldap@{Ldap}!DotNetIdentity.Services.SettingsService.ISettingsService@{DotNetIdentity.Services.SettingsService.ISettingsService}}
+\doxysubsubsection{\texorpdfstring{Ldap}{Ldap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{Ldap\+Settings}} Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+ISettings\+Service.\+Ldap\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+property mail settings 
+
+Mail\+Settings
+
+Implemented in \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a8c1185252a31e6e05c46e4c20331b758}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+Settings\+Service}}.
+
+
+
+Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{ \textcolor{keyword}{get}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c7a664b5a4a7b384e2cf59eadcd3608}\label{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service_a5c7a664b5a4a7b384e2cf59eadcd3608}} 
@@ -92,10 +117,10 @@ Implemented in \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings
 
 
 
-Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
+Definition at line \mbox{\hyperlink{_i_settings_service_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_i_settings_service_8cs_source}{ISettings\+Service.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00017 \{ \textcolor{keyword}{get}; \}}
+\DoxyCodeLine{00018 \{ \textcolor{keyword}{get}; \}}
 
 \end{DoxyCode}

@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="class_dot_net_identity_1_1_models_1_1_data_models_1_1_app_logs.html" target="_top" xlink:title="class to define ann Log object">
+<g id="a_node1"><a xlink:href="class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings.html" target="_top" xlink:title="class define an Settings object">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 137,-30.5 137,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">DotNetIdentity.Models.Data</text>
-<text text-anchor="middle" x="68.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Models.AppLogs</text>
+<text text-anchor="middle" x="68.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Models.ApplicationSettings</text>
 </a>
 </g>
 </g>

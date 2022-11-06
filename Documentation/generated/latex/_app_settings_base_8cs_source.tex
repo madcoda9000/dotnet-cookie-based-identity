@@ -5,69 +5,71 @@
 \DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00001}00001 \textcolor{keyword}{using }System.Reflection;}
 \DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_data}{DotNetIdentity.Data}};}
 \DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_1_1_data_models}{DotNetIdentity.Models.DataModels}};}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00004}00004 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00005}\mbox{\hyperlink{namespace_dot_net_identity_1_1_services}{00005}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_dot_net_identity_1_1_services_1_1_settings_service}{DotNetIdentity.Services.SettingsService}} \{    }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00009}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base}{00009}}     \textcolor{keyword}{public} \textcolor{keyword}{abstract} \textcolor{keyword}{class }\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base}{AppSettingsBase}} \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00014}00014         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_name;}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00018}00018         \textcolor{keyword}{private} readonly PropertyInfo[] \_properties;}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00023}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a4bca82517dd8dac6161d645f41370804}{00023}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a4bca82517dd8dac6161d645f41370804}{AppSettingsBase}}()}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00024}00024         \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00025}00025             var type = this.GetType();}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00026}00026             \_name = type.Name;}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00027}00027             \textcolor{comment}{// 2}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00028}00028             \_properties = type.GetProperties();}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00029}00029         \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00035}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a18a21c6bd03945faee7e4e2dbe194a01}{00035}}         \textcolor{keyword}{public} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a18a21c6bd03945faee7e4e2dbe194a01}{Load}}(\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}} unitOfWork)}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00036}00036         \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00037}00037             \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00038}00038             \textcolor{comment}{// 3 get settings for this type name}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00039}00039             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00004}00004 \textcolor{keyword}{using }Microsoft .EntityFrameworkCore;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00006}\mbox{\hyperlink{namespace_dot_net_identity_1_1_services}{00006}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_dot_net_identity_1_1_services_1_1_settings_service}{DotNetIdentity.Services.SettingsService}} \{    }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00010}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base}{00010}}     \textcolor{keyword}{public} \textcolor{keyword}{abstract} \textcolor{keyword}{class }\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base}{AppSettingsBase}} \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00015}00015         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_name;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00019}00019         \textcolor{keyword}{private} readonly PropertyInfo[] \_properties;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00024}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a4bca82517dd8dac6161d645f41370804}{00024}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a4bca82517dd8dac6161d645f41370804}{AppSettingsBase}}()}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00025}00025         \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00026}00026             var type = this.GetType();}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00027}00027             \_name = type.Name;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00028}00028             \textcolor{comment}{// 2}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00029}00029             \_properties = type.GetProperties();}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00030}00030         \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00036}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a18a21c6bd03945faee7e4e2dbe194a01}{00036}}         \textcolor{keyword}{public} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a18a21c6bd03945faee7e4e2dbe194a01}{Load}}(\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}} unitOfWork)}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00037}00037         \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00038}00038             \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00039}00039             \textcolor{comment}{// 3 get settings for this type name}}
 \DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00041}00041             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00042}00042             \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00043}00043                 \textcolor{comment}{// get the setting from the settings list}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00044}00044                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00045}00045                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00046}00046                 \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00047}00047                     \textcolor{comment}{// 4 assign the setting values to the properties in the type inheriting this class}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00048}00048                     propertyInfo.SetValue(\textcolor{keyword}{this}, Convert.ChangeType(setting.Value, propertyInfo.PropertyType));}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00049}00049                 \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00050}00050             \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00051}00051         \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00057}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_affa22200cc54fa1d63b1e1f0e3b39387}{00057}}         \textcolor{keyword}{public} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_affa22200cc54fa1d63b1e1f0e3b39387}{Save}}(\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}} unitOfWork)}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00058}00058         \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00059}00059             \textcolor{comment}{// 5 load existing settings for this type}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00060}00060             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00062}00062             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00063}00063             \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00064}00064                 \textcolor{keywordtype}{object} propertyValue = propertyInfo.GetValue(\textcolor{keyword}{this}, \textcolor{keyword}{null})!;}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00065}00065                 \textcolor{keywordtype}{string} value = (propertyValue == \textcolor{keyword}{null}) ? \textcolor{keyword}{null}! : propertyValue.ToString()!;}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00067}00067                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00068}00068                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00069}00069                 \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00070}00070                     \textcolor{comment}{// 6 update existing value}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00071}00071                     setting.Value = value;}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00072}00072                 \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00073}00073                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00074}00074                 \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00075}00075                     \textcolor{comment}{// 7 create new setting}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00076}00076                     var newSetting = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}()}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00077}00077                     \{}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00078}00078                         Name = propertyInfo.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings_abfd2c331163c2e57b0e818039249f117}{Name}},}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00079}00079                         Type = \_name,}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00080}00080                         Value = value,}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00081}00081                     \};}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00082}00082                     unitOfWork.AppSettings!.Add(newSetting);}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00083}00083                 \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00084}00084             \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00085}00085         \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00086}00086     \}}
-\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00087}00087 \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00041}00041             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00043}00043             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00044}00044             \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00045}00045                 \textcolor{comment}{// get the setting from the settings list}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00046}00046                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00047}00047                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00048}00048                 \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00049}00049                     \textcolor{comment}{// 4 assign the setting values to the properties in the type inheriting this class}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00050}00050                     propertyInfo.SetValue(\textcolor{keyword}{this}, Convert.ChangeType(setting.Value, propertyInfo.PropertyType));}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00051}00051                 \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00052}00052             \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00053}00053         \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00059}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a11843156e0de051e112588e4d52c6d37}{00059}}         \textcolor{keyword}{public} \textcolor{keyword}{virtual} async Task \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a11843156e0de051e112588e4d52c6d37}{Save}}(\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}} unitOfWork)}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00060}00060         \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00061}00061             \textcolor{comment}{// 5 load existing settings for this type}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00062}00062             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00064}00064             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00065}00065             \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00066}00066                 \textcolor{keywordtype}{object} propertyValue = propertyInfo.GetValue(\textcolor{keyword}{this}, \textcolor{keyword}{null})!;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00067}00067                 \textcolor{keywordtype}{string} value = (propertyValue == \textcolor{keyword}{null}) ? \textcolor{keyword}{null}! : propertyValue.ToString()!;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00069}00069                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00070}00070                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00071}00071                 \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00072}00072                     \textcolor{comment}{// 6 update existing value}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00073}00073                     setting.Value = value;}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00074}00074                 \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00075}00075                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00076}00076                 \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00077}00077                     \textcolor{comment}{// 7 create new setting}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00078}00078                     var newSetting = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}()}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00079}00079                     \{}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00080}00080                         Name = propertyInfo.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings_abfd2c331163c2e57b0e818039249f117}{Name}},}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00081}00081                         Type = \_name,}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00082}00082                         Value = value,}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00083}00083                     \};}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00084}00084                     await unitOfWork.AppSettings!.AddAsync(newSetting);}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00085}00085                 \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00086}00086             \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00087}00087         \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00088}00088     \}}
+\DoxyCodeLine{\Hypertarget{_app_settings_base_8cs_source_l00089}00089 \}}
 
 \end{DoxyCode}

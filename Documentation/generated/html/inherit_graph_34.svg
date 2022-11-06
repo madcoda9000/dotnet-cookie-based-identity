@@ -20,7 +20,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="class_dot_net_identity_1_1_helpers_1_1_tag_helpers_1_1_user_profile_image_tag_helper.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="class_dot_net_identity_1_1_helpers_1_1_tag_helpers_1_1_user_profile_image_tag_helper.html" target="_top" xlink:title="html taghelper class">
 <polygon fill="none" stroke="black" points="97,-49.5 97,-79.5 270,-79.5 270,-49.5 97,-49.5"/>
 <text text-anchor="start" x="105" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">DotNetIdentity.Helpers.Tag</text>
 <text text-anchor="middle" x="183.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Helpers.UserProfileImageTagHelper</text>
@@ -36,7 +36,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="class_dot_net_identity_1_1_helpers_1_1_tag_helpers_1_1_user_roles_tag_helper.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="class_dot_net_identity_1_1_helpers_1_1_tag_helpers_1_1_user_roles_tag_helper.html" target="_top" xlink:title="html tag helper class">
 <polygon fill="none" stroke="black" points="111.5,-0.5 111.5,-30.5 255.5,-30.5 255.5,-0.5 111.5,-0.5"/>
 <text text-anchor="start" x="119.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">DotNetIdentity.Helpers.Tag</text>
 <text text-anchor="middle" x="183.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Helpers.UserRolesTagHelper</text>

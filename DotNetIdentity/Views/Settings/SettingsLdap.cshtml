@@ -1,0 +1,77 @@
+@model LdapSettings
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "LDAP Settings";
+}
+
+<style>
+    .chkBx {
+        margin-left:20px !important;
+        margin-top:5px !important;
+    }
+</style>
+
+<div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Settings</h3>
+                <p class="text-subtitle text-muted">LDAP-Settings </p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Settings / LDAP-Settings</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+<div class="card card shadow p-3 mb-5 rounded">
+    @if (ViewData["message"] != null)
+        {
+            <div class="alert alert-success"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
+            ViewData["message"] = null;
+        }
+    <div cla
+    <div class="card-body">
+        <form asp-action="SettingsLdap" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LdapDomainName">The Domain name</label>
+                <input asp-for="LdapDomainName" class="form-control" />
+                <span asp-validation-for="LdapDomainName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LdapDomainController">The FQDN of the domain controller</label>
+                <input asp-for="LdapDomainController" class="form-control" />
+                <span asp-validation-for="LdapDomainController" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LdapBaseDn">The base DN of your domain. For ex. DC=com,DC=mydomain,DC=company</label>
+                <input asp-for="LdapBaseDn" class="form-control" />
+                <span asp-validation-for="LdapBaseDn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LdapGroup">The group name the user must be a member of to logon to this application</label>
+                <input asp-for="LdapGroup" class="form-control" />
+                <span asp-validation-for="LdapGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-lg">
+                    <input asp-for="LdapEnabled" class="form-check-input">
+                    <label asp-for="LdapEnabled" class="form-check-label text-gray-600 chkBx">Allow Ldap Logins?</label>
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary mt-1" >Save Application Settings</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/assets/extensions/toastify-js/src/toastify.js"></script>    
+}

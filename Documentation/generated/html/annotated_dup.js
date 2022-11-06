@@ -8,6 +8,7 @@ var annotated_dup =
         [ "ErrorsController", "class_dot_net_identity_1_1_controllers_1_1_errors_controller.html", "class_dot_net_identity_1_1_controllers_1_1_errors_controller" ],
         [ "HomeController", "class_dot_net_identity_1_1_controllers_1_1_home_controller.html", "class_dot_net_identity_1_1_controllers_1_1_home_controller" ],
         [ "RoleBasedController", "class_dot_net_identity_1_1_controllers_1_1_role_based_controller.html", "class_dot_net_identity_1_1_controllers_1_1_role_based_controller" ],
+        [ "SettingsController", "class_dot_net_identity_1_1_controllers_1_1_settings_controller.html", "class_dot_net_identity_1_1_controllers_1_1_settings_controller" ],
         [ "UserController", "class_dot_net_identity_1_1_controllers_1_1_user_controller.html", "class_dot_net_identity_1_1_controllers_1_1_user_controller" ]
       ] ],
       [ "Data", "namespace_dot_net_identity_1_1_data.html", [
@@ -39,6 +40,7 @@ var annotated_dup =
         [ "BusinessModels", "namespace_dot_net_identity_1_1_models_1_1_business_models.html", [
           [ "EmailModel", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model.html", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model" ],
           [ "GlobalSettings", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings" ],
+          [ "LdapSettings", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings" ],
           [ "MailSettings", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html", "class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings" ]
         ] ],
         [ "DataModels", "namespace_dot_net_identity_1_1_models_1_1_data_models.html", [

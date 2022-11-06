@@ -21,14 +21,14 @@ Inheritance diagram for Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+App\
 \begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a18a21c6bd03945faee7e4e2dbe194a01}{Load}} (\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} unit\+Of\+Work)
 \begin{DoxyCompactList}\small\item\em load method \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_affa22200cc54fa1d63b1e1f0e3b39387}{Save}} (\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} unit\+Of\+Work)
+virtual async Task \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a11843156e0de051e112588e4d52c6d37}{Save}} (\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} unit\+Of\+Work)
 \begin{DoxyCompactList}\small\item\em save method \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 base class for Settings classes 
 
-Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00009}{9}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
+Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
 
 
 
@@ -45,16 +45,16 @@ class constructor
 
 
 
-Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
+Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00024         \{}
-\DoxyCodeLine{00025             var type = this.GetType();}
-\DoxyCodeLine{00026             \_name = type.Name;}
-\DoxyCodeLine{00027             \textcolor{comment}{// 2}}
-\DoxyCodeLine{00028             \_properties = type.GetProperties();}
-\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00025         \{}
+\DoxyCodeLine{00026             var type = this.GetType();}
+\DoxyCodeLine{00027             \_name = type.Name;}
+\DoxyCodeLine{00028             \textcolor{comment}{// 2}}
+\DoxyCodeLine{00029             \_properties = type.GetProperties();}
+\DoxyCodeLine{00030         \}}
 
 \end{DoxyCode}
 
@@ -77,37 +77,38 @@ load method
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
+Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00036}{36}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00036         \{}
-\DoxyCodeLine{00037             \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
-\DoxyCodeLine{00038             \textcolor{comment}{// 3 get settings for this type name}}
-\DoxyCodeLine{00039             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
+\DoxyCodeLine{00037         \{}
+\DoxyCodeLine{00038             \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
+\DoxyCodeLine{00039             \textcolor{comment}{// 3 get settings for this type name}}
 \DoxyCodeLine{00040 }
-\DoxyCodeLine{00041             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
-\DoxyCodeLine{00042             \{}
-\DoxyCodeLine{00043                 \textcolor{comment}{// get the setting from the settings list}}
-\DoxyCodeLine{00044                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
-\DoxyCodeLine{00045                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
-\DoxyCodeLine{00046                 \{}
-\DoxyCodeLine{00047                     \textcolor{comment}{// 4 assign the setting values to the properties in the type inheriting this class}}
-\DoxyCodeLine{00048                     propertyInfo.SetValue(\textcolor{keyword}{this}, Convert.ChangeType(setting.Value, propertyInfo.PropertyType));}
-\DoxyCodeLine{00049                 \}}
-\DoxyCodeLine{00050             \}}
-\DoxyCodeLine{00051         \}}
+\DoxyCodeLine{00041             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
+\DoxyCodeLine{00044             \{}
+\DoxyCodeLine{00045                 \textcolor{comment}{// get the setting from the settings list}}
+\DoxyCodeLine{00046                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
+\DoxyCodeLine{00047                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
+\DoxyCodeLine{00048                 \{}
+\DoxyCodeLine{00049                     \textcolor{comment}{// 4 assign the setting values to the properties in the type inheriting this class}}
+\DoxyCodeLine{00050                     propertyInfo.SetValue(\textcolor{keyword}{this}, Convert.ChangeType(setting.Value, propertyInfo.PropertyType));}
+\DoxyCodeLine{00051                 \}}
+\DoxyCodeLine{00052             \}}
+\DoxyCodeLine{00053         \}}
 
 \end{DoxyCode}
 
 
 References \mbox{\hyperlink{_app_db_context_8cs_source_l00030}{Dot\+Net\+Identity.\+Data.\+App\+Db\+Context.\+App\+Settings}}.
 
-\mbox{\Hypertarget{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_affa22200cc54fa1d63b1e1f0e3b39387}\label{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_affa22200cc54fa1d63b1e1f0e3b39387}} 
+\mbox{\Hypertarget{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a11843156e0de051e112588e4d52c6d37}\label{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base_a11843156e0de051e112588e4d52c6d37}} 
 \index{DotNetIdentity.Services.SettingsService.AppSettingsBase@{DotNetIdentity.Services.SettingsService.AppSettingsBase}!Save@{Save}}
 \index{Save@{Save}!DotNetIdentity.Services.SettingsService.AppSettingsBase@{DotNetIdentity.Services.SettingsService.AppSettingsBase}}
 \doxysubsubsection{\texorpdfstring{Save()}{Save()}}
-{\footnotesize\ttfamily virtual void Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+App\+Settings\+Base.\+Save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}}}]{unit\+Of\+Work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual async Task Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+App\+Settings\+Base.\+Save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}}}]{unit\+Of\+Work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -120,38 +121,38 @@ save method
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
+Definition at line \mbox{\hyperlink{_app_settings_base_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_app_settings_base_8cs_source}{App\+Settings\+Base.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00058         \{}
-\DoxyCodeLine{00059             \textcolor{comment}{// 5 load existing settings for this type}}
-\DoxyCodeLine{00060             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
-\DoxyCodeLine{00061 }
-\DoxyCodeLine{00062             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
-\DoxyCodeLine{00063             \{}
-\DoxyCodeLine{00064                 \textcolor{keywordtype}{object} propertyValue = propertyInfo.GetValue(\textcolor{keyword}{this}, \textcolor{keyword}{null})!;}
-\DoxyCodeLine{00065                 \textcolor{keywordtype}{string} value = (propertyValue == \textcolor{keyword}{null}) ? \textcolor{keyword}{null}! : propertyValue.ToString()!;}
-\DoxyCodeLine{00066 }
-\DoxyCodeLine{00067                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
-\DoxyCodeLine{00068                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
-\DoxyCodeLine{00069                 \{}
-\DoxyCodeLine{00070                     \textcolor{comment}{// 6 update existing value}}
-\DoxyCodeLine{00071                     setting.Value = value;}
-\DoxyCodeLine{00072                 \}}
-\DoxyCodeLine{00073                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00074                 \{}
-\DoxyCodeLine{00075                     \textcolor{comment}{// 7 create new setting}}
-\DoxyCodeLine{00076                     var newSetting = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}()}
-\DoxyCodeLine{00077                     \{}
-\DoxyCodeLine{00078                         Name = propertyInfo.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings_abfd2c331163c2e57b0e818039249f117}{Name}},}
-\DoxyCodeLine{00079                         Type = \_name,}
-\DoxyCodeLine{00080                         Value = value,}
-\DoxyCodeLine{00081                     \};}
-\DoxyCodeLine{00082                     unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Add(newSetting);}
-\DoxyCodeLine{00083                 \}}
-\DoxyCodeLine{00084             \}}
-\DoxyCodeLine{00085         \}}
+\DoxyCodeLine{00060         \{}
+\DoxyCodeLine{00061             \textcolor{comment}{// 5 load existing settings for this type}}
+\DoxyCodeLine{00062             var settings = unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.Where(w => w.Type == \_name).ToList();}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064             \textcolor{keywordflow}{foreach} (var propertyInfo \textcolor{keywordflow}{in} \_properties)}
+\DoxyCodeLine{00065             \{}
+\DoxyCodeLine{00066                 \textcolor{keywordtype}{object} propertyValue = propertyInfo.GetValue(\textcolor{keyword}{this}, \textcolor{keyword}{null})!;}
+\DoxyCodeLine{00067                 \textcolor{keywordtype}{string} value = (propertyValue == \textcolor{keyword}{null}) ? \textcolor{keyword}{null}! : propertyValue.ToString()!;}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069                 var setting = settings.SingleOrDefault(s => s.Name == propertyInfo.Name);}
+\DoxyCodeLine{00070                 \textcolor{keywordflow}{if} (setting != \textcolor{keyword}{null})}
+\DoxyCodeLine{00071                 \{}
+\DoxyCodeLine{00072                     \textcolor{comment}{// 6 update existing value}}
+\DoxyCodeLine{00073                     setting.Value = value;}
+\DoxyCodeLine{00074                 \}}
+\DoxyCodeLine{00075                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00076                 \{}
+\DoxyCodeLine{00077                     \textcolor{comment}{// 7 create new setting}}
+\DoxyCodeLine{00078                     var newSetting = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}()}
+\DoxyCodeLine{00079                     \{}
+\DoxyCodeLine{00080                         Name = propertyInfo.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings_abfd2c331163c2e57b0e818039249f117}{Name}},}
+\DoxyCodeLine{00081                         Type = \_name,}
+\DoxyCodeLine{00082                         Value = value,}
+\DoxyCodeLine{00083                     \};}
+\DoxyCodeLine{00084                     await unitOfWork.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{AppSettings}}!.AddAsync(newSetting);}
+\DoxyCodeLine{00085                 \}}
+\DoxyCodeLine{00086             \}}
+\DoxyCodeLine{00087         \}}
 
 \end{DoxyCode}
 

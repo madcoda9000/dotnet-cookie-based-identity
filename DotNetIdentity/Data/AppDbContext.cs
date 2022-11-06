@@ -59,6 +59,11 @@ namespace DotNetIdentity.Data
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpPort", Type = "MailSettings", Value = "587"}); 
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpUseTls", Type = "MailSettings", Value = "true"}); 
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpFromAddress", Type = "MailSettings", Value = "YOUR_From_Address"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapDomainController", Type = "LdapSettings", Value = "YOUR_Domaincontroller_FQDN"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapDomainName", Type = "LdapSettings", Value = "YOUR_Domainname"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapBaseDn", Type = "LdapSettings", Value = "DC=YOUR,DC=Domain,DC=com"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapGroup", Type = "LdapSettings", Value = "YOUR_Ldap_Group"}); 
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapEnabled", Type = "LdapSettings", Value = "true"}); 
 
             //Seeding roles to AspNetRoles table
             builder.Entity<AppRole>().HasData(new AppRole { Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca", Name = "Admin", NormalizedName = "ADMIN".ToUpper() });

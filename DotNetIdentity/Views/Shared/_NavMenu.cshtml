@@ -8,7 +8,7 @@
 
     <li class="sidebar-item has-sub @(_path.Contains("User/") && !_path.Contains("EditUser/") ? "active" : "")">
         <a href="#" class='sidebar-link'>
-            <i class="bi bi-person-fill text-primary"></i>
+            <i class="bi bi-person-fill @(_path.Contains("User/") ? "text-light" : "text-primary")"></i>
             <span>@L["1"]</span>
         </a>
         <ul class="submenu @(_path.Contains("User/") && !_path.Contains("EditUser/") ? "active" : "")" >
@@ -32,7 +32,7 @@
     if(Context.User.IsInRole("Admin")) {
         <li class="sidebar-item has-sub @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "active" : "")">
             <a href="#" class='sidebar-link '>
-                <i class="bi bi-gear-fill text-primary"></i>
+                <i class="bi bi-shield-fill-exclamation @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "text-light" : "text-primary")"></i>
                 <span>@L["7"]</span>
             </a>            
             <ul class="submenu @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "active" : "")">
@@ -46,7 +46,7 @@
         </li>
         <li class="sidebar-item has-sub @(_path.Contains("Logs") ? "active" : "")">
             <a href="#" class='sidebar-link'>
-                <i class="bi bi-archive-fill text-primary"></i>
+                <i class="bi bi-archive-fill @(_path.Contains("Logs") ? "text-light" : "text-primary")"></i>
                 <span>@L["10"]</span>
             </a>
             <ul class="submenu @(_path.Contains("Logs") ? "active" : "")">
@@ -58,6 +58,23 @@
                 </li>
                 <li class="submenu-item @(_path.Contains("ErrorLogs") ? "active" : "")">
                     <a href="/Admin/ErrorLogs">@L["13"]</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-item has-sub @(_path.Contains("Settings") ? "active" : "")">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-gear-fill @(_path.Contains("Settings") ? "text-light" : "text-primary")"></i>
+                <span>@L["17"]</span>
+            </a>
+            <ul class="submenu @(_path.Contains("Settings") ? "active" : "")">
+                <li class="submenu-item @(_path.Contains("Ldap") ? "active" : "")">
+                    <a href="/Settings/SettingsLdap">@L["14"]</a>
+                </li>
+                <li class="submenu-item @(_path.Contains("Mail") ? "active" : "")">
+                    <a href="/Settings/SettingsMail">@L["15"]</a>
+                </li>
+                <li class="submenu-item @(_path.Contains("App") ? "active" : "")">
+                    <a href="/Settings/SettingsApp">@L["16"]</a>
                 </li>
             </ul>
         </li>
