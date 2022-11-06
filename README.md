@@ -62,12 +62,21 @@ No! I've used the following Librarys / Projects in this Project:
 
 * Parts of this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
 * [Identity Server 4](https://github.com/IdentityServer/IdentityServer4) for ASP.NET Core Identity management. I've used this version because the actual version is not free anymore! Duende decided to force a fee for commercial use of Identity Server 5.
+    * License: [Apache License 2.0](https://github.com/IdentityServer/IdentityServer4/blob/main/LICENSE)
 * [DatatablesJs](https://github.com/ekondur/DatatableJS) (I've modified that and included the modified source [here](DatatablesJs). The changes I've made are documented [here](https://github.com/ekondur/DatatableJS/issues)
+    * License: [MIT](https://github.com/ekondur/DatatableJS/blob/main/LICENSE.md)
+* [Datatables Js](https://datatables.net/) (the client library!). 
+    * License: [MIT](https://datatables.net/license/mit)
 * [DoxyGen](Https://doxygen.nl) for generating the class documantation, which can be found [here](Documentation/generated/html/)
+    * License: [GPL 2.0](https://github.com/doxygen/doxygen/blob/master/LICENSE)
 * [Bootstrap 5.1](https://getbootstrap.com) for creating the layouts
+    * License: [MIT](https://github.com/twbs/bootstrap/blob/v4.0.0/LICENSE)
 * [Jquery](https://jquery.com) for making javascript easier :-)
+    * License: [MIT](https://jquery.org/license/)
 * [Toastify](https://apvarun.github.io/toastify-js/) for creating nice toast messages
+    * License: [MIT](https://github.com/apvarun/toastify-js/blob/master/LICENSE)
 * [Bootstrap Session Timeout](https://jquery-plugins.net/bootstrap-session-timeout) for detecting activity and do a session timeout
+    * License: [MIT](https://github.com/orangehill/bootstrap-session-timeout/blob/master/LICENSE.md)
 
 ### But, these are using all different licenses! Can i use that for a commercial project anyway?
 
