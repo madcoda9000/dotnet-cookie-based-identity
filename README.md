@@ -32,7 +32,7 @@ This boilerplate provides the following features:
   audit logging\
   exception logging\
   application logging
-* provides usermanagement
+* provides usermanagement\
   create, edit users\
   enforce 2fa\
   set ldap login\
