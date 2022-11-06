@@ -26,7 +26,7 @@ This boilerplate provides the following features:
   for status errors\
   for exceptions
 * provides application settings service
-  easy to extend settings service with own settings classes\
+  easy to extend settings service with own settings classes
 * provides session cache in database\
 * provides loggin using serilog\
   audit logging\
