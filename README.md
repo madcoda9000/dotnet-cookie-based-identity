@@ -54,7 +54,7 @@ This boilerplate provides the following features:
 
 ### Huhhh, sounds interesting! Can i take a look at it?
 
-sure, I've prepared a few [Screenshots](Documntation/SCREENSHOTS.md) for you!
+sure, I've prepared a few [Screenshots](Documentation/SCREENSHOTS.md) for you!
 
 ### Damn! You've coded that all by yourself?
 
