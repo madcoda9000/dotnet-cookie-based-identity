@@ -61,7 +61,7 @@ sure, I've prepared a few [Screenshots](Documntation/SCREENSHOTS.md) for you!
 No! I've used the following Librarys / Projects in this Project:
 
 * Parts of this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
-* [Identity Server 4](https://github.com/IdentityServer/IdentityServer4) for ASP.NET Core Identity management. I've used this version because the actual version is not free enymore! Duende decided to force a fee for commercial use of Identity Server 5.
+* [Identity Server 4](https://github.com/IdentityServer/IdentityServer4) for ASP.NET Core Identity management. I've used this version because the actual version is not free anymore! Duende decided to force a fee for commercial use of Identity Server 5.
 * [DatatablesJs](https://github.com/ekondur/DatatableJS) (I've modified that and included the modified source [here](DatatablesJs). The changes I've made are documented [here](https://github.com/ekondur/DatatableJS/issues)
 * [DoxyGen](Https://doxygen.nl) for generating the class documantation, which can be found [here](Documentation/generated/html/)
 * [Bootstrap 5.1](https://getbootstrap.com) for creating the layouts
@@ -72,7 +72,9 @@ No! I've used the following Librarys / Projects in this Project:
 ### But, these are using all different licenses! Can i use that for a commercial project anyway?
 
 at first, you've to respect the license of the projects I've listetd here! That's why i listed the projects here with the corosponding link.
-As i am writing this documentation they provide a free (for commercial too) License! **Anyway, they can change thier license. So, before using this in an commercial project, do yourself a favour and visit their page to verify that they provide a free license that is suitable for commercial use!**
+As i am writing this documentation they provide a free (for commercial too) License! **Anyway, they can change their license. So, before using this in an commercial project, do yourself a favour and visit their page to verify that they provide a free license that is suitable for commercial use!**
+
+The code I've written is provided using the MIT License. See [here](LICENSE.md)
 
 ### Ahhh, that's exactly what i need. How can i use that?
 
