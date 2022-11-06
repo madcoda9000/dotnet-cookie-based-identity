@@ -46,6 +46,10 @@ This boilerplate provides the following features:
     * change password
     * edit profile
     * edit profile picture (stored in database)
+* is multilanguage 
+    * implemented english translation
+    * implemented german translation
+    * additional languages can easily implemented with addidtional ressource files
 * provides a bootstrap based theme
     * only three layout files (Main, Auth, Error)
     * easy to customize
