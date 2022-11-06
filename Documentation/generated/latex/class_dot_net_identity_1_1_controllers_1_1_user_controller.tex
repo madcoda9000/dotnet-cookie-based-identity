@@ -1,0 +1,1180 @@
+\hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller}{}\doxysection{Dot\+Net\+Identity.\+Controllers.\+User\+Controller Class Reference}
+\label{class_dot_net_identity_1_1_controllers_1_1_user_controller}\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+
+
+Controller Class for User views  
+
+
+
+
+Inheritance diagram for Dot\+Net\+Identity.\+Controllers.\+User\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{class_dot_net_identity_1_1_controllers_1_1_user_controller__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a1199d2ceaa094253de20bede99df3bf5}{User\+Controller}} (IString\+Localizer$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller}{User\+Controller}} $>$ localizer, ILogger$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller}{User\+Controller}} $>$ log, IWeb\+Host\+Environment webhost\+Enviroment, User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ user\+Manager, Sign\+In\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ sign\+In\+Manager, \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}{Two\+Factor\+Authentication\+Service}} two\+Factor\+Auth\+Service, \mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper}{Email\+Helper}} email\+Helper)
+\begin{DoxyCompactList}\small\item\em Controller constructor \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a304071329d9de02633a1c7f04e1b3d9e}{Register}} ()
+\begin{DoxyCompactList}\small\item\em Controller action for Register view \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a0444fcec8a83141dfcf8d61e67051542}{debug\+User\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Controller action for Debug\+User\+Info view \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a2146609a704d3883312f15f6695d861f}{ping}} ()
+\begin{DoxyCompactList}\small\item\em Controller action for Ping view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a95221696705cae75fb334a6e607d8f57}{Register}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model}{Sign\+Up\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em Controller POST method for Register view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a1eb3083ed5e58c7ba483dafe95d74839}{Login}} (string? return\+Url)
+\begin{DoxyCompactList}\small\item\em Controller action for Login view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_af8db8a5d1d9355e69c4d838a1a265bc7}{Login}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model}{Sign\+In\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em Controller POST method for Login view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_acab0da47d6e973577ddd2b20ea93ab65}{Two\+Factor\+Login}} (string? return\+Url)
+\begin{DoxyCompactList}\small\item\em Controller action for view Two\+Factor\+Login \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa3645d0bf6b510107486c38140a35db2}{Two\+Factor\+Login}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model}{Two\+Factor\+Login\+Vie\+WModel}} vie\+WModel)
+\begin{DoxyCompactList}\small\item\em controller POST method for Two\+Factor\+Login view \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a7f0d3d7c8cc5501f4f2a65e3e343b8a2}{Logout}} ()
+\begin{DoxyCompactList}\small\item\em controller action for Logout \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a6f3391a6bdc167f0e83dfbe0cba399c3}{Profile}} ()
+\begin{DoxyCompactList}\small\item\em controller action for Profile view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_abfd21678ca26d997fa2e11b7a326d35a}{Profile}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model}{Update\+Profile\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST methood for Profile view \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a45b6760c32c407af7c2a2dc046dbdf55}{Change\+Password}} ()
+\begin{DoxyCompactList}\small\item\em controller action for Change\+Password view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a6ac768862a2c7f4d0ff379a6156bb63e}{Change\+Password}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model}{Change\+Password\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST method for Change\+Password view \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa3fd9678f0e3559e2fdd5b1d8679c180}{Forgot\+Password}} ()
+\begin{DoxyCompactList}\small\item\em controller action for Forgot\+Password view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a876cdc1c2083279929869cfbaac2ef46}{Forgot\+Password}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model}{Forgot\+Password\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST method for Forgot\+Password view \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a052191fdea2c3cb10226be3fe0c8d1b2}{Reset\+Password}} (string user\+Id, string token)
+\begin{DoxyCompactList}\small\item\em controller action for Reset\+Password view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_ad65ca98507efa5d26f0b3b16fda4d458}{Reset\+Password}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model}{Reset\+Password\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST method for Reset\+Password view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_aac766774c54c0beca05fc4c6e4c0c7ac}{Confirm\+Email}} (string user\+Id, string token)
+\begin{DoxyCompactList}\small\item\em controller action for Confirm\+Email view \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a47b0ae2eca9307b2b2366efc5ee72a56}{Two\+Factor\+Type}} ()
+\begin{DoxyCompactList}\small\item\em controller action for view Twi\+Factor\+Type \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a221d6293a39c0403e8f5d757c3e8c054}{Two\+Factor\+Type}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model}{Two\+Factor\+Type\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST method for view Two\+Factor\+Type \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa0104aba2965234f220d2962333153b3}{Enforce\+Two\+Factor\+Authenticator}} ()
+\begin{DoxyCompactList}\small\item\em controller action for view Enforce\+Two\+Factor\+Authenticator \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_ad6ebbee6dfd1793a8bf1443d632d5c09}{Enforce\+Two\+Factor\+Authenticator}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model}{Two\+Factor\+Authenticator\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST method for view Enforce\+Two\+Factor\+Authenticator \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a84d9d0abdcfe1482dbfcf8937370b4dc}{Enforce\+Two\+Factor\+Result}} ()
+\begin{DoxyCompactList}\small\item\em controller action for view Enforce\+Two\+Factor\+Result \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_ac9a07c415f24fab15deae77432c807b6}{Two\+Factor\+Authenticator}} ()
+\begin{DoxyCompactList}\small\item\em controller action for view Two\+FActor\+Authenticator \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa284d5a1aefdd318b5f63236a3769735}{Two\+Factor\+Authenticator}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model}{Two\+Factor\+Authenticator\+View\+Model}} view\+Model)
+\begin{DoxyCompactList}\small\item\em controller POST method for view Two\+FActor\+Authenticator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller Class for User views 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]add translation \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a1199d2ceaa094253de20bede99df3bf5}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a1199d2ceaa094253de20bede99df3bf5}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!UserController@{UserController}}
+\index{UserController@{UserController}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{UserController()}{UserController()}}
+{\footnotesize\ttfamily Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+User\+Controller (\begin{DoxyParamCaption}\item[{IString\+Localizer$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller}{User\+Controller}} $>$}]{localizer,  }\item[{ILogger$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller}{User\+Controller}} $>$}]{log,  }\item[{IWeb\+Host\+Environment}]{webhost\+Enviroment,  }\item[{User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{user\+Manager,  }\item[{Sign\+In\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{sign\+In\+Manager,  }\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}{Two\+Factor\+Authentication\+Service}}}]{two\+Factor\+Auth\+Service,  }\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper}{Email\+Helper}}}]{email\+Helper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Controller constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em localizer} & type IString\+Localizer\\
+\hline
+{\em log} & type ILogger\\
+\hline
+{\em webhost\+Enviroment} & type Iweb\+Host\+Enviroment\\
+\hline
+{\em user\+Manager} & type User\+Manager\\
+\hline
+{\em sign\+In\+Manager} & type SIgn\+In\+Manager\\
+\hline
+{\em two\+Factor\+Auth\+Service} & type Two\+Factor\+Auth\+Service\\
+\hline
+{\em email\+Helper} & työe Email\+Helper\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00061}{61}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062         \{}
+\DoxyCodeLine{00063             \_userManager = userManager;}
+\DoxyCodeLine{00064             \_signInManager = signInManager;}
+\DoxyCodeLine{00065             \_emailHelper = emailHelper;}
+\DoxyCodeLine{00066             \_twoFactorAuthService = twoFactorAuthService;}
+\DoxyCodeLine{00067             \_hostEnvironment = webhostEnviroment;}
+\DoxyCodeLine{00068             \_logger = log;}
+\DoxyCodeLine{00069             \_localizer = localizer;}
+\DoxyCodeLine{00070         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a45b6760c32c407af7c2a2dc046dbdf55}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a45b6760c32c407af7c2a2dc046dbdf55}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ChangePassword@{ChangePassword}}
+\index{ChangePassword@{ChangePassword}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ChangePassword()}{ChangePassword()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Change\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+controller action for Change\+Password view 
+
+\begin{DoxyReturn}{Returns}
+view Change\+Password
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a6ac768862a2c7f4d0ff379a6156bb63e}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a6ac768862a2c7f4d0ff379a6156bb63e}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ChangePassword@{ChangePassword}}
+\index{ChangePassword@{ChangePassword}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ChangePassword()}{ChangePassword()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Change\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model}{Change\+Password\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for Change\+Password view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & Change\+Password\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Index
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00410}{410}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00411         \{}
+\DoxyCodeLine{00412             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00413             \{}
+\DoxyCodeLine{00414                 var me = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00415 }
+\DoxyCodeLine{00416                 var passwordValid = await \_userManager.CheckPasswordAsync(me, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model_aa600a32a0dae8d36c7376f77a1a0aa14}{Password}});}
+\DoxyCodeLine{00417                 \textcolor{keywordflow}{if} (passwordValid)}
+\DoxyCodeLine{00418                 \{}
+\DoxyCodeLine{00419                     var result = await \_userManager.ChangePasswordAsync(me, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model_aa600a32a0dae8d36c7376f77a1a0aa14}{Password}}, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_change_password_view_model_a6c19c7afdccf4aeb60cebccb1f313fcb}{NewPassword}});}
+\DoxyCodeLine{00420                     \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00421                     \{}
+\DoxyCodeLine{00422                         await \_userManager.UpdateSecurityStampAsync(me);}
+\DoxyCodeLine{00423 }
+\DoxyCodeLine{00424                         await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00425                         await \_signInManager.SignInAsync(me, \textcolor{keyword}{true});}
+\DoxyCodeLine{00426                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + me.UserName + \textcolor{stringliteral}{"{} successfully changed own password!"{}});}
+\DoxyCodeLine{00427 }
+\DoxyCodeLine{00428                         \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Admin"{}});}
+\DoxyCodeLine{00429                     \}}
+\DoxyCodeLine{00430                     \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + me.UserName + \textcolor{stringliteral}{"{}tried to change password. Error: "{}} + result.Errors.FirstOrDefault()!.ToString());}
+\DoxyCodeLine{00431                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00432                 \}}
+\DoxyCodeLine{00433                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00434                 \{}
+\DoxyCodeLine{00435                     \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + me.UserName + \textcolor{stringliteral}{"{} tried to change password. But provided invalid current pasword!"{}});}
+\DoxyCodeLine{00436                     ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}8"{}}]);}
+\DoxyCodeLine{00437                 \}}
+\DoxyCodeLine{00438             \}}
+\DoxyCodeLine{00439 }
+\DoxyCodeLine{00440             \textcolor{keywordflow}{return} View();}
+\DoxyCodeLine{00441         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_change_password_view_model_8cs_source_l00019}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Change\+Password\+View\+Model.\+New\+Password}}, and \mbox{\hyperlink{_change_password_view_model_8cs_source_l00014}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Change\+Password\+View\+Model.\+Password}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_aac766774c54c0beca05fc4c6e4c0c7ac}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_aac766774c54c0beca05fc4c6e4c0c7ac}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ConfirmEmail@{ConfirmEmail}}
+\index{ConfirmEmail@{ConfirmEmail}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ConfirmEmail()}{ConfirmEmail()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Confirm\+Email (\begin{DoxyParamCaption}\item[{string}]{user\+Id,  }\item[{string}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for Confirm\+Email view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & the user id\\
+\hline
+{\em token} & the confirmation token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Index
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00546}{546}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00547         \{}
+\DoxyCodeLine{00548             var user = await \_userManager.FindByIdAsync(userId);}
+\DoxyCodeLine{00549             \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
+\DoxyCodeLine{00550             \{}
+\DoxyCodeLine{00551                 var result = await \_userManager.ConfirmEmailAsync(user, token);}
+\DoxyCodeLine{00552                 \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00553                 \{}
+\DoxyCodeLine{00554                     \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} successfully confirmed email addres!"{}});}
+\DoxyCodeLine{00555                     \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Login"{}});}
+\DoxyCodeLine{00556                 \}}
+\DoxyCodeLine{00557             \}}
+\DoxyCodeLine{00558             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Home"{}});}
+\DoxyCodeLine{00559         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a0444fcec8a83141dfcf8d61e67051542}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a0444fcec8a83141dfcf8d61e67051542}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!debugUserInfo@{debugUserInfo}}
+\index{debugUserInfo@{debugUserInfo}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{debugUserInfo()}{debugUserInfo()}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+debug\+User\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Controller action for Debug\+User\+Info view 
+
+\begin{DoxyReturn}{Returns}
+view Debug\+User\+Info
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa0104aba2965234f220d2962333153b3}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa0104aba2965234f220d2962333153b3}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!EnforceTwoFactorAuthenticator@{EnforceTwoFactorAuthenticator}}
+\index{EnforceTwoFactorAuthenticator@{EnforceTwoFactorAuthenticator}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{EnforceTwoFactorAuthenticator()}{EnforceTwoFactorAuthenticator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Enforce\+Two\+Factor\+Authenticator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for view Enforce\+Two\+Factor\+Authenticator 
+
+\begin{DoxyReturn}{Returns}
+view Enforce\+Two\+Factor\+Authenticator
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00603}{603}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00604         \{}
+\DoxyCodeLine{00605             var user = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00606             user.TwoFactorType = Models.TwoFactorType.Authenticator;}
+\DoxyCodeLine{00607             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00608 }
+\DoxyCodeLine{00609             var authenticatorKey = await \_userManager.GetAuthenticatorKeyAsync(user);}
+\DoxyCodeLine{00610             \textcolor{keywordflow}{if} (authenticatorKey == \textcolor{keyword}{null})}
+\DoxyCodeLine{00611             \{}
+\DoxyCodeLine{00612                 await \_userManager.ResetAuthenticatorKeyAsync(user);}
+\DoxyCodeLine{00613                 authenticatorKey = await \_userManager.GetAuthenticatorKeyAsync(user);}
+\DoxyCodeLine{00614             \}}
+\DoxyCodeLine{00615 }
+\DoxyCodeLine{00616             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model}{TwoFactorAuthenticatorViewModel}}}
+\DoxyCodeLine{00617             \{}
+\DoxyCodeLine{00618                 SharedKey = authenticatorKey,}
+\DoxyCodeLine{00619                 AuthenticationUri = \_twoFactorAuthService.\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}{GenerateQrCodeUri}}(user.Email, authenticatorKey)}
+\DoxyCodeLine{00620             \});}
+\DoxyCodeLine{00621         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_ad6ebbee6dfd1793a8bf1443d632d5c09}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_ad6ebbee6dfd1793a8bf1443d632d5c09}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!EnforceTwoFactorAuthenticator@{EnforceTwoFactorAuthenticator}}
+\index{EnforceTwoFactorAuthenticator@{EnforceTwoFactorAuthenticator}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{EnforceTwoFactorAuthenticator()}{EnforceTwoFactorAuthenticator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Enforce\+Two\+Factor\+Authenticator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model}{Two\+Factor\+Authenticator\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for view Enforce\+Two\+Factor\+Authenticator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & type Two\+Factor\+Authenticator\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Enforce\+Two\+Factor\+Result
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00629}{629}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00630         \{}
+\DoxyCodeLine{00631             var user = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00632             }
+\DoxyCodeLine{00633             var verificationCode = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model_ae3424579e7c9add11c9a52c3e1f87020}{VerificationCode}}.Replace(\textcolor{stringliteral}{"{} "{}}, \textcolor{keywordtype}{string}.Empty).Replace(\textcolor{stringliteral}{"{}-\/"{}}, \textcolor{keywordtype}{string}.Empty);}
+\DoxyCodeLine{00634 }
+\DoxyCodeLine{00635             var isTokenValid = await \_userManager.VerifyTwoFactorTokenAsync(user, \_userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);}
+\DoxyCodeLine{00636             \textcolor{keywordflow}{if} (isTokenValid)}
+\DoxyCodeLine{00637             \{}
+\DoxyCodeLine{00638                 \textcolor{keywordflow}{if}(user.IsMfaForce \&\& user.TwoFactorEnabled==\textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00639                     await \_userManager.SetTwoFactorEnabledAsync(user, \textcolor{keyword}{true});}
+\DoxyCodeLine{00640                     user.IsMfaForce = \textcolor{keyword}{false};}
+\DoxyCodeLine{00641                     await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00642                 \}}
+\DoxyCodeLine{00643                 }
+\DoxyCodeLine{00644                 TempData[\textcolor{stringliteral}{"{}RecoveryCodes"{}}] = await \_userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);}
+\DoxyCodeLine{00645             \}}
+\DoxyCodeLine{00646             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} successfully configured 2fa after enforcement. Redirecting to action: EnforceTwoFactorResult"{}});}
+\DoxyCodeLine{00647             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}EnforceTwoFactorResult"{}}, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00648         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_two_factor_authenticator_view_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Two\+Factor\+Authenticator\+View\+Model.\+Verification\+Code}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a84d9d0abdcfe1482dbfcf8937370b4dc}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a84d9d0abdcfe1482dbfcf8937370b4dc}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!EnforceTwoFactorResult@{EnforceTwoFactorResult}}
+\index{EnforceTwoFactorResult@{EnforceTwoFactorResult}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{EnforceTwoFactorResult()}{EnforceTwoFactorResult()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Enforce\+Two\+Factor\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for view Enforce\+Two\+Factor\+Result 
+
+\begin{DoxyReturn}{Returns}
+view Enforce\+Two\+Factor\+Result
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00654}{654}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00654                                                                   \{}
+\DoxyCodeLine{00655             await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00656             \textcolor{keywordflow}{return} View();}
+\DoxyCodeLine{00657         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa3fd9678f0e3559e2fdd5b1d8679c180}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa3fd9678f0e3559e2fdd5b1d8679c180}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ForgotPassword@{ForgotPassword}}
+\index{ForgotPassword@{ForgotPassword}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ForgotPassword()}{ForgotPassword()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Forgot\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+controller action for Forgot\+Password view 
+
+\begin{DoxyReturn}{Returns}
+view Forgot\+Password
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a876cdc1c2083279929869cfbaac2ef46}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a876cdc1c2083279929869cfbaac2ef46}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ForgotPassword@{ForgotPassword}}
+\index{ForgotPassword@{ForgotPassword}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ForgotPassword()}{ForgotPassword()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Forgot\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model}{Forgot\+Password\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for Forgot\+Password view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & Forgot\+Password\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Index
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00455}{455}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00456         \{}
+\DoxyCodeLine{00457             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00458             \{}
+\DoxyCodeLine{00459                 var user = await \_userManager.FindByEmailAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_forgot_password_view_model_a83243ef26b4a8255a4e25716be13b0c0}{Email}});}
+\DoxyCodeLine{00460                 \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
+\DoxyCodeLine{00461                 \{}
+\DoxyCodeLine{00462                     var passwordResetToken = await \_userManager.GeneratePasswordResetTokenAsync(user);}
+\DoxyCodeLine{00463 }
+\DoxyCodeLine{00464                     var passwordLink = Url.Action(\textcolor{stringliteral}{"{}ResetPassword"{}}, \textcolor{stringliteral}{"{}User"{}}, \textcolor{keyword}{new}}
+\DoxyCodeLine{00465                     \{}
+\DoxyCodeLine{00466                         userId = user.Id,}
+\DoxyCodeLine{00467                         token = passwordResetToken}
+\DoxyCodeLine{00468                     \}, HttpContext.Request.Scheme);}
+\DoxyCodeLine{00469 }
+\DoxyCodeLine{00470                     await \_emailHelper.\mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper_a039078f9e8bf831ba45feb21e07e1f50}{SendAsync}}(\textcolor{keyword}{new}()}
+\DoxyCodeLine{00471                     \{}
+\DoxyCodeLine{00472                         Subject = \textcolor{stringliteral}{"{}Reset password"{}},}
+\DoxyCodeLine{00473                         Body = \$\textcolor{stringliteral}{"{}Please <a href='\{passwordLink\}'>click</a> to reset your password."{}},}
+\DoxyCodeLine{00474                         To = user.Email}
+\DoxyCodeLine{00475                     \});}
+\DoxyCodeLine{00476                     \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} requested a password reset!"{}});}
+\DoxyCodeLine{00477                     \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Home"{}});}
+\DoxyCodeLine{00478                 \}}
+\DoxyCodeLine{00479                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00480                 \{}
+\DoxyCodeLine{00481                     ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}9"{}}]);}
+\DoxyCodeLine{00482                 \}}
+\DoxyCodeLine{00483             \}}
+\DoxyCodeLine{00484             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00485         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_forgot_password_view_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Forgot\+Password\+View\+Model.\+Email}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_af8db8a5d1d9355e69c4d838a1a265bc7}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_af8db8a5d1d9355e69c4d838a1a265bc7}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Login@{Login}}
+\index{Login@{Login}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model}{Sign\+In\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Controller POST method for Login view 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Implement Ldap Login \end{DoxyRefDesc}
+\begin{DoxyReturn}{Returns}
+Redirect to action
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00162}{162}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00163         \{}
+\DoxyCodeLine{00164             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00165             \{}
+\DoxyCodeLine{00166                 var user = await \_userManager.FindByNameAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model_a68573c747dcfe26a736fd7e4b7627cab}{UserName}});}
+\DoxyCodeLine{00167                 \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
+\DoxyCodeLine{00168                 \{}
+\DoxyCodeLine{00169                     await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171                     var result = await \_signInManager.PasswordSignInAsync(user, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model_aaba1c559f342991e2f0c75ec6f25c293}{Password}}, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_in_view_model_ad312aae5c5974fb92e56e686bdc9eab3}{RememberMe}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{00172                     \textcolor{keywordflow}{if}(result.Succeeded \&\& user.IsEnabled==\textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00173                         await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00174                         \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} logged in successfully. But account is disabled!"{}});}
+\DoxyCodeLine{00175                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}1"{}}]);}
+\DoxyCodeLine{00176                     \}}
+\DoxyCodeLine{00177                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(result.Succeeded \&\& user.IsMfaForce==\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00178                         await \_userManager.ResetAccessFailedCountAsync(user);}
+\DoxyCodeLine{00179                         await \_userManager.SetLockoutEndDateAsync(user, \textcolor{keyword}{null});}
+\DoxyCodeLine{00180                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} logged in successfully. But MFA is enforced. Redirecting to action: EnforceTwoFactorAuthenticator"{}});}
+\DoxyCodeLine{00181                         \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}EnforceTwoFactorAuthenticator"{}});}
+\DoxyCodeLine{00182                     \}}
+\DoxyCodeLine{00183                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (result.Succeeded \&\& user.IsMfaForce==\textcolor{keyword}{false})}
+\DoxyCodeLine{00184                     \{}
+\DoxyCodeLine{00185                         await \_userManager.ResetAccessFailedCountAsync(user);}
+\DoxyCodeLine{00186                         await \_userManager.SetLockoutEndDateAsync(user, \textcolor{keyword}{null});}
+\DoxyCodeLine{00187                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} logged in successfully."{}});}
+\DoxyCodeLine{00188                         var returnUrl = TempData[\textcolor{stringliteral}{"{}ReturnUrl"{}}];}
+\DoxyCodeLine{00189                         \textcolor{keywordflow}{if} (returnUrl != \textcolor{keyword}{null})}
+\DoxyCodeLine{00190                         \{}
+\DoxyCodeLine{00191                             \textcolor{keywordflow}{return} Redirect(returnUrl.ToString() ?? \textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{00192                         \}}
+\DoxyCodeLine{00193                         \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Admin"{}});}
+\DoxyCodeLine{00194                     \}}
+\DoxyCodeLine{00195                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (result.RequiresTwoFactor)}
+\DoxyCodeLine{00196                     \{}
+\DoxyCodeLine{00197                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} logged in successfully. But MFA is enabled. Redirecting to action: TwoFactorLogin"{}});}
+\DoxyCodeLine{00198                         \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}TwoFactorLogin"{}}, \textcolor{keyword}{new} \{ ReturnUrl = TempData[\textcolor{stringliteral}{"{}ReturnUrl"{}}] \});}
+\DoxyCodeLine{00199                     \}}
+\DoxyCodeLine{00200                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (result.IsLockedOut)}
+\DoxyCodeLine{00201                     \{}
+\DoxyCodeLine{00202                         var lockoutEndUtc = await \_userManager.GetLockoutEndDateAsync(user);}
+\DoxyCodeLine{00203                         var timeLeft = lockoutEndUtc.Value -\/ DateTime.UtcNow;}
+\DoxyCodeLine{00204                         \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} logged in successfully. But Account is locked out for at least another "{}} + timeLeft.Minutes + \textcolor{stringliteral}{"{}minutes!"{}});}
+\DoxyCodeLine{00205                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}2"{}}, timeLeft.Minutes.ToString()]);}
+\DoxyCodeLine{00206                     \}}
+\DoxyCodeLine{00207                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (result.IsNotAllowed)}
+\DoxyCodeLine{00208                     \{}
+\DoxyCodeLine{00209                         \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} logged in successfully. But email is not confirmed!"{}});}
+\DoxyCodeLine{00210                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}3"{}}]);}
+\DoxyCodeLine{00211                     \}}
+\DoxyCodeLine{00212                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00213                     \{}
+\DoxyCodeLine{00214                         \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} login in failed. Invalid username or password!"{}});}
+\DoxyCodeLine{00215                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}4"{}}]);}
+\DoxyCodeLine{00216                     \}}
+\DoxyCodeLine{00217                 \}}
+\DoxyCodeLine{00218                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00219                 \{}
+\DoxyCodeLine{00220                     \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + \textcolor{stringliteral}{"{}Login in failed. Invalid username or password!"{}});}
+\DoxyCodeLine{00221                     ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}4"{}}]);}
+\DoxyCodeLine{00222                 \}}
+\DoxyCodeLine{00223             \}}
+\DoxyCodeLine{00224             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00225         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_sign_in_view_model_8cs_source_l00017}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+In\+View\+Model.\+Password}}, \mbox{\hyperlink{_sign_in_view_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+In\+View\+Model.\+Remember\+Me}}, and \mbox{\hyperlink{_sign_in_view_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+In\+View\+Model.\+User\+Name}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a1eb3083ed5e58c7ba483dafe95d74839}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a1eb3083ed5e58c7ba483dafe95d74839}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Login@{Login}}
+\index{Login@{Login}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Login (\begin{DoxyParamCaption}\item[{string?}]{return\+Url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Controller action for Login view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em return\+Url} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+view Login
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00146}{146}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147         \{}
+\DoxyCodeLine{00148             await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00149             \textcolor{keywordflow}{if} (returnUrl != \textcolor{keyword}{null})}
+\DoxyCodeLine{00150             \{}
+\DoxyCodeLine{00151                 TempData[\textcolor{stringliteral}{"{}ReturnUrl"{}}] = returnUrl;}
+\DoxyCodeLine{00152             \}}
+\DoxyCodeLine{00153             \textcolor{keywordflow}{return} View();}
+\DoxyCodeLine{00154         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a7f0d3d7c8cc5501f4f2a65e3e343b8a2}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a7f0d3d7c8cc5501f4f2a65e3e343b8a2}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Logout@{Logout}}
+\index{Logout@{Logout}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Logout()}{Logout()}}
+{\footnotesize\ttfamily async Task Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+controller action for Logout 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a2146609a704d3883312f15f6695d861f}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a2146609a704d3883312f15f6695d861f}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ping@{ping}}
+\index{ping@{ping}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+ping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Controller action for Ping view 
+
+\begin{DoxyReturn}{Returns}
+view Ping
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a6f3391a6bdc167f0e83dfbe0cba399c3}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a6f3391a6bdc167f0e83dfbe0cba399c3}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Profile@{Profile}}
+\index{Profile@{Profile}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Profile()}{Profile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for Profile view 
+
+\begin{DoxyReturn}{Returns}
+view Profile
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00305}{305}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00306         \{}
+\DoxyCodeLine{00307             var me = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00308             \textcolor{keywordflow}{if} (me == \textcolor{keyword}{null})}
+\DoxyCodeLine{00309             \{}
+\DoxyCodeLine{00310                 await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00311                 \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Home"{}});}
+\DoxyCodeLine{00312             \}}
+\DoxyCodeLine{00313             var mod = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model}{UpdateProfileViewModel}}();}
+\DoxyCodeLine{00314             mod.Email = me.Email;}
+\DoxyCodeLine{00315             mod.BirthDay = me.BirthDay;}
+\DoxyCodeLine{00316             mod.UserName = me.UserName;}
+\DoxyCodeLine{00317             mod.PhoneNumber = me.PhoneNumber;}
+\DoxyCodeLine{00318             mod.Gender = me.Gender;            }
+\DoxyCodeLine{00319             \textcolor{comment}{//return View(me.Adapt<UpdateProfileViewModel>());}}
+\DoxyCodeLine{00320             \textcolor{keywordflow}{return} View(mod);}
+\DoxyCodeLine{00321         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_abfd21678ca26d997fa2e11b7a326d35a}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_abfd21678ca26d997fa2e11b7a326d35a}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Profile@{Profile}}
+\index{Profile@{Profile}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Profile()}{Profile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Profile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model}{Update\+Profile\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST methood for Profile view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & type Update\+Profile\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Index
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00330}{330}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00331         \{}
+\DoxyCodeLine{00332             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00333             \{}
+\DoxyCodeLine{00334                 var me = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00335                 \textcolor{keywordflow}{if} (me != \textcolor{keyword}{null})}
+\DoxyCodeLine{00336                 \{}
+\DoxyCodeLine{00337                     \textcolor{keywordflow}{if} (me.PhoneNumber != viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a61135d58f621a5bd0a6f9871e45f58dc}{PhoneNumber}} \&\& \_userManager.Users.Any(a => a.PhoneNumber == viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a61135d58f621a5bd0a6f9871e45f58dc}{PhoneNumber}}))}
+\DoxyCodeLine{00338                     \{}
+\DoxyCodeLine{00339                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}6"{}}]);}
+\DoxyCodeLine{00340                     \}}
+\DoxyCodeLine{00341                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00342                     \{}
+\DoxyCodeLine{00343                         \textcolor{keywordflow}{if}(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a56284c2eafe0a725c9efa0438e74f230}{ProfilePicture}}!=\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00344                             \textcolor{keyword}{using} (var memoryStream = \textcolor{keyword}{new} MemoryStream())}
+\DoxyCodeLine{00345                             \{}
+\DoxyCodeLine{00346                                 await viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a56284c2eafe0a725c9efa0438e74f230}{ProfilePicture}}.CopyToAsync(memoryStream);}
+\DoxyCodeLine{00347 }
+\DoxyCodeLine{00348                                 \textcolor{comment}{// Upload the file if less than 2 MB}}
+\DoxyCodeLine{00349                                 \textcolor{keywordflow}{if} (memoryStream.Length < 2097152)}
+\DoxyCodeLine{00350                                 \{}
+\DoxyCodeLine{00351                                     var format = \textcolor{stringliteral}{"{}image/png"{}};}
+\DoxyCodeLine{00352                                     var Content = memoryStream.ToArray();}
+\DoxyCodeLine{00353                                     var imageData = \$\textcolor{stringliteral}{"{}data:\{format\};base64,\{Convert.ToBase64String(Content)\}"{}};}
+\DoxyCodeLine{00354                                     me.ProfilePicture = imageData;}
+\DoxyCodeLine{00355 }
+\DoxyCodeLine{00356                                 \}}
+\DoxyCodeLine{00357                                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00358                                 \{}
+\DoxyCodeLine{00359                                     ModelState.AddModelError(\textcolor{stringliteral}{"{}File"{}}, \_localizer[\textcolor{stringliteral}{"{}7"{}}]);}
+\DoxyCodeLine{00360                                 \}}
+\DoxyCodeLine{00361                             \}}
+\DoxyCodeLine{00362                         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00363                             me.ProfilePicture = \textcolor{keyword}{null};}
+\DoxyCodeLine{00364                         \}                     }
+\DoxyCodeLine{00365 }
+\DoxyCodeLine{00366                         me.UserName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a2ad72713ef3a19fa1ac334bfd45a592c}{UserName}};}
+\DoxyCodeLine{00367                         me.Email = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a66c798bbc99bf782c32e30621e0bdc11}{Email}};}
+\DoxyCodeLine{00368                         me.PhoneNumber = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a61135d58f621a5bd0a6f9871e45f58dc}{PhoneNumber}};}
+\DoxyCodeLine{00369                         me.Gender = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_ae60b023646210361a1b8a2e303a5f621}{Gender}};}
+\DoxyCodeLine{00370                         me.BirthDay = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_update_profile_view_model_a5c244c58682d36b32c16a00362924ffa}{BirthDay}};}
+\DoxyCodeLine{00371                         \textcolor{comment}{//me.Department = viewModel.Department.ToString();}}
+\DoxyCodeLine{00372 }
+\DoxyCodeLine{00373                         var result = await \_userManager.UpdateAsync(me);}
+\DoxyCodeLine{00374                         \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00375                         \{}
+\DoxyCodeLine{00376                             await \_userManager.UpdateSecurityStampAsync(me);}
+\DoxyCodeLine{00377                             await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00378                             await \_signInManager.SignInAsync(me, \textcolor{keyword}{true});}
+\DoxyCodeLine{00379 }
+\DoxyCodeLine{00380                             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + me.UserName + \textcolor{stringliteral}{"{}successfully updated own user profile"{}});}
+\DoxyCodeLine{00381 }
+\DoxyCodeLine{00382                             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Home"{}});}
+\DoxyCodeLine{00383                         \}}
+\DoxyCodeLine{00384                         result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00385                     \}}
+\DoxyCodeLine{00386                 \}}
+\DoxyCodeLine{00387                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00388                 \{}
+\DoxyCodeLine{00389                     await \_signInManager.SignOutAsync();}
+\DoxyCodeLine{00390                     \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Home"{}});}
+\DoxyCodeLine{00391                 \}}
+\DoxyCodeLine{00392             \}}
+\DoxyCodeLine{00393             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00394         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_update_profile_view_model_8cs_source_l00032}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Update\+Profile\+View\+Model.\+Birth\+Day}}, \mbox{\hyperlink{_update_profile_view_model_8cs_source_l00017}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Update\+Profile\+View\+Model.\+Email}}, \mbox{\hyperlink{_update_profile_view_model_8cs_source_l00027}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Update\+Profile\+View\+Model.\+Gender}}, \mbox{\hyperlink{_update_profile_view_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Update\+Profile\+View\+Model.\+Phone\+Number}}, \mbox{\hyperlink{_update_profile_view_model_8cs_source_l00037}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Update\+Profile\+View\+Model.\+Profile\+Picture}}, and \mbox{\hyperlink{_update_profile_view_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Update\+Profile\+View\+Model.\+User\+Name}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a304071329d9de02633a1c7f04e1b3d9e}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a304071329d9de02633a1c7f04e1b3d9e}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Register@{Register}}
+\index{Register@{Register}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Controller action for Register view 
+
+\begin{DoxyReturn}{Returns}
+view Register
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a95221696705cae75fb334a6e607d8f57}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a95221696705cae75fb334a6e607d8f57}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!Register@{Register}}
+\index{Register@{Register}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model}{Sign\+Up\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Controller POST method for Register view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirect to action Login 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00098}{98}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099         \{}
+\DoxyCodeLine{00100             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00101             \{}
+\DoxyCodeLine{00102                 var user = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}}
+\DoxyCodeLine{00103                 \{}
+\DoxyCodeLine{00104                     FirstName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_a1ba8aef8d147d967d1089c533b5c3d32}{FirstName}},}
+\DoxyCodeLine{00105                     LastName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_a4d7f7a98121021f0377b366004ec0ff8}{LastName}},}
+\DoxyCodeLine{00106                     UserName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_a8909ba7880178f08706503054565a8d0}{UserName}},}
+\DoxyCodeLine{00107                     \mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a208c3cb5b7741432907291976d50c6faace8ae9da5b7cd6c3df2929543a9af92d}{Email}} = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_ade8b1ecca6d6508060163fe6512c62f9}{Email}},}
+\DoxyCodeLine{00108                     \mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a5fc190d2f7643b0388a1a35f79870c44}{Gender}} = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_aa1b0d9c175deb4121fa9bcaa28f10043}{Gender}},}
+\DoxyCodeLine{00109                     BirthDay = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_abbb82fe3912565bb53d32f30f53b9c7f}{BirthDay}},}
+\DoxyCodeLine{00110                     \mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a0c2566102c085d8fb8859ba2cc48f7f5}{Department}} = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_ae0991a86173239bbbf223395d45d0138}{Department}}.ToString(),}
+\DoxyCodeLine{00111                     \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a47b0ae2eca9307b2b2366efc5ee72a56}{TwoFactorType}} = Models.TwoFactorType.None,}
+\DoxyCodeLine{00112                     CreatedOn = DateTime.UtcNow,}
+\DoxyCodeLine{00113                     IsEnabled = \textcolor{keyword}{true}}
+\DoxyCodeLine{00114                 \};}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00116                 var result = await \_userManager.CreateAsync(user, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_sign_up_view_model_a0c833e54d8bf9ba8f39e5af0831fddf7}{Password}});}
+\DoxyCodeLine{00117                 \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00118                 \{}
+\DoxyCodeLine{00119                     await \_userManager.AddToRoleAsync(user, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00120                     var confirmationToken = await \_userManager.GenerateEmailConfirmationTokenAsync(user);}
+\DoxyCodeLine{00121                     var confirmationLink = Url.Action(\textcolor{stringliteral}{"{}ConfirmEmail"{}}, \textcolor{stringliteral}{"{}User"{}}, \textcolor{keyword}{new}}
+\DoxyCodeLine{00122                     \{}
+\DoxyCodeLine{00123                         userId = user.Id,}
+\DoxyCodeLine{00124                         token = confirmationToken}
+\DoxyCodeLine{00125                     \}, HttpContext.Request.Scheme);}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127                     await \_emailHelper.\mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper_a039078f9e8bf831ba45feb21e07e1f50}{SendAsync}}(\textcolor{keyword}{new}()}
+\DoxyCodeLine{00128                     \{}
+\DoxyCodeLine{00129                         Subject = \textcolor{stringliteral}{"{}Confirm e-\/mail"{}},}
+\DoxyCodeLine{00130                         Body = \$\textcolor{stringliteral}{"{}Please <a href='\{confirmationLink\}'>click</a> to confirm your e-\/mail address."{}},}
+\DoxyCodeLine{00131                         To = user.Email}
+\DoxyCodeLine{00132                     \});}
+\DoxyCodeLine{00133                     \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + \textcolor{stringliteral}{"{}registered successfully new user: "{}} + user.UserName);}
+\DoxyCodeLine{00134                     \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Login"{}});}
+\DoxyCodeLine{00135                 \}}
+\DoxyCodeLine{00136                 result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00137             \}}
+\DoxyCodeLine{00138             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00139         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00027}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+Birth\+Day}}, \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00032}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+Department}}, \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00017}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+Email}}, \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00042}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+First\+Name}}, \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+Gender}}, \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00047}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+Last\+Name}}, \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00037}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+Password}}, and \mbox{\hyperlink{_sign_up_view_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Sign\+Up\+View\+Model.\+User\+Name}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_ad65ca98507efa5d26f0b3b16fda4d458}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_ad65ca98507efa5d26f0b3b16fda4d458}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ResetPassword@{ResetPassword}}
+\index{ResetPassword@{ResetPassword}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ResetPassword()}{ResetPassword()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Reset\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model}{Reset\+Password\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for Reset\+Password view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & type Reset\+Password\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Login
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00513}{513}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00514         \{}
+\DoxyCodeLine{00515             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00516             \{}
+\DoxyCodeLine{00517                 var user = await \_userManager.FindByIdAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_ab9247f677964dc7fff608a020df0ae9a}{UserId}});}
+\DoxyCodeLine{00518                 \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
+\DoxyCodeLine{00519                 \{}
+\DoxyCodeLine{00520                     var result = await \_userManager.ResetPasswordAsync(user, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_af157ef7ad10cf7cb6bc0f24d41722ca3}{Token}}, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model_a86620419749568fc30ed1dbe098fe84a}{Password}});}
+\DoxyCodeLine{00521                     \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00522                     \{}
+\DoxyCodeLine{00523                         await \_userManager.UpdateSecurityStampAsync(user);}
+\DoxyCodeLine{00524                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{}successfully resetted own password."{}});}
+\DoxyCodeLine{00525                         \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Login"{}}, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00526                     \}}
+\DoxyCodeLine{00527                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00528                     \{}
+\DoxyCodeLine{00529                         result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00530                     \}}
+\DoxyCodeLine{00531                 \}}
+\DoxyCodeLine{00532                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00533                 \{}
+\DoxyCodeLine{00534                     ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \textcolor{stringliteral}{"{}User not found."{}});}
+\DoxyCodeLine{00535                 \}}
+\DoxyCodeLine{00536             \}}
+\DoxyCodeLine{00537             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00538         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_reset_password_view_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Reset\+Password\+View\+Model.\+Password}}, \mbox{\hyperlink{_reset_password_view_model_8cs_source_l00017}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Reset\+Password\+View\+Model.\+Token}}, and \mbox{\hyperlink{_reset_password_view_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Reset\+Password\+View\+Model.\+User\+Id}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a052191fdea2c3cb10226be3fe0c8d1b2}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a052191fdea2c3cb10226be3fe0c8d1b2}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!ResetPassword@{ResetPassword}}
+\index{ResetPassword@{ResetPassword}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{ResetPassword()}{ResetPassword()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Reset\+Password (\begin{DoxyParamCaption}\item[{string}]{user\+Id,  }\item[{string}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for Reset\+Password view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & the user id\\
+\hline
+{\em token} & the reset token\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+view Reset\+Password
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00493}{493}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00494         \{}
+\DoxyCodeLine{00495             \textcolor{keywordflow}{if} (userId == \textcolor{keyword}{null} || token == \textcolor{keyword}{null})}
+\DoxyCodeLine{00496             \{}
+\DoxyCodeLine{00497                 \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Login"{}}, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00498             \}}
+\DoxyCodeLine{00499 }
+\DoxyCodeLine{00500             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_reset_password_view_model}{ResetPasswordViewModel}}}
+\DoxyCodeLine{00501             \{}
+\DoxyCodeLine{00502                 UserId = userId,}
+\DoxyCodeLine{00503                 Token = token}
+\DoxyCodeLine{00504             \});}
+\DoxyCodeLine{00505         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_ac9a07c415f24fab15deae77432c807b6}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_ac9a07c415f24fab15deae77432c807b6}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!TwoFactorAuthenticator@{TwoFactorAuthenticator}}
+\index{TwoFactorAuthenticator@{TwoFactorAuthenticator}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{TwoFactorAuthenticator()}{TwoFactorAuthenticator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Two\+Factor\+Authenticator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for view Two\+FActor\+Authenticator 
+
+\begin{DoxyReturn}{Returns}
+view Two\+FActor\+Authenticator
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00663}{663}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00664         \{}
+\DoxyCodeLine{00665             var user = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00666             \textcolor{keywordflow}{if} (user.TwoFactorEnabled \&\& user.TwoFactorType == Models.TwoFactorType.Authenticator)}
+\DoxyCodeLine{00667             \{}
+\DoxyCodeLine{00668                 var authenticatorKey = await \_userManager.GetAuthenticatorKeyAsync(user);}
+\DoxyCodeLine{00669                 \textcolor{keywordflow}{if} (authenticatorKey == \textcolor{keyword}{null})}
+\DoxyCodeLine{00670                 \{}
+\DoxyCodeLine{00671                     await \_userManager.ResetAuthenticatorKeyAsync(user);}
+\DoxyCodeLine{00672                     authenticatorKey = await \_userManager.GetAuthenticatorKeyAsync(user);}
+\DoxyCodeLine{00673                 \}}
+\DoxyCodeLine{00674 }
+\DoxyCodeLine{00675                 \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model}{TwoFactorAuthenticatorViewModel}}}
+\DoxyCodeLine{00676                 \{}
+\DoxyCodeLine{00677                     SharedKey = authenticatorKey,}
+\DoxyCodeLine{00678                     AuthenticationUri = \_twoFactorAuthService.\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}{GenerateQrCodeUri}}(user.Email, authenticatorKey)}
+\DoxyCodeLine{00679                 \});}
+\DoxyCodeLine{00680             \}}
+\DoxyCodeLine{00681             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Index"{}}, \textcolor{stringliteral}{"{}Home"{}});}
+\DoxyCodeLine{00682         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa284d5a1aefdd318b5f63236a3769735}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa284d5a1aefdd318b5f63236a3769735}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!TwoFactorAuthenticator@{TwoFactorAuthenticator}}
+\index{TwoFactorAuthenticator@{TwoFactorAuthenticator}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{TwoFactorAuthenticator()}{TwoFactorAuthenticator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Two\+Factor\+Authenticator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model}{Two\+Factor\+Authenticator\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for view Two\+FActor\+Authenticator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & type Two\+Factor\+Authenticator\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+redirect to action Two\+Factor\+Type
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00690}{690}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00691         \{}
+\DoxyCodeLine{00692             var user = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00693             }
+\DoxyCodeLine{00694             var verificationCode = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_authenticator_view_model_ae3424579e7c9add11c9a52c3e1f87020}{VerificationCode}}.Replace(\textcolor{stringliteral}{"{} "{}}, \textcolor{keywordtype}{string}.Empty).Replace(\textcolor{stringliteral}{"{}-\/"{}}, \textcolor{keywordtype}{string}.Empty);}
+\DoxyCodeLine{00695 }
+\DoxyCodeLine{00696             var isTokenValid = await \_userManager.VerifyTwoFactorTokenAsync(user, \_userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);}
+\DoxyCodeLine{00697             \textcolor{keywordflow}{if} (isTokenValid)}
+\DoxyCodeLine{00698             \{}
+\DoxyCodeLine{00699                 \textcolor{keywordflow}{if}(user.IsMfaForce \&\& user.TwoFactorEnabled==\textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00700                     await \_userManager.SetTwoFactorEnabledAsync(user, \textcolor{keyword}{true});}
+\DoxyCodeLine{00701                     user.IsMfaForce = \textcolor{keyword}{false};}
+\DoxyCodeLine{00702                     await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00703                 \}}
+\DoxyCodeLine{00704                 }
+\DoxyCodeLine{00705                 TempData[\textcolor{stringliteral}{"{}RecoveryCodes"{}}] = await \_userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);}
+\DoxyCodeLine{00706             \}}
+\DoxyCodeLine{00707             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} successfully configured 2fa!"{}});}
+\DoxyCodeLine{00708             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}TwoFactorType"{}}, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00709         \}       }
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_two_factor_authenticator_view_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Two\+Factor\+Authenticator\+View\+Model.\+Verification\+Code}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_acab0da47d6e973577ddd2b20ea93ab65}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_acab0da47d6e973577ddd2b20ea93ab65}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!TwoFactorLogin@{TwoFactorLogin}}
+\index{TwoFactorLogin@{TwoFactorLogin}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{TwoFactorLogin()}{TwoFactorLogin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Two\+Factor\+Login (\begin{DoxyParamCaption}\item[{string?}]{return\+Url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Controller action for view Two\+Factor\+Login 
+
+
+\begin{DoxyParams}{Parameters}
+{\em return\+Url} & optional return url as string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+view Two\+Factor\+Login
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00232}{232}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233         \{}
+\DoxyCodeLine{00234             \textcolor{keywordflow}{if} (returnUrl != \textcolor{keyword}{null})}
+\DoxyCodeLine{00235             \{}
+\DoxyCodeLine{00236                 TempData[\textcolor{stringliteral}{"{}ReturnUrl"{}}] = returnUrl;}
+\DoxyCodeLine{00237             \}}
+\DoxyCodeLine{00238 }
+\DoxyCodeLine{00239             var user = await \_signInManager.GetTwoFactorAuthenticationUserAsync();}
+\DoxyCodeLine{00240 }
+\DoxyCodeLine{00241             \textcolor{keywordflow}{if}(user.TwoFactorType == \mbox{\hyperlink{namespace_dot_net_identity}{DotNetIdentity}}.\mbox{\hyperlink{namespace_dot_net_identity_1_1_models}{Models}}.TwoFactorType.Email) \{}
+\DoxyCodeLine{00242                 var token = await \_userManager.GenerateTwoFactorTokenAsync(user, \textcolor{stringliteral}{"{}Email"{}});}
+\DoxyCodeLine{00243                 await \_emailHelper.\mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper_a039078f9e8bf831ba45feb21e07e1f50}{SendAsync}}(\textcolor{keyword}{new}()}
+\DoxyCodeLine{00244                     \{}
+\DoxyCodeLine{00245                         Subject = \textcolor{stringliteral}{"{}Your 2fa code"{}},}
+\DoxyCodeLine{00246                         Body = \$\textcolor{stringliteral}{"{}Please use this "{}} + token + \textcolor{stringliteral}{"{} 2fa code to verify your login."{}},}
+\DoxyCodeLine{00247                         To = user.Email}
+\DoxyCodeLine{00248                     \});}
+\DoxyCodeLine{00249                     \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: send otp code to "{}} + user.Email);}
+\DoxyCodeLine{00250             \}}
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model}{TwoFactorLoginVieWModel}}}
+\DoxyCodeLine{00253             \{}
+\DoxyCodeLine{00254                 \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a47b0ae2eca9307b2b2366efc5ee72a56}{TwoFactorType}} = user.TwoFactorType,}
+\DoxyCodeLine{00255             \});}
+\DoxyCodeLine{00256         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_two_factor_login_vie_w_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Two\+Factor\+Login\+Vie\+WModel.\+Two\+Factor\+Type}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa3645d0bf6b510107486c38140a35db2}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_aa3645d0bf6b510107486c38140a35db2}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!TwoFactorLogin@{TwoFactorLogin}}
+\index{TwoFactorLogin@{TwoFactorLogin}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{TwoFactorLogin()}{TwoFactorLogin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Two\+Factor\+Login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model}{Two\+Factor\+Login\+Vie\+WModel}}}]{vie\+WModel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for Two\+Factor\+Login view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vie\+WModel} & tyle Two\+Factor\+Login\+Vie\+WModel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rediret to return url
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00264}{264}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00265         \{}
+\DoxyCodeLine{00266             var user = await \_signInManager.GetTwoFactorAuthenticationUserAsync();}
+\DoxyCodeLine{00267 }
+\DoxyCodeLine{00268             \textcolor{keywordflow}{if} (user.TwoFactorType == Models.TwoFactorType.Authenticator)}
+\DoxyCodeLine{00269             \{}
+\DoxyCodeLine{00270                 var result = vieWModel.IsRecoveryCode ? await \_signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model_acef4e3b64ec4ac16429aa8a7dc2e71fb}{VerificationCode}}) : await \_signInManager.TwoFactorAuthenticatorSignInAsync(vieWModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model_acef4e3b64ec4ac16429aa8a7dc2e71fb}{VerificationCode}}, \textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{00271                 \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00272                 \{}
+\DoxyCodeLine{00273                     \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{}Authenticator 2fa verified successfully"{}});}
+\DoxyCodeLine{00274                     \textcolor{keywordflow}{return} Redirect(TempData[\textcolor{stringliteral}{"{}ReturnUrl"{}}]?.ToString() ?? \textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{00275                 \}}
+\DoxyCodeLine{00276                 \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{}Authenticator 2fa verification failed. Invalid otp code"{}});}
+\DoxyCodeLine{00277                 ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}5"{}}]);}
+\DoxyCodeLine{00278             \}}
+\DoxyCodeLine{00279             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (user.TwoFactorType == Models.TwoFactorType.Email)}
+\DoxyCodeLine{00280             \{}
+\DoxyCodeLine{00281                 var result = vieWModel.IsRecoveryCode ? await \_signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model_acef4e3b64ec4ac16429aa8a7dc2e71fb}{VerificationCode}}) : await \_signInManager.TwoFactorSignInAsync(\textcolor{stringliteral}{"{}Email"{}}, vieWModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_login_vie_w_model_acef4e3b64ec4ac16429aa8a7dc2e71fb}{VerificationCode}}, \textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{00282                 \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00283                 \{}
+\DoxyCodeLine{00284                     \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{}Email 2fa verified successfully"{}});}
+\DoxyCodeLine{00285                     \textcolor{keywordflow}{return} Redirect(TempData[\textcolor{stringliteral}{"{}ReturnUrl"{}}]?.ToString() ?? \textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{00286                 \}}
+\DoxyCodeLine{00287                 \_logger.LogWarning(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{}Email 2fa verification failed. Invalid otp code"{}});}
+\DoxyCodeLine{00288                 ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}5"{}}]);}
+\DoxyCodeLine{00289             \}}
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291             \textcolor{keywordflow}{return} View(vieWModel);}
+\DoxyCodeLine{00292         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_two_factor_login_vie_w_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Two\+Factor\+Login\+Vie\+WModel.\+Verification\+Code}}.
+
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a47b0ae2eca9307b2b2366efc5ee72a56}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a47b0ae2eca9307b2b2366efc5ee72a56}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!TwoFactorType@{TwoFactorType}}
+\index{TwoFactorType@{TwoFactorType}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{TwoFactorType()}{TwoFactorType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Two\+Factor\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for view Twi\+Factor\+Type 
+
+\begin{DoxyReturn}{Returns}
+view Two\+Factor\+Taype
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00566}{566}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00567         \{}
+\DoxyCodeLine{00568             var user = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00569 }
+\DoxyCodeLine{00570             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model}{TwoFactorTypeViewModel}}}
+\DoxyCodeLine{00571             \{}
+\DoxyCodeLine{00572                 \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller_a47b0ae2eca9307b2b2366efc5ee72a56}{TwoFactorType}} = user.TwoFactorType}
+\DoxyCodeLine{00573             \});}
+\DoxyCodeLine{00574         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_user_controller_a221d6293a39c0403e8f5d757c3e8c054}\label{class_dot_net_identity_1_1_controllers_1_1_user_controller_a221d6293a39c0403e8f5d757c3e8c054}} 
+\index{DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}!TwoFactorType@{TwoFactorType}}
+\index{TwoFactorType@{TwoFactorType}!DotNetIdentity.Controllers.UserController@{DotNetIdentity.Controllers.UserController}}
+\doxysubsubsection{\texorpdfstring{TwoFactorType()}{TwoFactorType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Dot\+Net\+Identity.\+Controllers.\+User\+Controller.\+Two\+Factor\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model}{Two\+Factor\+Type\+View\+Model}}}]{view\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller POST method for view Two\+Factor\+Type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & Two\+Factor\+Type\+View\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rediorect to action Two\+Factor\+Type
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_user_controller_8cs_source_l00583}{583}} of file \mbox{\hyperlink{_user_controller_8cs_source}{User\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00584         \{}
+\DoxyCodeLine{00585             var user = await \_userManager.FindByNameAsync(User.Identity?.Name);}
+\DoxyCodeLine{00586             user.TwoFactorType = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model_aa8293185923b93febe0a66be34b6bf4e}{TwoFactorType}};}
+\DoxyCodeLine{00587             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00588             await \_userManager.SetTwoFactorEnabledAsync(user, user.TwoFactorType != Models.TwoFactorType.None);}
+\DoxyCodeLine{00589 }
+\DoxyCodeLine{00590             \textcolor{keywordflow}{if} (viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_two_factor_type_view_model_aa8293185923b93febe0a66be34b6bf4e}{TwoFactorType}} == Models.TwoFactorType.Authenticator)}
+\DoxyCodeLine{00591             \{}
+\DoxyCodeLine{00592                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} set authenticator as 2fa method. Redirecting to action: TwoFactorAuthenticator"{}});}
+\DoxyCodeLine{00593                 \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}TwoFactorAuthenticator"{}}, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00594             \}}
+\DoxyCodeLine{00595             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + user.UserName + \textcolor{stringliteral}{"{} set "{}} + user.TwoFactorType.ToString() + \textcolor{stringliteral}{"{} as 2fa method."{}});}
+\DoxyCodeLine{00596             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}TwoFactorType"{}}, \textcolor{stringliteral}{"{}User"{}});}
+\DoxyCodeLine{00597         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_two_factor_type_view_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+View\+Models.\+Two\+Factor\+Type\+View\+Model.\+Two\+Factor\+Type}}.
+

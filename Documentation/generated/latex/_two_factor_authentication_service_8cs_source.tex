@@ -1,0 +1,32 @@
+\hypertarget{_two_factor_authentication_service_8cs_source}{}\doxysection{Two\+Factor\+Authentication\+Service.\+cs}
+\label{_two_factor_authentication_service_8cs_source}\index{/Users/sascha.heimann/Projects/dotnet-\/cookie-\/based-\/identity/DotNetIdentity/IdentitySettings/TwoFactorAuthenticationService.cs@{/Users/sascha.heimann/Projects/dotnet-\/cookie-\/based-\/identity/DotNetIdentity/IdentitySettings/TwoFactorAuthenticationService.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00001}00001 \textcolor{keyword}{using }System.Text.Encodings.Web;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00003}00003 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_dot_net_identity_1_1_identity_settings}{DotNetIdentity.IdentitySettings}}}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00008}\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}{00008}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}{TwoFactorAuthenticationService}}}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00009}00009     \{}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00013}00013         \textcolor{keyword}{private} readonly UrlEncoder \_urlEncoder;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00017}00017         \textcolor{keyword}{private} readonly IConfiguration \_configuration;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00021}00021         \textcolor{keyword}{private} readonly ISettingsService \_sett;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00029}\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_aedde697c193a07c6525f72d9d7810a06}{00029}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_aedde697c193a07c6525f72d9d7810a06}{TwoFactorAuthenticationService}}(IConfiguration cnf, UrlEncoder urlEncoder, ISettingsService sett)}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00030}00030         \{}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00031}00031             \_urlEncoder = urlEncoder;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00032}00032             \_configuration = cnf;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00033}00033             \_sett = sett;}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00034}00034         \}}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00042}\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}{00042}}         \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}{GenerateQrCodeUri}}(\textcolor{keywordtype}{string} email, \textcolor{keywordtype}{string} authenticatorKey)}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00043}00043         \{}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00044}00044             var encodedUrl = \_urlEncoder.Encode(\_sett.Global.ApplicationName!);}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00045}00045             var encodedEmail = \_urlEncoder.Encode(email);}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00047}00047             \textcolor{keywordflow}{return} \$\textcolor{stringliteral}{"{}otpauth://totp/\{encodedUrl\}:\{encodedEmail\}?secret=\{authenticatorKey\}\&issuer=\{encodedUrl\}\&digits=6"{}};}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00048}00048         \}}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{_two_factor_authentication_service_8cs_source_l00050}00050 \}}
+
+\end{DoxyCode}

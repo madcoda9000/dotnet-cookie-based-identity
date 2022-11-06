@@ -1,0 +1,81 @@
+\hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler}{}\doxysection{Dot\+Net\+Identity.\+Identity\+Settings.\+Requirements.\+Minimum\+Age\+Handler Class Reference}
+\label{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler}\index{DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler@{DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler}}
+
+
+class implementing Authorization\+Handler of type \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_requirement}{Minimum\+Age\+Requirement}}  
+
+
+
+
+Inheritance diagram for Dot\+Net\+Identity.\+Identity\+Settings.\+Requirements.\+Minimum\+Age\+Handler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Task \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler_a58cfb308eb7c622b970c4955f4404bff}{Handle\+Requirement\+Async}} (Authorization\+Handler\+Context context, \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_requirement}{Minimum\+Age\+Requirement}} requirement)
+\begin{DoxyCompactList}\small\item\em overriding Handle\+Requirement\+Async \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class implementing Authorization\+Handler of type \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_requirement}{Minimum\+Age\+Requirement}} 
+
+Definition at line \mbox{\hyperlink{_minimum_age_requirement_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_minimum_age_requirement_8cs_source}{Minimum\+Age\+Requirement.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler_a58cfb308eb7c622b970c4955f4404bff}\label{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler_a58cfb308eb7c622b970c4955f4404bff}} 
+\index{DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler@{DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler}!HandleRequirementAsync@{HandleRequirementAsync}}
+\index{HandleRequirementAsync@{HandleRequirementAsync}!DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler@{DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler}}
+\doxysubsubsection{\texorpdfstring{HandleRequirementAsync()}{HandleRequirementAsync()}}
+{\footnotesize\ttfamily override Task Dot\+Net\+Identity.\+Identity\+Settings.\+Requirements.\+Minimum\+Age\+Handler.\+Handle\+Requirement\+Async (\begin{DoxyParamCaption}\item[{Authorization\+Handler\+Context}]{context,  }\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_requirement}{Minimum\+Age\+Requirement}}}]{requirement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+overriding Handle\+Requirement\+Async 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Authorization\+Handler\+Context\\
+\hline
+{\em requirement} & \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_requirement}{Minimum\+Age\+Requirement}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Task
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_minimum_age_requirement_8cs_source_l00038}{38}} of file \mbox{\hyperlink{_minimum_age_requirement_8cs_source}{Minimum\+Age\+Requirement.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039         \{}
+\DoxyCodeLine{00040             var birthDayClaim = context.User.FindFirst(f => f.Type == ClaimTypes.DateOfBirth);}
+\DoxyCodeLine{00041             \textcolor{keywordflow}{if} (birthDayClaim != \textcolor{keyword}{null})}
+\DoxyCodeLine{00042             \{}
+\DoxyCodeLine{00043                 var birthDay = Convert.ToDateTime(birthDayClaim.Value);}
+\DoxyCodeLine{00044                 var calculatedAge = DateTime.Now.Year -\/ birthDay.Year;}
+\DoxyCodeLine{00045                 \textcolor{keywordflow}{if} (calculatedAge >= requirement.MinimumAge)}
+\DoxyCodeLine{00046                 \{}
+\DoxyCodeLine{00047                     context.Succeed(requirement);}
+\DoxyCodeLine{00048                 \}}
+\DoxyCodeLine{00049                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00050                 \{}
+\DoxyCodeLine{00051                     context.Fail();}
+\DoxyCodeLine{00052                 \}}
+\DoxyCodeLine{00053             \}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055             \textcolor{keywordflow}{return} Task.CompletedTask;}
+\DoxyCodeLine{00056         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_minimum_age_requirement_8cs_source_l00024}{Dot\+Net\+Identity.\+Identity\+Settings.\+Requirements.\+Minimum\+Age\+Requirement.\+Minimum\+Age}}.
+

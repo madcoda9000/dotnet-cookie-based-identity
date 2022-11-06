@@ -1,0 +1,106 @@
+\hypertarget{class_dot_net_identity_1_1_helpers_1_1_email_helper}{}\doxysection{Dot\+Net\+Identity.\+Helpers.\+Email\+Helper Class Reference}
+\label{class_dot_net_identity_1_1_helpers_1_1_email_helper}\index{DotNetIdentity.Helpers.EmailHelper@{DotNetIdentity.Helpers.EmailHelper}}
+
+
+class for email methods  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper_a4f078ff24c99e2fc1fec03a72783fabe}{Email\+Helper}} (ISettings\+Service sett)
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper_a039078f9e8bf831ba45feb21e07e1f50}{Send\+Async}} (\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model}{Email\+Model}} model)
+\begin{DoxyCompactList}\small\item\em method to send a mail \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class for email methods 
+
+Definition at line \mbox{\hyperlink{_email_helper_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_email_helper_8cs_source}{Email\+Helper.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_helpers_1_1_email_helper_a4f078ff24c99e2fc1fec03a72783fabe}\label{class_dot_net_identity_1_1_helpers_1_1_email_helper_a4f078ff24c99e2fc1fec03a72783fabe}} 
+\index{DotNetIdentity.Helpers.EmailHelper@{DotNetIdentity.Helpers.EmailHelper}!EmailHelper@{EmailHelper}}
+\index{EmailHelper@{EmailHelper}!DotNetIdentity.Helpers.EmailHelper@{DotNetIdentity.Helpers.EmailHelper}}
+\doxysubsubsection{\texorpdfstring{EmailHelper()}{EmailHelper()}}
+{\footnotesize\ttfamily Dot\+Net\+Identity.\+Helpers.\+Email\+Helper.\+Email\+Helper (\begin{DoxyParamCaption}\item[{ISettings\+Service}]{sett }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+class constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sett} & type ISettings\+Service\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_email_helper_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_email_helper_8cs_source}{Email\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024         \{}
+\DoxyCodeLine{00025             \_sett = sett;}
+\DoxyCodeLine{00026         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_helpers_1_1_email_helper_a039078f9e8bf831ba45feb21e07e1f50}\label{class_dot_net_identity_1_1_helpers_1_1_email_helper_a039078f9e8bf831ba45feb21e07e1f50}} 
+\index{DotNetIdentity.Helpers.EmailHelper@{DotNetIdentity.Helpers.EmailHelper}!SendAsync@{SendAsync}}
+\index{SendAsync@{SendAsync}!DotNetIdentity.Helpers.EmailHelper@{DotNetIdentity.Helpers.EmailHelper}}
+\doxysubsubsection{\texorpdfstring{SendAsync()}{SendAsync()}}
+{\footnotesize\ttfamily async Task Dot\+Net\+Identity.\+Helpers.\+Email\+Helper.\+Send\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model}{Email\+Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to send a mail 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & type Email\+Model\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_email_helper_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_email_helper_8cs_source}{Email\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034         \{}
+\DoxyCodeLine{00035             var mail = \textcolor{keyword}{new} MailMessage}
+\DoxyCodeLine{00036             \{}
+\DoxyCodeLine{00037                 Subject = model.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model_af3519b77e5c01eb71a1bf226f7a94d8a}{Subject}},}
+\DoxyCodeLine{00038                 Body = model.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model_a513e918679cb444c6af866370d1d7d83}{Body}},}
+\DoxyCodeLine{00039                 From = \textcolor{keyword}{new} MailAddress(\_sett.Mail.SmtpFromAddress!),}
+\DoxyCodeLine{00040                 IsBodyHtml = \textcolor{keyword}{true}}
+\DoxyCodeLine{00041             \};}
+\DoxyCodeLine{00042             }
+\DoxyCodeLine{00043             var smtp = \textcolor{keyword}{new} SmtpClient}
+\DoxyCodeLine{00044             \{                }
+\DoxyCodeLine{00045                 Host = \_sett.Mail.SmtpServer!,}
+\DoxyCodeLine{00046                 Port = Convert.ToInt32(\_sett.Mail.SmtpPort),}
+\DoxyCodeLine{00047                 EnableSsl = Convert.ToBoolean(\_sett.Mail.SmtpUseTls),}
+\DoxyCodeLine{00048                 DeliveryMethod = SmtpDeliveryMethod.Network,}
+\DoxyCodeLine{00049                 UseDefaultCredentials = \textcolor{keyword}{false},}
+\DoxyCodeLine{00050                 Credentials = \textcolor{keyword}{new} NetworkCredential(\_sett.Mail.Username, \_sett.Mail.Password)}
+\DoxyCodeLine{00051             \};}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053             mail.To.Add(model.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_email_model_aaa2011ef9b583a81250966a56b011e6e}{To}});}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055             await smtp.SendMailAsync(mail);}
+\DoxyCodeLine{00056         \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_email_model_8cs_source_l00017}{Dot\+Net\+Identity.\+Models.\+Business\+Models.\+Email\+Model.\+Body}}, \mbox{\hyperlink{_email_model_8cs_source_l00012}{Dot\+Net\+Identity.\+Models.\+Business\+Models.\+Email\+Model.\+Subject}}, and \mbox{\hyperlink{_email_model_8cs_source_l00022}{Dot\+Net\+Identity.\+Models.\+Business\+Models.\+Email\+Model.\+To}}.
+

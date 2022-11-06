@@ -1,0 +1,93 @@
+\hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}{}\doxysection{Dot\+Net\+Identity.\+Identity\+Settings.\+Two\+Factor\+Authentication\+Service Class Reference}
+\label{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}\index{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService@{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}}
+
+
+class providing 2fa auth services  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_aedde697c193a07c6525f72d9d7810a06}{Two\+Factor\+Authentication\+Service}} (IConfiguration cnf, Url\+Encoder url\+Encoder, ISettings\+Service sett)
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}{Generate\+Qr\+Code\+Uri}} (string email, string authenticator\+Key)
+\begin{DoxyCompactList}\small\item\em method to generate a barcode for 2fa configuration \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class providing 2fa auth services 
+
+Definition at line \mbox{\hyperlink{_two_factor_authentication_service_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_two_factor_authentication_service_8cs_source}{Two\+Factor\+Authentication\+Service.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_aedde697c193a07c6525f72d9d7810a06}\label{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_aedde697c193a07c6525f72d9d7810a06}} 
+\index{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService@{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}!TwoFactorAuthenticationService@{TwoFactorAuthenticationService}}
+\index{TwoFactorAuthenticationService@{TwoFactorAuthenticationService}!DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService@{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}}
+\doxysubsubsection{\texorpdfstring{TwoFactorAuthenticationService()}{TwoFactorAuthenticationService()}}
+{\footnotesize\ttfamily Dot\+Net\+Identity.\+Identity\+Settings.\+Two\+Factor\+Authentication\+Service.\+Two\+Factor\+Authentication\+Service (\begin{DoxyParamCaption}\item[{IConfiguration}]{cnf,  }\item[{Url\+Encoder}]{url\+Encoder,  }\item[{ISettings\+Service}]{sett }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+class constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnf} & IConfiguration\\
+\hline
+{\em url\+Encoder} & Url\+Encoder\\
+\hline
+{\em sett} & ISettings\+Service\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_two_factor_authentication_service_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_two_factor_authentication_service_8cs_source}{Two\+Factor\+Authentication\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030         \{}
+\DoxyCodeLine{00031             \_urlEncoder = urlEncoder;}
+\DoxyCodeLine{00032             \_configuration = cnf;}
+\DoxyCodeLine{00033             \_sett = sett;}
+\DoxyCodeLine{00034         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}\label{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service_a1116184c6f680db3998c5510c15457aa}} 
+\index{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService@{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}!GenerateQrCodeUri@{GenerateQrCodeUri}}
+\index{GenerateQrCodeUri@{GenerateQrCodeUri}!DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService@{DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}}
+\doxysubsubsection{\texorpdfstring{GenerateQrCodeUri()}{GenerateQrCodeUri()}}
+{\footnotesize\ttfamily string Dot\+Net\+Identity.\+Identity\+Settings.\+Two\+Factor\+Authentication\+Service.\+Generate\+Qr\+Code\+Uri (\begin{DoxyParamCaption}\item[{string}]{email,  }\item[{string}]{authenticator\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to generate a barcode for 2fa configuration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & string\\
+\hline
+{\em authenticator\+Key} & string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_two_factor_authentication_service_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_two_factor_authentication_service_8cs_source}{Two\+Factor\+Authentication\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043         \{}
+\DoxyCodeLine{00044             var encodedUrl = \_urlEncoder.Encode(\_sett.Global.ApplicationName!);}
+\DoxyCodeLine{00045             var encodedEmail = \_urlEncoder.Encode(email);}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047             \textcolor{keywordflow}{return} \$\textcolor{stringliteral}{"{}otpauth://totp/\{encodedUrl\}:\{encodedEmail\}?secret=\{authenticatorKey\}\&issuer=\{encodedUrl\}\&digits=6"{}};}
+\DoxyCodeLine{00048         \}}
+
+\end{DoxyCode}

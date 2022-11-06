@@ -1,0 +1,45 @@
+\hypertarget{_settings_service_8cs_source}{}\doxysection{Settings\+Service.\+cs}
+\label{_settings_service_8cs_source}\index{/Users/sascha.heimann/Projects/dotnet-\/cookie-\/based-\/identity/DotNetIdentity/Services/SettingsService/SettingsService.cs@{/Users/sascha.heimann/Projects/dotnet-\/cookie-\/based-\/identity/DotNetIdentity/Services/SettingsService/SettingsService.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_data}{DotNetIdentity.Data}};}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_1_1_business_models}{DotNetIdentity.Models.BusinessModels}};}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_dot_net_identity_1_1_services_1_1_settings_service}{DotNetIdentity.Services.SettingsService}} \{}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00009}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service}{00009}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service}{SettingsService}} : \mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service}{ISettingsService}} \{}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00013}00013     \textcolor{keyword}{private} readonly Lazy<GlobalSettings> \_globalSettings;}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00018}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0c21a140efa1e50482935de29e586c55}{00018}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0c21a140efa1e50482935de29e586c55}{Global}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_globalSettings.Value; \} \}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00022}00022     \textcolor{keyword}{private} readonly Lazy<MailSettings> \_mailSettings;}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00027}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_aeb3647a56baffb62c1dad995915ce91e}{00027}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_aeb3647a56baffb62c1dad995915ce91e}{Mail}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_mailSettings.Value; \} \}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00031}00031     \textcolor{keyword}{private} readonly \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}} \_unitOfWork;}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00037}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a9cddb7dc0447c0f9b2e52918d503f474}{00037}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a9cddb7dc0447c0f9b2e52918d503f474}{SettingsService}}(\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}} unitOfWork)}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00038}00038     \{}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00039}00039         \textcolor{comment}{// ARGUMENT CHECKING SKIPPED FOR BREVITY}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00040}00040         \_unitOfWork = unitOfWork;}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00041}00041         \textcolor{comment}{// 3}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00042}00042         \_globalSettings = \textcolor{keyword}{new} Lazy<GlobalSettings>(CreateSettings<GlobalSettings>);}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00043}00043         \_mailSettings = \textcolor{keyword}{new} Lazy<MailSettings>(CreateSettings<MailSettings>);}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00044}00044     \}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00049}\mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0128e6f46b7a5bf603aa7a568a6c0a00}{00049}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service_a0128e6f46b7a5bf603aa7a568a6c0a00}{Save}}()}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00050}00050     \{}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00051}00051         \textcolor{comment}{// only save changes to settings that have been loaded}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00052}00052         \textcolor{keywordflow}{if} (\_globalSettings.IsValueCreated)}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00053}00053             \_globalSettings.Value.Save(\_unitOfWork);}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00055}00055         \textcolor{keywordflow}{if} (\_mailSettings.IsValueCreated)}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00056}00056             \_mailSettings.Value.Save(\_unitOfWork);}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00058}00058         \_unitOfWork.SaveChanges();}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00065}00065     \textcolor{keyword}{private} T CreateSettings<T>() where T : \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base}{AppSettingsBase}}, new()}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00066}00066     \{}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00067}00067         var settings = \textcolor{keyword}{new} T();}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00068}00068         settings.Load(\_unitOfWork);}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00069}00069         \textcolor{keywordflow}{return} settings;}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_settings_service_8cs_source_l00072}00072 \}}
+
+\end{DoxyCode}

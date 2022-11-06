@@ -1,0 +1,852 @@
+\begin{theindex}
+
+  \item {AbsoluteExpiration}
+    \subitem {DotNetIdentity.Models.DataModels.SessionCache}, 
+		\hyperpage{87}
+  \item {AccessDenied}
+    \subitem {DotNetIdentity.Controllers.HomeController}, 
+		\hyperpage{71}
+  \item {Accounting}
+    \subitem {DotNetIdentity.Models}, \hyperpage{11}
+  \item {AdminController}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{19}
+  \item {AppDbContext}
+    \subitem {DotNetIdentity.Data.AppDbContext}, \hyperpage{32}
+  \item {ApplicationName}
+    \subitem {DotNetIdentity.Models.BusinessModels.GlobalSettings}, 
+		\hyperpage{68}
+  \item {AppLogs}
+    \subitem {DotNetIdentity.Data.AppDbContext}, \hyperpage{34}
+  \item {AppSessionCache}
+    \subitem {DotNetIdentity.Data.AppDbContext}, \hyperpage{34}
+  \item {AppSettings}
+    \subitem {DotNetIdentity.Data.AppDbContext}, \hyperpage{34}
+  \item {AppSettingsBase}
+    \subitem {DotNetIdentity.Services.SettingsService.AppSettingsBase}, 
+		\hyperpage{40}
+  \item {Articles}
+    \subitem {DotNetIdentity.Controllers.RoleBasedController}, 
+		\hyperpage{85}
+  \item {AuditLogs}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{19}
+  \item {AuthenticationUri}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel}, 
+		\hyperpage{98}
+
+  \indexspace
+
+  \item {BirthDay}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{42}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{92}
+    \subitem {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{101}
+  \item {Body}
+    \subitem {DotNetIdentity.Models.BusinessModels.EmailModel}, 
+		\hyperpage{59}
+
+  \indexspace
+
+  \item {ChangePassword}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{106}
+  \item {ClaimsTransformation}
+    \subitem {DotNetIdentity.IdentitySettings.ClaimsTransformation}, 
+		\hyperpage{51}
+  \item {ConfirmEmail}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{107}
+  \item {CreatedOn}
+    \subitem {DotNetIdentity.Models.Identity.AppRole}, \hyperpage{39}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{43}
+
+  \indexspace
+
+  \item {Dashboard}
+    \subitem {DotNetIdentity.Controllers.RoleBasedController}, 
+		\hyperpage{85}
+  \item {debugUserInfo}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{108}
+  \item {DeleteRole}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{19}
+  \item {DeleteUser}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{20}
+  \item {Department}
+    \subitem {DotNetIdentity.Models}, \hyperpage{11}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{43}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{54}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{79}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{93}
+  \item {DisableLdapLogin}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{20}
+  \item {DisableMfaForce}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{21}
+  \item {DisableUser}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{21}
+  \item {DotNetIdentity}, \hyperpage{9}
+  \item {DotNetIdentity.Controllers}, \hyperpage{9}
+  \item {DotNetIdentity.Controllers.AdminController}, \hyperpage{17}
+    \subitem {AdminController}, \hyperpage{19}
+    \subitem {AuditLogs}, \hyperpage{19}
+    \subitem {DeleteRole}, \hyperpage{19}
+    \subitem {DeleteUser}, \hyperpage{20}
+    \subitem {DisableLdapLogin}, \hyperpage{20}
+    \subitem {DisableMfaForce}, \hyperpage{21}
+    \subitem {DisableUser}, \hyperpage{21}
+    \subitem {EditUser}, \hyperpage{22, 23}
+    \subitem {EnableLdapLogin}, \hyperpage{24}
+    \subitem {EnableMfaForce}, \hyperpage{24}
+    \subitem {EnableUser}, \hyperpage{25}
+    \subitem {ErrorLogs}, \hyperpage{25}
+    \subitem {GetAppLogs}, \hyperpage{26}
+    \subitem {GetAuditLogs}, \hyperpage{26}
+    \subitem {GetErrorLogs}, \hyperpage{27}
+    \subitem {GetUsers}, \hyperpage{27}
+    \subitem {Index}, \hyperpage{27}
+    \subitem {NewUser}, \hyperpage{28}
+    \subitem {Roles}, \hyperpage{29}
+    \subitem {SystemLogs}, \hyperpage{29}
+    \subitem {UpsertRole}, \hyperpage{29, 30}
+    \subitem {Users}, \hyperpage{31}
+  \item {DotNetIdentity.Controllers.ClaimBasedController}, 
+		\hyperpage{48}
+    \subitem {Employee}, \hyperpage{49}
+    \subitem {FreeTrial}, \hyperpage{49}
+    \subitem {HR}, \hyperpage{49}
+    \subitem {Software}, \hyperpage{49}
+    \subitem {Violence}, \hyperpage{50}
+  \item {DotNetIdentity.Controllers.CultureController}, \hyperpage{52}
+    \subitem {SetCulture}, \hyperpage{53}
+  \item {DotNetIdentity.Controllers.ErrorsController}, \hyperpage{62}
+    \subitem {ErrorCd}, \hyperpage{62}
+    \subitem {ErrorEx}, \hyperpage{63}
+  \item {DotNetIdentity.Controllers.HomeController}, \hyperpage{70}
+    \subitem {AccessDenied}, \hyperpage{71}
+    \subitem {HomeController}, \hyperpage{70}
+    \subitem {Index}, \hyperpage{71}
+  \item {DotNetIdentity.Controllers.RoleBasedController}, 
+		\hyperpage{85}
+    \subitem {Articles}, \hyperpage{85}
+    \subitem {Dashboard}, \hyperpage{85}
+    \subitem {Profile}, \hyperpage{86}
+    \subitem {Users}, \hyperpage{86}
+  \item {DotNetIdentity.Controllers.UserController}, \hyperpage{104}
+    \subitem {ChangePassword}, \hyperpage{106}
+    \subitem {ConfirmEmail}, \hyperpage{107}
+    \subitem {debugUserInfo}, \hyperpage{108}
+    \subitem {EnforceTwoFactorAuthenticator}, \hyperpage{108}
+    \subitem {EnforceTwoFactorResult}, \hyperpage{109}
+    \subitem {ForgotPassword}, \hyperpage{109, 110}
+    \subitem {Login}, \hyperpage{110}, \hyperpage{112}
+    \subitem {Logout}, \hyperpage{112}
+    \subitem {ping}, \hyperpage{112}
+    \subitem {Profile}, \hyperpage{113}
+    \subitem {Register}, \hyperpage{114, 115}
+    \subitem {ResetPassword}, \hyperpage{116}
+    \subitem {TwoFactorAuthenticator}, \hyperpage{117}
+    \subitem {TwoFactorLogin}, \hyperpage{118, 119}
+    \subitem {TwoFactorType}, \hyperpage{119, 120}
+    \subitem {UserController}, \hyperpage{106}
+  \item {DotNetIdentity.Data}, \hyperpage{9}
+  \item {DotNetIdentity.Data.AppDbContext}, \hyperpage{31}
+    \subitem {AppDbContext}, \hyperpage{32}
+    \subitem {AppLogs}, \hyperpage{34}
+    \subitem {AppSessionCache}, \hyperpage{34}
+    \subitem {AppSettings}, \hyperpage{34}
+    \subitem {OnModelCreating}, \hyperpage{32}
+  \item {DotNetIdentity.Helpers}, \hyperpage{10}
+  \item {DotNetIdentity.Helpers.EmailHelper}, \hyperpage{57}
+    \subitem {EmailHelper}, \hyperpage{57}
+    \subitem {SendAsync}, \hyperpage{58}
+  \item {DotNetIdentity.Helpers.TagHelpers}, \hyperpage{10}
+  \item {DotNetIdentity.Helpers.TagHelpers.UserProfileImageTagHelper}, 
+		\hyperpage{121}
+    \subitem {ProcessAsync}, \hyperpage{122}
+    \subitem {UserId}, \hyperpage{122}
+    \subitem {UserProfileImageTagHelper}, \hyperpage{121}
+  \item {DotNetIdentity.Helpers.TagHelpers.UserRolesTagHelper}, 
+		\hyperpage{123}
+    \subitem {ProcessAsync}, \hyperpage{124}
+    \subitem {UserId}, \hyperpage{125}
+    \subitem {UserRolesTagHelper}, \hyperpage{124}
+  \item {DotNetIdentity.IdentitySettings}, \hyperpage{10}
+  \item {DotNetIdentity.IdentitySettings.ClaimsTransformation}, 
+		\hyperpage{50}
+    \subitem {ClaimsTransformation}, \hyperpage{51}
+    \subitem {TransformAsync}, \hyperpage{51}
+  \item {DotNetIdentity.IdentitySettings.ErrorDescriber}, 
+		\hyperpage{60}
+    \subitem {PasswordContainsUsername}, \hyperpage{61}
+    \subitem {UserNameContainsEmail}, \hyperpage{61}
+    \subitem {UserNameLength}, \hyperpage{61}
+  \item {DotNetIdentity.IdentitySettings.Requirements}, \hyperpage{10}
+  \item {DotNetIdentity.IdentitySettings.Requirements.FreeTrialExpireHandler}, 
+		\hyperpage{66}
+    \subitem {HandleRequirementAsync}, \hyperpage{66}
+  \item {DotNetIdentity.IdentitySettings.Requirements.FreeTrialExpireRequirement}, 
+		\hyperpage{67}
+  \item {DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler}, 
+		\hyperpage{75}
+    \subitem {HandleRequirementAsync}, \hyperpage{76}
+  \item {DotNetIdentity.IdentitySettings.Requirements.MinimumAgeRequirement}, 
+		\hyperpage{77}
+    \subitem {MinimumAge}, \hyperpage{78}
+    \subitem {MinimumAgeRequirement}, \hyperpage{77}
+  \item {DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}, 
+		\hyperpage{96}
+    \subitem {GenerateQrCodeUri}, \hyperpage{97}
+    \subitem {TwoFactorAuthenticationService}, \hyperpage{96}
+  \item {DotNetIdentity.IdentitySettings.Validators}, \hyperpage{11}
+  \item {DotNetIdentity.IdentitySettings.Validators.PasswordValidator}, 
+		\hyperpage{82}
+    \subitem {ValidateAsync}, \hyperpage{82}
+  \item {DotNetIdentity.IdentitySettings.Validators.UserValidator}, 
+		\hyperpage{125}
+    \subitem {ValidateAsync}, \hyperpage{126}
+  \item {DotNetIdentity.Models}, \hyperpage{11}
+    \subitem {Accounting}, \hyperpage{11}
+    \subitem {Department}, \hyperpage{11}
+    \subitem {Email}, \hyperpage{13}
+    \subitem {Gender}, \hyperpage{11}
+    \subitem {HR}, \hyperpage{11}
+    \subitem {Male}, \hyperpage{13}
+    \subitem {None}, \hyperpage{13}
+    \subitem {Software}, \hyperpage{11}
+    \subitem {TwoFactorType}, \hyperpage{13}
+    \subitem {Unknown}, \hyperpage{13}
+  \item {DotNetIdentity.Models.BusinessModels}, \hyperpage{13}
+  \item {DotNetIdentity.Models.BusinessModels.EmailModel}, 
+		\hyperpage{58}
+    \subitem {Body}, \hyperpage{59}
+    \subitem {Subject}, \hyperpage{59}
+    \subitem {To}, \hyperpage{59}
+  \item {DotNetIdentity.Models.BusinessModels.GlobalSettings}, 
+		\hyperpage{68}
+    \subitem {ApplicationName}, \hyperpage{68}
+    \subitem {SessionCookieExpiration}, \hyperpage{69}
+    \subitem {SessionTimeoutRedirAfter}, \hyperpage{69}
+    \subitem {SessionTimeoutWarnAfter}, \hyperpage{69}
+  \item {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{73}
+    \subitem {Password}, \hyperpage{74}
+    \subitem {SmtpFromAddress}, \hyperpage{74}
+    \subitem {SmtpPort}, \hyperpage{74}
+    \subitem {SmtpServer}, \hyperpage{74}
+    \subitem {SmtpUseTls}, \hyperpage{75}
+    \subitem {Username}, \hyperpage{75}
+  \item {DotNetIdentity.Models.DataModels}, \hyperpage{13}
+  \item {DotNetIdentity.Models.DataModels.ApplicationSettings}, 
+		\hyperpage{34}
+    \subitem {Name}, \hyperpage{35}
+    \subitem {Type}, \hyperpage{35}
+    \subitem {Value}, \hyperpage{35}
+  \item {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{36}
+    \subitem {Exception}, \hyperpage{36}
+    \subitem {id}, \hyperpage{37}
+    \subitem {Level}, \hyperpage{37}
+    \subitem {Message}, \hyperpage{37}
+    \subitem {MessageTemplate}, \hyperpage{37}
+    \subitem {Properties}, \hyperpage{38}
+    \subitem {Timestamp}, \hyperpage{38}
+  \item {DotNetIdentity.Models.DataModels.SessionCache}, \hyperpage{86}
+    \subitem {AbsoluteExpiration}, \hyperpage{87}
+    \subitem {ExpiresAtTime}, \hyperpage{87}
+    \subitem {id}, \hyperpage{87}
+    \subitem {SlidingExpirationInSeconds}, \hyperpage{87}
+    \subitem {Value}, \hyperpage{88}
+  \item {DotNetIdentity.Models.Identity}, \hyperpage{14}
+  \item {DotNetIdentity.Models.Identity.AppRole}, \hyperpage{38}
+    \subitem {CreatedOn}, \hyperpage{39}
+  \item {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{41}
+    \subitem {BirthDay}, \hyperpage{42}
+    \subitem {CreatedOn}, \hyperpage{43}
+    \subitem {Department}, \hyperpage{43}
+    \subitem {FirstName}, \hyperpage{43}
+    \subitem {Gender}, \hyperpage{43}
+    \subitem {IsEnabled}, \hyperpage{44}
+    \subitem {IsLdapLogin}, \hyperpage{44}
+    \subitem {IsMfaForce}, \hyperpage{44}
+    \subitem {LastName}, \hyperpage{44}
+    \subitem {ProfilePicture}, \hyperpage{45}
+    \subitem {TwoFactorType}, \hyperpage{45}
+  \item {DotNetIdentity.Models.ViewModels}, \hyperpage{14}
+  \item {DotNetIdentity.Models.ViewModels.AssignRoleViewModel}, 
+		\hyperpage{45}
+    \subitem {IsAssigned}, \hyperpage{46}
+    \subitem {RoleId}, \hyperpage{46}
+    \subitem {RoleName}, \hyperpage{46}
+  \item {DotNetIdentity.Models.ViewModels.ChangePasswordViewModel}, 
+		\hyperpage{47}
+    \subitem {NewPassword}, \hyperpage{47}
+    \subitem {NewPasswordConfirm}, \hyperpage{47}
+    \subitem {Password}, \hyperpage{47}
+  \item {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{54}
+    \subitem {Department}, \hyperpage{54}
+    \subitem {Email}, \hyperpage{55}
+    \subitem {FirstName}, \hyperpage{55}
+    \subitem {Gender}, \hyperpage{55}
+    \subitem {Id}, \hyperpage{55}
+    \subitem {LastName}, \hyperpage{56}
+    \subitem {PhoneNumber}, \hyperpage{56}
+    \subitem {Roles}, \hyperpage{56}
+    \subitem {UserName}, \hyperpage{56}
+  \item {DotNetIdentity.Models.ViewModels.ErrorViewModel}, 
+		\hyperpage{64}
+    \subitem {RequestId}, \hyperpage{64}
+    \subitem {ShowRequestId}, \hyperpage{64}
+  \item {DotNetIdentity.Models.ViewModels.ForgotPasswordViewModel}, 
+		\hyperpage{65}
+    \subitem {Email}, \hyperpage{65}
+  \item {DotNetIdentity.Models.ViewModels.NewUserModel}, \hyperpage{78}
+    \subitem {Department}, \hyperpage{79}
+    \subitem {Email}, \hyperpage{79}
+    \subitem {FirstName}, \hyperpage{79}
+    \subitem {Gender}, \hyperpage{79}
+    \subitem {IsLdapLogin}, \hyperpage{80}
+    \subitem {IsMfaForce}, \hyperpage{80}
+    \subitem {LastName}, \hyperpage{80}
+    \subitem {Password}, \hyperpage{80}
+    \subitem {Roles}, \hyperpage{81}
+    \subitem {UserName}, \hyperpage{81}
+  \item {DotNetIdentity.Models.ViewModels.ResetPasswordViewModel}, 
+		\hyperpage{83}
+    \subitem {Password}, \hyperpage{84}
+    \subitem {Token}, \hyperpage{84}
+    \subitem {UserId}, \hyperpage{84}
+  \item {DotNetIdentity.Models.ViewModels.SignInViewModel}, 
+		\hyperpage{90}
+    \subitem {Password}, \hyperpage{91}
+    \subitem {RememberMe}, \hyperpage{91}
+    \subitem {UserName}, \hyperpage{91}
+  \item {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{92}
+    \subitem {BirthDay}, \hyperpage{92}
+    \subitem {Department}, \hyperpage{93}
+    \subitem {Email}, \hyperpage{93}
+    \subitem {FirstName}, \hyperpage{93}
+    \subitem {Gender}, \hyperpage{93}
+    \subitem {LastName}, \hyperpage{94}
+    \subitem {Password}, \hyperpage{94}
+    \subitem {UserName}, \hyperpage{94}
+  \item {DotNetIdentity.Models.ViewModels.StatusCodesModel}, 
+		\hyperpage{95}
+    \subitem {ErrorMessage}, \hyperpage{95}
+    \subitem {RouteOfException}, \hyperpage{95}
+    \subitem {StatusCode}, \hyperpage{95}
+  \item {DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel}, 
+		\hyperpage{97}
+    \subitem {AuthenticationUri}, \hyperpage{98}
+    \subitem {SharedKey}, \hyperpage{98}
+    \subitem {VerificationCode}, \hyperpage{98}
+  \item {DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel}, 
+		\hyperpage{99}
+    \subitem {IsRecoveryCode}, \hyperpage{99}
+    \subitem {TwoFactorType}, \hyperpage{99}
+    \subitem {VerificationCode}, \hyperpage{99}
+  \item {DotNetIdentity.Models.ViewModels.TwoFactorTypeViewModel}, 
+		\hyperpage{100}
+    \subitem {TwoFactorType}, \hyperpage{100}
+  \item {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{101}
+    \subitem {BirthDay}, \hyperpage{101}
+    \subitem {Email}, \hyperpage{101}
+    \subitem {Gender}, \hyperpage{102}
+    \subitem {PhoneNumber}, \hyperpage{102}
+    \subitem {ProfilePicture}, \hyperpage{102}
+    \subitem {UserName}, \hyperpage{102}
+  \item {DotNetIdentity.Models.ViewModels.UpsertRoleViewModel}, 
+		\hyperpage{103}
+    \subitem {Id}, \hyperpage{103}
+    \subitem {Name}, \hyperpage{103}
+  \item {DotNetIdentity.Services}, \hyperpage{15}
+  \item {DotNetIdentity.Services.SettingsService}, \hyperpage{15}
+  \item {DotNetIdentity.Services.SettingsService.AppSettingsBase}, 
+		\hyperpage{39}
+    \subitem {AppSettingsBase}, \hyperpage{40}
+    \subitem {Load}, \hyperpage{40}
+    \subitem {Save}, \hyperpage{41}
+  \item {DotNetIdentity.Services.SettingsService.ISettingsService}, 
+		\hyperpage{71}
+    \subitem {Global}, \hyperpage{72}
+    \subitem {Mail}, \hyperpage{72}
+    \subitem {Save}, \hyperpage{72}
+  \item {DotNetIdentity.Services.SettingsService.SettingsService}, 
+		\hyperpage{88}
+    \subitem {Global}, \hyperpage{90}
+    \subitem {Mail}, \hyperpage{90}
+    \subitem {Save}, \hyperpage{89}
+    \subitem {SettingsService}, \hyperpage{89}
+
+  \indexspace
+
+  \item {EditUser}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{22, 23}
+  \item {Email}
+    \subitem {DotNetIdentity.Models}, \hyperpage{13}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{55}
+    \subitem {DotNetIdentity.Models.ViewModels.ForgotPasswordViewModel}, 
+		\hyperpage{65}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{79}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{93}
+    \subitem {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{101}
+  \item {EmailHelper}
+    \subitem {DotNetIdentity.Helpers.EmailHelper}, \hyperpage{57}
+  \item {Employee}
+    \subitem {DotNetIdentity.Controllers.ClaimBasedController}, 
+		\hyperpage{49}
+  \item {EnableLdapLogin}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{24}
+  \item {EnableMfaForce}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{24}
+  \item {EnableUser}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{25}
+  \item {EnforceTwoFactorAuthenticator}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{108}
+  \item {EnforceTwoFactorResult}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{109}
+  \item {ErrorCd}
+    \subitem {DotNetIdentity.Controllers.ErrorsController}, 
+		\hyperpage{62}
+  \item {ErrorEx}
+    \subitem {DotNetIdentity.Controllers.ErrorsController}, 
+		\hyperpage{63}
+  \item {ErrorLogs}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{25}
+  \item {ErrorMessage}
+    \subitem {DotNetIdentity.Models.ViewModels.StatusCodesModel}, 
+		\hyperpage{95}
+  \item {Exception}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{36}
+  \item {ExpiresAtTime}
+    \subitem {DotNetIdentity.Models.DataModels.SessionCache}, 
+		\hyperpage{87}
+
+  \indexspace
+
+  \item {FirstName}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{43}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{55}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{79}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{93}
+  \item {ForgotPassword}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{109, 110}
+  \item {FreeTrial}
+    \subitem {DotNetIdentity.Controllers.ClaimBasedController}, 
+		\hyperpage{49}
+
+  \indexspace
+
+  \item {Gender}
+    \subitem {DotNetIdentity.Models}, \hyperpage{11}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{43}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{55}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{79}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{93}
+    \subitem {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{102}
+  \item {GenerateQrCodeUri}
+    \subitem {DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}, 
+		\hyperpage{97}
+  \item {GetAppLogs}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{26}
+  \item {GetAuditLogs}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{26}
+  \item {GetErrorLogs}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{27}
+  \item {GetUsers}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{27}
+  \item {Global}
+    \subitem {DotNetIdentity.Services.SettingsService.ISettingsService}, 
+		\hyperpage{72}
+    \subitem {DotNetIdentity.Services.SettingsService.SettingsService}, 
+		\hyperpage{90}
+
+  \indexspace
+
+  \item {HandleRequirementAsync}
+    \subitem {DotNetIdentity.IdentitySettings.Requirements.FreeTrialExpireHandler}, 
+		\hyperpage{66}
+    \subitem {DotNetIdentity.IdentitySettings.Requirements.MinimumAgeHandler}, 
+		\hyperpage{76}
+  \item {HomeController}
+    \subitem {DotNetIdentity.Controllers.HomeController}, 
+		\hyperpage{70}
+  \item {HR}
+    \subitem {DotNetIdentity.Controllers.ClaimBasedController}, 
+		\hyperpage{49}
+    \subitem {DotNetIdentity.Models}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Id}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{55}
+    \subitem {DotNetIdentity.Models.ViewModels.UpsertRoleViewModel}, 
+		\hyperpage{103}
+  \item {id}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{37}
+    \subitem {DotNetIdentity.Models.DataModels.SessionCache}, 
+		\hyperpage{87}
+  \item {Index}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{27}
+    \subitem {DotNetIdentity.Controllers.HomeController}, 
+		\hyperpage{71}
+  \item {IsAssigned}
+    \subitem {DotNetIdentity.Models.ViewModels.AssignRoleViewModel}, 
+		\hyperpage{46}
+  \item {IsEnabled}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{44}
+  \item {IsLdapLogin}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{44}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{80}
+  \item {IsMfaForce}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{44}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{80}
+  \item {IsRecoveryCode}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel}, 
+		\hyperpage{99}
+
+  \indexspace
+
+  \item {LastName}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{44}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{56}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{80}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{94}
+  \item {Level}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{37}
+  \item {Load}
+    \subitem {DotNetIdentity.Services.SettingsService.AppSettingsBase}, 
+		\hyperpage{40}
+  \item {Login}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{110}, \hyperpage{112}
+  \item {Logout}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{112}
+
+  \indexspace
+
+  \item {Mail}
+    \subitem {DotNetIdentity.Services.SettingsService.ISettingsService}, 
+		\hyperpage{72}
+    \subitem {DotNetIdentity.Services.SettingsService.SettingsService}, 
+		\hyperpage{90}
+  \item {Male}
+    \subitem {DotNetIdentity.Models}, \hyperpage{13}
+  \item {Message}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{37}
+  \item {MessageTemplate}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{37}
+  \item {MinimumAge}
+    \subitem {DotNetIdentity.IdentitySettings.Requirements.MinimumAgeRequirement}, 
+		\hyperpage{78}
+  \item {MinimumAgeRequirement}
+    \subitem {DotNetIdentity.IdentitySettings.Requirements.MinimumAgeRequirement}, 
+		\hyperpage{77}
+
+  \indexspace
+
+  \item {Name}
+    \subitem {DotNetIdentity.Models.DataModels.ApplicationSettings}, 
+		\hyperpage{35}
+    \subitem {DotNetIdentity.Models.ViewModels.UpsertRoleViewModel}, 
+		\hyperpage{103}
+  \item {NewPassword}
+    \subitem {DotNetIdentity.Models.ViewModels.ChangePasswordViewModel}, 
+		\hyperpage{47}
+  \item {NewPasswordConfirm}
+    \subitem {DotNetIdentity.Models.ViewModels.ChangePasswordViewModel}, 
+		\hyperpage{47}
+  \item {NewUser}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{28}
+  \item {None}
+    \subitem {DotNetIdentity.Models}, \hyperpage{13}
+
+  \indexspace
+
+  \item {OnModelCreating}
+    \subitem {DotNetIdentity.Data.AppDbContext}, \hyperpage{32}
+
+  \indexspace
+
+  \item {Password}
+    \subitem {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{74}
+    \subitem {DotNetIdentity.Models.ViewModels.ChangePasswordViewModel}, 
+		\hyperpage{47}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{80}
+    \subitem {DotNetIdentity.Models.ViewModels.ResetPasswordViewModel}, 
+		\hyperpage{84}
+    \subitem {DotNetIdentity.Models.ViewModels.SignInViewModel}, 
+		\hyperpage{91}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{94}
+  \item {PasswordContainsUsername}
+    \subitem {DotNetIdentity.IdentitySettings.ErrorDescriber}, 
+		\hyperpage{61}
+  \item {PhoneNumber}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{56}
+    \subitem {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{102}
+  \item {ping}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{112}
+  \item {ProcessAsync}
+    \subitem {DotNetIdentity.Helpers.TagHelpers.UserProfileImageTagHelper}, 
+		\hyperpage{122}
+    \subitem {DotNetIdentity.Helpers.TagHelpers.UserRolesTagHelper}, 
+		\hyperpage{124}
+  \item {Profile}
+    \subitem {DotNetIdentity.Controllers.RoleBasedController}, 
+		\hyperpage{86}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{113}
+  \item {ProfilePicture}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{45}
+    \subitem {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{102}
+  \item {Properties}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{38}
+
+  \indexspace
+
+  \item {Register}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{114, 115}
+  \item {RememberMe}
+    \subitem {DotNetIdentity.Models.ViewModels.SignInViewModel}, 
+		\hyperpage{91}
+  \item {RequestId}
+    \subitem {DotNetIdentity.Models.ViewModels.ErrorViewModel}, 
+		\hyperpage{64}
+  \item {ResetPassword}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{116}
+  \item {RoleId}
+    \subitem {DotNetIdentity.Models.ViewModels.AssignRoleViewModel}, 
+		\hyperpage{46}
+  \item {RoleName}
+    \subitem {DotNetIdentity.Models.ViewModels.AssignRoleViewModel}, 
+		\hyperpage{46}
+  \item {Roles}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{29}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{56}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{81}
+  \item {RouteOfException}
+    \subitem {DotNetIdentity.Models.ViewModels.StatusCodesModel}, 
+		\hyperpage{95}
+
+  \indexspace
+
+  \item {Save}
+    \subitem {DotNetIdentity.Services.SettingsService.AppSettingsBase}, 
+		\hyperpage{41}
+    \subitem {DotNetIdentity.Services.SettingsService.ISettingsService}, 
+		\hyperpage{72}
+    \subitem {DotNetIdentity.Services.SettingsService.SettingsService}, 
+		\hyperpage{89}
+  \item {SendAsync}
+    \subitem {DotNetIdentity.Helpers.EmailHelper}, \hyperpage{58}
+  \item {SessionCookieExpiration}
+    \subitem {DotNetIdentity.Models.BusinessModels.GlobalSettings}, 
+		\hyperpage{69}
+  \item {SessionTimeoutRedirAfter}
+    \subitem {DotNetIdentity.Models.BusinessModels.GlobalSettings}, 
+		\hyperpage{69}
+  \item {SessionTimeoutWarnAfter}
+    \subitem {DotNetIdentity.Models.BusinessModels.GlobalSettings}, 
+		\hyperpage{69}
+  \item {SetCulture}
+    \subitem {DotNetIdentity.Controllers.CultureController}, 
+		\hyperpage{53}
+  \item {SettingsService}
+    \subitem {DotNetIdentity.Services.SettingsService.SettingsService}, 
+		\hyperpage{89}
+  \item {SharedKey}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel}, 
+		\hyperpage{98}
+  \item {ShowRequestId}
+    \subitem {DotNetIdentity.Models.ViewModels.ErrorViewModel}, 
+		\hyperpage{64}
+  \item {SlidingExpirationInSeconds}
+    \subitem {DotNetIdentity.Models.DataModels.SessionCache}, 
+		\hyperpage{87}
+  \item {SmtpFromAddress}
+    \subitem {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{74}
+  \item {SmtpPort}
+    \subitem {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{74}
+  \item {SmtpServer}
+    \subitem {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{74}
+  \item {SmtpUseTls}
+    \subitem {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{75}
+  \item {Software}
+    \subitem {DotNetIdentity.Controllers.ClaimBasedController}, 
+		\hyperpage{49}
+    \subitem {DotNetIdentity.Models}, \hyperpage{11}
+  \item {StatusCode}
+    \subitem {DotNetIdentity.Models.ViewModels.StatusCodesModel}, 
+		\hyperpage{95}
+  \item {Subject}
+    \subitem {DotNetIdentity.Models.BusinessModels.EmailModel}, 
+		\hyperpage{59}
+  \item {SystemLogs}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{29}
+
+  \indexspace
+
+  \item {Timestamp}
+    \subitem {DotNetIdentity.Models.DataModels.AppLogs}, \hyperpage{38}
+  \item {To}
+    \subitem {DotNetIdentity.Models.BusinessModels.EmailModel}, 
+		\hyperpage{59}
+  \item {Token}
+    \subitem {DotNetIdentity.Models.ViewModels.ResetPasswordViewModel}, 
+		\hyperpage{84}
+  \item {TransformAsync}
+    \subitem {DotNetIdentity.IdentitySettings.ClaimsTransformation}, 
+		\hyperpage{51}
+  \item {TwoFactorAuthenticationService}
+    \subitem {DotNetIdentity.IdentitySettings.TwoFactorAuthenticationService}, 
+		\hyperpage{96}
+  \item {TwoFactorAuthenticator}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{117}
+  \item {TwoFactorLogin}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{118, 119}
+  \item {TwoFactorType}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{119, 120}
+    \subitem {DotNetIdentity.Models}, \hyperpage{13}
+    \subitem {DotNetIdentity.Models.Identity.AppUser}, \hyperpage{45}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel}, 
+		\hyperpage{99}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorTypeViewModel}, 
+		\hyperpage{100}
+  \item {Type}
+    \subitem {DotNetIdentity.Models.DataModels.ApplicationSettings}, 
+		\hyperpage{35}
+
+  \indexspace
+
+  \item {Unknown}
+    \subitem {DotNetIdentity.Models}, \hyperpage{13}
+  \item {UpsertRole}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{29, 30}
+  \item {UserController}
+    \subitem {DotNetIdentity.Controllers.UserController}, 
+		\hyperpage{106}
+  \item {UserId}
+    \subitem {DotNetIdentity.Helpers.TagHelpers.UserProfileImageTagHelper}, 
+		\hyperpage{122}
+    \subitem {DotNetIdentity.Helpers.TagHelpers.UserRolesTagHelper}, 
+		\hyperpage{125}
+    \subitem {DotNetIdentity.Models.ViewModels.ResetPasswordViewModel}, 
+		\hyperpage{84}
+  \item {UserName}
+    \subitem {DotNetIdentity.Models.ViewModels.EditUserViewModel}, 
+		\hyperpage{56}
+    \subitem {DotNetIdentity.Models.ViewModels.NewUserModel}, 
+		\hyperpage{81}
+    \subitem {DotNetIdentity.Models.ViewModels.SignInViewModel}, 
+		\hyperpage{91}
+    \subitem {DotNetIdentity.Models.ViewModels.SignUpViewModel}, 
+		\hyperpage{94}
+    \subitem {DotNetIdentity.Models.ViewModels.UpdateProfileViewModel}, 
+		\hyperpage{102}
+  \item {Username}
+    \subitem {DotNetIdentity.Models.BusinessModels.MailSettings}, 
+		\hyperpage{75}
+  \item {UserNameContainsEmail}
+    \subitem {DotNetIdentity.IdentitySettings.ErrorDescriber}, 
+		\hyperpage{61}
+  \item {UserNameLength}
+    \subitem {DotNetIdentity.IdentitySettings.ErrorDescriber}, 
+		\hyperpage{61}
+  \item {UserProfileImageTagHelper}
+    \subitem {DotNetIdentity.Helpers.TagHelpers.UserProfileImageTagHelper}, 
+		\hyperpage{121}
+  \item {UserRolesTagHelper}
+    \subitem {DotNetIdentity.Helpers.TagHelpers.UserRolesTagHelper}, 
+		\hyperpage{124}
+  \item {Users}
+    \subitem {DotNetIdentity.Controllers.AdminController}, 
+		\hyperpage{31}
+    \subitem {DotNetIdentity.Controllers.RoleBasedController}, 
+		\hyperpage{86}
+
+  \indexspace
+
+  \item {ValidateAsync}
+    \subitem {DotNetIdentity.IdentitySettings.Validators.PasswordValidator}, 
+		\hyperpage{82}
+    \subitem {DotNetIdentity.IdentitySettings.Validators.UserValidator}, 
+		\hyperpage{126}
+  \item {Value}
+    \subitem {DotNetIdentity.Models.DataModels.ApplicationSettings}, 
+		\hyperpage{35}
+    \subitem {DotNetIdentity.Models.DataModels.SessionCache}, 
+		\hyperpage{88}
+  \item {VerificationCode}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorAuthenticatorViewModel}, 
+		\hyperpage{98}
+    \subitem {DotNetIdentity.Models.ViewModels.TwoFactorLoginVieWModel}, 
+		\hyperpage{99}
+  \item {Violence}
+    \subitem {DotNetIdentity.Controllers.ClaimBasedController}, 
+		\hyperpage{50}
+
+\end{theindex}

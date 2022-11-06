@@ -1,0 +1,141 @@
+\hypertarget{class_dot_net_identity_1_1_controllers_1_1_errors_controller}{}\doxysection{Dot\+Net\+Identity.\+Controllers.\+Errors\+Controller Class Reference}
+\label{class_dot_net_identity_1_1_controllers_1_1_errors_controller}\index{DotNetIdentity.Controllers.ErrorsController@{DotNetIdentity.Controllers.ErrorsController}}
+
+
+Controller for error views  
+
+
+
+
+Inheritance diagram for Dot\+Net\+Identity.\+Controllers.\+Errors\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{class_dot_net_identity_1_1_controllers_1_1_errors_controller__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_errors_controller_af68cafd3809f96fea25db599ec3fdff7}{Error\+Ex}} ()
+\begin{DoxyCompactList}\small\item\em controller action for Error\+Ex view \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_errors_controller_a3875e4dd030c1cde8a343538f4680640}{Error\+Cd}} (int status\+Code)
+\begin{DoxyCompactList}\small\item\em Controller action for Error\+Cd view \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for error views 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]add translation \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_errors_controller_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_errors_controller_8cs_source}{Errors\+Controller.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_errors_controller_a3875e4dd030c1cde8a343538f4680640}\label{class_dot_net_identity_1_1_controllers_1_1_errors_controller_a3875e4dd030c1cde8a343538f4680640}} 
+\index{DotNetIdentity.Controllers.ErrorsController@{DotNetIdentity.Controllers.ErrorsController}!ErrorCd@{ErrorCd}}
+\index{ErrorCd@{ErrorCd}!DotNetIdentity.Controllers.ErrorsController@{DotNetIdentity.Controllers.ErrorsController}}
+\doxysubsubsection{\texorpdfstring{ErrorCd()}{ErrorCd()}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+Errors\+Controller.\+Error\+Cd (\begin{DoxyParamCaption}\item[{int}]{status\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Controller action for Error\+Cd view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+Code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+view Error\+Cd
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_errors_controller_8cs_source_l00045}{45}} of file \mbox{\hyperlink{_errors_controller_8cs_source}{Errors\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046         \{}
+\DoxyCodeLine{00047             var statusCodeData = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();}
+\DoxyCodeLine{00048             \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_status_codes_model}{StatusCodesModel}} md = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_status_codes_model}{StatusCodesModel}}();}
+\DoxyCodeLine{00049             md.StatusCode = statusCode;}
+\DoxyCodeLine{00050             md.RouteOfException = statusCodeData!.OriginalPath;}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052             \textcolor{keywordflow}{switch} (statusCode)}
+\DoxyCodeLine{00053             \{}
+\DoxyCodeLine{00054                 \textcolor{comment}{// request timeout}}
+\DoxyCodeLine{00055                 \textcolor{keywordflow}{case} 408:}
+\DoxyCodeLine{00056                     md.ErrorMessage = \textcolor{stringliteral}{"{}Timeout. The request timed out.."{}};}
+\DoxyCodeLine{00057                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00058                 \textcolor{comment}{// badrequest}}
+\DoxyCodeLine{00059                 \textcolor{keywordflow}{case} 400:}
+\DoxyCodeLine{00060                     md.ErrorMessage = \textcolor{stringliteral}{"{}Badrequest. The request meets not the controllers expetation."{}};}
+\DoxyCodeLine{00061                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00062                 \textcolor{comment}{// forbidden}}
+\DoxyCodeLine{00063                 \textcolor{keywordflow}{case} 403:}
+\DoxyCodeLine{00064                     md.ErrorMessage = \textcolor{stringliteral}{"{}Acess denied!"{}};}
+\DoxyCodeLine{00065                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00066                 \textcolor{comment}{// unauthorized}}
+\DoxyCodeLine{00067                 \textcolor{keywordflow}{case} 401:}
+\DoxyCodeLine{00068                     md.ErrorMessage = \textcolor{stringliteral}{"{}You're not authorized to access this resource!"{}};}
+\DoxyCodeLine{00069                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00070                 \textcolor{comment}{//page not found}}
+\DoxyCodeLine{00071                 \textcolor{keywordflow}{case} 404:}
+\DoxyCodeLine{00072                     md.ErrorMessage = \textcolor{stringliteral}{"{}Sorry the page you requested could not be found"{}};                    }
+\DoxyCodeLine{00073                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00074                 \textcolor{comment}{// server error}}
+\DoxyCodeLine{00075                 \textcolor{keywordflow}{case} 500:}
+\DoxyCodeLine{00076                     md.ErrorMessage = \textcolor{stringliteral}{"{}Sorry something went wrong on the server"{}};}
+\DoxyCodeLine{00077                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078                 \textcolor{comment}{// service unavailable}}
+\DoxyCodeLine{00079                 \textcolor{keywordflow}{case} 503:}
+\DoxyCodeLine{00080                     md.ErrorMessage = \textcolor{stringliteral}{"{}Sorry, the service is currently unavailable."{}};}
+\DoxyCodeLine{00081                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00082                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00083                     md.ErrorMessage = \textcolor{stringliteral}{"{}Sorry, there was an error."{}};}
+\DoxyCodeLine{00084                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00085             \}}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087             \textcolor{keywordflow}{return} View(\textcolor{stringliteral}{"{}ErrorCd"{}}, md);}
+\DoxyCodeLine{00088         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_errors_controller_af68cafd3809f96fea25db599ec3fdff7}\label{class_dot_net_identity_1_1_controllers_1_1_errors_controller_af68cafd3809f96fea25db599ec3fdff7}} 
+\index{DotNetIdentity.Controllers.ErrorsController@{DotNetIdentity.Controllers.ErrorsController}!ErrorEx@{ErrorEx}}
+\index{ErrorEx@{ErrorEx}!DotNetIdentity.Controllers.ErrorsController@{DotNetIdentity.Controllers.ErrorsController}}
+\doxysubsubsection{\texorpdfstring{ErrorEx()}{ErrorEx()}}
+{\footnotesize\ttfamily IAction\+Result Dot\+Net\+Identity.\+Controllers.\+Errors\+Controller.\+Error\+Ex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+controller action for Error\+Ex view 
+
+\begin{DoxyReturn}{Returns}
+view Error\+Ex
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_errors_controller_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_errors_controller_8cs_source}{Errors\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024         \{}
+\DoxyCodeLine{00025             var exceptionFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027             \textcolor{keywordflow}{if} (exceptionFeature != \textcolor{keyword}{null})}
+\DoxyCodeLine{00028             \{}
+\DoxyCodeLine{00029                 \textcolor{keywordflow}{if}(exceptionFeature.Error.StackTrace!=\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00030                     ViewBag.StackTrace = exceptionFeature.Error.StackTrace;}
+\DoxyCodeLine{00031                 \}}
+\DoxyCodeLine{00032                 ViewBag.ErrorMessage = exceptionFeature.Error.Message;}
+\DoxyCodeLine{00033                 ViewBag.RouteOfException = exceptionFeature.Path;}
+\DoxyCodeLine{00034             \}}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036             \textcolor{keywordflow}{return} View();}
+\DoxyCodeLine{00037         \}}
+
+\end{DoxyCode}

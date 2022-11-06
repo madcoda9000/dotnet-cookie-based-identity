@@ -1,0 +1,223 @@
+\hypertarget{class_dot_net_identity_1_1_data_1_1_app_db_context}{}\doxysection{Dot\+Net\+Identity.\+Data.\+App\+Db\+Context Class Reference}
+\label{class_dot_net_identity_1_1_data_1_1_app_db_context}\index{DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}}
+
+
+Application Database context class  
+
+
+
+
+Inheritance diagram for Dot\+Net\+Identity.\+Data.\+App\+Db\+Context\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_dot_net_identity_1_1_data_1_1_app_db_context__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a6db894d863a1f403e3d24e7226414fcf}{App\+Db\+Context}} (Db\+Context\+Options$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} $>$ options)
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a34548e37ecd21857a646faffb38e4bab}{On\+Model\+Creating}} (Model\+Builder builder)
+\begin{DoxyCompactList}\small\item\em Overriding On\+Model\+Creation to seed intitial data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Db\+Set$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_app_logs}{App\+Logs}} $>$? \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{App\+Logs}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property App\+Logs \end{DoxyCompactList}\item 
+Db\+Set$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{Application\+Settings}} $>$? \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}{App\+Settings}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em property App\+Settings \end{DoxyCompactList}\item 
+Db\+Set$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_session_cache}{Session\+Cache}} $>$? \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_a710475dd7ea5a909372da8d1d5b65393}{App\+Session\+Cache}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em property App\+Session\+Cache \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application Database context class 
+
+Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_app_db_context_8cs_source}{App\+Db\+Context.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_data_1_1_app_db_context_a6db894d863a1f403e3d24e7226414fcf}\label{class_dot_net_identity_1_1_data_1_1_app_db_context_a6db894d863a1f403e3d24e7226414fcf}} 
+\index{DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}!AppDbContext@{AppDbContext}}
+\index{AppDbContext@{AppDbContext}!DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}}
+\doxysubsubsection{\texorpdfstring{AppDbContext()}{AppDbContext()}}
+{\footnotesize\ttfamily Dot\+Net\+Identity.\+Data.\+App\+Db\+Context.\+App\+Db\+Context (\begin{DoxyParamCaption}\item[{Db\+Context\+Options$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} $>$}]{options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+class constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & type Db\+Context\+Options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_app_db_context_8cs_source}{App\+Db\+Context.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019                                                                     : base(options) \{        }
+\DoxyCodeLine{00020         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_data_1_1_app_db_context_a34548e37ecd21857a646faffb38e4bab}\label{class_dot_net_identity_1_1_data_1_1_app_db_context_a34548e37ecd21857a646faffb38e4bab}} 
+\index{DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}!OnModelCreating@{OnModelCreating}}
+\index{OnModelCreating@{OnModelCreating}!DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}}
+\doxysubsubsection{\texorpdfstring{OnModelCreating()}{OnModelCreating()}}
+{\footnotesize\ttfamily override void Dot\+Net\+Identity.\+Data.\+App\+Db\+Context.\+On\+Model\+Creating (\begin{DoxyParamCaption}\item[{Model\+Builder}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Overriding On\+Model\+Creation to seed intitial data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & type Model\+Builder\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00041}{41}} of file \mbox{\hyperlink{_app_db_context_8cs_source}{App\+Db\+Context.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042         \{}
+\DoxyCodeLine{00043             base.OnModelCreating(builder);      }
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>()}
+\DoxyCodeLine{00046                     .HasKey(x => \textcolor{keyword}{new} \{ x.Name, x.Type \});}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>()}
+\DoxyCodeLine{00049                         .Property(x => x.Value);    }
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051             \textcolor{comment}{// seeding default settings}}
+\DoxyCodeLine{00052             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}ApplicationName"{}}, Type = \textcolor{stringliteral}{"{}GlobalSettings"{}}, Value = \textcolor{stringliteral}{"{}SecPass"{}}\}); }
+\DoxyCodeLine{00053             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SessionTimeoutWarnAfter"{}}, Type = \textcolor{stringliteral}{"{}GlobalSettings"{}}, Value = \textcolor{stringliteral}{"{}50000"{}}\}); }
+\DoxyCodeLine{00054             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SessionTimeoutRedirAfter"{}}, Type = \textcolor{stringliteral}{"{}GlobalSettings"{}}, Value = \textcolor{stringliteral}{"{}70000"{}}\}); }
+\DoxyCodeLine{00055             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SessionCookieExpiration"{}}, Type = \textcolor{stringliteral}{"{}GlobalSettings"{}}, Value = \textcolor{stringliteral}{"{}7"{}}\}); }
+\DoxyCodeLine{00056             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}Username"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_Smtp\_Username"{}}\}); }
+\DoxyCodeLine{00057             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}Password"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_SmtpPassword"{}}\}); }
+\DoxyCodeLine{00058             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpServer"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_SmtpServer"{}}\}); }
+\DoxyCodeLine{00059             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpPort"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}587"{}}\}); }
+\DoxyCodeLine{00060             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpUseTls"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}true"{}}\}); }
+\DoxyCodeLine{00061             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{ApplicationSettings}} \{Name = \textcolor{stringliteral}{"{}SmtpFromAddress"{}}, Type = \textcolor{stringliteral}{"{}MailSettings"{}}, Value = \textcolor{stringliteral}{"{}YOUR\_From\_Address"{}}\}); }
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063             \textcolor{comment}{//Seeding roles to AspNetRoles table}}
+\DoxyCodeLine{00064             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}}, Name = \textcolor{stringliteral}{"{}Admin"{}}, NormalizedName = \textcolor{stringliteral}{"{}ADMIN"{}}.ToUpper() \});}
+\DoxyCodeLine{00065             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}f8a527ac-\/d7f6-\/4d9d-\/aca6-\/46b2261b042b"{}}, Name = \textcolor{stringliteral}{"{}User"{}}, NormalizedName = \textcolor{stringliteral}{"{}USER"{}}.ToUpper() \});}
+\DoxyCodeLine{00066             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}g7a527ac-\/d7t6-\/4d7z-\/aca6-\/45t2261b042b"{}}, Name = \textcolor{stringliteral}{"{}Editor"{}}, NormalizedName = \textcolor{stringliteral}{"{}EDITOR"{}}.ToUpper() \});}
+\DoxyCodeLine{00067             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>().HasData(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}} \{ Id = \textcolor{stringliteral}{"{}p9a527ac-\/d77w-\/4d3r-\/aca6-\/35b2261b042b"{}}, Name = \textcolor{stringliteral}{"{}Moderator"{}}, NormalizedName = \textcolor{stringliteral}{"{}MODERATOR"{}}.ToUpper() \});}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069                       }
+\DoxyCodeLine{00070                 }
+\DoxyCodeLine{00071             \textcolor{comment}{//a hasher to hash the password before seeding the user to the db}}
+\DoxyCodeLine{00072             var hasher = \textcolor{keyword}{new} PasswordHasher<AppUser>();}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074             \textcolor{comment}{//Seeding the Admin User to AspNetUsers table}}
+\DoxyCodeLine{00075             builder.Entity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}>().HasData(}
+\DoxyCodeLine{00076                 \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}}
+\DoxyCodeLine{00077                 \{}
+\DoxyCodeLine{00078                     Id = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}, \textcolor{comment}{// primary key}}
+\DoxyCodeLine{00079                     UserName = \textcolor{stringliteral}{"{}super.admin"{}},}
+\DoxyCodeLine{00080                     NormalizedUserName = \textcolor{stringliteral}{"{}SUPER.ADMIN"{}},}
+\DoxyCodeLine{00081                     PasswordHash = hasher.HashPassword(\textcolor{keyword}{null}!, \textcolor{stringliteral}{"{}Test1000!"{}}),}
+\DoxyCodeLine{00082                     \mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a208c3cb5b7741432907291976d50c6faace8ae9da5b7cd6c3df2929543a9af92d}{Email}} = \textcolor{stringliteral}{"{}super.admin@local.app"{}},}
+\DoxyCodeLine{00083                     NormalizedEmail = \textcolor{stringliteral}{"{}SUPER.ADMIN@LOCAL.APP"{}},}
+\DoxyCodeLine{00084                     EmailConfirmed = \textcolor{keyword}{true},}
+\DoxyCodeLine{00085                     FirstName = \textcolor{stringliteral}{"{}Super"{}},}
+\DoxyCodeLine{00086                     LastName = \textcolor{stringliteral}{"{}Admin"{}},}
+\DoxyCodeLine{00087                     IsMfaForce = \textcolor{keyword}{false},}
+\DoxyCodeLine{00088                     IsLdapLogin = \textcolor{keyword}{false},}
+\DoxyCodeLine{00089                     IsEnabled = \textcolor{keyword}{true}}
+\DoxyCodeLine{00090                 \}}
+\DoxyCodeLine{00091             );}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093             \textcolor{comment}{//Seeding the relation between our user and role to AspNetUserRoles table}}
+\DoxyCodeLine{00094             builder.Entity<IdentityUserRole<string>>().HasData(}
+\DoxyCodeLine{00095                 \textcolor{keyword}{new} IdentityUserRole<string>}
+\DoxyCodeLine{00096                 \{}
+\DoxyCodeLine{00097                     RoleId = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}},}
+\DoxyCodeLine{00098                     UserId = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}}
+\DoxyCodeLine{00099                 \}}
+\DoxyCodeLine{00100             );}
+\DoxyCodeLine{00101         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}\label{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}} 
+\index{DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}!AppLogs@{AppLogs}}
+\index{AppLogs@{AppLogs}!DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}}
+\doxysubsubsection{\texorpdfstring{AppLogs}{AppLogs}}
+{\footnotesize\ttfamily Db\+Set$<$\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_app_logs}{App\+Logs}}$>$? Dot\+Net\+Identity.\+Data.\+App\+Db\+Context.\+App\+Logs\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Property App\+Logs 
+
+
+
+Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_app_db_context_8cs_source}{App\+Db\+Context.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{\textcolor{keyword}{get};\textcolor{keyword}{set};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_data_1_1_app_db_context_a710475dd7ea5a909372da8d1d5b65393}\label{class_dot_net_identity_1_1_data_1_1_app_db_context_a710475dd7ea5a909372da8d1d5b65393}} 
+\index{DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}!AppSessionCache@{AppSessionCache}}
+\index{AppSessionCache@{AppSessionCache}!DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}}
+\doxysubsubsection{\texorpdfstring{AppSessionCache}{AppSessionCache}}
+{\footnotesize\ttfamily Db\+Set$<$\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_session_cache}{Session\+Cache}}$>$? Dot\+Net\+Identity.\+Data.\+App\+Db\+Context.\+App\+Session\+Cache\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+property App\+Session\+Cache 
+
+
+
+Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_app_db_context_8cs_source}{App\+Db\+Context.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035 \{\textcolor{keyword}{get};\textcolor{keyword}{set};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}\label{class_dot_net_identity_1_1_data_1_1_app_db_context_a5ded8087cb93926ee0c8da6d1904b67b}} 
+\index{DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}!AppSettings@{AppSettings}}
+\index{AppSettings@{AppSettings}!DotNetIdentity.Data.AppDbContext@{DotNetIdentity.Data.AppDbContext}}
+\doxysubsubsection{\texorpdfstring{AppSettings}{AppSettings}}
+{\footnotesize\ttfamily Db\+Set$<$\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings}{Application\+Settings}}$>$? Dot\+Net\+Identity.\+Data.\+App\+Db\+Context.\+App\+Settings\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+property App\+Settings 
+
+
+
+Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_app_db_context_8cs_source}{App\+Db\+Context.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030 \{\textcolor{keyword}{get};\textcolor{keyword}{set};\}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_app_settings_base_8cs_source_l00035}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+App\+Settings\+Base.\+Load()}}, and \mbox{\hyperlink{_app_settings_base_8cs_source_l00057}{Dot\+Net\+Identity.\+Services.\+Settings\+Service.\+App\+Settings\+Base.\+Save()}}.
+

@@ -1,0 +1,164 @@
+\hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation}{}\doxysection{Dot\+Net\+Identity.\+Identity\+Settings.\+Claims\+Transformation Class Reference}
+\label{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation}\index{DotNetIdentity.IdentitySettings.ClaimsTransformation@{DotNetIdentity.IdentitySettings.ClaimsTransformation}}
+
+
+class to define own claims  
+
+
+
+
+Inheritance diagram for Dot\+Net\+Identity.\+Identity\+Settings.\+Claims\+Transformation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation_ae5aa826f4387c6cb91e47f271990e971}{Claims\+Transformation}} (User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ user\+Manager, Role\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{App\+Role}} $>$ role\+Manager)
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
+async Task$<$ Claims\+Principal $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation_aea519f343595461ed860cbfce1c0178e}{Transform\+Async}} (Claims\+Principal principal)
+\begin{DoxyCompactList}\small\item\em Task to add claims to identoty \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class to define own claims 
+
+Definition at line \mbox{\hyperlink{_claims_transformation_8cs_source_l00011}{11}} of file \mbox{\hyperlink{_claims_transformation_8cs_source}{Claims\+Transformation.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation_ae5aa826f4387c6cb91e47f271990e971}\label{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation_ae5aa826f4387c6cb91e47f271990e971}} 
+\index{DotNetIdentity.IdentitySettings.ClaimsTransformation@{DotNetIdentity.IdentitySettings.ClaimsTransformation}!ClaimsTransformation@{ClaimsTransformation}}
+\index{ClaimsTransformation@{ClaimsTransformation}!DotNetIdentity.IdentitySettings.ClaimsTransformation@{DotNetIdentity.IdentitySettings.ClaimsTransformation}}
+\doxysubsubsection{\texorpdfstring{ClaimsTransformation()}{ClaimsTransformation()}}
+{\footnotesize\ttfamily Dot\+Net\+Identity.\+Identity\+Settings.\+Claims\+Transformation.\+Claims\+Transformation (\begin{DoxyParamCaption}\item[{User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{user\+Manager,  }\item[{Role\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{App\+Role}} $>$}]{role\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+class constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Manager} & User\+Manager\\
+\hline
+{\em role\+Manager} & Role\+Manager\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_claims_transformation_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_claims_transformation_8cs_source}{Claims\+Transformation.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028         \{}
+\DoxyCodeLine{00029             \_userManager = userManager;}
+\DoxyCodeLine{00030             \_roleManager = roleManager;}
+\DoxyCodeLine{00031         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation_aea519f343595461ed860cbfce1c0178e}\label{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation_aea519f343595461ed860cbfce1c0178e}} 
+\index{DotNetIdentity.IdentitySettings.ClaimsTransformation@{DotNetIdentity.IdentitySettings.ClaimsTransformation}!TransformAsync@{TransformAsync}}
+\index{TransformAsync@{TransformAsync}!DotNetIdentity.IdentitySettings.ClaimsTransformation@{DotNetIdentity.IdentitySettings.ClaimsTransformation}}
+\doxysubsubsection{\texorpdfstring{TransformAsync()}{TransformAsync()}}
+{\footnotesize\ttfamily async Task$<$ Claims\+Principal $>$ Dot\+Net\+Identity.\+Identity\+Settings.\+Claims\+Transformation.\+Transform\+Async (\begin{DoxyParamCaption}\item[{Claims\+Principal}]{principal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Task to add claims to identoty 
+
+
+\begin{DoxyParams}{Parameters}
+{\em principal} & Claims\+Principal\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Claims\+Principal
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_claims_transformation_8cs_source_l00038}{38}} of file \mbox{\hyperlink{_claims_transformation_8cs_source}{Claims\+Transformation.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039         \{}
+\DoxyCodeLine{00040             var identity = principal.Identity as ClaimsIdentity;}
+\DoxyCodeLine{00041             var user = await \_userManager.FindByNameAsync(identity?.Name);}
+\DoxyCodeLine{00042             \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
+\DoxyCodeLine{00043             \{}
+\DoxyCodeLine{00044                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == ClaimTypes.Gender))}
+\DoxyCodeLine{00045                 \{}
+\DoxyCodeLine{00046                     var genderClaim = \textcolor{keyword}{new} Claim(ClaimTypes.Gender, Enum.GetName(user.Gender)!);}
+\DoxyCodeLine{00047                     identity?.AddClaim(genderClaim);}
+\DoxyCodeLine{00048                 \}}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == ClaimTypes.DateOfBirth))}
+\DoxyCodeLine{00051                 \{}
+\DoxyCodeLine{00052                     var birthDayClaim = \textcolor{keyword}{new} Claim(ClaimTypes.DateOfBirth, user.BirthDay.ToShortDateString());}
+\DoxyCodeLine{00053                     identity?.AddClaim(birthDayClaim);}
+\DoxyCodeLine{00054                 \}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == \textcolor{stringliteral}{"{}FreeTrial"{}}))}
+\DoxyCodeLine{00057                 \{}
+\DoxyCodeLine{00058                     var freeTrialClaim = \textcolor{keyword}{new} Claim(\textcolor{stringliteral}{"{}FreeTrial"{}}, user.CreatedOn.ToShortDateString());}
+\DoxyCodeLine{00059                     identity?.AddClaim(freeTrialClaim);}
+\DoxyCodeLine{00060                 \}}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == \textcolor{stringliteral}{"{}Department"{}}) \&\& !String.IsNullOrEmpty(user.Department))}
+\DoxyCodeLine{00063                 \{}
+\DoxyCodeLine{00064                     var departmentClaim = \textcolor{keyword}{new} Claim(\textcolor{stringliteral}{"{}Department"{}}, user.Department!);}
+\DoxyCodeLine{00065                     identity?.AddClaim(departmentClaim);}
+\DoxyCodeLine{00066                 \}}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == ClaimTypes.GivenName))}
+\DoxyCodeLine{00069                 \{}
+\DoxyCodeLine{00070                     var givennameClaim = \textcolor{keyword}{new} Claim(ClaimTypes.GivenName, user.FirstName!);}
+\DoxyCodeLine{00071                     identity?.AddClaim(givennameClaim);}
+\DoxyCodeLine{00072                 \}}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == ClaimTypes.Surname))}
+\DoxyCodeLine{00075                 \{}
+\DoxyCodeLine{00076                     var surnameClaim = \textcolor{keyword}{new} Claim(ClaimTypes.Surname, user.LastName!);}
+\DoxyCodeLine{00077                     identity?.AddClaim(surnameClaim);}
+\DoxyCodeLine{00078                 \}}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080                 \textcolor{keywordflow}{if}(!principal.HasClaim(c=>c.Type==\textcolor{stringliteral}{"{}SelectedCulture"{}})) \{}
+\DoxyCodeLine{00081                     var culture = System.Globalization.CultureInfo.CurrentCulture.ToString().ToLower();}
+\DoxyCodeLine{00082                     var cultureClaim = \textcolor{keyword}{new} Claim(\textcolor{stringliteral}{"{}SelectedCulture"{}}, culture);}
+\DoxyCodeLine{00083                     identity?.AddClaim(cultureClaim);}
+\DoxyCodeLine{00084                 \}}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086                 \textcolor{keywordflow}{if} (!principal.HasClaim(c => c.Type == \textcolor{stringliteral}{"{}RolesCombined"{}}))}
+\DoxyCodeLine{00087                 \{}
+\DoxyCodeLine{00088                     var rls = await \_userManager.GetRolesAsync(user);}
+\DoxyCodeLine{00089                     \textcolor{keywordflow}{if} (rls != \textcolor{keyword}{null})}
+\DoxyCodeLine{00090                     \{}
+\DoxyCodeLine{00091                         var rlsComb = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00092                         \textcolor{keywordflow}{if}(rls.Count()>0 \&\& rls.Count()<=1) \{}
+\DoxyCodeLine{00093                             rlsComb = rls[0].ToString();}
+\DoxyCodeLine{00094                         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00095                             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<rls.Count;i++)}
+\DoxyCodeLine{00096                             \{}
+\DoxyCodeLine{00097                                 \textcolor{keywordflow}{if}(i+1!=rls.Count)\{ rlsComb += rls[i] + \textcolor{stringliteral}{"{},"{}}; \}}
+\DoxyCodeLine{00098                                 \textcolor{keywordflow}{else} \{ rlsComb += rls[i]; \}}
+\DoxyCodeLine{00099                             \}}
+\DoxyCodeLine{00100                         \}}
+\DoxyCodeLine{00101                         \textcolor{keywordflow}{if}(rlsComb.Length>0)}
+\DoxyCodeLine{00102                         \{}
+\DoxyCodeLine{00103                             var rolesCombinedClaim = \textcolor{keyword}{new} Claim(\textcolor{stringliteral}{"{}RolesCombined"{}}, rlsComb!);}
+\DoxyCodeLine{00104                             identity?.AddClaim(rolesCombinedClaim);}
+\DoxyCodeLine{00105                         \}}
+\DoxyCodeLine{00106                     \}}
+\DoxyCodeLine{00107                 \}}
+\DoxyCodeLine{00108             \}}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110             \textcolor{keywordflow}{return} principal;}
+\DoxyCodeLine{00111         \}}
+
+\end{DoxyCode}

@@ -1,0 +1,222 @@
+\hypertarget{_program_8cs_source}{}\doxysection{Program.\+cs}
+\label{_program_8cs_source}\index{/Users/sascha.heimann/Projects/dotnet-\/cookie-\/based-\/identity/DotNetIdentity/Program.cs@{/Users/sascha.heimann/Projects/dotnet-\/cookie-\/based-\/identity/DotNetIdentity/Program.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00001}00001 global \textcolor{keyword}{using }System.Globalization;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00002}00002 global \textcolor{keyword}{using }Microsoft.AspNetCore.Localization;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00003}00003 global \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_services_1_1_settings_service}{DotNetIdentity.Services.SettingsService}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Net;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00005}00005 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_data}{DotNetIdentity.Data}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00006}00006 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_helpers}{DotNetIdentity.Helpers}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00007}00007 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_identity_settings}{DotNetIdentity.IdentitySettings}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00008}00008 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_identity_settings_1_1_requirements}{DotNetIdentity.IdentitySettings.Requirements}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00009}00009 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_identity_settings_1_1_validators}{DotNetIdentity.IdentitySettings.Validators}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00010}00010 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_models}{DotNetIdentity.Models}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00011}00011 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_1_1_business_models}{DotNetIdentity.Models.BusinessModels}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00012}00012 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_1_1_identity}{DotNetIdentity.Models.Identity}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00013}00013 \textcolor{keyword}{using }Microsoft.AspNetCore.Authentication;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00014}00014 \textcolor{keyword}{using }Microsoft.AspNetCore.Authorization;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00015}00015 \textcolor{keyword}{using }Microsoft.AspNetCore.Identity;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00016}00016 \textcolor{keyword}{using }Microsoft.EntityFrameworkCore;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00017}00017 \textcolor{keyword}{using }Microsoft.Extensions.Options;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00018}00018 \textcolor{keyword}{using }Serilog;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00019}00019 \textcolor{keyword}{using }Serilog.Sinks.MariaDB;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00020}00020 \textcolor{keyword}{using }Serilog.Sinks.MariaDB.Extensions;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00022}00022 var builder = WebApplication.CreateBuilder(args);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00024}00024 \textcolor{comment}{// add serilog}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00025}00025 Log.Logger = \textcolor{keyword}{new} LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00026}00026 builder.Host.UseSerilog();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00028}00028 \textcolor{comment}{// Add services to the container.}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00030}00030 \textcolor{comment}{// add localization }}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00031}00031 builder.Services.AddLocalization(options => options.ResourcesPath = \textcolor{stringliteral}{"{}Resources"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00032}00032 builder.Services.AddMvc()}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00033}00033     .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00034}00034     .AddDataAnnotationsLocalization();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00038}00038 \textcolor{comment}{// configure localization options}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00039}00039 builder.Services.Configure<RequestLocalizationOptions>(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00040}00040 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00041}00041     var cultures = \textcolor{keyword}{new} List<CultureInfo> \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00042}00042         \textcolor{keyword}{new} CultureInfo(\textcolor{stringliteral}{"{}en"{}}),}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00043}00043         \textcolor{keyword}{new} CultureInfo(\textcolor{stringliteral}{"{}de"{}})}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00044}00044     \};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00045}00045     options.DefaultRequestCulture = \textcolor{keyword}{new} Microsoft.AspNetCore.Localization.RequestCulture(\textcolor{stringliteral}{"{}en"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00046}00046     options.SupportedCultures = cultures;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00047}00047     options.SupportedUICultures = cultures;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00048}00048 \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00050}00050 builder.Services.AddControllersWithViews().AddJsonOptions(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00051}00051 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00052}00052     options.JsonSerializerOptions.PropertyNamingPolicy = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00053}00053 \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00054}00054 builder.Services.AddScoped<\mbox{\hyperlink{interface_dot_net_identity_1_1_services_1_1_settings_service_1_1_i_settings_service}{ISettingsService}}, \mbox{\hyperlink{class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service}{SettingsService}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00055}00055 builder.Services.AddScoped<IClaimsTransformation, \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_claims_transformation}{ClaimsTransformation}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00056}00056 builder.Services.AddScoped<IAuthorizationHandler, \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_free_trial_expire_handler}{FreeTrialExpireHandler}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00057}00057 builder.Services.AddScoped<IAuthorizationHandler, \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_handler}{MinimumAgeHandler}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00058}00058 builder.Services.AddTransient<UserManager<AppUser>>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00059}00059 builder.Services.AddScoped<\mbox{\hyperlink{class_dot_net_identity_1_1_helpers_1_1_email_helper}{EmailHelper}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00060}00060 builder.Services.AddScoped<\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_two_factor_authentication_service}{TwoFactorAuthenticationService}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00062}00062 \textcolor{comment}{// database context}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00063}00063 \textcolor{keywordflow}{if} (builder.Configuration.GetSection(\textcolor{stringliteral}{"{}AppSettings"{}}).GetSection(\textcolor{stringliteral}{"{}DataBaseType"{}}).Value == \textcolor{stringliteral}{"{}MySql"{}})}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00064}00064 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00065}00065     var connectionString = builder.Configuration.GetConnectionString(\textcolor{stringliteral}{"{}MySql"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00066}00066     builder.Services.AddDbContext<\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}}>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient); }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00068}00068     \textcolor{comment}{// add distributed mysql server session cache}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00069}00069     builder.Services.AddDistributedMySqlCache(options => \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00070}00070         options.ConnectionString = builder.Configuration.GetConnectionString(\textcolor{stringliteral}{"{}MySql"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00071}00071         options.SchemaName = \textcolor{stringliteral}{"{}IdentityTest"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00072}00072         options.TableName = \textcolor{stringliteral}{"{}AppSessionCache"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00073}00073         options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00074}00074     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00075}00075     builder.Services.AddSession(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00076}00076         \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00077}00077             options.Cookie.Name = \textcolor{stringliteral}{"{}SessionCookie"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00078}00078             options.IdleTimeout = TimeSpan.FromMinutes(180);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00079}00079             options.Cookie.IsEssential = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00080}00080             options.Cookie.HttpOnly = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00081}00081             options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00082}00082             options.Cookie.SameSite = SameSiteMode.Lax;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00083}00083         \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00084}00084 \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00085}00085 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (builder.Configuration.GetSection(\textcolor{stringliteral}{"{}AppSettings"{}}).GetSection(\textcolor{stringliteral}{"{}DataBaseType"{}}).Value == \textcolor{stringliteral}{"{}SqlServer"{}})}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00086}00086 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00087}00087     var connectionString = builder.Configuration.GetConnectionString(\textcolor{stringliteral}{"{}SqlServer"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00088}00088     builder.Services.AddDbContext<\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}}>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient); }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00090}00090     \textcolor{comment}{// add distributed mysql server session cache}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00091}00091     builder.Services.AddDistributedSqlServerCache(options => \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00092}00092         options.ConnectionString = builder.Configuration.GetConnectionString(\textcolor{stringliteral}{"{}SqlServer"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00093}00093         options.SchemaName = \textcolor{stringliteral}{"{}IdentityTest"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00094}00094         options.TableName = \textcolor{stringliteral}{"{}AppSessionCache"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00095}00095         options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00096}00096     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00097}00097     builder.Services.AddSession(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00098}00098         \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00099}00099             options.Cookie.Name = \textcolor{stringliteral}{"{}SessionCookie"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00100}00100             options.IdleTimeout = TimeSpan.FromMinutes(180);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00101}00101             options.Cookie.IsEssential = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00102}00102             options.Cookie.HttpOnly = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00103}00103             options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00104}00104             options.Cookie.SameSite = SameSiteMode.Lax;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00105}00105         \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00106}00106 \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00108}00108 builder.Services.AddIdentity<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}, \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}>(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00109}00109 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00110}00110     options.User.AllowedUserNameCharacters = \textcolor{stringliteral}{"{}abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-\/.\_@+"{}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00111}00111     options.User.RequireUniqueEmail = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00113}00113     options.Password.RequireDigit = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00114}00114     options.Password.RequiredLength = 8;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00115}00115     options.Password.RequiredUniqueChars = 1;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00116}00116     options.Password.RequireLowercase = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00117}00117     options.Password.RequireUppercase = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00118}00118     options.Password.RequireNonAlphanumeric = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00120}00120     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00121}00121     options.Lockout.MaxFailedAccessAttempts = 5;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00123}00123     options.SignIn.RequireConfirmedEmail = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00124}00124 \}).AddUserValidator<UserValidator>()}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00125}00125 .AddPasswordValidator<\mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_validators_1_1_password_validator}{PasswordValidator}}>()}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00126}00126 .AddErrorDescriber<ErrorDescriber>()}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00127}00127 .AddEntityFrameworkStores<\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{AppDbContext}}>()}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00128}00128 .AddDefaultTokenProviders();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00130}00130 builder.Services.ConfigureApplicationCookie(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00131}00131 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00132}00132     options.LoginPath = \textcolor{keyword}{new} PathString(\textcolor{stringliteral}{"{}/User/Login"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00133}00133     options.LogoutPath = \textcolor{keyword}{new} PathString(\textcolor{stringliteral}{"{}/User/Logout"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00134}00134     options.AccessDeniedPath = \textcolor{keyword}{new} PathString(\textcolor{stringliteral}{"{}/Home/AccessDenied"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00136}00136     options.Cookie = \textcolor{keyword}{new}()}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00137}00137     \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00138}00138         Name = \textcolor{stringliteral}{"{}IdentityCookie"{}},}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00139}00139         HttpOnly = \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00140}00140         SameSite = SameSiteMode.Lax,}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00141}00141         SecurePolicy = CookieSecurePolicy.Always}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00142}00142     \};    }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00143}00143     options.SlidingExpiration = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00144}00144     options.ExpireTimeSpan = TimeSpan.FromMinutes(Convert.ToInt32(builder.Configuration.GetSection(\textcolor{stringliteral}{"{}AppSettings"{}}).GetSection(\textcolor{stringliteral}{"{}SessionCookieExpiration"{}}).Value));}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00145}00145 \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00146}00146 builder.Services.AddAuthentication();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00149}00149 builder.Services.AddAuthorization(options =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00150}00150 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00151}00151     options.AddPolicy(\textcolor{stringliteral}{"{}HrDepartmentPolicy"{}}, policy =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00152}00152     \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00153}00153         policy.RequireClaim(\textcolor{stringliteral}{"{}Department"{}}, Enum.GetName(\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a0c2566102c085d8fb8859ba2cc48f7f5}{Department}}.HR)!);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00154}00154     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00156}00156     options.AddPolicy(\textcolor{stringliteral}{"{}SoftwareDepartmentPolicy"{}}, policy =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00157}00157     \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00158}00158         policy.RequireClaim(\textcolor{stringliteral}{"{}Department"{}}, Enum.GetName(\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a0c2566102c085d8fb8859ba2cc48f7f5}{Department}}.Software)!);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00159}00159     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00161}00161     options.AddPolicy(\textcolor{stringliteral}{"{}EmployeePolicy"{}}, policy =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00162}00162     \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00163}00163         policy.RequireClaim(\textcolor{stringliteral}{"{}Department"{}}, Enum.GetNames<\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a0c2566102c085d8fb8859ba2cc48f7f5}{Department}}>());}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00164}00164     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00166}00166     options.AddPolicy(\textcolor{stringliteral}{"{}FreeTrialPolicy"{}}, policy =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00167}00167     \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00168}00168         policy.Requirements.Add(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_free_trial_expire_requirement}{FreeTrialExpireRequirement}}());}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00169}00169     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00171}00171     options.AddPolicy(\textcolor{stringliteral}{"{}AtLeast18Policy"{}}, policy =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00172}00172     \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00173}00173         policy.AddRequirements(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_identity_settings_1_1_requirements_1_1_minimum_age_requirement}{MinimumAgeRequirement}}(18));}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00174}00174     \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00175}00175 \});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00179}00179 var app = builder.Build();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00181}00181 \textcolor{comment}{// enable localization in request parameters}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00182}00182 app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00185}00185 \textcolor{comment}{// use a custom Error Page for exceptions}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00186}00186 app.UseExceptionHandler(\textcolor{stringliteral}{"{}/Errors/ErrorEx"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00187}00187 \textcolor{comment}{// use custom pages for Statuscodes;}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00188}00188 app.UseStatusCodePagesWithReExecute(\textcolor{stringliteral}{"{}/Errors/ErrorCd/\{0\}"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00189}00189 \textcolor{comment}{// Configure the HTTP request pipeline.}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00190}00190 \textcolor{keywordflow}{if} (!app.Environment.IsDevelopment())}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00191}00191 \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00192}00192     \textcolor{comment}{// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-\/hsts.}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00193}00193     app.UseHsts();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00194}00194 \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00196}00196     }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00197}00197 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00198}00198 app.UseHttpsRedirection();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00199}00199 app.UseStaticFiles();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00201}00201 app.UseRouting();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00202}00202 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00203}00203 app.UseAuthentication();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00204}00204 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00205}00205 app.UseAuthorization();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00206}00206 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00207}00207 app.UseSession();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00209}00209 \textcolor{comment}{// if you want to log every request detail, enable this}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00210}00210 \textcolor{comment}{//app.UseSerilogRequestLogging();}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00212}00212 app.MapControllerRoute(}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00213}00213     name: \textcolor{stringliteral}{"{}default"{}},}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00214}00214     pattern: \textcolor{stringliteral}{"{}\{controller=Home\}/\{action=Index\}/\{id?\}"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00216}00216 app.Run();}
+
+\end{DoxyCode}
