@@ -56,7 +56,7 @@ This boilerplate provides the following features:
 
 sure, I've prepared a few [Screenshots](Documentation/SCREENSHOTS.md) for you!
 
-## Yeah, looks nice. Is the source code documented too?
+### Yeah, looks nice. Is the source code documented too?
 
 sure it is. Take a look [here](Documentation/generated/latex/refman.pdf)
 
