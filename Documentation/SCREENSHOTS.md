@@ -43,4 +43,4 @@
 ![Login](Screenshots/LodSystem.png)
 
 ## Error Logs
-![Login](Screenshots/LogErrort.png)
+![Login](Screenshots/LogError.png)
