@@ -56,11 +56,16 @@ This boilerplate provides the following features:
 
 sure, I've prepared a few [Screesnhots](Documntation/SCREENSHOTS.md) for you!
 
-### Damn! Yoou've coded that al by yourself?
+### Damn! You've coded that all by yourself?
 
 No! I've used the following Librarys / Projects in this Project:
 
-
+* Parts of this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
+* [DatatablesJs](https://github.com/ekondur/DatatableJS) (I've modified that and included the modified source [here](DatatablesJs). The changes I've made are documented [here](https://github.com/ekondur/DatatableJS/issues)
+* [DoxyGen](Https://doxygen.nl) for generating the class documantation, which can be found [here](Documentation/generated/html/)
+* [Bootstrap 5.1](https://bootstrap.com) for creating the layouts
+* [Jquery](https://jquery.com) for making javascript easier :-)
+* [Toastify](https://apvarun.github.io/toastify-js/) for creating nice toast messages
 
 ### Ahhh, that's exactly what i need. How can i use that?
 
