@@ -19,6 +19,8 @@ using Serilog;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
 
+[assembly: System.Reflection.AssemblyVersion("0.0.*")]
+
 var builder = WebApplication.CreateBuilder(args);
 
 // add serilog

@@ -14,6 +14,7 @@ using Microsoft.Extensions.Localization;
 
 namespace DotNetIdentity.Controllers
 {
+    /// \todo add translation
     /// <summary>
     /// controller class for settings views
     /// </summary>

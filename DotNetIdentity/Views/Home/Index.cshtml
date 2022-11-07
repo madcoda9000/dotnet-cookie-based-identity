@@ -3,8 +3,6 @@
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_MainLayout";
-    HttpContextAccessor.HttpContext!.Session.SetString("your_name", "ficki");
-    HttpContextAccessor.HttpContext!.Session.SetString("your_gender", "fotzi");
 }
 
 @HttpContextAccessor.HttpContext!.Session.GetString("your_gender")

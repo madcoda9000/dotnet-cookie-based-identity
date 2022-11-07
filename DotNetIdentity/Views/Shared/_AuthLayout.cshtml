@@ -43,6 +43,9 @@
                 <div id="auth-left">
                     @RenderBody()
                 </div>
+                <div class="text-center mb-0">
+                    <span class="text-muted">Release: none / Build: @GetType().Assembly.GetName().Version.ToString()</span>
+                </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">

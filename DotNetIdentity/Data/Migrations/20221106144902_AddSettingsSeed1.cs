@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+#pragma warning disable 1591
 
 namespace DotNetIdentity.Data.Migrations
-{
+{    
     public partial class AddSettingsSeed1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -119,4 +120,5 @@ namespace DotNetIdentity.Data.Migrations
                 values: new object[] { "0bd8f427-6b8a-444c-b34e-ba42537137da", "AQAAAAEAACcQAAAAEImvoKdoqh4RAms6fLIxbS8vshGY7MoW37zCdI/DIKK/br9dE33l7dugU7bxT4YiTQ==", "9188049f-056e-45f0-bb3b-706ce2102631" });
         }
     }
+    #pragma warning restore 1591
 }
