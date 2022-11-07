@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.0.8346.16799 - 2022-11-07 
+### [0.0.8346.16799 - 2022-11-07 
 
-### Added
+#### Added
 
 - versionnumber in \_Authlayout.cshtml
 - Settings controller
@@ -15,13 +15,13 @@ All notable changes to this project will be documented in this file.
 - SettingsApp view
 - added CHANGELOG.md
 
-### Modified
+#### Modified
 
 - README.md: added changelog link
 
-## [0.0.8346.16425 - 2022-11-06 
+### [0.0.8346.16425 - 2022-11-06 
 
-### Published
+#### Published
 
 - source published on Github
 
