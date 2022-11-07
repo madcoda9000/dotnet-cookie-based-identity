@@ -18,6 +18,10 @@ All notable changes to this project will be documented in this file.
 #### Modified
 
 * README.md: added changelog link
+* extend AppUser class with RolesCombined property
+* extend AdminController NewUser method to make use of new property
+* extend AdminController EditUser method to make use of new property
+* extend cview Admin/Users to make use of new property
 
 #### Fixed
 
@@ -30,9 +34,3 @@ All notable changes to this project will be documented in this file.
 * source published on Github
 
 
-<!-- Links -->
-\[keep a changelog\]: https://keepachangelog.com/en/1.0.0/
-\[semantic versioning\]: https://semver.org/spec/v2.0.0.html
-
-<!-- Versions -->
-\[unreleased\]: https://github.com/madcoda9000/dotnet-cookie-based-identity

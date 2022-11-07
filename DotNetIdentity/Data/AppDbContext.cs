@@ -91,7 +91,8 @@ namespace DotNetIdentity.Data
                     LastName = "Admin",
                     IsMfaForce = false,
                     IsLdapLogin = false,
-                    IsEnabled = true
+                    IsEnabled = true,
+                    RolesCombined = "Admin"
                 }
             );
 

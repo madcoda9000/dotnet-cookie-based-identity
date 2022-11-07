@@ -31,22 +31,22 @@ namespace DotNetIdentity.Models.Identity
         /// firstname property
         /// </summary>
         /// <value>string</value>
-        public String? FirstName {get; set;} = string.Empty;
+        public String? FirstName { get; set; } = string.Empty;
         /// <summary>
         /// lastname property
         /// </summary>
         /// <value>string</value>
-        public String? LastName {get; set;} = string.Empty;
+        public String? LastName { get; set; } = string.Empty;
         /// <summary>
         /// 2fa force property
         /// </summary>
         /// <value>bool</value>
-        public bool IsMfaForce {get; set;}
+        public bool IsMfaForce { get; set; }
         /// <summary>
         /// ldap login property
         /// </summary>
         /// <value>bool</value>
-        public bool IsLdapLogin {get; set;}
+        public bool IsLdapLogin { get; set; }
         /// <summary>
         /// department property
         /// </summary>
@@ -61,6 +61,11 @@ namespace DotNetIdentity.Models.Identity
         /// account enbaled property
         /// </summary>
         /// <value>bool</value>
-        public bool IsEnabled {get; set;}
+        public bool IsEnabled { get; set; }
+        /// <summary>
+        /// roles combined property
+        /// </summary>
+        /// <value></value>
+        public string? RolesCombined { get; set; } = string.Empty;
     }
 }

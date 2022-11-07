@@ -200,6 +200,32 @@ namespace DotNetIdentity.Controllers
                     }
                 }
 
+                var createdUser = await _userManager.FindByNameAsync(user.UserName);
+                if(createdUser!=null) {
+                    var rls = await _userManager.GetRolesAsync(createdUser);
+                    if (rls != null)
+                    {
+                        var rlsComb = "";
+                        if (rls.Count() > 0 && rls.Count() <= 1)
+                        {
+                            rlsComb = rls[0].ToString();
+                        }
+                        else
+                        {
+                            for (int i = 0; i < rls.Count; i++)
+                            {
+                                if (i + 1 != rls.Count) { rlsComb += rls[i] + ","; }
+                                else { rlsComb += rls[i]; }
+                            }
+                        }
+                        if (rlsComb.Length > 0)
+                        {
+                            createdUser.RolesCombined = rlsComb;
+                            await _userManager.UpdateAsync(createdUser);
+                        }
+                    }
+                }
+
                 ViewData["message"] = "User created success fully.";
                 _logger.LogInformation("AUDIT: " + User.Identity!.Name + " created new user " + user.UserName);
             }
@@ -479,6 +505,30 @@ namespace DotNetIdentity.Controllers
                                 else
                                 {
                                     await _userManager.RemoveFromRoleAsync(user, item.RoleName);
+                                }
+                            }
+
+                            // roles combined
+                            var rls = await _userManager.GetRolesAsync(user);
+                            if (rls != null)
+                            {
+                                var rlsComb = "";
+                                if (rls.Count() > 0 && rls.Count() <= 1)
+                                {
+                                    rlsComb = rls[0].ToString();
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < rls.Count; i++)
+                                    {
+                                        if (i + 1 != rls.Count) { rlsComb += rls[i] + ","; }
+                                        else { rlsComb += rls[i]; }
+                                    }
+                                }
+                                if (rlsComb.Length > 0)
+                                {
+                                    user.RolesCombined = rlsComb;
+                                    await _userManager.UpdateAsync(user);
                                 }
                             }
 

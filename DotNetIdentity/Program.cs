@@ -65,10 +65,11 @@ builder.Services.AddScoped<TwoFactorAuthenticationService>();
 if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "MySql")
 {
     var connectionString = builder.Configuration.GetConnectionString("MySql");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient); 
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient);
 
     // add distributed mysql server session cache
-    builder.Services.AddDistributedMySqlCache(options => {
+    builder.Services.AddDistributedMySqlCache(options =>
+    {
         options.ConnectionString = builder.Configuration.GetConnectionString("MySql");
         options.SchemaName = "IdentityTest";
         options.TableName = "AppSessionCache";
@@ -87,10 +88,11 @@ if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").V
 else if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqlServer")
 {
     var connectionString = builder.Configuration.GetConnectionString("SqlServer");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient); 
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
 
     // add distributed mysql server session cache
-    builder.Services.AddDistributedSqlServerCache(options => {
+    builder.Services.AddDistributedSqlServerCache(options =>
+    {
         options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
         options.SchemaName = "IdentityTest";
         options.TableName = "AppSessionCache";
@@ -141,7 +143,7 @@ builder.Services.ConfigureApplicationCookie(options =>
         HttpOnly = true,
         SameSite = SameSiteMode.Lax,
         SecurePolicy = CookieSecurePolicy.Always
-    };    
+    };
     options.SlidingExpiration = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(Convert.ToInt32(builder.Configuration.GetSection("AppSettings").GetSection("SessionCookieExpiration").Value));
 });
@@ -195,7 +197,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-    
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
