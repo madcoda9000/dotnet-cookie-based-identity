@@ -2,13 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## 06.11.2022 - build: 0.0.8346.16422
+## [Unreleased]
+
+## [0.0.8346.16425 - 2022-11-06 
 
 ### Published
 
 - source published on Github
 
-## 07.11.2022 - build: 0.0.8346.16799
+## [0.0.8346.16799 - 2022-11-07 
 
 ### Added
 
@@ -22,3 +24,11 @@ All notable changes to this project will be documented in this file.
 ### Modified
 
 - README.md: added changelog link
+
+
+<!-- Links -->
+[keep a changelog]: https://keepachangelog.com/en/1.0.0/
+[semantic versioning]: https://semver.org/spec/v2.0.0.html
+
+<!-- Versions -->
+[unreleased]: https://github.com/madcoda9000/dotnet-cookie-based-identity
