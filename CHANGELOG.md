@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
-### \[==0.0.8346.16799==\] - 2022-11-07
+### \[0.0.8346.16799\] - 2022-11-07
 
 #### Added
 
@@ -18,6 +18,10 @@ All notable changes to this project will be documented in this file.
 #### Modified
 
 * README.md: added changelog link
+
+#### Fixed
+
+* Nullable variable in _AuthLayout.cshtml
 
 ### \[0.0.8346.16425\] - 2022-11-06
 
