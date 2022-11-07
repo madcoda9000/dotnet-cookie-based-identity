@@ -4,12 +4,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.0.8346.16425 - 2022-11-06 
-
-### Published
-
-- source published on Github
-
 ## [0.0.8346.16799 - 2022-11-07 
 
 ### Added
@@ -24,6 +18,12 @@ All notable changes to this project will be documented in this file.
 ### Modified
 
 - README.md: added changelog link
+
+## [0.0.8346.16425 - 2022-11-06 
+
+### Published
+
+- source published on Github
 
 
 <!-- Links -->
