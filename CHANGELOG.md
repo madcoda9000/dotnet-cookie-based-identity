@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-### [0.0.8346.16799 - 2022-11-07 
+### [0.0.8346.16799] - 2022-11-07 
 
 #### Added
 
@@ -19,7 +19,7 @@ All notable changes to this project will be documented in this file.
 
 - README.md: added changelog link
 
-### [0.0.8346.16425 - 2022-11-06 
+### [0.0.8346.16425] - 2022-11-06 
 
 #### Published
 
