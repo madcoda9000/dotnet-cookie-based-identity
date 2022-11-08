@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file.
 * extend AppUser class with RolesCombined property
 * extend AdminController NewUser method to make use of new property
 * extend AdminController EditUser method to make use of new property
-* extend cview Admin/Users to make use of new property
+* extend view Admin/Users to make use of new property
 
 #### Fixed
 
