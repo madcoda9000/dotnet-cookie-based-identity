@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8347.13229\] - 2022-12-07
+
+#### Added
+
+* added Translation for SettingsApp.cshtml
+* added Translation for SettingsMail.cshtml
+* added Translation for SettingsLdap.cshtml
+
 ### \[0.0.8346.16799\] - 2022-11-07
 
 #### Added
