@@ -13,7 +13,6 @@ using Microsoft.Extensions.Localization;
 
 namespace DotNetIdentity.Controllers
 {
-    /// \todo add translation
     /// <summary>
     /// Controller Class for User views
     /// </summary>

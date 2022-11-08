@@ -11,6 +11,8 @@ All notable changes to this project will be documented in this file.
 * added Translation for SettingsApp.cshtml
 * added Translation for SettingsMail.cshtml
 * added Translation for SettingsLdap.cshtml
+* added Translation for AdminController.cs
+* added Translation for SettingsController.cs
 
 ### \[0.0.8346.16799\] - 2022-11-07
 

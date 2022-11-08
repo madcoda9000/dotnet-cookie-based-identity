@@ -110,7 +110,7 @@ namespace DotNetIdentity.Controllers
                 _settings.Mail.Password = viewModel.Password;
                 await _settings.Save();
                 _logger.LogInformation("AUDIT: " + User.Identity!.Name + " modified Mail settings! ");
-                ViewData["message"] = "Settings successfully saved!";
+                ViewData["message"] = _localizer["1"];
                 return View();       
         }
 
@@ -129,7 +129,7 @@ namespace DotNetIdentity.Controllers
                 _settings.Global.SessionTimeoutRedirAfter = viewModel.SessionTimeoutRedirAfter;
                 await _settings.Save();
                 _logger.LogInformation("AUDIT: " + User.Identity!.Name + " modified Application settings! ");
-                ViewData["message"] = "Settings successfully saved!";
+                ViewData["message"] = _localizer["1"];
                 return View();       
         }
 
@@ -149,7 +149,7 @@ namespace DotNetIdentity.Controllers
                 _settings.Ldap.LdapGroup = viewModel.LdapGroup;
                 await _settings.Save();
                 _logger.LogInformation("AUDIT: " + User.Identity!.Name + " modified Ldap settings! ");
-                ViewData["message"] = "Settings successfully saved!";
+                ViewData["message"] = _localizer["1"];
                 return View();       
         }
     }

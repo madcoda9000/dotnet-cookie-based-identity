@@ -4,7 +4,7 @@
 
 Everyone knows, if you start a new project you've to implement core things like: Authentication, Authorization, User management, Roles management, Logging, Errorhandling etc...
 
-I was tired of doing so and created this boilerplate. I was isnpired by this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
+I was tired of doing so and created this boilerplate. I was inspired by this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
 
 This boilerplate provides the following features:
 

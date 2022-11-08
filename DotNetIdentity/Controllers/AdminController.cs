@@ -13,10 +13,10 @@ using Serilog;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
 using DatatableJS.Data;
+using Microsoft.Extensions.Localization;
 
 namespace DotNetIdentity.Controllers
 {
-    /// \todo add translation
     /// <summary>
     /// Controller Class for Admin views
     /// </summary>
@@ -47,17 +47,22 @@ namespace DotNetIdentity.Controllers
         /// Property of type DotNetIdentity.Data.AppDbContext
         /// </summary>
         private readonly AppDbContext _context;
+        /// <summary>
+        /// Property of type IStringLocalizer
+        /// </summary>
+        private readonly IStringLocalizer<UserController> _localizer;
 
         /// <summary>
         /// Controller Class constructor
         /// </summary>
+        /// <param name="localizer">type IStringLocalizer</param>
         /// <param name="db">type DotNetIdentity.Data.AppDbContext</param>
         /// <param name="log">type Microsoft.Extensions.Logging.ILogger</param>
         /// <param name="conf">type Microsoft.Extensions.Configuration.IConfiguration</param>
         /// <param name="userManager">type Microsoft.AspNetCore.Identity.UserManager</param>
         /// <param name="roleManager">type Microsoft.AspNetCore.Identity.RoleManager</param>
         /// <param name="signInManager">type Microsoft.AspNetCore.Identity.SignInManager</param>
-        public AdminController(AppDbContext db, ILogger<AdminController> log, IConfiguration conf, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, SignInManager<AppUser> signInManager)
+        public AdminController(IStringLocalizer<UserController> localizer, AppDbContext db, ILogger<AdminController> log, IConfiguration conf, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -65,6 +70,7 @@ namespace DotNetIdentity.Controllers
             _configuration = conf;
             _logger = log;
             _context = db;
+            _localizer = localizer;
         }
 
         /// <summary>
@@ -226,7 +232,7 @@ namespace DotNetIdentity.Controllers
                     }
                 }
 
-                ViewData["message"] = "User created success fully.";
+                ViewData["message"] = _localizer["1"];
                 _logger.LogInformation("AUDIT: " + User.Identity!.Name + " created new user " + user.UserName);
             }
             return View(new NewUserModel());
@@ -402,7 +408,7 @@ namespace DotNetIdentity.Controllers
                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));
                 }
             } else {
-                ModelState.AddModelError(string.Empty, "User not found.");
+                ModelState.AddModelError(string.Empty, _localizer["2"]);
             }
             _logger.LogInformation("AUDIT: " + User.Identity!.Name + " deleted user " + id);
             return RedirectToAction("Users");
@@ -427,7 +433,7 @@ namespace DotNetIdentity.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Role not found.");
+                ModelState.AddModelError(string.Empty, _localizer["3"]);
             }
             _logger.LogInformation("AUDIT: " + User.Identity!.Name + " deleted role " + id);
             return RedirectToAction("Roles");
@@ -480,7 +486,7 @@ namespace DotNetIdentity.Controllers
                 {
                     if (user.PhoneNumber != viewModel.PhoneNumber && _userManager.Users.Any(a => a.PhoneNumber == viewModel.PhoneNumber))
                     {
-                        ModelState.AddModelError(string.Empty, "Phone number already in use.");
+                        ModelState.AddModelError(string.Empty, _localizer["4"]);
                     }
                     else
                     {
@@ -552,7 +558,7 @@ namespace DotNetIdentity.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "User not found.");
+                    ModelState.AddModelError(string.Empty, _localizer["2"]);
                 }
             }
             
