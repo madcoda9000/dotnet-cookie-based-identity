@@ -10,5 +10,6 @@ var class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user =
     [ "IsMfaForce", "class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html#a0100ade0b29f16daf0be19b881b73347", null ],
     [ "LastName", "class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html#a043c4113c4430afbdf83a91839e46c05", null ],
     [ "ProfilePicture", "class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html#af1b5d5d2322c4362970a328aa9864110", null ],
+    [ "RolesCombined", "class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html#a9f3e69258126ec6407d19b369510569d", null ],
     [ "TwoFactorType", "class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html#a8be28abde975771d4bb6cb6f07c5d051", null ]
 ];

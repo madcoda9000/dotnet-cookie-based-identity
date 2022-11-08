@@ -17,7 +17,7 @@ Inheritance diagram for Dot\+Net\+Identity.\+Controllers.\+Admin\+Controller\+:\
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a125d56d01c513f83a34167f903d1b2e2}{Admin\+Controller}} (\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} db, ILogger$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller}{Admin\+Controller}} $>$ log, IConfiguration conf, User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ user\+Manager, Role\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{App\+Role}} $>$ role\+Manager, Sign\+In\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ sign\+In\+Manager)
+\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a01af9770fe99667e4e948e3c5322c7be}{Admin\+Controller}} (IString\+Localizer$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller}{User\+Controller}} $>$ localizer, \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}} db, ILogger$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller}{Admin\+Controller}} $>$ log, IConfiguration conf, User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ user\+Manager, Role\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{App\+Role}} $>$ role\+Manager, Sign\+In\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$ sign\+In\+Manager)
 \begin{DoxyCompactList}\small\item\em Controller Class constructor \end{DoxyCompactList}\item 
 IAction\+Result \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a5f4b2842f8473f14a5e10470d3bd1d5b}{Index}} ()
 \begin{DoxyCompactList}\small\item\em Controller Action for Index \end{DoxyCompactList}\item 
@@ -72,20 +72,16 @@ async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_co
 \doxysubsection{Detailed Description}
 Controller Class for Admin views 
 
-\begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]add translation \end{DoxyRefDesc}
-
-
 Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a125d56d01c513f83a34167f903d1b2e2}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a125d56d01c513f83a34167f903d1b2e2}} 
+\mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a01af9770fe99667e4e948e3c5322c7be}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a01af9770fe99667e4e948e3c5322c7be}} 
 \index{DotNetIdentity.Controllers.AdminController@{DotNetIdentity.Controllers.AdminController}!AdminController@{AdminController}}
 \index{AdminController@{AdminController}!DotNetIdentity.Controllers.AdminController@{DotNetIdentity.Controllers.AdminController}}
 \doxysubsubsection{\texorpdfstring{AdminController()}{AdminController()}}
-{\footnotesize\ttfamily Dot\+Net\+Identity.\+Controllers.\+Admin\+Controller.\+Admin\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}}}]{db,  }\item[{ILogger$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller}{Admin\+Controller}} $>$}]{log,  }\item[{IConfiguration}]{conf,  }\item[{User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{user\+Manager,  }\item[{Role\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{App\+Role}} $>$}]{role\+Manager,  }\item[{Sign\+In\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{sign\+In\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Dot\+Net\+Identity.\+Controllers.\+Admin\+Controller.\+Admin\+Controller (\begin{DoxyParamCaption}\item[{IString\+Localizer$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_user_controller}{User\+Controller}} $>$}]{localizer,  }\item[{\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{App\+Db\+Context}}}]{db,  }\item[{ILogger$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_admin_controller}{Admin\+Controller}} $>$}]{log,  }\item[{IConfiguration}]{conf,  }\item[{User\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{user\+Manager,  }\item[{Role\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{App\+Role}} $>$}]{role\+Manager,  }\item[{Sign\+In\+Manager$<$ \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{App\+User}} $>$}]{sign\+In\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -93,6 +89,8 @@ Controller Class constructor
 
 
 \begin{DoxyParams}{Parameters}
+{\em localizer} & type IString\+Localizer\\
+\hline
 {\em db} & type \mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context}{Dot\+Net\+Identity.\+Data.\+App\+Db\+Context}}\\
 \hline
 {\em log} & type Microsoft.\+Extensions.\+Logging.\+ILogger\\
@@ -108,18 +106,19 @@ Controller Class constructor
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00065}{65}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00061         \{}
-\DoxyCodeLine{00062             \_userManager = userManager;}
-\DoxyCodeLine{00063             \_roleManager = roleManager;}
-\DoxyCodeLine{00064             \_signInManager = signInManager;}
-\DoxyCodeLine{00065             \_configuration = conf;}
-\DoxyCodeLine{00066             \_logger = log;}
-\DoxyCodeLine{00067             \_context = db;}
-\DoxyCodeLine{00068         \}}
+\DoxyCodeLine{00066         \{}
+\DoxyCodeLine{00067             \_userManager = userManager;}
+\DoxyCodeLine{00068             \_roleManager = roleManager;}
+\DoxyCodeLine{00069             \_signInManager = signInManager;}
+\DoxyCodeLine{00070             \_configuration = conf;}
+\DoxyCodeLine{00071             \_logger = log;}
+\DoxyCodeLine{00072             \_context = db;}
+\DoxyCodeLine{00073             \_localizer = localizer;}
+\DoxyCodeLine{00074         \}}
 
 \end{DoxyCode}
 
@@ -158,27 +157,27 @@ redirect to controller action Roles
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00391}{391}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00423}{423}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00392         \{}
-\DoxyCodeLine{00393             var role = await \_roleManager.FindByIdAsync(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00394             \textcolor{keywordflow}{if} (role != \textcolor{keyword}{null})}
-\DoxyCodeLine{00395             \{}
-\DoxyCodeLine{00396                 var result = await \_roleManager.DeleteAsync(role);}
-\DoxyCodeLine{00397                 \textcolor{keywordflow}{if} (!result.Succeeded)}
-\DoxyCodeLine{00398                 \{}
-\DoxyCodeLine{00399                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
-\DoxyCodeLine{00400                 \}}
-\DoxyCodeLine{00401             \}}
-\DoxyCodeLine{00402             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00403             \{}
-\DoxyCodeLine{00404                 ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \textcolor{stringliteral}{"{}Role not found."{}});}
-\DoxyCodeLine{00405             \}}
-\DoxyCodeLine{00406             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} deleted role "{}} + \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00407             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Roles"{}});}
-\DoxyCodeLine{00408         \}}
+\DoxyCodeLine{00424         \{}
+\DoxyCodeLine{00425             var role = await \_roleManager.FindByIdAsync(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00426             \textcolor{keywordflow}{if} (role != \textcolor{keyword}{null})}
+\DoxyCodeLine{00427             \{}
+\DoxyCodeLine{00428                 var result = await \_roleManager.DeleteAsync(role);}
+\DoxyCodeLine{00429                 \textcolor{keywordflow}{if} (!result.Succeeded)}
+\DoxyCodeLine{00430                 \{}
+\DoxyCodeLine{00431                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00432                 \}}
+\DoxyCodeLine{00433             \}}
+\DoxyCodeLine{00434             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00435             \{}
+\DoxyCodeLine{00436                 ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}3"{}}]);}
+\DoxyCodeLine{00437             \}}
+\DoxyCodeLine{00438             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} deleted role "{}} + \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00439             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Roles"{}});}
+\DoxyCodeLine{00440         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_ab1c7981b89ddff2100c7bd201cf45766}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_ab1c7981b89ddff2100c7bd201cf45766}} 
@@ -201,23 +200,23 @@ redirect to controller action Users
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00371}{371}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00403}{403}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00371                                                                \{}
-\DoxyCodeLine{00372             var user = await \_userManager.FindByIdAsync(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00373             \textcolor{keywordflow}{if}(user!=\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00374                 var result = await \_userManager.DeleteAsync(user);}
-\DoxyCodeLine{00375                 \textcolor{keywordflow}{if}(!result.Succeeded) \{}
-\DoxyCodeLine{00376                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
-\DoxyCodeLine{00377                 \}}
-\DoxyCodeLine{00378             \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00379                 ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \textcolor{stringliteral}{"{}User not found."{}});}
-\DoxyCodeLine{00380             \}}
-\DoxyCodeLine{00381             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} deleted user "{}} + \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00382             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Users"{}});}
-\DoxyCodeLine{00383         \}}
+\DoxyCodeLine{00403                                                                \{}
+\DoxyCodeLine{00404             var user = await \_userManager.FindByIdAsync(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00405             \textcolor{keywordflow}{if}(user!=\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00406                 var result = await \_userManager.DeleteAsync(user);}
+\DoxyCodeLine{00407                 \textcolor{keywordflow}{if}(!result.Succeeded) \{}
+\DoxyCodeLine{00408                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00409                 \}}
+\DoxyCodeLine{00410             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00411                 ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}2"{}}]);}
+\DoxyCodeLine{00412             \}}
+\DoxyCodeLine{00413             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} deleted user "{}} + \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00414             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Users"{}});}
+\DoxyCodeLine{00415         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_adec1057b9574f3fdb012e75c5c425409}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_adec1057b9574f3fdb012e75c5c425409}} 
@@ -240,20 +239,20 @@ json object (true / false)
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00282}{282}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00314}{314}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00282                                                                         \{}
-\DoxyCodeLine{00283             var user = await \_userManager.FindByIdAsync(UserId);}
-\DoxyCodeLine{00284             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00285                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
-\DoxyCodeLine{00286             \}}
-\DoxyCodeLine{00287             user.IsLdapLogin = \textcolor{keyword}{false};}
-\DoxyCodeLine{00288             await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00289             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} disabled ldap login for user "{}} + user.UserName);}
-\DoxyCodeLine{00290             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
-\DoxyCodeLine{00291         \}}
+\DoxyCodeLine{00314                                                                         \{}
+\DoxyCodeLine{00315             var user = await \_userManager.FindByIdAsync(UserId);}
+\DoxyCodeLine{00316             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00317                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
+\DoxyCodeLine{00318             \}}
+\DoxyCodeLine{00319             user.IsLdapLogin = \textcolor{keyword}{false};}
+\DoxyCodeLine{00320             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00321             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} disabled ldap login for user "{}} + user.UserName);}
+\DoxyCodeLine{00322             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
+\DoxyCodeLine{00323         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a17c792f0c3526066cfca21d73fabd569}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a17c792f0c3526066cfca21d73fabd569}} 
@@ -276,20 +275,20 @@ json object (true / false)
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00316}{316}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00348}{348}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00316                                                                        \{}
-\DoxyCodeLine{00317             var user = await \_userManager.FindByIdAsync(UserId);}
-\DoxyCodeLine{00318             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00319                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
-\DoxyCodeLine{00320             \}}
-\DoxyCodeLine{00321             user.IsMfaForce = \textcolor{keyword}{false};}
-\DoxyCodeLine{00322             await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00323             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} disabled mfa enforce for user "{}} + user.UserName);}
-\DoxyCodeLine{00324             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
-\DoxyCodeLine{00325         \}}
+\DoxyCodeLine{00348                                                                        \{}
+\DoxyCodeLine{00349             var user = await \_userManager.FindByIdAsync(UserId);}
+\DoxyCodeLine{00350             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00351                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
+\DoxyCodeLine{00352             \}}
+\DoxyCodeLine{00353             user.IsMfaForce = \textcolor{keyword}{false};}
+\DoxyCodeLine{00354             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00355             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} disabled mfa enforce for user "{}} + user.UserName);}
+\DoxyCodeLine{00356             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
+\DoxyCodeLine{00357         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a868434f4412ed75643c1e09b3772896e}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a868434f4412ed75643c1e09b3772896e}} 
@@ -312,20 +311,20 @@ json object (true / false)
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00231}{231}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00263}{263}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00231                                                                    \{}
-\DoxyCodeLine{00232             var user = await \_userManager.FindByIdAsync(UserId);}
-\DoxyCodeLine{00233             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00234                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
-\DoxyCodeLine{00235             \}}
-\DoxyCodeLine{00236             user.IsEnabled = \textcolor{keyword}{false};}
-\DoxyCodeLine{00237             await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00238             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} disabled user "{}} + user.UserName);}
-\DoxyCodeLine{00239             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
-\DoxyCodeLine{00240         \}}
+\DoxyCodeLine{00263                                                                    \{}
+\DoxyCodeLine{00264             var user = await \_userManager.FindByIdAsync(UserId);}
+\DoxyCodeLine{00265             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00266                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
+\DoxyCodeLine{00267             \}}
+\DoxyCodeLine{00268             user.IsEnabled = \textcolor{keyword}{false};}
+\DoxyCodeLine{00269             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00270             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} disabled user "{}} + user.UserName);}
+\DoxyCodeLine{00271             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
+\DoxyCodeLine{00272         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a5af2b4d9b15eee2ef5d28600aacc6ace}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a5af2b4d9b15eee2ef5d28600aacc6ace}} 
@@ -348,72 +347,96 @@ view of type Dotnetidentity.\+Views.\+Admin.\+Edit\+User
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00448}{448}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00480}{480}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00449         \{}
-\DoxyCodeLine{00450             \textcolor{keywordflow}{if} (ModelState.IsValid)}
-\DoxyCodeLine{00451             \{}
-\DoxyCodeLine{00452                 var user = await \_userManager.FindByIdAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a44d3f139f58eb560e41f2c228c00b18b}{Id}});}
-\DoxyCodeLine{00453                 \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
-\DoxyCodeLine{00454                 \{}
-\DoxyCodeLine{00455                     \textcolor{keywordflow}{if} (user.PhoneNumber != viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a0766c2ef3010d290973d1981e4afcbde}{PhoneNumber}} \&\& \_userManager.Users.Any(a => a.PhoneNumber == viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a0766c2ef3010d290973d1981e4afcbde}{PhoneNumber}}))}
-\DoxyCodeLine{00456                     \{}
-\DoxyCodeLine{00457                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \textcolor{stringliteral}{"{}Phone number already in use."{}});}
-\DoxyCodeLine{00458                     \}}
-\DoxyCodeLine{00459                     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00460                     \{}
-\DoxyCodeLine{00461                         user.FirstName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a1ce72dd9e8f4eb8ce20e37fb247e486d}{FirstName}};}
-\DoxyCodeLine{00462                         user.LastName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a4c0545e46724baab75383047c6003a4a}{LastName}};}
-\DoxyCodeLine{00463                         user.UserName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ad8cb8b8701e79ab226979d760e38ac04}{UserName}};}
-\DoxyCodeLine{00464                         user.Email = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a93cb61f5c47ffe5a6271b25151464161}{Email}};}
-\DoxyCodeLine{00465                         user.PhoneNumber = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a0766c2ef3010d290973d1981e4afcbde}{PhoneNumber}};}
-\DoxyCodeLine{00466                         user.Gender = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ab987b2e7b390141dd86a7ba4ca2c93fd}{Gender}};}
-\DoxyCodeLine{00467                         user.Department = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ac769e7bcadc47007228186b011ed0512}{Department}}.ToString();}
-\DoxyCodeLine{00468 }
-\DoxyCodeLine{00469                         var result = await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00470                         \textcolor{keywordflow}{if} (result.Succeeded)}
-\DoxyCodeLine{00471                         \{}
-\DoxyCodeLine{00472                             \textcolor{comment}{// Roles}}
-\DoxyCodeLine{00473                             \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_afb203b91eacf83ed47dd236a546de57e}{Roles}})}
-\DoxyCodeLine{00474                             \{}
-\DoxyCodeLine{00475                                 \textcolor{keywordflow}{if} (item.IsAssigned)}
-\DoxyCodeLine{00476                                 \{}
-\DoxyCodeLine{00477                                     await \_userManager.AddToRoleAsync(user, item.RoleName);}
-\DoxyCodeLine{00478                                 \}}
-\DoxyCodeLine{00479                                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00480                                 \{}
-\DoxyCodeLine{00481                                     await \_userManager.RemoveFromRoleAsync(user, item.RoleName);}
-\DoxyCodeLine{00482                                 \}}
-\DoxyCodeLine{00483                             \}}
-\DoxyCodeLine{00484 }
-\DoxyCodeLine{00485                             \textcolor{comment}{// Claims}}
-\DoxyCodeLine{00486                             var userClaims = await \_userManager.GetClaimsAsync(user);}
-\DoxyCodeLine{00487                             var departmentClaim = userClaims.FirstOrDefault(a => a.Type == \textcolor{stringliteral}{"{}Department"{}});}
-\DoxyCodeLine{00488                             var claimsToAdd = \textcolor{keyword}{new} Claim(\textcolor{stringliteral}{"{}Department"{}}, Enum.GetName(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ac769e7bcadc47007228186b011ed0512}{Department}})!);}
-\DoxyCodeLine{00489                             \textcolor{keywordflow}{if} (departmentClaim != \textcolor{keyword}{null})}
-\DoxyCodeLine{00490                             \{}
-\DoxyCodeLine{00491                                 await \_userManager.ReplaceClaimAsync(user, departmentClaim, claimsToAdd);}
-\DoxyCodeLine{00492                             \}}
-\DoxyCodeLine{00493                             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00494                             \{}
-\DoxyCodeLine{00495                                 await \_userManager.AddClaimAsync(user, claimsToAdd);}
-\DoxyCodeLine{00496                             \}}
-\DoxyCodeLine{00497                             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified user "{}} + user.UserName);}
-\DoxyCodeLine{00498                             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Users"{}});}
-\DoxyCodeLine{00499                         \}}
-\DoxyCodeLine{00500                         result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
-\DoxyCodeLine{00501                     \}}
-\DoxyCodeLine{00502                 \}}
-\DoxyCodeLine{00503                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00504                 \{}
-\DoxyCodeLine{00505                     ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \textcolor{stringliteral}{"{}User not found."{}});}
-\DoxyCodeLine{00506                 \}}
-\DoxyCodeLine{00507             \}}
-\DoxyCodeLine{00508             }
-\DoxyCodeLine{00509             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{00510         \}}
+\DoxyCodeLine{00481         \{}
+\DoxyCodeLine{00482             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00483             \{}
+\DoxyCodeLine{00484                 var user = await \_userManager.FindByIdAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a44d3f139f58eb560e41f2c228c00b18b}{Id}});}
+\DoxyCodeLine{00485                 \textcolor{keywordflow}{if} (user != \textcolor{keyword}{null})}
+\DoxyCodeLine{00486                 \{}
+\DoxyCodeLine{00487                     \textcolor{keywordflow}{if} (user.PhoneNumber != viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a0766c2ef3010d290973d1981e4afcbde}{PhoneNumber}} \&\& \_userManager.Users.Any(a => a.PhoneNumber == viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a0766c2ef3010d290973d1981e4afcbde}{PhoneNumber}}))}
+\DoxyCodeLine{00488                     \{}
+\DoxyCodeLine{00489                         ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}4"{}}]);}
+\DoxyCodeLine{00490                     \}}
+\DoxyCodeLine{00491                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00492                     \{}
+\DoxyCodeLine{00493                         user.FirstName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a1ce72dd9e8f4eb8ce20e37fb247e486d}{FirstName}};}
+\DoxyCodeLine{00494                         user.LastName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a4c0545e46724baab75383047c6003a4a}{LastName}};}
+\DoxyCodeLine{00495                         user.UserName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ad8cb8b8701e79ab226979d760e38ac04}{UserName}};}
+\DoxyCodeLine{00496                         user.Email = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a93cb61f5c47ffe5a6271b25151464161}{Email}};}
+\DoxyCodeLine{00497                         user.PhoneNumber = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_a0766c2ef3010d290973d1981e4afcbde}{PhoneNumber}};}
+\DoxyCodeLine{00498                         user.Gender = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ab987b2e7b390141dd86a7ba4ca2c93fd}{Gender}};}
+\DoxyCodeLine{00499                         user.Department = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ac769e7bcadc47007228186b011ed0512}{Department}}.ToString();}
+\DoxyCodeLine{00500 }
+\DoxyCodeLine{00501                         var result = await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00502                         \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00503                         \{}
+\DoxyCodeLine{00504                             \textcolor{comment}{// Roles}}
+\DoxyCodeLine{00505                             \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_afb203b91eacf83ed47dd236a546de57e}{Roles}})}
+\DoxyCodeLine{00506                             \{}
+\DoxyCodeLine{00507                                 \textcolor{keywordflow}{if} (item.IsAssigned)}
+\DoxyCodeLine{00508                                 \{}
+\DoxyCodeLine{00509                                     await \_userManager.AddToRoleAsync(user, item.RoleName);}
+\DoxyCodeLine{00510                                 \}}
+\DoxyCodeLine{00511                                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00512                                 \{}
+\DoxyCodeLine{00513                                     await \_userManager.RemoveFromRoleAsync(user, item.RoleName);}
+\DoxyCodeLine{00514                                 \}}
+\DoxyCodeLine{00515                             \}}
+\DoxyCodeLine{00516 }
+\DoxyCodeLine{00517                             \textcolor{comment}{// roles combined}}
+\DoxyCodeLine{00518                             var rls = await \_userManager.GetRolesAsync(user);}
+\DoxyCodeLine{00519                             \textcolor{keywordflow}{if} (rls != \textcolor{keyword}{null})}
+\DoxyCodeLine{00520                             \{}
+\DoxyCodeLine{00521                                 var rlsComb = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00522                                 \textcolor{keywordflow}{if} (rls.Count() > 0 \&\& rls.Count() <= 1)}
+\DoxyCodeLine{00523                                 \{}
+\DoxyCodeLine{00524                                     rlsComb = rls[0].ToString();}
+\DoxyCodeLine{00525                                 \}}
+\DoxyCodeLine{00526                                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00527                                 \{}
+\DoxyCodeLine{00528                                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rls.Count; i++)}
+\DoxyCodeLine{00529                                     \{}
+\DoxyCodeLine{00530                                         \textcolor{keywordflow}{if} (i + 1 != rls.Count) \{ rlsComb += rls[i] + \textcolor{stringliteral}{"{},"{}}; \}}
+\DoxyCodeLine{00531                                         \textcolor{keywordflow}{else} \{ rlsComb += rls[i]; \}}
+\DoxyCodeLine{00532                                     \}}
+\DoxyCodeLine{00533                                 \}}
+\DoxyCodeLine{00534                                 \textcolor{keywordflow}{if} (rlsComb.Length > 0)}
+\DoxyCodeLine{00535                                 \{}
+\DoxyCodeLine{00536                                     user.RolesCombined = rlsComb;}
+\DoxyCodeLine{00537                                     await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00538                                 \}}
+\DoxyCodeLine{00539                             \}}
+\DoxyCodeLine{00540 }
+\DoxyCodeLine{00541                             \textcolor{comment}{// Claims}}
+\DoxyCodeLine{00542                             var userClaims = await \_userManager.GetClaimsAsync(user);}
+\DoxyCodeLine{00543                             var departmentClaim = userClaims.FirstOrDefault(a => a.Type == \textcolor{stringliteral}{"{}Department"{}});}
+\DoxyCodeLine{00544                             var claimsToAdd = \textcolor{keyword}{new} Claim(\textcolor{stringliteral}{"{}Department"{}}, Enum.GetName(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model_ac769e7bcadc47007228186b011ed0512}{Department}})!);}
+\DoxyCodeLine{00545                             \textcolor{keywordflow}{if} (departmentClaim != \textcolor{keyword}{null})}
+\DoxyCodeLine{00546                             \{}
+\DoxyCodeLine{00547                                 await \_userManager.ReplaceClaimAsync(user, departmentClaim, claimsToAdd);}
+\DoxyCodeLine{00548                             \}}
+\DoxyCodeLine{00549                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00550                             \{}
+\DoxyCodeLine{00551                                 await \_userManager.AddClaimAsync(user, claimsToAdd);}
+\DoxyCodeLine{00552                             \}}
+\DoxyCodeLine{00553                             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified user "{}} + user.UserName);}
+\DoxyCodeLine{00554                             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Users"{}});}
+\DoxyCodeLine{00555                         \}}
+\DoxyCodeLine{00556                         result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00557                     \}}
+\DoxyCodeLine{00558                 \}}
+\DoxyCodeLine{00559                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00560                 \{}
+\DoxyCodeLine{00561                     ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, \_localizer[\textcolor{stringliteral}{"{}2"{}}]);}
+\DoxyCodeLine{00562                 \}}
+\DoxyCodeLine{00563             \}}
+\DoxyCodeLine{00564             }
+\DoxyCodeLine{00565             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00566         \}}
 
 \end{DoxyCode}
 
@@ -440,35 +463,35 @@ view of type \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00415}{415}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00447}{447}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00416         \{}
-\DoxyCodeLine{00417             var user = await \_userManager.FindByIdAsync(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00418             \textcolor{keywordflow}{if} (user == \textcolor{keyword}{null})}
-\DoxyCodeLine{00419             \{}
-\DoxyCodeLine{00420                 \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Users"{}});}
-\DoxyCodeLine{00421             \}}
-\DoxyCodeLine{00422             var viewModel = user.Adapt<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model}{EditUserViewModel}}>();}
-\DoxyCodeLine{00423 }
-\DoxyCodeLine{00424             var userRoles = await \_userManager.GetRolesAsync(user);}
-\DoxyCodeLine{00425             viewModel.Roles = await \_roleManager.Roles.Select(s => \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_assign_role_view_model}{AssignRoleViewModel}}}
-\DoxyCodeLine{00426             \{}
-\DoxyCodeLine{00427                 RoleId = s.Id,}
-\DoxyCodeLine{00428                 RoleName = s.Name,}
-\DoxyCodeLine{00429                 IsAssigned = userRoles.Any(a => a == s.Name)}
-\DoxyCodeLine{00430             \}).ToListAsync();}
-\DoxyCodeLine{00431 }
-\DoxyCodeLine{00432             var userClaims = await \_userManager.GetClaimsAsync(user);}
-\DoxyCodeLine{00433             var departmentClaim = userClaims.FirstOrDefault(f => f.Type == \textcolor{stringliteral}{"{}Department"{}});}
-\DoxyCodeLine{00434             \textcolor{keywordflow}{if} (departmentClaim != \textcolor{keyword}{null})}
-\DoxyCodeLine{00435             \{}
-\DoxyCodeLine{00436                 viewModel.Department = Enum.Parse<\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a0c2566102c085d8fb8859ba2cc48f7f5}{Department}}>(departmentClaim.Value);}
-\DoxyCodeLine{00437             \}}
-\DoxyCodeLine{00438             }
-\DoxyCodeLine{00439             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{00440         \}}
+\DoxyCodeLine{00448         \{}
+\DoxyCodeLine{00449             var user = await \_userManager.FindByIdAsync(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00450             \textcolor{keywordflow}{if} (user == \textcolor{keyword}{null})}
+\DoxyCodeLine{00451             \{}
+\DoxyCodeLine{00452                 \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Users"{}});}
+\DoxyCodeLine{00453             \}}
+\DoxyCodeLine{00454             var viewModel = user.Adapt<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_edit_user_view_model}{EditUserViewModel}}>();}
+\DoxyCodeLine{00455 }
+\DoxyCodeLine{00456             var userRoles = await \_userManager.GetRolesAsync(user);}
+\DoxyCodeLine{00457             viewModel.Roles = await \_roleManager.Roles.Select(s => \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_assign_role_view_model}{AssignRoleViewModel}}}
+\DoxyCodeLine{00458             \{}
+\DoxyCodeLine{00459                 RoleId = s.Id,}
+\DoxyCodeLine{00460                 RoleName = s.Name,}
+\DoxyCodeLine{00461                 IsAssigned = userRoles.Any(a => a == s.Name)}
+\DoxyCodeLine{00462             \}).ToListAsync();}
+\DoxyCodeLine{00463 }
+\DoxyCodeLine{00464             var userClaims = await \_userManager.GetClaimsAsync(user);}
+\DoxyCodeLine{00465             var departmentClaim = userClaims.FirstOrDefault(f => f.Type == \textcolor{stringliteral}{"{}Department"{}});}
+\DoxyCodeLine{00466             \textcolor{keywordflow}{if} (departmentClaim != \textcolor{keyword}{null})}
+\DoxyCodeLine{00467             \{}
+\DoxyCodeLine{00468                 viewModel.Department = Enum.Parse<\mbox{\hyperlink{namespace_dot_net_identity_1_1_models_a0c2566102c085d8fb8859ba2cc48f7f5}{Department}}>(departmentClaim.Value);}
+\DoxyCodeLine{00469             \}}
+\DoxyCodeLine{00470             }
+\DoxyCodeLine{00471             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00472         \}}
 
 \end{DoxyCode}
 
@@ -495,20 +518,20 @@ json object (true / false)
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00265}{265}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00297}{297}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00265                                                                        \{}
-\DoxyCodeLine{00266             var user = await \_userManager.FindByIdAsync(UserId);}
-\DoxyCodeLine{00267             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00268                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
-\DoxyCodeLine{00269             \}}
-\DoxyCodeLine{00270             user.IsLdapLogin = \textcolor{keyword}{true};}
-\DoxyCodeLine{00271             await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00272             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} enabled LDAP login for user "{}} + user.UserName);}
-\DoxyCodeLine{00273             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
-\DoxyCodeLine{00274         \}}
+\DoxyCodeLine{00297                                                                        \{}
+\DoxyCodeLine{00298             var user = await \_userManager.FindByIdAsync(UserId);}
+\DoxyCodeLine{00299             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00300                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
+\DoxyCodeLine{00301             \}}
+\DoxyCodeLine{00302             user.IsLdapLogin = \textcolor{keyword}{true};}
+\DoxyCodeLine{00303             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00304             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} enabled LDAP login for user "{}} + user.UserName);}
+\DoxyCodeLine{00305             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
+\DoxyCodeLine{00306         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a717d7b1ad7653611b7cd5b507bdedeb1}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a717d7b1ad7653611b7cd5b507bdedeb1}} 
@@ -531,20 +554,20 @@ json object (true / false)
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00299}{299}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00331}{331}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00299                                                                       \{}
-\DoxyCodeLine{00300             var user = await \_userManager.FindByIdAsync(UserId);}
-\DoxyCodeLine{00301             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00302                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
-\DoxyCodeLine{00303             \}}
-\DoxyCodeLine{00304             user.IsMfaForce = \textcolor{keyword}{true};}
-\DoxyCodeLine{00305             await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00306             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} enabled mfa enforce for user "{}} + user.UserName);}
-\DoxyCodeLine{00307             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
-\DoxyCodeLine{00308         \}}
+\DoxyCodeLine{00331                                                                       \{}
+\DoxyCodeLine{00332             var user = await \_userManager.FindByIdAsync(UserId);}
+\DoxyCodeLine{00333             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00334                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
+\DoxyCodeLine{00335             \}}
+\DoxyCodeLine{00336             user.IsMfaForce = \textcolor{keyword}{true};}
+\DoxyCodeLine{00337             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00338             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} enabled mfa enforce for user "{}} + user.UserName);}
+\DoxyCodeLine{00339             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
+\DoxyCodeLine{00340         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_acafca207dc626b8405c100dae372339e}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_acafca207dc626b8405c100dae372339e}} 
@@ -567,20 +590,20 @@ json object (true / false)
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00248}{248}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00280}{280}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00248                                                                   \{}
-\DoxyCodeLine{00249             var user = await \_userManager.FindByIdAsync(UserId);}
-\DoxyCodeLine{00250             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
-\DoxyCodeLine{00251                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
-\DoxyCodeLine{00252             \}}
-\DoxyCodeLine{00253             user.IsEnabled = \textcolor{keyword}{true};}
-\DoxyCodeLine{00254             await \_userManager.UpdateAsync(user);}
-\DoxyCodeLine{00255             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} enabled user "{}} + user.UserName);}
-\DoxyCodeLine{00256             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
-\DoxyCodeLine{00257         \}}
+\DoxyCodeLine{00280                                                                   \{}
+\DoxyCodeLine{00281             var user = await \_userManager.FindByIdAsync(UserId);}
+\DoxyCodeLine{00282             \textcolor{keywordflow}{if}(user==\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00283                 \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{ success = \textcolor{keyword}{false} \});}
+\DoxyCodeLine{00284             \}}
+\DoxyCodeLine{00285             user.IsEnabled = \textcolor{keyword}{true};}
+\DoxyCodeLine{00286             await \_userManager.UpdateAsync(user);}
+\DoxyCodeLine{00287             \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} enabled user "{}} + user.UserName);}
+\DoxyCodeLine{00288             \textcolor{keywordflow}{return} Json(\textcolor{keyword}{new} \{success = \textcolor{keyword}{true}\});}
+\DoxyCodeLine{00289         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a21e35248bf081cd805ef51cbeb87f729}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a21e35248bf081cd805ef51cbeb87f729}} 
@@ -616,14 +639,14 @@ Jason-\/\+Array of Datatables\+Js.\+Data.\+Data\+Result
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00119}{119}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00125}{125}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00120         \{}
-\DoxyCodeLine{00121             DataResult<AppLogs> result = \_context.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{AppLogs}}!.Where(l=>l.Message.ToLower().StartsWith(\textcolor{stringliteral}{"{}audit"{}})==\textcolor{keyword}{false} \&\& Convert.ToInt32(l.Level) < 4).ToDataResult(request);}
-\DoxyCodeLine{00122             \textcolor{keywordflow}{return} Json(result);}
-\DoxyCodeLine{00123         \}}
+\DoxyCodeLine{00126         \{}
+\DoxyCodeLine{00127             DataResult<AppLogs> result = \_context.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{AppLogs}}!.Where(l=>l.Message.ToLower().StartsWith(\textcolor{stringliteral}{"{}audit"{}})==\textcolor{keyword}{false} \&\& Convert.ToInt32(l.Level) < 4).ToDataResult(request);}
+\DoxyCodeLine{00128             \textcolor{keywordflow}{return} Json(result);}
+\DoxyCodeLine{00129         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a765780fbe678b84fb1532c873f761015}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a765780fbe678b84fb1532c873f761015}} 
@@ -646,14 +669,14 @@ Jason-\/\+Array of Datatables\+Js.\+Data.\+Data\+Result
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00131}{131}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00137}{137}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00132         \{}
-\DoxyCodeLine{00133             DataResult<AppLogs> result = \_context.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{AppLogs}}!.Where(l=>l.Message.ToLower().StartsWith(\textcolor{stringliteral}{"{}audit"{}})==\textcolor{keyword}{true}).ToDataResult(request);}
-\DoxyCodeLine{00134             \textcolor{keywordflow}{return} Json(result);}
-\DoxyCodeLine{00135         \}}
+\DoxyCodeLine{00138         \{}
+\DoxyCodeLine{00139             DataResult<AppLogs> result = \_context.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{AppLogs}}!.Where(l=>l.Message.ToLower().StartsWith(\textcolor{stringliteral}{"{}audit"{}})==\textcolor{keyword}{true}).ToDataResult(request);}
+\DoxyCodeLine{00140             \textcolor{keywordflow}{return} Json(result);}
+\DoxyCodeLine{00141         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a33a0ae1d862e6fc8fe837379f1e71871}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a33a0ae1d862e6fc8fe837379f1e71871}} 
@@ -676,14 +699,14 @@ Jason-\/\+Array of Datatables\+Js.\+Data.\+Data\+Result
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00107}{107}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00113}{113}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00108         \{}
-\DoxyCodeLine{00109             DataResult<AppLogs> result = \_context.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{AppLogs}}!.Where(l=>l.Message.ToLower().StartsWith(\textcolor{stringliteral}{"{}audit"{}})==\textcolor{keyword}{false} \&\& Convert.ToInt32(l.Level) == 4).ToDataResult(request);}
-\DoxyCodeLine{00110             \textcolor{keywordflow}{return} Json(result);}
-\DoxyCodeLine{00111         \}}
+\DoxyCodeLine{00114         \{}
+\DoxyCodeLine{00115             DataResult<AppLogs> result = \_context.\mbox{\hyperlink{class_dot_net_identity_1_1_data_1_1_app_db_context_affe1f37bcb45df0004280f3c94ebe49f}{AppLogs}}!.Where(l=>l.Message.ToLower().StartsWith(\textcolor{stringliteral}{"{}audit"{}})==\textcolor{keyword}{false} \&\& Convert.ToInt32(l.Level) == 4).ToDataResult(request);}
+\DoxyCodeLine{00116             \textcolor{keywordflow}{return} Json(result);}
+\DoxyCodeLine{00117         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_ab36c5deb1c4f3f99e316543f66b40b58}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_ab36c5deb1c4f3f99e316543f66b40b58}} 
@@ -706,14 +729,14 @@ Jason-\/\+Array of Datatables\+Js.\+Data.\+Data\+Result
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00143}{143}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00149}{149}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00143                                                         \{}
-\DoxyCodeLine{00144             DataResult<AppUser> result = \_userManager.Users.ToDataResult(request);}
-\DoxyCodeLine{00145             \textcolor{keywordflow}{return} Json(result);}
-\DoxyCodeLine{00146         \}}
+\DoxyCodeLine{00149                                                         \{}
+\DoxyCodeLine{00150             DataResult<AppUser> result = \_userManager.Users.ToDataResult(request);}
+\DoxyCodeLine{00151             \textcolor{keywordflow}{return} Json(result);}
+\DoxyCodeLine{00152         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a5f4b2842f8473f14a5e10470d3bd1d5b}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a5f4b2842f8473f14a5e10470d3bd1d5b}} 
@@ -744,21 +767,21 @@ view of type Dotnet\+Identity.\+Views.\+Admin.\+New\+User
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00152}{152}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00158}{158}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00152                                                    \{}
-\DoxyCodeLine{00153             var mod = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model}{NewUserModel}}();}
-\DoxyCodeLine{00154             mod.Roles = await \_roleManager.Roles.Select(s => \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_assign_role_view_model}{AssignRoleViewModel}}}
-\DoxyCodeLine{00155             \{}
-\DoxyCodeLine{00156                 RoleId = s.Id,}
-\DoxyCodeLine{00157                 RoleName = s.Name,}
-\DoxyCodeLine{00158                 IsAssigned = \textcolor{keyword}{false}}
-\DoxyCodeLine{00159             \}).ToListAsync();}
-\DoxyCodeLine{00160 }
-\DoxyCodeLine{00161             \textcolor{keywordflow}{return} View(mod);}
-\DoxyCodeLine{00162         \}}
+\DoxyCodeLine{00158                                                    \{}
+\DoxyCodeLine{00159             var mod = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model}{NewUserModel}}();}
+\DoxyCodeLine{00160             mod.Roles = await \_roleManager.Roles.Select(s => \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_assign_role_view_model}{AssignRoleViewModel}}}
+\DoxyCodeLine{00161             \{}
+\DoxyCodeLine{00162                 RoleId = s.Id,}
+\DoxyCodeLine{00163                 RoleName = s.Name,}
+\DoxyCodeLine{00164                 IsAssigned = \textcolor{keyword}{false}}
+\DoxyCodeLine{00165             \}).ToListAsync();}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167             \textcolor{keywordflow}{return} View(mod);}
+\DoxyCodeLine{00168         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a64bc568ac775c29e358c37f1b6eb9a6f}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a64bc568ac775c29e358c37f1b6eb9a6f}} 
@@ -781,47 +804,73 @@ view of type Dotnet\+Identity.\+Views.\+Admin.\+New\+User
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00170}{170}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00176}{176}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00171         \{}
-\DoxyCodeLine{00172             \textcolor{keywordflow}{if} (ModelState.IsValid)}
-\DoxyCodeLine{00173             \{}
-\DoxyCodeLine{00174                 var user = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}();}
-\DoxyCodeLine{00175                 user.IsEnabled = \textcolor{keyword}{true};}
-\DoxyCodeLine{00176                 user.IsMfaForce = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a386700c6d1016a119610b19e33ebc07c}{IsMfaForce}};}
-\DoxyCodeLine{00177                 user.IsLdapLogin = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_ac59fa961213dce0d9bad6383e15a2e98}{IsLdapLogin}};}
-\DoxyCodeLine{00178                 user.FirstName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a61504666821f8dc6d9d33b0a4cc77b3c}{FirstName}};}
-\DoxyCodeLine{00179                 user.LastName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_aceaf9427b3dabdece9e7ce7feef994e8}{LastName}};}
-\DoxyCodeLine{00180                 user.Email = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a4efc9be88e208cf5c71d8e09ffbdbacf}{Email}};}
-\DoxyCodeLine{00181                 user.EmailConfirmed = \textcolor{keyword}{true};}
-\DoxyCodeLine{00182                 user.Gender = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a7ee12bb071a0973e4648e73d348a1d90}{Gender}};}
-\DoxyCodeLine{00183                 user.Department = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a8f931f5e280c44a9fd20243fa58e4a67}{Department}}.ToString();}
-\DoxyCodeLine{00184                 user.UserName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a30f192b2fd398ca04a894b745ebc311d}{UserName}};}
-\DoxyCodeLine{00185 }
-\DoxyCodeLine{00186                 var result = await \_userManager.CreateAsync(user, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a9a0dfca231dffeaf800f7b3ef3cfeb59}{Password}});}
-\DoxyCodeLine{00187                 \textcolor{keywordflow}{if} (result.Succeeded)}
-\DoxyCodeLine{00188                 \{}
-\DoxyCodeLine{00189                     \textcolor{comment}{// roles}}
-\DoxyCodeLine{00190                     \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a5145932ec19e08d2424a891907457bd4}{Roles}})}
-\DoxyCodeLine{00191                     \{}
-\DoxyCodeLine{00192                         \textcolor{keywordflow}{if} (item.IsAssigned)}
-\DoxyCodeLine{00193                         \{}
-\DoxyCodeLine{00194                             await \_userManager.AddToRoleAsync(user, item.RoleName);}
-\DoxyCodeLine{00195                         \}}
-\DoxyCodeLine{00196                         \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00197                         \{}
-\DoxyCodeLine{00198                             await \_userManager.RemoveFromRoleAsync(user, item.RoleName);}
-\DoxyCodeLine{00199                         \}}
-\DoxyCodeLine{00200                     \}}
-\DoxyCodeLine{00201                 \}}
-\DoxyCodeLine{00202 }
-\DoxyCodeLine{00203                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}User created success fully."{}};}
-\DoxyCodeLine{00204                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} created new user "{}} + user.UserName);}
-\DoxyCodeLine{00205             \}}
-\DoxyCodeLine{00206             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model}{NewUserModel}}());}
-\DoxyCodeLine{00207         \}}
+\DoxyCodeLine{00177         \{}
+\DoxyCodeLine{00178             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00179             \{}
+\DoxyCodeLine{00180                 var user = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user}{AppUser}}();}
+\DoxyCodeLine{00181                 user.IsEnabled = \textcolor{keyword}{true};}
+\DoxyCodeLine{00182                 user.IsMfaForce = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a386700c6d1016a119610b19e33ebc07c}{IsMfaForce}};}
+\DoxyCodeLine{00183                 user.IsLdapLogin = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_ac59fa961213dce0d9bad6383e15a2e98}{IsLdapLogin}};}
+\DoxyCodeLine{00184                 user.FirstName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a61504666821f8dc6d9d33b0a4cc77b3c}{FirstName}};}
+\DoxyCodeLine{00185                 user.LastName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_aceaf9427b3dabdece9e7ce7feef994e8}{LastName}};}
+\DoxyCodeLine{00186                 user.Email = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a4efc9be88e208cf5c71d8e09ffbdbacf}{Email}};}
+\DoxyCodeLine{00187                 user.EmailConfirmed = \textcolor{keyword}{true};}
+\DoxyCodeLine{00188                 user.Gender = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a7ee12bb071a0973e4648e73d348a1d90}{Gender}};}
+\DoxyCodeLine{00189                 user.Department = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a8f931f5e280c44a9fd20243fa58e4a67}{Department}}.ToString();}
+\DoxyCodeLine{00190                 user.UserName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a30f192b2fd398ca04a894b745ebc311d}{UserName}};}
+\DoxyCodeLine{00191 }
+\DoxyCodeLine{00192                 var result = await \_userManager.CreateAsync(user, viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a9a0dfca231dffeaf800f7b3ef3cfeb59}{Password}});}
+\DoxyCodeLine{00193                 \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00194                 \{}
+\DoxyCodeLine{00195                     \textcolor{comment}{// roles}}
+\DoxyCodeLine{00196                     \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model_a5145932ec19e08d2424a891907457bd4}{Roles}})}
+\DoxyCodeLine{00197                     \{}
+\DoxyCodeLine{00198                         \textcolor{keywordflow}{if} (item.IsAssigned)}
+\DoxyCodeLine{00199                         \{}
+\DoxyCodeLine{00200                             await \_userManager.AddToRoleAsync(user, item.RoleName);}
+\DoxyCodeLine{00201                         \}}
+\DoxyCodeLine{00202                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00203                         \{}
+\DoxyCodeLine{00204                             await \_userManager.RemoveFromRoleAsync(user, item.RoleName);}
+\DoxyCodeLine{00205                         \}}
+\DoxyCodeLine{00206                     \}}
+\DoxyCodeLine{00207                 \}}
+\DoxyCodeLine{00208 }
+\DoxyCodeLine{00209                 var createdUser = await \_userManager.FindByNameAsync(user.UserName);}
+\DoxyCodeLine{00210                 \textcolor{keywordflow}{if}(createdUser!=\textcolor{keyword}{null}) \{}
+\DoxyCodeLine{00211                     var rls = await \_userManager.GetRolesAsync(createdUser);}
+\DoxyCodeLine{00212                     \textcolor{keywordflow}{if} (rls != \textcolor{keyword}{null})}
+\DoxyCodeLine{00213                     \{}
+\DoxyCodeLine{00214                         var rlsComb = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00215                         \textcolor{keywordflow}{if} (rls.Count() > 0 \&\& rls.Count() <= 1)}
+\DoxyCodeLine{00216                         \{}
+\DoxyCodeLine{00217                             rlsComb = rls[0].ToString();}
+\DoxyCodeLine{00218                         \}}
+\DoxyCodeLine{00219                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00220                         \{}
+\DoxyCodeLine{00221                             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rls.Count; i++)}
+\DoxyCodeLine{00222                             \{}
+\DoxyCodeLine{00223                                 \textcolor{keywordflow}{if} (i + 1 != rls.Count) \{ rlsComb += rls[i] + \textcolor{stringliteral}{"{},"{}}; \}}
+\DoxyCodeLine{00224                                 \textcolor{keywordflow}{else} \{ rlsComb += rls[i]; \}}
+\DoxyCodeLine{00225                             \}}
+\DoxyCodeLine{00226                         \}}
+\DoxyCodeLine{00227                         \textcolor{keywordflow}{if} (rlsComb.Length > 0)}
+\DoxyCodeLine{00228                         \{}
+\DoxyCodeLine{00229                             createdUser.RolesCombined = rlsComb;}
+\DoxyCodeLine{00230                             await \_userManager.UpdateAsync(createdUser);}
+\DoxyCodeLine{00231                         \}}
+\DoxyCodeLine{00232                     \}}
+\DoxyCodeLine{00233                 \}}
+\DoxyCodeLine{00234 }
+\DoxyCodeLine{00235                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{00236                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} created new user "{}} + user.UserName);}
+\DoxyCodeLine{00237             \}}
+\DoxyCodeLine{00238             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_new_user_model}{NewUserModel}}());}
+\DoxyCodeLine{00239         \}}
 
 \end{DoxyCode}
 
@@ -875,19 +924,19 @@ view of type Dotnetidentity.\+Views.\+Admin.\+Upsert\+Role
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00214}{214}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00246}{246}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00215         \{}
-\DoxyCodeLine{00216             \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} != \textcolor{keyword}{null})}
-\DoxyCodeLine{00217             \{}
-\DoxyCodeLine{00218                 var role = await \_roleManager.FindByIdAsync(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00219                 \textcolor{keywordflow}{return} View(role.Adapt<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model}{UpsertRoleViewModel}}>());}
-\DoxyCodeLine{00220             \}}
-\DoxyCodeLine{00221             }
-\DoxyCodeLine{00222             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model}{UpsertRoleViewModel}}());}
-\DoxyCodeLine{00223         \}}
+\DoxyCodeLine{00247         \{}
+\DoxyCodeLine{00248             \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} != \textcolor{keyword}{null})}
+\DoxyCodeLine{00249             \{}
+\DoxyCodeLine{00250                 var role = await \_roleManager.FindByIdAsync(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00251                 \textcolor{keywordflow}{return} View(role.Adapt<\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model}{UpsertRoleViewModel}}>());}
+\DoxyCodeLine{00252             \}}
+\DoxyCodeLine{00253             }
+\DoxyCodeLine{00254             \textcolor{keywordflow}{return} View(\textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model}{UpsertRoleViewModel}}());}
+\DoxyCodeLine{00255         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a94f52c0e032a774cc8d1590d6688d101}\label{class_dot_net_identity_1_1_controllers_1_1_admin_controller_a94f52c0e032a774cc8d1590d6688d101}} 
@@ -910,40 +959,40 @@ redirect to controller action Roles
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00333}{333}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_admin_controller_8cs_source_l00365}{365}} of file \mbox{\hyperlink{_admin_controller_8cs_source}{Admin\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00334         \{}
-\DoxyCodeLine{00335             \textcolor{keywordflow}{if} (ModelState.IsValid)}
-\DoxyCodeLine{00336             \{}
-\DoxyCodeLine{00337                 var isUpdate = viewModel.Id != \textcolor{keyword}{null};}
-\DoxyCodeLine{00338 }
-\DoxyCodeLine{00339                 var role = isUpdate ? await \_roleManager.FindByIdAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a65cbdc82687f49cd26032a402a8f7741}{Id}}) : \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}() \{ Name = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}}, CreatedOn = DateTime.Now \};}
-\DoxyCodeLine{00340 }
-\DoxyCodeLine{00341                 \textcolor{keywordflow}{if} (isUpdate)}
-\DoxyCodeLine{00342                 \{}
-\DoxyCodeLine{00343                     role.Name = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}};}
-\DoxyCodeLine{00344                 \}}
-\DoxyCodeLine{00345 }
-\DoxyCodeLine{00346                 var result = isUpdate ? await \_roleManager.UpdateAsync(role) : await \_roleManager.CreateAsync(role);}
-\DoxyCodeLine{00347                 \textcolor{keywordflow}{if} (result.Succeeded)}
-\DoxyCodeLine{00348                 \{                    }
-\DoxyCodeLine{00349                     \textcolor{keywordflow}{if}(isUpdate) \{}
-\DoxyCodeLine{00350                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} changed name of "{}} + viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a65cbdc82687f49cd26032a402a8f7741}{Id}} + \textcolor{stringliteral}{"{} to "{}} + viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}});}
-\DoxyCodeLine{00351                     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00352                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} created role "{}} + viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}});}
-\DoxyCodeLine{00353                     \}}
-\DoxyCodeLine{00354                     \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Roles"{}});}
-\DoxyCodeLine{00355                 \}}
-\DoxyCodeLine{00356                 result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
-\DoxyCodeLine{00357                 result.Errors.ToList().ForEach(f => TempData[\textcolor{stringliteral}{"{}Error"{}}] += f.Description);}
-\DoxyCodeLine{00358             \}}
-\DoxyCodeLine{00359             }
-\DoxyCodeLine{00360             \textcolor{comment}{//return View(viewModel);}}
-\DoxyCodeLine{00361             \textcolor{comment}{//return View("{}Roles"{}, await \_roleManager.Roles.ToListAsync());}}
-\DoxyCodeLine{00362             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Roles"{}});}
-\DoxyCodeLine{00363         \}}
+\DoxyCodeLine{00366         \{}
+\DoxyCodeLine{00367             \textcolor{keywordflow}{if} (ModelState.IsValid)}
+\DoxyCodeLine{00368             \{}
+\DoxyCodeLine{00369                 var isUpdate = viewModel.Id != \textcolor{keyword}{null};}
+\DoxyCodeLine{00370 }
+\DoxyCodeLine{00371                 var role = isUpdate ? await \_roleManager.FindByIdAsync(viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a65cbdc82687f49cd26032a402a8f7741}{Id}}) : \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role}{AppRole}}() \{ Name = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}}, CreatedOn = DateTime.Now \};}
+\DoxyCodeLine{00372 }
+\DoxyCodeLine{00373                 \textcolor{keywordflow}{if} (isUpdate)}
+\DoxyCodeLine{00374                 \{}
+\DoxyCodeLine{00375                     role.Name = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}};}
+\DoxyCodeLine{00376                 \}}
+\DoxyCodeLine{00377 }
+\DoxyCodeLine{00378                 var result = isUpdate ? await \_roleManager.UpdateAsync(role) : await \_roleManager.CreateAsync(role);}
+\DoxyCodeLine{00379                 \textcolor{keywordflow}{if} (result.Succeeded)}
+\DoxyCodeLine{00380                 \{                    }
+\DoxyCodeLine{00381                     \textcolor{keywordflow}{if}(isUpdate) \{}
+\DoxyCodeLine{00382                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} changed name of "{}} + viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a65cbdc82687f49cd26032a402a8f7741}{Id}} + \textcolor{stringliteral}{"{} to "{}} + viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}});}
+\DoxyCodeLine{00383                     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00384                         \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} created role "{}} + viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_view_models_1_1_upsert_role_view_model_a1372e8f0ae5f5c399d5732a80850a31f}{Name}});}
+\DoxyCodeLine{00385                     \}}
+\DoxyCodeLine{00386                     \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Roles"{}});}
+\DoxyCodeLine{00387                 \}}
+\DoxyCodeLine{00388                 result.Errors.ToList().ForEach(f => ModelState.AddModelError(\textcolor{keywordtype}{string}.Empty, f.Description));}
+\DoxyCodeLine{00389                 result.Errors.ToList().ForEach(f => TempData[\textcolor{stringliteral}{"{}Error"{}}] += f.Description);}
+\DoxyCodeLine{00390             \}}
+\DoxyCodeLine{00391             }
+\DoxyCodeLine{00392             \textcolor{comment}{//return View(viewModel);}}
+\DoxyCodeLine{00393             \textcolor{comment}{//return View("{}Roles"{}, await \_roleManager.Roles.ToListAsync());}}
+\DoxyCodeLine{00394             \textcolor{keywordflow}{return} RedirectToAction(\textcolor{stringliteral}{"{}Roles"{}});}
+\DoxyCodeLine{00395         \}}
 
 \end{DoxyCode}
 

@@ -100,8 +100,7 @@ $(document).ready(function(){initNavTree('class_dot_net_identity_1_1_controllers
 <div class="dynheader">
 Inheritance diagram for DotNetIdentity.Controllers.SettingsController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_dot_net_identity_1_1_controllers_1_1_settings_controller__inherit__graph.svg" width="187" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_dot_net_identity_1_1_controllers_1_1_settings_controller__inherit__graph.svg" width="187" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,8 +129,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >controller class for settings views </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>add translation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00020">20</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00021">21</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a997f0c284024d3367e8b7508f35a9375" name="a997f0c284024d3367e8b7508f35a9375"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a997f0c284024d3367e8b7508f35a9375">&#9670;&nbsp;</a></span>SettingsController()</h2>
@@ -209,15 +209,15 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00056">56</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>                                                                                                                                                                                                                 {</div>
-<div class="line"><span class="lineno">   57</span>            _hostEnvironment = env;</div>
-<div class="line"><span class="lineno">   58</span>            _userManager = usr;</div>
-<div class="line"><span class="lineno">   59</span>            _roleManager = rol;</div>
-<div class="line"><span class="lineno">   60</span>            _localizer = loc;</div>
-<div class="line"><span class="lineno">   61</span>            _settings = sett;</div>
-<div class="line"><span class="lineno">   62</span>            _logger = log;</div>
-<div class="line"><span class="lineno">   63</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00057">57</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                                                                                                                                                                                                                 {</div>
+<div class="line"><span class="lineno">   58</span>            _hostEnvironment = env;</div>
+<div class="line"><span class="lineno">   59</span>            _userManager = usr;</div>
+<div class="line"><span class="lineno">   60</span>            _roleManager = rol;</div>
+<div class="line"><span class="lineno">   61</span>            _localizer = loc;</div>
+<div class="line"><span class="lineno">   62</span>            _settings = sett;</div>
+<div class="line"><span class="lineno">   63</span>            _logger = log;</div>
+<div class="line"><span class="lineno">   64</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -248,12 +248,12 @@ Public Member Functions</h2></td></tr>
 <p>Controller action for SettingsApp view </p>
 <dl class="section return"><dt>Returns</dt><dd>view SettingsApp</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00089">89</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>                                         {</div>
-<div class="line"><span class="lineno">   90</span>            var viewModel = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html">GlobalSettings</a>();</div>
-<div class="line"><span class="lineno">   91</span>            viewModel = _settings.Global;</div>
-<div class="line"><span class="lineno">   92</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">   93</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00090">90</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                                         {</div>
+<div class="line"><span class="lineno">   91</span>            var viewModel = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html">GlobalSettings</a>();</div>
+<div class="line"><span class="lineno">   92</span>            viewModel = _settings.Global;</div>
+<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">   94</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html">DotNetIdentity.Models.BusinessModels.GlobalSettings</a></div><div class="ttdoc">class to define a global settings object</div><div class="ttdef"><b>Definition:</b> <a href="_global_settings_8cs_source.html#l00007">GlobalSettings.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -284,12 +284,12 @@ Public Member Functions</h2></td></tr>
 <p>Controller action for SettingsLdap view </p>
 <dl class="section return"><dt>Returns</dt><dd>view SettingsLdap</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00069">69</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>                                          {</div>
-<div class="line"><span class="lineno">   70</span>            var viewModel = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html">LdapSettings</a>();</div>
-<div class="line"><span class="lineno">   71</span>            viewModel = _settings.Ldap;</div>
-<div class="line"><span class="lineno">   72</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">   73</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00070">70</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                          {</div>
+<div class="line"><span class="lineno">   71</span>            var viewModel = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html">LdapSettings</a>();</div>
+<div class="line"><span class="lineno">   72</span>            viewModel = _settings.Ldap;</div>
+<div class="line"><span class="lineno">   73</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">   74</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html">DotNetIdentity.Models.BusinessModels.LdapSettings</a></div><div class="ttdoc">class to define ldap settings</div><div class="ttdef"><b>Definition:</b> <a href="_ldap_settings_8cs_source.html#l00005">LdapSettings.cs:5</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -327,19 +327,19 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>view</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00142">142</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  142</span>                                                                              {</div>
-<div class="line"><span class="lineno">  143</span>   </div>
-<div class="line"><span class="lineno">  144</span>                _settings.Ldap.LdapDomainName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#a854a701de345ef537271bdbd865cbeac">LdapDomainName</a>;</div>
-<div class="line"><span class="lineno">  145</span>                _settings.Ldap.LdapDomainController = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#a854a701de345ef537271bdbd865cbeac">LdapDomainName</a>;</div>
-<div class="line"><span class="lineno">  146</span>                _settings.Ldap.LdapBaseDn = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#aded1d7fe01a96107451544754936d443">LdapBaseDn</a>;</div>
-<div class="line"><span class="lineno">  147</span>                _settings.Ldap.LdapEnabled = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#abb73d2c25d05dadb0ff7a894c1f4cbe8">LdapEnabled</a>;</div>
-<div class="line"><span class="lineno">  148</span>                _settings.Ldap.LdapGroup = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#ac42024c3a28d21a8b8ded4fea831f964">LdapGroup</a>;</div>
-<div class="line"><span class="lineno">  149</span>                await _settings.Save();</div>
-<div class="line"><span class="lineno">  150</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + User.Identity!.Name + <span class="stringliteral">&quot; modified Ldap settings! &quot;</span>);</div>
-<div class="line"><span class="lineno">  151</span>                ViewData[<span class="stringliteral">&quot;message&quot;</span>] = <span class="stringliteral">&quot;Settings successfully saved!&quot;</span>;</div>
-<div class="line"><span class="lineno">  152</span>                <span class="keywordflow">return</span> View();       </div>
-<div class="line"><span class="lineno">  153</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00143">143</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  143</span>                                                                              {</div>
+<div class="line"><span class="lineno">  144</span>   </div>
+<div class="line"><span class="lineno">  145</span>                _settings.Ldap.LdapDomainName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#a854a701de345ef537271bdbd865cbeac">LdapDomainName</a>;</div>
+<div class="line"><span class="lineno">  146</span>                _settings.Ldap.LdapDomainController = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#a854a701de345ef537271bdbd865cbeac">LdapDomainName</a>;</div>
+<div class="line"><span class="lineno">  147</span>                _settings.Ldap.LdapBaseDn = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#aded1d7fe01a96107451544754936d443">LdapBaseDn</a>;</div>
+<div class="line"><span class="lineno">  148</span>                _settings.Ldap.LdapEnabled = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#abb73d2c25d05dadb0ff7a894c1f4cbe8">LdapEnabled</a>;</div>
+<div class="line"><span class="lineno">  149</span>                _settings.Ldap.LdapGroup = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#ac42024c3a28d21a8b8ded4fea831f964">LdapGroup</a>;</div>
+<div class="line"><span class="lineno">  150</span>                await _settings.Save();</div>
+<div class="line"><span class="lineno">  151</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + User.Identity!.Name + <span class="stringliteral">&quot; modified Ldap settings! &quot;</span>);</div>
+<div class="line"><span class="lineno">  152</span>                ViewData[<span class="stringliteral">&quot;message&quot;</span>] = _localizer[<span class="stringliteral">&quot;1&quot;</span>];</div>
+<div class="line"><span class="lineno">  153</span>                <span class="keywordflow">return</span> View();       </div>
+<div class="line"><span class="lineno">  154</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_html_a854a701de345ef537271bdbd865cbeac"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#a854a701de345ef537271bdbd865cbeac">DotNetIdentity.Models.BusinessModels.LdapSettings.LdapDomainName</a></div><div class="ttdeci">string? LdapDomainName</div><div class="ttdoc">domain name property</div><div class="ttdef"><b>Definition:</b> <a href="_ldap_settings_8cs_source.html#l00015">LdapSettings.cs:15</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_html_abb73d2c25d05dadb0ff7a894c1f4cbe8"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#abb73d2c25d05dadb0ff7a894c1f4cbe8">DotNetIdentity.Models.BusinessModels.LdapSettings.LdapEnabled</a></div><div class="ttdeci">bool LdapEnabled</div><div class="ttdoc">ldap enabled property</div><div class="ttdef"><b>Definition:</b> <a href="_ldap_settings_8cs_source.html#l00030">LdapSettings.cs:30</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_html_ac42024c3a28d21a8b8ded4fea831f964"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings.html#ac42024c3a28d21a8b8ded4fea831f964">DotNetIdentity.Models.BusinessModels.LdapSettings.LdapGroup</a></div><div class="ttdeci">string? LdapGroup</div><div class="ttdoc">domain group name property</div><div class="ttdef"><b>Definition:</b> <a href="_ldap_settings_8cs_source.html#l00025">LdapSettings.cs:25</a></div></div>
@@ -375,12 +375,12 @@ Public Member Functions</h2></td></tr>
 <p>Controller action for SettingsMail view </p>
 <dl class="section return"><dt>Returns</dt><dd>view SettingsMail</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00079">79</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>                                          {</div>
-<div class="line"><span class="lineno">   80</span>            var viewModel = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html">MailSettings</a>();</div>
-<div class="line"><span class="lineno">   81</span>            viewModel = _settings.Mail;</div>
-<div class="line"><span class="lineno">   82</span>            <span class="keywordflow">return</span> View(viewModel);</div>
-<div class="line"><span class="lineno">   83</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00080">80</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                                          {</div>
+<div class="line"><span class="lineno">   81</span>            var viewModel = <span class="keyword">new</span> <a class="code hl_class" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html">MailSettings</a>();</div>
+<div class="line"><span class="lineno">   82</span>            viewModel = _settings.Mail;</div>
+<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">return</span> View(viewModel);</div>
+<div class="line"><span class="lineno">   84</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html">DotNetIdentity.Models.BusinessModels.MailSettings</a></div><div class="ttdoc">class to define a ail settings object</div><div class="ttdef"><b>Definition:</b> <a href="_mail_settings_8cs_source.html#l00007">MailSettings.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -418,18 +418,18 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>view</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00123">123</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>                                                                                {</div>
-<div class="line"><span class="lineno">  124</span>   </div>
-<div class="line"><span class="lineno">  125</span>                _settings.Global.ApplicationName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ae65e8e919155c223225d0186e5c6b275">ApplicationName</a>;</div>
-<div class="line"><span class="lineno">  126</span>                _settings.Global.SessionCookieExpiration = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ab28c51bd2d16deac6a102bd90bef1909">SessionCookieExpiration</a>;</div>
-<div class="line"><span class="lineno">  127</span>                _settings.Global.SessionTimeoutWarnAfter = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ac7a804ead7682eb891e467328e9aa6e8">SessionTimeoutWarnAfter</a>;</div>
-<div class="line"><span class="lineno">  128</span>                _settings.Global.SessionTimeoutRedirAfter = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#aebdf7daf287ac0d6a5d7da7affc809c4">SessionTimeoutRedirAfter</a>;</div>
-<div class="line"><span class="lineno">  129</span>                await _settings.Save();</div>
-<div class="line"><span class="lineno">  130</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + User.Identity!.Name + <span class="stringliteral">&quot; modified Application settings! &quot;</span>);</div>
-<div class="line"><span class="lineno">  131</span>                ViewData[<span class="stringliteral">&quot;message&quot;</span>] = <span class="stringliteral">&quot;Settings successfully saved!&quot;</span>;</div>
-<div class="line"><span class="lineno">  132</span>                <span class="keywordflow">return</span> View();       </div>
-<div class="line"><span class="lineno">  133</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00124">124</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>                                                                                {</div>
+<div class="line"><span class="lineno">  125</span>   </div>
+<div class="line"><span class="lineno">  126</span>                _settings.Global.ApplicationName = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ae65e8e919155c223225d0186e5c6b275">ApplicationName</a>;</div>
+<div class="line"><span class="lineno">  127</span>                _settings.Global.SessionCookieExpiration = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ab28c51bd2d16deac6a102bd90bef1909">SessionCookieExpiration</a>;</div>
+<div class="line"><span class="lineno">  128</span>                _settings.Global.SessionTimeoutWarnAfter = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ac7a804ead7682eb891e467328e9aa6e8">SessionTimeoutWarnAfter</a>;</div>
+<div class="line"><span class="lineno">  129</span>                _settings.Global.SessionTimeoutRedirAfter = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#aebdf7daf287ac0d6a5d7da7affc809c4">SessionTimeoutRedirAfter</a>;</div>
+<div class="line"><span class="lineno">  130</span>                await _settings.Save();</div>
+<div class="line"><span class="lineno">  131</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + User.Identity!.Name + <span class="stringliteral">&quot; modified Application settings! &quot;</span>);</div>
+<div class="line"><span class="lineno">  132</span>                ViewData[<span class="stringliteral">&quot;message&quot;</span>] = _localizer[<span class="stringliteral">&quot;1&quot;</span>];</div>
+<div class="line"><span class="lineno">  133</span>                <span class="keywordflow">return</span> View();       </div>
+<div class="line"><span class="lineno">  134</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_html_ab28c51bd2d16deac6a102bd90bef1909"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ab28c51bd2d16deac6a102bd90bef1909">DotNetIdentity.Models.BusinessModels.GlobalSettings.SessionCookieExpiration</a></div><div class="ttdeci">string? SessionCookieExpiration</div><div class="ttdoc">property SessionCookieExpiration</div><div class="ttdef"><b>Definition:</b> <a href="_global_settings_8cs_source.html#l00027">GlobalSettings.cs:27</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_html_ac7a804ead7682eb891e467328e9aa6e8"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ac7a804ead7682eb891e467328e9aa6e8">DotNetIdentity.Models.BusinessModels.GlobalSettings.SessionTimeoutWarnAfter</a></div><div class="ttdeci">string? SessionTimeoutWarnAfter</div><div class="ttdoc">property SessionTimeoutWarnAfter</div><div class="ttdef"><b>Definition:</b> <a href="_global_settings_8cs_source.html#l00017">GlobalSettings.cs:17</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_html_ae65e8e919155c223225d0186e5c6b275"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ae65e8e919155c223225d0186e5c6b275">DotNetIdentity.Models.BusinessModels.GlobalSettings.ApplicationName</a></div><div class="ttdeci">string? ApplicationName</div><div class="ttdoc">property ApplicationName</div><div class="ttdef"><b>Definition:</b> <a href="_global_settings_8cs_source.html#l00012">GlobalSettings.cs:12</a></div></div>
@@ -472,20 +472,20 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>view</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00102">102</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  102</span>                                                                              {</div>
-<div class="line"><span class="lineno">  103</span>   </div>
-<div class="line"><span class="lineno">  104</span>                _settings.Mail.SmtpServer = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a366a061612b467ce7a59dea96d629e05">SmtpServer</a>;</div>
-<div class="line"><span class="lineno">  105</span>                _settings.Mail.SmtpFromAddress = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a68de5f15de739fa72bb539f61b551252">SmtpFromAddress</a>;</div>
-<div class="line"><span class="lineno">  106</span>                _settings.Mail.SmtpPort = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a3597274ad5b17dab2b887de099964895">SmtpPort</a>;</div>
-<div class="line"><span class="lineno">  107</span>                _settings.Mail.SmtpUseTls = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a92a0b02e1a443c95cdfe55ff223543b7">SmtpUseTls</a>;</div>
-<div class="line"><span class="lineno">  108</span>                _settings.Mail.Username = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#ac04165abd1ed766641b30d873fc08edb">Username</a>;</div>
-<div class="line"><span class="lineno">  109</span>                _settings.Mail.Password = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#accb7bb7fbfc7184851ae8bdce126b8bd">Password</a>;</div>
-<div class="line"><span class="lineno">  110</span>                await _settings.Save();</div>
-<div class="line"><span class="lineno">  111</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + User.Identity!.Name + <span class="stringliteral">&quot; modified Mail settings! &quot;</span>);</div>
-<div class="line"><span class="lineno">  112</span>                ViewData[<span class="stringliteral">&quot;message&quot;</span>] = <span class="stringliteral">&quot;Settings successfully saved!&quot;</span>;</div>
-<div class="line"><span class="lineno">  113</span>                <span class="keywordflow">return</span> View();       </div>
-<div class="line"><span class="lineno">  114</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_settings_controller_8cs_source.html#l00103">103</a> of file <a class="el" href="_settings_controller_8cs_source.html">SettingsController.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                                              {</div>
+<div class="line"><span class="lineno">  104</span>   </div>
+<div class="line"><span class="lineno">  105</span>                _settings.Mail.SmtpServer = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a366a061612b467ce7a59dea96d629e05">SmtpServer</a>;</div>
+<div class="line"><span class="lineno">  106</span>                _settings.Mail.SmtpFromAddress = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a68de5f15de739fa72bb539f61b551252">SmtpFromAddress</a>;</div>
+<div class="line"><span class="lineno">  107</span>                _settings.Mail.SmtpPort = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a3597274ad5b17dab2b887de099964895">SmtpPort</a>;</div>
+<div class="line"><span class="lineno">  108</span>                _settings.Mail.SmtpUseTls = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a92a0b02e1a443c95cdfe55ff223543b7">SmtpUseTls</a>;</div>
+<div class="line"><span class="lineno">  109</span>                _settings.Mail.Username = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#ac04165abd1ed766641b30d873fc08edb">Username</a>;</div>
+<div class="line"><span class="lineno">  110</span>                _settings.Mail.Password = viewModel.<a class="code hl_property" href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#accb7bb7fbfc7184851ae8bdce126b8bd">Password</a>;</div>
+<div class="line"><span class="lineno">  111</span>                await _settings.Save();</div>
+<div class="line"><span class="lineno">  112</span>                _logger.LogInformation(<span class="stringliteral">&quot;AUDIT: &quot;</span> + User.Identity!.Name + <span class="stringliteral">&quot; modified Mail settings! &quot;</span>);</div>
+<div class="line"><span class="lineno">  113</span>                ViewData[<span class="stringliteral">&quot;message&quot;</span>] = _localizer[<span class="stringliteral">&quot;1&quot;</span>];</div>
+<div class="line"><span class="lineno">  114</span>                <span class="keywordflow">return</span> View();       </div>
+<div class="line"><span class="lineno">  115</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_html_a3597274ad5b17dab2b887de099964895"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a3597274ad5b17dab2b887de099964895">DotNetIdentity.Models.BusinessModels.MailSettings.SmtpPort</a></div><div class="ttdeci">string? SmtpPort</div><div class="ttdoc">property SmtpPort</div><div class="ttdef"><b>Definition:</b> <a href="_mail_settings_8cs_source.html#l00027">MailSettings.cs:27</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_html_a366a061612b467ce7a59dea96d629e05"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a366a061612b467ce7a59dea96d629e05">DotNetIdentity.Models.BusinessModels.MailSettings.SmtpServer</a></div><div class="ttdeci">string? SmtpServer</div><div class="ttdoc">property SmtpServer</div><div class="ttdef"><b>Definition:</b> <a href="_mail_settings_8cs_source.html#l00022">MailSettings.cs:22</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_html_a68de5f15de739fa72bb539f61b551252"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html#a68de5f15de739fa72bb539f61b551252">DotNetIdentity.Models.BusinessModels.MailSettings.SmtpFromAddress</a></div><div class="ttdeci">string? SmtpFromAddress</div><div class="ttdoc">property SmtpFromAddress</div><div class="ttdef"><b>Definition:</b> <a href="_mail_settings_8cs_source.html#l00032">MailSettings.cs:32</a></div></div>
@@ -503,7 +503,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_dot_net_identity.html">DotNetIdentity</a></li><li class="navelem"><a class="el" href="namespace_dot_net_identity_1_1_controllers.html">Controllers</a></li><li class="navelem"><a class="el" href="class_dot_net_identity_1_1_controllers_1_1_settings_controller.html">SettingsController</a></li>
-    <li class="footer">Generated on Sun Nov 6 2022 17:20:11 for DotnetIdentity by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Tue Nov 8 2022 13:50:13 for DotnetIdentity by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

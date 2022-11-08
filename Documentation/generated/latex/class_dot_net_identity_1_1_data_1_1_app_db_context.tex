@@ -147,19 +147,20 @@ Definition at line \mbox{\hyperlink{_app_db_context_8cs_source_l00041}{41}} of f
 \DoxyCodeLine{00091                     LastName = \textcolor{stringliteral}{"{}Admin"{}},}
 \DoxyCodeLine{00092                     IsMfaForce = \textcolor{keyword}{false},}
 \DoxyCodeLine{00093                     IsLdapLogin = \textcolor{keyword}{false},}
-\DoxyCodeLine{00094                     IsEnabled = \textcolor{keyword}{true}}
-\DoxyCodeLine{00095                 \}}
-\DoxyCodeLine{00096             );}
-\DoxyCodeLine{00097 }
-\DoxyCodeLine{00098             \textcolor{comment}{//Seeding the relation between our user and role to AspNetUserRoles table}}
-\DoxyCodeLine{00099             builder.Entity<IdentityUserRole<string>>().HasData(}
-\DoxyCodeLine{00100                 \textcolor{keyword}{new} IdentityUserRole<string>}
-\DoxyCodeLine{00101                 \{}
-\DoxyCodeLine{00102                     RoleId = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}},}
-\DoxyCodeLine{00103                     UserId = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}}
-\DoxyCodeLine{00104                 \}}
-\DoxyCodeLine{00105             );}
-\DoxyCodeLine{00106         \}}
+\DoxyCodeLine{00094                     IsEnabled = \textcolor{keyword}{true},}
+\DoxyCodeLine{00095                     RolesCombined = \textcolor{stringliteral}{"{}Admin"{}}}
+\DoxyCodeLine{00096                 \}}
+\DoxyCodeLine{00097             );}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099             \textcolor{comment}{//Seeding the relation between our user and role to AspNetUserRoles table}}
+\DoxyCodeLine{00100             builder.Entity<IdentityUserRole<string>>().HasData(}
+\DoxyCodeLine{00101                 \textcolor{keyword}{new} IdentityUserRole<string>}
+\DoxyCodeLine{00102                 \{}
+\DoxyCodeLine{00103                     RoleId = \textcolor{stringliteral}{"{}dffc6dd5-\/b145-\/41e9-\/a861-\/c87ff673e9ca"{}},}
+\DoxyCodeLine{00104                     UserId = \textcolor{stringliteral}{"{}6fbfb682-\/568c-\/4f5b-\/a298-\/85937ca4f7f3"{}}}
+\DoxyCodeLine{00105                 \}}
+\DoxyCodeLine{00106             );}
+\DoxyCodeLine{00107         \}}
 
 \end{DoxyCode}
 

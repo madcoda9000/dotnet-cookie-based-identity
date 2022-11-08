@@ -18,87 +18,87 @@
 \DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00014}00014 }
 \DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00015}00015 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_dot_net_identity_1_1_controllers}{DotNetIdentity.Controllers}}}
 \DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00016}00016 \{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00020}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller}{00020}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller}{SettingsController}} : Controller \{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00025}00025         \textcolor{keyword}{private} readonly IStringLocalizer<SettingsController> \_localizer;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00029}00029         \textcolor{keyword}{private} readonly UserManager<AppUser> \_userManager;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00033}00033         \textcolor{keyword}{private} readonly RoleManager<AppRole> \_roleManager;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00037}00037         \textcolor{keyword}{private} readonly IWebHostEnvironment \_hostEnvironment;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00041}00041         \textcolor{keyword}{private} readonly ISettingsService \_settings;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00045}00045         \textcolor{keyword}{private} readonly ILogger<SettingsController> \_logger;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00056}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a997f0c284024d3367e8b7508f35a9375}{00056}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a997f0c284024d3367e8b7508f35a9375}{SettingsController}}(ILogger<SettingsController> log, ISettingsService sett, IStringLocalizer<SettingsController> loc, UserManager<AppUser> usr, RoleManager<AppRole> rol, IWebHostEnvironment env) \{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00057}00057             \_hostEnvironment = env;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00058}00058             \_userManager = usr;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00059}00059             \_roleManager = rol;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00060}00060             \_localizer = loc;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00061}00061             \_settings = sett;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00062}00062             \_logger = log;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00063}00063         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00069}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_afeca99afbf4f2283bd10df5b05671a57}{00069}}         \textcolor{keyword}{public} ActionResult \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_afeca99afbf4f2283bd10df5b05671a57}{SettingsLdap}}()\{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00070}00070             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{LdapSettings}}();}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00071}00071             viewModel = \_settings.Ldap;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00072}00072             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00073}00073         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00074}00074 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00079}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a6fdd3196d5d001885da95f3546c5c123}{00079}}         \textcolor{keyword}{public} ActionResult \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a6fdd3196d5d001885da95f3546c5c123}{SettingsMail}}()\{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00080}00080             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}}();}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00081}00081             viewModel = \_settings.Mail;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00082}00082             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00083}00083         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00084}00084 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00089}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a7137ed363fe1deea191daaedfe79abc7}{00089}}         \textcolor{keyword}{public} ActionResult \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a7137ed363fe1deea191daaedfe79abc7}{SettingsApp}}()\{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00090}00090             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}}();}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00091}00091             viewModel = \_settings.Global;}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00092}00092             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00093}00093         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00094}00094 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00100}00100         [Authorize(Roles = \textcolor{stringliteral}{"{}Admin"{}})]}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00101}00101         [HttpPost]}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00102}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a9e050336ce142fb461165bab0afd2022}{00102}}         \textcolor{keyword}{public} async Task<IActionResult> \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a9e050336ce142fb461165bab0afd2022}{SettingsMail}}(\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}} viewModel) \{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00103}00103    }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00104}00104                 \_settings.Mail.SmtpServer = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a366a061612b467ce7a59dea96d629e05}{SmtpServer}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00105}00105                 \_settings.Mail.SmtpFromAddress = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a68de5f15de739fa72bb539f61b551252}{SmtpFromAddress}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00106}00106                 \_settings.Mail.SmtpPort = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a3597274ad5b17dab2b887de099964895}{SmtpPort}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00107}00107                 \_settings.Mail.SmtpUseTls = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a92a0b02e1a443c95cdfe55ff223543b7}{SmtpUseTls}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00108}00108                 \_settings.Mail.Username = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_ac04165abd1ed766641b30d873fc08edb}{Username}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00109}00109                 \_settings.Mail.Password = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_accb7bb7fbfc7184851ae8bdce126b8bd}{Password}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00110}00110                 await \_settings.Save();}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00111}00111                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Mail settings! "{}});}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00112}00112                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}Settings successfully saved!"{}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00113}00113                 \textcolor{keywordflow}{return} View();       }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00114}00114         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00121}00121         [Authorize(Roles = \textcolor{stringliteral}{"{}Admin"{}})]}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00122}00122         [HttpPost]}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00123}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_aa54d0c95eeba405dafa30256cb5ef486}{00123}}         \textcolor{keyword}{public} async Task<IActionResult> \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_aa54d0c95eeba405dafa30256cb5ef486}{SettingsMail}}(\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}} viewModel) \{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00124}00124    }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00125}00125                 \_settings.Global.ApplicationName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ae65e8e919155c223225d0186e5c6b275}{ApplicationName}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00126}00126                 \_settings.Global.SessionCookieExpiration = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ab28c51bd2d16deac6a102bd90bef1909}{SessionCookieExpiration}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00127}00127                 \_settings.Global.SessionTimeoutWarnAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ac7a804ead7682eb891e467328e9aa6e8}{SessionTimeoutWarnAfter}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00128}00128                 \_settings.Global.SessionTimeoutRedirAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_aebdf7daf287ac0d6a5d7da7affc809c4}{SessionTimeoutRedirAfter}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00129}00129                 await \_settings.Save();}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00130}00130                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Application settings! "{}});}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00131}00131                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}Settings successfully saved!"{}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00132}00132                 \textcolor{keywordflow}{return} View();       }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00133}00133         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00134}00134 }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00140}00140         [Authorize(Roles = \textcolor{stringliteral}{"{}Admin"{}})]}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00141}00141         [HttpPost]}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00142}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_ace187aa290e382e04108c7eae9ce4329}{00142}}         \textcolor{keyword}{public} async Task<IActionResult> \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_ace187aa290e382e04108c7eae9ce4329}{SettingsLdap}}(\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{LdapSettings}} viewModel) \{}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00143}00143    }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00144}00144                 \_settings.Ldap.LdapDomainName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00145}00145                 \_settings.Ldap.LdapDomainController = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00146}00146                 \_settings.Ldap.LdapBaseDn = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_aded1d7fe01a96107451544754936d443}{LdapBaseDn}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00147}00147                 \_settings.Ldap.LdapEnabled = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_abb73d2c25d05dadb0ff7a894c1f4cbe8}{LdapEnabled}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00148}00148                 \_settings.Ldap.LdapGroup = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_ac42024c3a28d21a8b8ded4fea831f964}{LdapGroup}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00149}00149                 await \_settings.Save();}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00150}00150                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Ldap settings! "{}});}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00151}00151                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}Settings successfully saved!"{}};}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00152}00152                 \textcolor{keywordflow}{return} View();       }
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00153}00153         \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00154}00154     \}}
-\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00155}00155 \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00021}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller}{00021}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller}{SettingsController}} : Controller \{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00026}00026         \textcolor{keyword}{private} readonly IStringLocalizer<SettingsController> \_localizer;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00030}00030         \textcolor{keyword}{private} readonly UserManager<AppUser> \_userManager;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00034}00034         \textcolor{keyword}{private} readonly RoleManager<AppRole> \_roleManager;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00038}00038         \textcolor{keyword}{private} readonly IWebHostEnvironment \_hostEnvironment;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00042}00042         \textcolor{keyword}{private} readonly ISettingsService \_settings;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00046}00046         \textcolor{keyword}{private} readonly ILogger<SettingsController> \_logger;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00057}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a997f0c284024d3367e8b7508f35a9375}{00057}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a997f0c284024d3367e8b7508f35a9375}{SettingsController}}(ILogger<SettingsController> log, ISettingsService sett, IStringLocalizer<SettingsController> loc, UserManager<AppUser> usr, RoleManager<AppRole> rol, IWebHostEnvironment env) \{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00058}00058             \_hostEnvironment = env;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00059}00059             \_userManager = usr;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00060}00060             \_roleManager = rol;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00061}00061             \_localizer = loc;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00062}00062             \_settings = sett;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00063}00063             \_logger = log;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00064}00064         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00070}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_afeca99afbf4f2283bd10df5b05671a57}{00070}}         \textcolor{keyword}{public} ActionResult \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_afeca99afbf4f2283bd10df5b05671a57}{SettingsLdap}}()\{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00071}00071             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{LdapSettings}}();}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00072}00072             viewModel = \_settings.Ldap;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00073}00073             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00074}00074         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00080}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a6fdd3196d5d001885da95f3546c5c123}{00080}}         \textcolor{keyword}{public} ActionResult \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a6fdd3196d5d001885da95f3546c5c123}{SettingsMail}}()\{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00081}00081             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}}();}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00082}00082             viewModel = \_settings.Mail;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00083}00083             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00084}00084         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00090}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a7137ed363fe1deea191daaedfe79abc7}{00090}}         \textcolor{keyword}{public} ActionResult \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a7137ed363fe1deea191daaedfe79abc7}{SettingsApp}}()\{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00091}00091             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}}();}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00092}00092             viewModel = \_settings.Global;}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00093}00093             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00094}00094         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00101}00101         [Authorize(Roles = \textcolor{stringliteral}{"{}Admin"{}})]}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00102}00102         [HttpPost]}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00103}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a9e050336ce142fb461165bab0afd2022}{00103}}         \textcolor{keyword}{public} async Task<IActionResult> \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_a9e050336ce142fb461165bab0afd2022}{SettingsMail}}(\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}} viewModel) \{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00104}00104    }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00105}00105                 \_settings.Mail.SmtpServer = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a366a061612b467ce7a59dea96d629e05}{SmtpServer}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00106}00106                 \_settings.Mail.SmtpFromAddress = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a68de5f15de739fa72bb539f61b551252}{SmtpFromAddress}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00107}00107                 \_settings.Mail.SmtpPort = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a3597274ad5b17dab2b887de099964895}{SmtpPort}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00108}00108                 \_settings.Mail.SmtpUseTls = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a92a0b02e1a443c95cdfe55ff223543b7}{SmtpUseTls}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00109}00109                 \_settings.Mail.Username = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_ac04165abd1ed766641b30d873fc08edb}{Username}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00110}00110                 \_settings.Mail.Password = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_accb7bb7fbfc7184851ae8bdce126b8bd}{Password}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00111}00111                 await \_settings.Save();}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00112}00112                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Mail settings! "{}});}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00113}00113                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00114}00114                 \textcolor{keywordflow}{return} View();       }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00115}00115         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00122}00122         [Authorize(Roles = \textcolor{stringliteral}{"{}Admin"{}})]}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00123}00123         [HttpPost]}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00124}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_aa54d0c95eeba405dafa30256cb5ef486}{00124}}         \textcolor{keyword}{public} async Task<IActionResult> \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_aa54d0c95eeba405dafa30256cb5ef486}{SettingsMail}}(\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}} viewModel) \{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00125}00125    }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00126}00126                 \_settings.Global.ApplicationName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ae65e8e919155c223225d0186e5c6b275}{ApplicationName}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00127}00127                 \_settings.Global.SessionCookieExpiration = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ab28c51bd2d16deac6a102bd90bef1909}{SessionCookieExpiration}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00128}00128                 \_settings.Global.SessionTimeoutWarnAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ac7a804ead7682eb891e467328e9aa6e8}{SessionTimeoutWarnAfter}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00129}00129                 \_settings.Global.SessionTimeoutRedirAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_aebdf7daf287ac0d6a5d7da7affc809c4}{SessionTimeoutRedirAfter}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00130}00130                 await \_settings.Save();}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00131}00131                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Application settings! "{}});}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00132}00132                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00133}00133                 \textcolor{keywordflow}{return} View();       }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00134}00134         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00141}00141         [Authorize(Roles = \textcolor{stringliteral}{"{}Admin"{}})]}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00142}00142         [HttpPost]}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00143}\mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_ace187aa290e382e04108c7eae9ce4329}{00143}}         \textcolor{keyword}{public} async Task<IActionResult> \mbox{\hyperlink{class_dot_net_identity_1_1_controllers_1_1_settings_controller_ace187aa290e382e04108c7eae9ce4329}{SettingsLdap}}(\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{LdapSettings}} viewModel) \{}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00144}00144    }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00145}00145                 \_settings.Ldap.LdapDomainName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00146}00146                 \_settings.Ldap.LdapDomainController = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00147}00147                 \_settings.Ldap.LdapBaseDn = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_aded1d7fe01a96107451544754936d443}{LdapBaseDn}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00148}00148                 \_settings.Ldap.LdapEnabled = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_abb73d2c25d05dadb0ff7a894c1f4cbe8}{LdapEnabled}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00149}00149                 \_settings.Ldap.LdapGroup = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_ac42024c3a28d21a8b8ded4fea831f964}{LdapGroup}};}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00150}00150                 await \_settings.Save();}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00151}00151                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Ldap settings! "{}});}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00152}00152                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00153}00153                 \textcolor{keywordflow}{return} View();       }
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00154}00154         \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00155}00155     \}}
+\DoxyCodeLine{\Hypertarget{_settings_controller_8cs_source_l00156}00156 \}}
 
 \end{DoxyCode}

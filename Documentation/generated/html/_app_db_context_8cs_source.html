@@ -160,23 +160,24 @@ $(document).ready(function(){initNavTree('_app_db_context_8cs_source.html',''); 
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                    LastName = <span class="stringliteral">&quot;Admin&quot;</span>,</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                    IsMfaForce = <span class="keyword">false</span>,</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    IsLdapLogin = <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    IsEnabled = <span class="keyword">true</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            );</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="comment">//Seeding the relation between our user and role to AspNetUserRoles table</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            builder.Entity&lt;IdentityUserRole&lt;string&gt;&gt;().HasData(</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <span class="keyword">new</span> IdentityUserRole&lt;string&gt;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                    RoleId = <span class="stringliteral">&quot;dffc6dd5-b145-41e9-a861-c87ff673e9ca&quot;</span>,</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    UserId = <span class="stringliteral">&quot;6fbfb682-568c-4f5b-a298-85937ca4f7f3&quot;</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            );</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    IsEnabled = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                    RolesCombined = <span class="stringliteral">&quot;Admin&quot;</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            );</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="comment">//Seeding the relation between our user and role to AspNetUserRoles table</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            builder.Entity&lt;IdentityUserRole&lt;string&gt;&gt;().HasData(</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                <span class="keyword">new</span> IdentityUserRole&lt;string&gt;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    RoleId = <span class="stringliteral">&quot;dffc6dd5-b145-41e9-a861-c87ff673e9ca&quot;</span>,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                    UserId = <span class="stringliteral">&quot;6fbfb682-568c-4f5b-a298-85937ca4f7f3&quot;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            );</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_data_1_1_app_db_context_html"><div class="ttname"><a href="class_dot_net_identity_1_1_data_1_1_app_db_context.html">DotNetIdentity.Data.AppDbContext</a></div><div class="ttdoc">Application Database context class</div><div class="ttdef"><b>Definition:</b> <a href="_app_db_context_8cs_source.html#l00012">AppDbContext.cs:13</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_data_1_1_app_db_context_html_a34548e37ecd21857a646faffb38e4bab"><div class="ttname"><a href="class_dot_net_identity_1_1_data_1_1_app_db_context.html#a34548e37ecd21857a646faffb38e4bab">DotNetIdentity.Data.AppDbContext.OnModelCreating</a></div><div class="ttdeci">override void OnModelCreating(ModelBuilder builder)</div><div class="ttdoc">Overriding OnModelCreation to seed intitial data</div><div class="ttdef"><b>Definition:</b> <a href="_app_db_context_8cs_source.html#l00041">AppDbContext.cs:41</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_data_1_1_app_db_context_html_a5ded8087cb93926ee0c8da6d1904b67b"><div class="ttname"><a href="class_dot_net_identity_1_1_data_1_1_app_db_context.html#a5ded8087cb93926ee0c8da6d1904b67b">DotNetIdentity.Data.AppDbContext.AppSettings</a></div><div class="ttdeci">DbSet&lt; ApplicationSettings &gt;? AppSettings</div><div class="ttdoc">property AppSettings</div><div class="ttdef"><b>Definition:</b> <a href="_app_db_context_8cs_source.html#l00030">AppDbContext.cs:30</a></div></div>
@@ -195,7 +196,7 @@ $(document).ready(function(){initNavTree('_app_db_context_8cs_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_94a17aa60195a61774b38e4f54a4c6ff.html">DotNetIdentity</a></li><li class="navelem"><a class="el" href="dir_2504f16c4cd97937a7c0e94d59a134f2.html">Data</a></li><li class="navelem"><b>AppDbContext.cs</b></li>
-    <li class="footer">Generated on Sun Nov 6 2022 17:20:11 for DotnetIdentity by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Tue Nov 8 2022 13:50:13 for DotnetIdentity by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

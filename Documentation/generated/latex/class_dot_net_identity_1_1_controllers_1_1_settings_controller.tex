@@ -7,8 +7,7 @@ controller class for settings views
 
 
 
-Inheritance diagram for Dot\+Net\+Identity.\+Controllers.\+Settings\+Controller\+:
-\nopagebreak
+Inheritance diagram for Dot\+Net\+Identity.\+Controllers.\+Settings\+Controller\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,7 +36,11 @@ async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_dot_net_identity_1_1_co
 \doxysubsection{Detailed Description}
 controller class for settings views 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]add translation \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 
@@ -72,18 +75,18 @@ class constructor
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00056}{56}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00056                                                                                                                                                                                                                  \{}
-\DoxyCodeLine{00057             \_hostEnvironment = env;}
-\DoxyCodeLine{00058             \_userManager = usr;}
-\DoxyCodeLine{00059             \_roleManager = rol;}
-\DoxyCodeLine{00060             \_localizer = loc;}
-\DoxyCodeLine{00061             \_settings = sett;}
-\DoxyCodeLine{00062             \_logger = log;}
-\DoxyCodeLine{00063         \}}
+\DoxyCodeLine{00057                                                                                                                                                                                                                  \{}
+\DoxyCodeLine{00058             \_hostEnvironment = env;}
+\DoxyCodeLine{00059             \_userManager = usr;}
+\DoxyCodeLine{00060             \_roleManager = rol;}
+\DoxyCodeLine{00061             \_localizer = loc;}
+\DoxyCodeLine{00062             \_settings = sett;}
+\DoxyCodeLine{00063             \_logger = log;}
+\DoxyCodeLine{00064         \}}
 
 \end{DoxyCode}
 
@@ -104,15 +107,15 @@ view Settings\+App
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00089}{89}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00090}{90}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00089                                          \{}
-\DoxyCodeLine{00090             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}}();}
-\DoxyCodeLine{00091             viewModel = \_settings.Global;}
-\DoxyCodeLine{00092             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{00093         \}}
+\DoxyCodeLine{00090                                          \{}
+\DoxyCodeLine{00091             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings}{GlobalSettings}}();}
+\DoxyCodeLine{00092             viewModel = \_settings.Global;}
+\DoxyCodeLine{00093             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00094         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_settings_controller_afeca99afbf4f2283bd10df5b05671a57}\label{class_dot_net_identity_1_1_controllers_1_1_settings_controller_afeca99afbf4f2283bd10df5b05671a57}} 
@@ -130,15 +133,15 @@ view Settings\+Ldap
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00070}{70}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00069                                           \{}
-\DoxyCodeLine{00070             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{LdapSettings}}();}
-\DoxyCodeLine{00071             viewModel = \_settings.Ldap;}
-\DoxyCodeLine{00072             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{00073         \}}
+\DoxyCodeLine{00070                                           \{}
+\DoxyCodeLine{00071             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings}{LdapSettings}}();}
+\DoxyCodeLine{00072             viewModel = \_settings.Ldap;}
+\DoxyCodeLine{00073             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00074         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_settings_controller_ace187aa290e382e04108c7eae9ce4329}\label{class_dot_net_identity_1_1_controllers_1_1_settings_controller_ace187aa290e382e04108c7eae9ce4329}} 
@@ -161,22 +164,22 @@ view
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00142}{142}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00143}{143}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00142                                                                               \{}
-\DoxyCodeLine{00143    }
-\DoxyCodeLine{00144                 \_settings.Ldap.LdapDomainName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
-\DoxyCodeLine{00145                 \_settings.Ldap.LdapDomainController = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
-\DoxyCodeLine{00146                 \_settings.Ldap.LdapBaseDn = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_aded1d7fe01a96107451544754936d443}{LdapBaseDn}};}
-\DoxyCodeLine{00147                 \_settings.Ldap.LdapEnabled = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_abb73d2c25d05dadb0ff7a894c1f4cbe8}{LdapEnabled}};}
-\DoxyCodeLine{00148                 \_settings.Ldap.LdapGroup = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_ac42024c3a28d21a8b8ded4fea831f964}{LdapGroup}};}
-\DoxyCodeLine{00149                 await \_settings.Save();}
-\DoxyCodeLine{00150                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Ldap settings! "{}});}
-\DoxyCodeLine{00151                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}Settings successfully saved!"{}};}
-\DoxyCodeLine{00152                 \textcolor{keywordflow}{return} View();       }
-\DoxyCodeLine{00153         \}}
+\DoxyCodeLine{00143                                                                               \{}
+\DoxyCodeLine{00144    }
+\DoxyCodeLine{00145                 \_settings.Ldap.LdapDomainName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
+\DoxyCodeLine{00146                 \_settings.Ldap.LdapDomainController = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_a854a701de345ef537271bdbd865cbeac}{LdapDomainName}};}
+\DoxyCodeLine{00147                 \_settings.Ldap.LdapBaseDn = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_aded1d7fe01a96107451544754936d443}{LdapBaseDn}};}
+\DoxyCodeLine{00148                 \_settings.Ldap.LdapEnabled = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_abb73d2c25d05dadb0ff7a894c1f4cbe8}{LdapEnabled}};}
+\DoxyCodeLine{00149                 \_settings.Ldap.LdapGroup = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_ldap_settings_ac42024c3a28d21a8b8ded4fea831f964}{LdapGroup}};}
+\DoxyCodeLine{00150                 await \_settings.Save();}
+\DoxyCodeLine{00151                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Ldap settings! "{}});}
+\DoxyCodeLine{00152                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{00153                 \textcolor{keywordflow}{return} View();       }
+\DoxyCodeLine{00154         \}}
 
 \end{DoxyCode}
 
@@ -198,15 +201,15 @@ view Settings\+Mail
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00079}{79}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00080}{80}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00079                                           \{}
-\DoxyCodeLine{00080             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}}();}
-\DoxyCodeLine{00081             viewModel = \_settings.Mail;}
-\DoxyCodeLine{00082             \textcolor{keywordflow}{return} View(viewModel);}
-\DoxyCodeLine{00083         \}}
+\DoxyCodeLine{00080                                           \{}
+\DoxyCodeLine{00081             var viewModel = \textcolor{keyword}{new} \mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings}{MailSettings}}();}
+\DoxyCodeLine{00082             viewModel = \_settings.Mail;}
+\DoxyCodeLine{00083             \textcolor{keywordflow}{return} View(viewModel);}
+\DoxyCodeLine{00084         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_dot_net_identity_1_1_controllers_1_1_settings_controller_aa54d0c95eeba405dafa30256cb5ef486}\label{class_dot_net_identity_1_1_controllers_1_1_settings_controller_aa54d0c95eeba405dafa30256cb5ef486}} 
@@ -229,21 +232,21 @@ view
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00123}{123}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00124}{124}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00123                                                                                 \{}
-\DoxyCodeLine{00124    }
-\DoxyCodeLine{00125                 \_settings.Global.ApplicationName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ae65e8e919155c223225d0186e5c6b275}{ApplicationName}};}
-\DoxyCodeLine{00126                 \_settings.Global.SessionCookieExpiration = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ab28c51bd2d16deac6a102bd90bef1909}{SessionCookieExpiration}};}
-\DoxyCodeLine{00127                 \_settings.Global.SessionTimeoutWarnAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ac7a804ead7682eb891e467328e9aa6e8}{SessionTimeoutWarnAfter}};}
-\DoxyCodeLine{00128                 \_settings.Global.SessionTimeoutRedirAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_aebdf7daf287ac0d6a5d7da7affc809c4}{SessionTimeoutRedirAfter}};}
-\DoxyCodeLine{00129                 await \_settings.Save();}
-\DoxyCodeLine{00130                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Application settings! "{}});}
-\DoxyCodeLine{00131                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}Settings successfully saved!"{}};}
-\DoxyCodeLine{00132                 \textcolor{keywordflow}{return} View();       }
-\DoxyCodeLine{00133         \}}
+\DoxyCodeLine{00124                                                                                 \{}
+\DoxyCodeLine{00125    }
+\DoxyCodeLine{00126                 \_settings.Global.ApplicationName = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ae65e8e919155c223225d0186e5c6b275}{ApplicationName}};}
+\DoxyCodeLine{00127                 \_settings.Global.SessionCookieExpiration = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ab28c51bd2d16deac6a102bd90bef1909}{SessionCookieExpiration}};}
+\DoxyCodeLine{00128                 \_settings.Global.SessionTimeoutWarnAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_ac7a804ead7682eb891e467328e9aa6e8}{SessionTimeoutWarnAfter}};}
+\DoxyCodeLine{00129                 \_settings.Global.SessionTimeoutRedirAfter = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings_aebdf7daf287ac0d6a5d7da7affc809c4}{SessionTimeoutRedirAfter}};}
+\DoxyCodeLine{00130                 await \_settings.Save();}
+\DoxyCodeLine{00131                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Application settings! "{}});}
+\DoxyCodeLine{00132                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{00133                 \textcolor{keywordflow}{return} View();       }
+\DoxyCodeLine{00134         \}}
 
 \end{DoxyCode}
 
@@ -270,23 +273,23 @@ view
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00102}{102}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
+Definition at line \mbox{\hyperlink{_settings_controller_8cs_source_l00103}{103}} of file \mbox{\hyperlink{_settings_controller_8cs_source}{Settings\+Controller.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00102                                                                               \{}
-\DoxyCodeLine{00103    }
-\DoxyCodeLine{00104                 \_settings.Mail.SmtpServer = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a366a061612b467ce7a59dea96d629e05}{SmtpServer}};}
-\DoxyCodeLine{00105                 \_settings.Mail.SmtpFromAddress = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a68de5f15de739fa72bb539f61b551252}{SmtpFromAddress}};}
-\DoxyCodeLine{00106                 \_settings.Mail.SmtpPort = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a3597274ad5b17dab2b887de099964895}{SmtpPort}};}
-\DoxyCodeLine{00107                 \_settings.Mail.SmtpUseTls = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a92a0b02e1a443c95cdfe55ff223543b7}{SmtpUseTls}};}
-\DoxyCodeLine{00108                 \_settings.Mail.Username = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_ac04165abd1ed766641b30d873fc08edb}{Username}};}
-\DoxyCodeLine{00109                 \_settings.Mail.Password = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_accb7bb7fbfc7184851ae8bdce126b8bd}{Password}};}
-\DoxyCodeLine{00110                 await \_settings.Save();}
-\DoxyCodeLine{00111                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Mail settings! "{}});}
-\DoxyCodeLine{00112                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \textcolor{stringliteral}{"{}Settings successfully saved!"{}};}
-\DoxyCodeLine{00113                 \textcolor{keywordflow}{return} View();       }
-\DoxyCodeLine{00114         \}}
+\DoxyCodeLine{00103                                                                               \{}
+\DoxyCodeLine{00104    }
+\DoxyCodeLine{00105                 \_settings.Mail.SmtpServer = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a366a061612b467ce7a59dea96d629e05}{SmtpServer}};}
+\DoxyCodeLine{00106                 \_settings.Mail.SmtpFromAddress = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a68de5f15de739fa72bb539f61b551252}{SmtpFromAddress}};}
+\DoxyCodeLine{00107                 \_settings.Mail.SmtpPort = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a3597274ad5b17dab2b887de099964895}{SmtpPort}};}
+\DoxyCodeLine{00108                 \_settings.Mail.SmtpUseTls = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_a92a0b02e1a443c95cdfe55ff223543b7}{SmtpUseTls}};}
+\DoxyCodeLine{00109                 \_settings.Mail.Username = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_ac04165abd1ed766641b30d873fc08edb}{Username}};}
+\DoxyCodeLine{00110                 \_settings.Mail.Password = viewModel.\mbox{\hyperlink{class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings_accb7bb7fbfc7184851ae8bdce126b8bd}{Password}};}
+\DoxyCodeLine{00111                 await \_settings.Save();}
+\DoxyCodeLine{00112                 \_logger.LogInformation(\textcolor{stringliteral}{"{}AUDIT: "{}} + User.Identity!.Name + \textcolor{stringliteral}{"{} modified Mail settings! "{}});}
+\DoxyCodeLine{00113                 ViewData[\textcolor{stringliteral}{"{}message"{}}] = \_localizer[\textcolor{stringliteral}{"{}1"{}}];}
+\DoxyCodeLine{00114                 \textcolor{keywordflow}{return} View();       }
+\DoxyCodeLine{00115         \}}
 
 \end{DoxyCode}
 

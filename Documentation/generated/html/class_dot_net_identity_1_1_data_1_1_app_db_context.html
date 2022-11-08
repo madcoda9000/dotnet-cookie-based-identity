@@ -259,19 +259,20 @@ Properties</h2></td></tr>
 <div class="line"><span class="lineno">   91</span>                    LastName = <span class="stringliteral">&quot;Admin&quot;</span>,</div>
 <div class="line"><span class="lineno">   92</span>                    IsMfaForce = <span class="keyword">false</span>,</div>
 <div class="line"><span class="lineno">   93</span>                    IsLdapLogin = <span class="keyword">false</span>,</div>
-<div class="line"><span class="lineno">   94</span>                    IsEnabled = <span class="keyword">true</span></div>
-<div class="line"><span class="lineno">   95</span>                }</div>
-<div class="line"><span class="lineno">   96</span>            );</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>            <span class="comment">//Seeding the relation between our user and role to AspNetUserRoles table</span></div>
-<div class="line"><span class="lineno">   99</span>            builder.Entity&lt;IdentityUserRole&lt;string&gt;&gt;().HasData(</div>
-<div class="line"><span class="lineno">  100</span>                <span class="keyword">new</span> IdentityUserRole&lt;string&gt;</div>
-<div class="line"><span class="lineno">  101</span>                {</div>
-<div class="line"><span class="lineno">  102</span>                    RoleId = <span class="stringliteral">&quot;dffc6dd5-b145-41e9-a861-c87ff673e9ca&quot;</span>,</div>
-<div class="line"><span class="lineno">  103</span>                    UserId = <span class="stringliteral">&quot;6fbfb682-568c-4f5b-a298-85937ca4f7f3&quot;</span></div>
-<div class="line"><span class="lineno">  104</span>                }</div>
-<div class="line"><span class="lineno">  105</span>            );</div>
-<div class="line"><span class="lineno">  106</span>        }</div>
+<div class="line"><span class="lineno">   94</span>                    IsEnabled = <span class="keyword">true</span>,</div>
+<div class="line"><span class="lineno">   95</span>                    RolesCombined = <span class="stringliteral">&quot;Admin&quot;</span></div>
+<div class="line"><span class="lineno">   96</span>                }</div>
+<div class="line"><span class="lineno">   97</span>            );</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>            <span class="comment">//Seeding the relation between our user and role to AspNetUserRoles table</span></div>
+<div class="line"><span class="lineno">  100</span>            builder.Entity&lt;IdentityUserRole&lt;string&gt;&gt;().HasData(</div>
+<div class="line"><span class="lineno">  101</span>                <span class="keyword">new</span> IdentityUserRole&lt;string&gt;</div>
+<div class="line"><span class="lineno">  102</span>                {</div>
+<div class="line"><span class="lineno">  103</span>                    RoleId = <span class="stringliteral">&quot;dffc6dd5-b145-41e9-a861-c87ff673e9ca&quot;</span>,</div>
+<div class="line"><span class="lineno">  104</span>                    UserId = <span class="stringliteral">&quot;6fbfb682-568c-4f5b-a298-85937ca4f7f3&quot;</span></div>
+<div class="line"><span class="lineno">  105</span>                }</div>
+<div class="line"><span class="lineno">  106</span>            );</div>
+<div class="line"><span class="lineno">  107</span>        }</div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_data_models_1_1_application_settings.html">DotNetIdentity.Models.DataModels.ApplicationSettings</a></div><div class="ttdoc">class define an Settings object</div><div class="ttdef"><b>Definition:</b> <a href="_application_settings_8cs_source.html#l00007">ApplicationSettings.cs:7</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_identity_1_1_app_role_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_identity_1_1_app_role.html">DotNetIdentity.Models.Identity.AppRole</a></div><div class="ttdoc">class to define a role object</div><div class="ttdef"><b>Definition:</b> <a href="_app_role_8cs_source.html#l00008">AppRole.cs:9</a></div></div>
 <div class="ttc" id="aclass_dot_net_identity_1_1_models_1_1_identity_1_1_app_user_html"><div class="ttname"><a href="class_dot_net_identity_1_1_models_1_1_identity_1_1_app_user.html">DotNetIdentity.Models.Identity.AppUser</a></div><div class="ttdoc">class to define a user object</div><div class="ttdef"><b>Definition:</b> <a href="_app_user_8cs_source.html#l00008">AppUser.cs:9</a></div></div>
@@ -369,7 +370,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_dot_net_identity.html">DotNetIdentity</a></li><li class="navelem"><a class="el" href="namespace_dot_net_identity_1_1_data.html">Data</a></li><li class="navelem"><a class="el" href="class_dot_net_identity_1_1_data_1_1_app_db_context.html">AppDbContext</a></li>
-    <li class="footer">Generated on Sun Nov 6 2022 17:20:11 for DotnetIdentity by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Tue Nov 8 2022 13:50:13 for DotnetIdentity by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

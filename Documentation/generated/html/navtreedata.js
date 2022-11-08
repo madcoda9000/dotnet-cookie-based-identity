@@ -50,7 +50,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html#ae65e8e919155c223225d0186e5c6b275",
-"class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html#a4bca82517dd8dac6161d645f41370804"
+"class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html#a18a21c6bd03945faee7e4e2dbe194a01"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html#a18a21c6bd03945faee7e4e2dbe194a01":[2,0,0,5,0,0,1],
+"class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html#a4bca82517dd8dac6161d645f41370804":[2,0,0,5,0,0,0],
 "class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html#a4bca82517dd8dac6161d645f41370804":[1,0,0,5,0,0,0],
 "class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service.html":[1,0,0,5,0,2],
 "class_dot_net_identity_1_1_services_1_1_settings_service_1_1_settings_service.html":[2,0,0,5,0,2],

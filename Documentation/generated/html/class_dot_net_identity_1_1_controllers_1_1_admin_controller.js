@@ -1,6 +1,6 @@
 var class_dot_net_identity_1_1_controllers_1_1_admin_controller =
 [
-    [ "AdminController", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a125d56d01c513f83a34167f903d1b2e2", null ],
+    [ "AdminController", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a01af9770fe99667e4e948e3c5322c7be", null ],
     [ "AuditLogs", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#a56a981db0e34d5b95d97da053d59f90c", null ],
     [ "DeleteRole", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#aa570b5cef28f1c3dda939971a2bc0f44", null ],
     [ "DeleteUser", "class_dot_net_identity_1_1_controllers_1_1_admin_controller.html#ab1c7981b89ddff2100c7bd201cf45766", null ],
