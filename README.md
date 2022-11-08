@@ -1,4 +1,4 @@
-# .NET 6 Identity Cookie Based Authentication
+![image](Documentation/Screenshots/netBanner.png)
 
 ## What's this?
 
