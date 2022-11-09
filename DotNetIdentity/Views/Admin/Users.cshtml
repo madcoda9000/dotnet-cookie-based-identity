@@ -48,6 +48,11 @@ function ExtendGrid() {
                 langRes = "/assets/extensions/dataTablesjs-1.12.1/german.json";
             }
         }
+        @if (ViewData["message"] != null)
+        {
+            <div class="alert alert-success mb-3"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
+            ViewData["message"] = null;
+        }
         @(Html.JS().Datatable<AppUser>()
             .Name("PersonGrid")
             .Selecting(true)

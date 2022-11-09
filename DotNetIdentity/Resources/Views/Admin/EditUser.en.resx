@@ -161,4 +161,8 @@
     <value>Update user</value>
     <comment/>
   </data>
+  <data name="12" xml:space="preserve">
+    <value>Is this an Ldap Account?</value>
+    <comment/>
+  </data>
 </root>

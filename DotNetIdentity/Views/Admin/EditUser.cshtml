@@ -1,5 +1,6 @@
 @model EditUserViewModel
 @inject IViewLocalizer L
+@inject ISettingsService _sett
 @{
     ViewData["Title"] = "Edit user";
 }
@@ -100,15 +101,17 @@
                         }
                     </div>
                 </div>
-                <div class="col-md-4 col-12" style="border-left:1px solid #dce7f1;">
-                    <div class="form-group ml-7">
-                        <label style="margin-bottom:5px !important;">@L["11"]</label>
-                        <div class="form-check form-check-lg">
-                            <input asp-for="@Model.IsLdapLogin" class="form-check-input" />
-                            <label asp-for="@Model.IsLdapLogin" class="form-check-label text-gray-600 chkBx">Ldap Login</label>
+                @if(_sett.Ldap.LdapEnabled || Model!.IsLdapLogin==true) {
+                    <div class="col-md-4 col-12" style="border-left:1px solid #dce7f1;">
+                        <div class="form-group ml-7">
+                            <label style="margin-bottom:5px !important;">@L["12"]</label>
+                            <div class="form-check form-check-lg">
+                                <input asp-for="@Model.IsLdapLogin" class="form-check-input" />
+                                <label asp-for="@Model.IsLdapLogin" class="form-check-label text-gray-600 chkBx">Ldap Login</label>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }                
             </div>
             <div class="d-flex flex-row-reverse">
                 <button type="submit" class="btn btn-primary mt-1">@L["11"]</button>

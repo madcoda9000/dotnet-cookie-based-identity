@@ -133,4 +133,7 @@
     <value>Diese Rufnummer ist bereits in Verwendung!</value>
     <comment/>
   </data>
+  <data name="5" xml:space="preserve">
+    <value>Benutzer erfolgreich gespeichert!</value>
+  </data>
 </root>

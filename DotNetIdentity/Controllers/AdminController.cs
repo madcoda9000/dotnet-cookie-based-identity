@@ -204,36 +204,37 @@ namespace DotNetIdentity.Controllers
                             await _userManager.RemoveFromRoleAsync(user, item.RoleName);
                         }
                     }
-                }
 
-                var createdUser = await _userManager.FindByNameAsync(user.UserName);
-                if(createdUser!=null) {
-                    var rls = await _userManager.GetRolesAsync(createdUser);
-                    if (rls != null)
-                    {
-                        var rlsComb = "";
-                        if (rls.Count() > 0 && rls.Count() <= 1)
+                    var createdUser = await _userManager.FindByNameAsync(user.UserName);
+                    if(createdUser!=null) {
+                        var rls = await _userManager.GetRolesAsync(createdUser);
+                        if (rls != null)
                         {
-                            rlsComb = rls[0].ToString();
-                        }
-                        else
-                        {
-                            for (int i = 0; i < rls.Count; i++)
+                            var rlsComb = "";
+                            if (rls.Count() > 0 && rls.Count() <= 1)
                             {
-                                if (i + 1 != rls.Count) { rlsComb += rls[i] + ","; }
-                                else { rlsComb += rls[i]; }
+                                rlsComb = rls[0].ToString();
+                            }
+                            else
+                            {
+                                for (int i = 0; i < rls.Count; i++)
+                                {
+                                    if (i + 1 != rls.Count) { rlsComb += rls[i] + ","; }
+                                    else { rlsComb += rls[i]; }
+                                }
+                            }
+                            if (rlsComb.Length > 0)
+                            {
+                                createdUser.RolesCombined = rlsComb;
+                                await _userManager.UpdateAsync(createdUser);
                             }
                         }
-                        if (rlsComb.Length > 0)
-                        {
-                            createdUser.RolesCombined = rlsComb;
-                            await _userManager.UpdateAsync(createdUser);
-                        }
                     }
-                }
-
-                ViewData["message"] = _localizer["1"];
-                _logger.LogInformation("AUDIT: " + User.Identity!.Name + " created new user " + user.UserName);
+                    ViewData["message"] = _localizer["1"];
+                    _logger.LogInformation("AUDIT: " + User.Identity!.Name + " created new user " + user.UserName);
+                } else {
+                    result.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));
+                }                     
             }
             return View(new NewUserModel());
         }
@@ -553,6 +554,7 @@ namespace DotNetIdentity.Controllers
                                 await _userManager.AddClaimAsync(user, claimsToAdd);
                             }
                             _logger.LogInformation("AUDIT: " + User.Identity!.Name + " modified user " + user.UserName);
+                            ViewData["message"] = _localizer["5"];
                             return RedirectToAction("Users");
                         }
                         result.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));

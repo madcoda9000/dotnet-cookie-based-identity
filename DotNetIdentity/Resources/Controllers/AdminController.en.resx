@@ -133,4 +133,7 @@
     <value>Phone number in use already!</value>
     <comment/>
   </data>
+  <data name="5" xml:space="preserve">
+    <value>User saved successfully!</value>
+  </data>
 </root>
