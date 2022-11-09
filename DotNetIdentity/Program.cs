@@ -27,15 +27,11 @@ var builder = WebApplication.CreateBuilder(args);
 Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
 builder.Host.UseSerilog();
 
-// Add services to the container.
-
 // add localization 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddMvc()
     .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
-
-
 
 // configure localization options
 builder.Services.Configure<RequestLocalizationOptions>(options =>
@@ -71,7 +67,7 @@ if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").V
     builder.Services.AddDistributedMySqlCache(options =>
     {
         options.ConnectionString = builder.Configuration.GetConnectionString("MySql");
-        options.SchemaName = "IdentityTest";
+        options.SchemaName = builder.Configuration.GetSection("AppSettings").GetSection("DataBaseName").Value;
         options.TableName = "AppSessionCache";
         options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);
     });
@@ -94,7 +90,7 @@ else if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseTyp
     builder.Services.AddDistributedSqlServerCache(options =>
     {
         options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
-        options.SchemaName = "IdentityTest";
+        options.SchemaName = builder.Configuration.GetSection("AppSettings").GetSection("DataBaseName").Value;
         options.TableName = "AppSessionCache";
         options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);
     });

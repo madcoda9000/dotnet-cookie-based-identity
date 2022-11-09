@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### [ 0.0.8348.12196] - 2022.11.09
+
+#### Added
+
+* new Parameter in appsettings.json for DataBaseName in Section AppSetting
+
+#### Modified
+
+* changed setting Schema name from static string to read from appsettings.json
+
+#### Fixed
+
+* fixed Error: Table AppSessionCache does not exist
+
 ### \[0.0.8347.13229\] - 2022-12-07
 
 #### Added
@@ -13,6 +27,14 @@ All notable changes to this project will be documented in this file.
 * added Translation for SettingsLdap.cshtml
 * added Translation for AdminController.cs
 * added Translation for SettingsController.cs
+* LDAP Authentication to UserController.cs
+* Added IsLdap Property to EditUserViewModel.cs
+* added IsLdap Property to EditUserView
+* added IsLdap Property to NewUser view
+
+#### Modified
+* modified EditUser Post method in AdminController.cs to reflect LDAP property
+* modified ActionResult EditUser in AdminController.cs to reflect LDAP property
 
 ### \[0.0.8346.16799\] - 2022-11-07
 

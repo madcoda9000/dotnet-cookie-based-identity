@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using DotNetIdentity.Helpers;
 using DotNetIdentity.IdentitySettings;
 using DotNetIdentity.Models.Identity;
@@ -10,6 +11,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
+using Novell.Directory.Ldap;
+using Novell.Directory.Ldap.Asn1;
 
 namespace DotNetIdentity.Controllers
 {
@@ -46,10 +49,15 @@ namespace DotNetIdentity.Controllers
         /// Property of type IStringLocalizer
         /// </summary>
         private readonly IStringLocalizer<UserController> _localizer;
+        /// <summary>
+        /// property of type ISettingsService
+        /// </summary>
+        private readonly ISettingsService _sett;
 
         /// <summary>
         /// Controller constructor
         /// </summary>
+        /// <param name="sett">type ISettingsService</param>
         /// <param name="localizer">type IStringLocalizer</param>
         /// <param name="log">type ILogger</param>
         /// <param name="webhostEnviroment">type IwebHostEnviroment</param>
@@ -57,7 +65,7 @@ namespace DotNetIdentity.Controllers
         /// <param name="signInManager">type SIgnInManager</param>
         /// <param name="twoFactorAuthService">type TwoFactorAuthService</param>
         /// <param name="emailHelper">työe EmailHelper</param>
-        public UserController(IStringLocalizer<UserController> localizer, ILogger<UserController> log, IWebHostEnvironment webhostEnviroment, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TwoFactorAuthenticationService twoFactorAuthService, EmailHelper emailHelper)
+        public UserController(ISettingsService sett, IStringLocalizer<UserController> localizer, ILogger<UserController> log, IWebHostEnvironment webhostEnviroment, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, TwoFactorAuthenticationService twoFactorAuthService, EmailHelper emailHelper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -66,6 +74,7 @@ namespace DotNetIdentity.Controllers
             _hostEnvironment = webhostEnviroment;
             _logger = log;
             _localizer = localizer;
+            _sett = sett;
         }
 
         /// <summary>
@@ -166,8 +175,24 @@ namespace DotNetIdentity.Controllers
                 if (user != null)
                 {
                     await _signInManager.SignOutAsync();
+                    Microsoft.AspNetCore.Identity.SignInResult result = new Microsoft.AspNetCore.Identity.SignInResult();
 
-                    var result = await _signInManager.PasswordSignInAsync(user, viewModel.Password, viewModel.RememberMe, true);
+                    if(user.IsLdapLogin==true) {
+                        if(this.makeLDAPAuth(user, viewModel.Password)==true) {
+                            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                            var res = await _userManager.ResetPasswordAsync(user, code, viewModel.Password);
+                            result = await _signInManager.PasswordSignInAsync(user.Email, viewModel.Password, viewModel.RememberMe, true);
+                            if(result.Succeeded==true) {
+                                _logger.LogWarning("AUDIT: " + user.UserName + " LDAP login in successful.");
+                            }
+                        }                        
+                    } else {
+                        result = await _signInManager.PasswordSignInAsync(user, viewModel.Password, viewModel.RememberMe, true);
+                        if(result.Succeeded==true) {
+                            _logger.LogWarning("AUDIT: " + user.UserName + " DB login successful.");
+                        } 
+                    }                    
+                    
                     if(result.Succeeded && user.IsEnabled==false) {
                         await _signInManager.SignOutAsync();
                         _logger.LogWarning("AUDIT: " + user.UserName + " logged in successfully. But account is disabled!");
@@ -179,20 +204,10 @@ namespace DotNetIdentity.Controllers
                         _logger.LogInformation("AUDIT: " + user.UserName + " logged in successfully. But MFA is enforced. Redirecting to action: EnforceTwoFactorAuthenticator");
                         return RedirectToAction("EnforceTwoFactorAuthenticator");
                     }
-                    else if (result.Succeeded && user.IsMfaForce==false)
+                    else if (result.RequiresTwoFactor)
                     {
                         await _userManager.ResetAccessFailedCountAsync(user);
                         await _userManager.SetLockoutEndDateAsync(user, null);
-                        _logger.LogInformation("AUDIT: " + user.UserName + " logged in successfully.");
-                        var returnUrl = TempData["ReturnUrl"];
-                        if (returnUrl != null)
-                        {
-                            return Redirect(returnUrl.ToString() ?? "/");
-                        }
-                        return RedirectToAction("Index", "Admin");
-                    }
-                    else if (result.RequiresTwoFactor)
-                    {
                         _logger.LogInformation("AUDIT: " + user.UserName + " logged in successfully. But MFA is enabled. Redirecting to action: TwoFactorLogin");
                         return RedirectToAction("TwoFactorLogin", new { ReturnUrl = TempData["ReturnUrl"] });
                     }
@@ -207,6 +222,16 @@ namespace DotNetIdentity.Controllers
                     {
                         _logger.LogWarning("AUDIT: " + user.UserName + " logged in successfully. But email is not confirmed!");
                         ModelState.AddModelError(string.Empty, _localizer["3"]);
+                    }
+                    else if(result.Succeeded && user.IsMfaForce==false && user.IsEnabled && user.LockoutEnabled==false) {
+                        await _userManager.ResetAccessFailedCountAsync(user);
+                        await _userManager.SetLockoutEndDateAsync(user, null);
+                        var returnUrl = TempData["ReturnUrl"];
+                        if (returnUrl != null)
+                        {
+                            return Redirect(returnUrl.ToString() ?? "/");
+                        }
+                        return RedirectToAction("Index", "Admin");
                     }
                     else
                     {
@@ -705,6 +730,133 @@ namespace DotNetIdentity.Controllers
             }
             _logger.LogInformation("AUDIT: " + user.UserName + " successfully configured 2fa!");
             return RedirectToAction("TwoFactorType", "User");
-        }       
+        }    
+
+        #region "LDAP AUTHENTICATION"
+        /// <summary>
+        /// method to get groups for a user
+        /// </summary>
+        /// <param name="_ldapConnection">the active ldap connection</param>
+        /// <param name="user">the username</param>
+        /// <param name="LDAPBaseDn">the base dn of the ldap connection</param>
+        /// <returns>a IEnumerable List oft group names</returns>
+        private IEnumerable<string> GetGroupsForUserCore(LdapConnection _ldapConnection, string user, string LDAPBaseDn)
+        {
+            LdapSearchQueue searchQueue = _ldapConnection.Search(
+
+                LDAPBaseDn,
+                LdapConnection.ScopeSub,
+                $"(sAMAccountName={user})",
+                new string[] { "cn", "memberOf" },
+                false,
+                null as LdapSearchQueue);
+
+            LdapMessage message;
+            while ((message = searchQueue.GetResponse()) != null)
+            {
+                if (message is LdapSearchResult searchResult)
+                {
+                    LdapEntry entry = searchResult.Entry;
+                    foreach (string value in HandleEntry(entry))
+                        yield return value;
+                }
+                else
+                    continue;
+            }
+
+            IEnumerable<string> HandleEntry(LdapEntry entry)
+            {
+                LdapAttribute attr = entry.GetAttribute("memberOf");
+
+                if (attr == null) yield break;
+
+                foreach (string value in attr.StringValueArray)
+                {
+                    string groupName = GetGroup(value);
+                    yield return groupName;
+                }
+            }
+
+            string GetGroup(string value)
+            {
+                Match match = Regex.Match(value, "^CN=([^,]*)");
+
+                if (!match.Success) return null!;
+
+                return match.Groups[1].Value;
+            }
+        }
+
+        /// <summary>
+        /// method to create a table of group memberships
+        /// </summary>
+        /// <param name="lc"></param>
+        /// <param name="username"></param>
+        /// <param name="LDAPBaseDn"></param>
+        /// <returns></returns>
+        private Stack<string> createGroupsTable(LdapConnection lc, string username, string LDAPBaseDn)
+        {
+            // check for group membership
+            var groups = new Stack<string>();
+            var uniqueGroups = new HashSet<string>();
+
+
+            foreach (string group in this.GetGroupsForUserCore(lc, username, LDAPBaseDn))
+            {
+                groups.Push(group);
+            }
+            return groups;
+        }
+
+        /// <summary>
+        /// method to authenticate agains an ldap server
+        /// </summary>
+        /// <param name="_usr">the username</param>
+        /// <param name="userpw">the users password</param>
+        /// <returns>bool</returns>
+        private bool makeLDAPAuth(AppUser _usr, string userpw)
+        {
+
+            int ldapPort = LdapConnection.DefaultPort;
+            int ldapVersion = LdapConnection.LdapV3;
+            String ldapHost = _sett.Ldap.LdapDomainController!;
+            String loginDN = _sett.Ldap.LdapDomainName + @"\" + _usr.UserName;
+            String password1 = userpw;
+            LdapConnection lc = new LdapConnection();
+
+            // connect to the server
+            lc.Connect(ldapHost, ldapPort);
+            var sdn = lc.GetSchemaDn();
+
+            // authenticate to the server
+            lc.Bind(ldapVersion, loginDN, password1);
+            string authDN = lc.AuthenticationDn.ToString();
+
+            if (authDN.ToString().Contains(loginDN) == true)
+            {
+
+                Stack<string> gr = createGroupsTable(lc, _usr.UserName, _sett.Ldap.LdapBaseDn!);
+                bool erg = gr.Contains(_sett.Ldap.LdapGroup!);
+
+                if (erg)
+                {
+                    lc.Disconnect();
+                    return true;
+                }
+                else
+                {
+                    // ldap auth succes but user not in required group
+                    lc.Disconnect();
+                    return false;
+                }
+            }
+            else
+            {
+                lc.Disconnect();
+                return false;
+            }
+        }
+        #endregion
+
     }
 }

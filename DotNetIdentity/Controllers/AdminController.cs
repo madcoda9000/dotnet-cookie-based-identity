@@ -467,6 +467,7 @@ namespace DotNetIdentity.Controllers
             {
                 viewModel.Department = Enum.Parse<Department>(departmentClaim.Value);
             }
+            viewModel.IsLdapLogin = user.IsLdapLogin;
             
             return View(viewModel);
         }
@@ -497,6 +498,7 @@ namespace DotNetIdentity.Controllers
                         user.PhoneNumber = viewModel.PhoneNumber;
                         user.Gender = viewModel.Gender;
                         user.Department = viewModel.Department.ToString();
+                        user.IsLdapLogin = viewModel.IsLdapLogin;
 
                         var result = await _userManager.UpdateAsync(user);
                         if (result.Succeeded)

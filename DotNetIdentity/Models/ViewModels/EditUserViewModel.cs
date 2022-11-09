@@ -50,5 +50,10 @@ namespace DotNetIdentity.Models.ViewModels
         /// </summary>
         /// <value>string</value>
         public string LastName {get; set;} = string.Empty;
+        /// <summary>
+        /// ldap login property
+        /// </summary>
+        /// <value></value>
+        public bool IsLdapLogin {get;set;}
     }
 }
