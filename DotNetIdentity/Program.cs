@@ -110,7 +110,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = true;
 
-    options.Password.RequireDigit = true;
+    options.Password.RequireDigit = false;
     options.Password.RequiredLength = 8;
     options.Password.RequiredUniqueChars = 1;
     options.Password.RequireLowercase = true;

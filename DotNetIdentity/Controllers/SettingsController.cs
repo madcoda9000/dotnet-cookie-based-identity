@@ -143,7 +143,7 @@ namespace DotNetIdentity.Controllers
         public async Task<IActionResult> SettingsLdap(LdapSettings viewModel) {
    
                 _settings.Ldap.LdapDomainName = viewModel.LdapDomainName;
-                _settings.Ldap.LdapDomainController = viewModel.LdapDomainName;
+                _settings.Ldap.LdapDomainController = viewModel.LdapDomainController;
                 _settings.Ldap.LdapBaseDn = viewModel.LdapBaseDn;
                 _settings.Ldap.LdapEnabled = viewModel.LdapEnabled;
                 _settings.Ldap.LdapGroup = viewModel.LdapGroup;

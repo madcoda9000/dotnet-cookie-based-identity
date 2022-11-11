@@ -2,9 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-## \[Unreleased\]
+## [Unreleased]
 
-### [ 0.0.8348.12196] - 2022.11.09
+### [0.0.8350.17091] - 2022.11.09
+
+#### Added
+
+* added global.json to bind to .Net core 6.0.403
+* check if current user is a ldap user in _NavMenu.cshtml. If so, hide change password menu entry.
+* check if current user is a ldap user in _MainLayout.cshtml. If so, hide change password menu entry.
+
+#### Modified
+
+* disabled check if username is part of the email address
+* modified Login POST methos in UserController.cs to set password on ldap login
+* added IsLdapUser Claim in ClaimTransformation Class
+
+#### Fixed
+
+* wrong label translation in SettingsLdap.cshtml
+* wrong property assignment for domain controller
+
+### [0.0.8348.12196] - 2022.11.09
 
 #### Added
 
@@ -24,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 * fixed Error: Table AppSessionCache does not exist
 
-### \[0.0.8347.13229\] - 2022-12-07
+### [0.0.8347.13229] - 2022-12-07
 
 #### Added
 
@@ -34,7 +53,7 @@ All notable changes to this project will be documented in this file.
 * added Translation for AdminController.cs
 * added Translation for SettingsController.cs
 
-### \[0.0.8346.16799\] - 2022-11-07
+### [0.0.8346.16799] - 2022-11-07
 
 #### Added
 
@@ -57,7 +76,7 @@ All notable changes to this project will be documented in this file.
 
 * Nullable variable in _AuthLayout.cshtml
 
-### \[0.0.8346.16425\] - 2022-11-06
+### [0.0.8346.16425] - 2022-11-06
 
 #### Published
 

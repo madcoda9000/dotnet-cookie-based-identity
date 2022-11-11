@@ -206,8 +206,13 @@
                                     <li><a class="dropdown-item drpHead" href="/User/Profile"><i class="icon-mid bi bi-person me-2"></i> @L["3"]</a></li>
                                     <li><a class="dropdown-item drpHead" href="/User/TwoFactorType"><i class="icon-mid bi bi-shield-lock me-2"></i>
                                             @L["4"]</a></li>
-                                    <li><a class="dropdown-item drpHead" href="/User/ChangePassword"><i class="icon-mid bi bi-key me-2"></i>
+                                    @{
+                                        var ClaimType = "IsLdapUser";
+                                        if(User.FindFirst(ClaimType)!.Value.ToString().ToLower()=="false") {
+                                            <li><a class="dropdown-item drpHead" href="/User/ChangePassword"><i class="icon-mid bi bi-key me-2"></i>
                                             @L["5"]</a></li>
+                                        }
+                                    }                                    
                                     <li>
                                         <form id="selectLanguage" asp-controller="Culture" asp-action="SetCulture" asp-route-returnUrl="@returnUrl" method="post">
                                             <a class="dropdown-item drpHead"><i class="icon-mid bi bi-translate me-2"></i>

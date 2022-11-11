@@ -22,11 +22,12 @@ namespace DotNetIdentity.IdentitySettings.Validators
             {
                 errors.Add(ErrorDescriber.UserNameLength());
             }
+            /*
             if (user.Email.Substring(0, user.Email.IndexOf("@")) == user.UserName)
             {
                 errors.Add(ErrorDescriber.UserNameContainsEmail());
             }
-
+            */
             if (errors.Any())
             {
                 return Task.FromResult(IdentityResult.Failed(errors.ToArray()));

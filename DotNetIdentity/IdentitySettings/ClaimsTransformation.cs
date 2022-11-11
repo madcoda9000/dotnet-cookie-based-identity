@@ -83,6 +83,12 @@ namespace DotNetIdentity.IdentitySettings
                     identity?.AddClaim(cultureClaim);
                 }
 
+                if (!principal.HasClaim(c => c.Type == "IsLdapUser"))
+                {
+                    var ldapClaim = new Claim("IsLdapUser", user.IsLdapLogin.ToString());
+                    identity?.AddClaim(ldapClaim);
+                }
+
                 if (!principal.HasClaim(c => c.Type == "RolesCombined"))
                 {
                     var rls = await _userManager.GetRolesAsync(user);

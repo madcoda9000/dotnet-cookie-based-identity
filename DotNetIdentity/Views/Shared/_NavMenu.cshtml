@@ -18,9 +18,15 @@
             <li class="submenu-item @(_path.Contains("TwoFactorType") ? "active" : "")">
                 <a href="/User/TwoFactorType">@L["3"]</a>
             </li>
-            <li class="submenu-item @(_path.Contains("ChangePassword") ? "active" : "")">
-                <a href="/User/ChangePassword">@L["4"]</a>
-            </li>
+            @{
+                var ClaimType = "IsLdapUser";
+                if(User.FindFirst(ClaimType)!.Value.ToString().ToLower()=="false") {
+                    <li class="submenu-item @(_path.Contains("ChangePassword") ? "active" : "")">
+                        <a href="/User/ChangePassword">@L["4"]</a>
+                    </li>
+                }
+            }
+            
             <li class="submenu-item @(_path.Contains("debugUserInfo") ? "active" : "")">
                 <a href="/User/debugUserInfo">@L["5"]</a>
             </li>

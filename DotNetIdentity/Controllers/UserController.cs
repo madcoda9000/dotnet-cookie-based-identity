@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Text;
 using System.Text.RegularExpressions;
 using DotNetIdentity.Helpers;
 using DotNetIdentity.IdentitySettings;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Localization;
 using Novell.Directory.Ldap;
 using Novell.Directory.Ldap.Asn1;
@@ -178,10 +180,17 @@ namespace DotNetIdentity.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = new Microsoft.AspNetCore.Identity.SignInResult();
 
                     if(user.IsLdapLogin==true) {
-                        if(this.makeLDAPAuth(user, viewModel.Password)==true) {
+                        bool ldapAuthSuccess = false;
+                        try {
+                            ldapAuthSuccess = this.makeLDAPAuth(user, viewModel.Password);
+                        } catch (Exception ex) {
+                            ModelState.AddModelError(string.Empty, ex.Message);
+                        } 
+                        if(ldapAuthSuccess==true) {
                             var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                            var res = await _userManager.ResetPasswordAsync(user, code, viewModel.Password);
-                            result = await _signInManager.PasswordSignInAsync(user.Email, viewModel.Password, viewModel.RememberMe, true);
+                            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                            var res1 = _userManager.ResetPasswordAsync(user, code, viewModel.Password);
+                            result = await _signInManager.PasswordSignInAsync(user, viewModel.Password, viewModel.RememberMe, true);
                             if(result.Succeeded==true) {
                                 _logger.LogWarning("AUDIT: " + user.UserName + " LDAP login in successful.");
                             }
@@ -223,7 +232,7 @@ namespace DotNetIdentity.Controllers
                         _logger.LogWarning("AUDIT: " + user.UserName + " logged in successfully. But email is not confirmed!");
                         ModelState.AddModelError(string.Empty, _localizer["3"]);
                     }
-                    else if(result.Succeeded && user.IsMfaForce==false && user.IsEnabled && user.LockoutEnabled==false) {
+                    else if(result.Succeeded && user.IsMfaForce==false && !result.RequiresTwoFactor && user.IsEnabled) {
                         await _userManager.ResetAccessFailedCountAsync(user);
                         await _userManager.SetLockoutEndDateAsync(user, null);
                         var returnUrl = TempData["ReturnUrl"];
