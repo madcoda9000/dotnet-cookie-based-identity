@@ -85,6 +85,12 @@ No! I've used the following Librarys / Projects in this Project:
   - License: [MIT](https://github.com/apvarun/toastify-js/blob/master/LICENSE)
 - [Bootstrap Session Timeout](https://jquery-plugins.net/bootstrap-session-timeout) for detecting activity and do a session timeout
   - License: [MIT](https://github.com/orangehill/bootstrap-session-timeout/blob/master/LICENSE.md)
+- [Novell.Directory.Ldap.NETStandard](https://github.com/dsbenghe/Novell.Directory.Ldap.NETStandard)
+  - License: [MIT](https://github.com/dsbenghe/Novell.Directory.Ldap.NETStandard/blob/master/LICENSE)
+- [Pomelo.EntityFrameworkCore.MySql](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)
+  - License [MIT](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)
+- [SeriLog](https://serilog.net/)
+  - License [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ### But, these are using all different licenses! Can i use that for a commercial project anyway?
 

@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 * added global.json to bind to .Net core 6.0.403
 * check if current user is a ldap user in _NavMenu.cshtml. If so, hide change password menu entry.
 * check if current user is a ldap user in _MainLayout.cshtml. If so, hide change password menu entry.
+* added release & build version to _MainLayout.cshtml
 
 #### Modified
 
