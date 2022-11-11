@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_dot_net_identity_1_1_services_1_1_settings_service_1_1_app_settings_base.html" title="base class for Settings classes" alt="" coords="5,39,224,80"/>
-<area shape="rect" id="node2" href="$class_dot_net_identity_1_1_models_1_1_business_models_1_1_global_settings.html" title="class to define a global settings object" alt="" coords="272,5,481,47"/>
-<area shape="rect" id="node3" href="$class_dot_net_identity_1_1_models_1_1_business_models_1_1_mail_settings.html" title="class to define a ail settings object" alt="" coords="272,71,481,112"/>
-</map>
