@@ -62,6 +62,7 @@ This boilerplate provides the following features:
   - set danger color
   - set background color
   - set Application Logo
+  - Restore Brand settings to default
 - provides doxygen generated class documentation\\
   - take a look [here](https://htmlpreview.github.io/?https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/generated/html/index.html)
 
