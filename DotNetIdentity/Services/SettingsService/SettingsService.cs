@@ -34,6 +34,15 @@ namespace DotNetIdentity.Services.SettingsService {
     /// <value></value>
     public MailSettings Mail { get { return _mailSettings.Value; } }
     /// <summary>
+    /// Brand settings property (lazy)
+    /// </summary>
+    private readonly Lazy<BrandSettings> _brandSettings;
+    /// <summary>
+    /// brand settings property
+    /// </summary>
+    /// <value></value>
+    public BrandSettings Brand { get { return _brandSettings.Value; } }
+    /// <summary>
     /// dbcontext property
     /// </summary>
     private readonly AppDbContext _unitOfWork;
@@ -50,6 +59,7 @@ namespace DotNetIdentity.Services.SettingsService {
         _globalSettings = new Lazy<GlobalSettings>(CreateSettings<GlobalSettings>);
         _mailSettings = new Lazy<MailSettings>(CreateSettings<MailSettings>);
         _ldapSettings = new Lazy<LdapSettings>(CreateSettings<LdapSettings>);
+        _brandSettings = new Lazy<BrandSettings>(CreateSettings<BrandSettings>);
     }
 
     /// <summary>
@@ -67,6 +77,9 @@ namespace DotNetIdentity.Services.SettingsService {
 
         if (_ldapSettings.IsValueCreated)
             await _ldapSettings.Value.Save(_unitOfWork);
+            
+        if (_brandSettings.IsValueCreated)
+            await _brandSettings.Value.Save(_unitOfWork);
 
         await _unitOfWork.SaveChangesAsync();
     }

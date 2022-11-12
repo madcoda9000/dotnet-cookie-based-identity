@@ -4,12 +4,7 @@ namespace DotNetIdentity.Models.BusinessModels {
     /// <summary>
     /// class to define a global settings object
     /// </summary>
-    public class GlobalSettings : AppSettingsBase{
-        /// <summary>
-        /// property ApplicationName
-        /// </summary>
-        /// <value>string</value>
-        public string? ApplicationName {get; set;}
+    public class GlobalSettings : AppSettingsBase{        
         /// <summary>
         /// property SessionTimeoutWarnAfter
         /// </summary>

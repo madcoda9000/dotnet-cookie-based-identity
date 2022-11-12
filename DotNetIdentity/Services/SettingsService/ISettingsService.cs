@@ -22,6 +22,11 @@ namespace DotNetIdentity.Services.SettingsService {
         /// <value>MailSettings</value>
         LdapSettings Ldap { get; }
         /// <summary>
+        /// property brand settings
+        /// </summary>
+        /// <value>MailSettings</value>
+        BrandSettings Brand { get; }
+        /// <summary>
         /// save method
         /// </summary>
         Task Save();

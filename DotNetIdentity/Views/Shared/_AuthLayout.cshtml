@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - @_sett.Global.ApplicationName</title>
+    <title>@ViewData["Title"] - @_sett.Brand.ApplicationName</title>
     <link rel="stylesheet" href="~/assets/css/main/app.css">
     <link rel="stylesheet" href="~/assets/css/pages/auth.css">
     <link rel="shortcut icon" href="~/assets/images/logo/favicon.ico" type="image/x-icon">
@@ -21,16 +21,50 @@
             height: 100vh !important;
         }
 
+        .bg-danger {
+            background-color: @_sett.Brand.ColorDanger !important;
+        }
+        .bg-success {
+            background-color: @_sett.Brand.ColorSuccess !important;
+        }
+        .bg-warning {
+            background-color: @_sett.Brand.ColorWarning !important;
+        }
+        .bg-primary {
+            background-color: @_sett.Brand.ColorPrimary !important;
+        }
+        .bg-info {
+            background-color: @_sett.Brand.ColorInfo !important;
+        }
+        .text-danger {
+            color: @_sett.Brand.ColorDanger !important;
+        }
+        .text-success {
+            color: @_sett.Brand.ColorSuccess !important;
+        }
+        .text-warning {
+            color: @_sett.Brand.ColorWarning !important;
+        }
+        .text-primary {
+            color: @_sett.Brand.ColorPrimary !important;
+        }
+        .text-info {
+            color: @_sett.Brand.ColorInfo !important;
+        }
+
         .alert-danger {
-            background-color: #f5023c !important;
+            background-color: @_sett.Brand.ColorDanger !important;
         }
 
         .alert-warning {
-            background-color: #ff9800 !important;
+            background-color: @_sett.Brand.ColorWarning !important;
         }
 
         .alert-success {
-            background-color: #00c853 !important;
+            background-color: @_sett.Brand.ColorSuccess !important;
+        }
+        .alert-info {
+            background-color: @_sett.Brand.ColorInfo !important;
         }
     </style>
 </head>

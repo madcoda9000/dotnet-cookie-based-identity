@@ -53,6 +53,15 @@ This boilerplate provides the following features:
 - provides a bootstrap based theme
   - only three layout files (Main, Auth, Error)
   - easy to customize
+- provides easy Brand customizing
+  - set Application name
+  - set primary color
+  - set warning color
+  - set info color
+  - set success color
+  - set danger color
+  - set background color
+  - set Application Logo
 - provides doxygen generated class documentation\\
   - take a look [here](https://htmlpreview.github.io/?https://github.com/madcoda9000/dotnet-cookie-based-identity/blob/main/Documentation/generated/html/index.html)
 

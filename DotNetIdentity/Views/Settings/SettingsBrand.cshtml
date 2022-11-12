@@ -1,0 +1,88 @@
+@model UpdateBrandSettingsViewModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = "Brand Settings";
+}
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>Brand Settings</h3>
+            <p class="text-subtitle text-muted">Customize the look & feel of your Application</p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Settings / Brand-Settings</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="card card shadow p-3 mb-5 rounded">
+    @if (ViewData["message"] != null)
+    {
+        <div class="alert alert-success"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
+        ViewData["message"] = null;
+    }
+    <div class="card-body">
+        <form asp-action="SettingsBrand" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ApplicationName">Application Name</label>
+                <input asp-for="ApplicationName" class="form-control" />
+                <span asp-validation-for="ApplicationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ColorPrimary" class="form-label">Primary Color</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorPrimary"
+                    title="Choose your primary color">
+            </div>
+            <div class="form-group">
+                <label for="ColorDanger" class="form-label">Danger Color (used as secondary color too)</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorDanger"
+                    title="Choose your danger color">
+            </div>
+            <div class="form-group">
+                <label for="ColorWarning" class="form-label">Warning Color</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorWarning"
+                    title="Choose your warning color">
+            </div>
+            <div class="form-group">
+                <label for="ColorInfo" class="form-label">Info Color</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorInfo"
+                    title="Choose your info color">
+            </div>
+            <div class="form-group">
+                <label for="ColorSuccess" class="form-label">Info Color</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorSuccess"
+                    title="Choose your success color">
+            </div>
+            <div class="form-group">
+                <label for="ColorLightBackground" class="form-label">Light Background color</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorLightBackground"
+                    title="Choose your light background color">
+            </div>
+            <div class="form-group">
+                <label for="UploadedLogo">Upload your application Logo (<i class="text-info"><b>max. 403×94
+                            px</b></i>)</label><br>
+                <input type="file" asp-for="UploadedLogo" accept="image/png, image/gif, image/jpeg"
+                    class="form-control" />
+                <br />
+                <label>Current Logo</label>
+                <div id="profImg" asp-BrandLogo="47" class="user-img d-flex align-items-center">
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary mt-1">save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts {
+<script src="~/assets/extensions/toastify-js/src/toastify.js"></script>
+}

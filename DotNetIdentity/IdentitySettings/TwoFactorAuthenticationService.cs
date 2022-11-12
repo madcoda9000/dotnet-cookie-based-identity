@@ -41,7 +41,7 @@ namespace DotNetIdentity.IdentitySettings
         /// <returns>string</returns>
         public string GenerateQrCodeUri(string email, string authenticatorKey)
         {
-            var encodedUrl = _urlEncoder.Encode(_sett.Global.ApplicationName!);
+            var encodedUrl = _urlEncoder.Encode(_sett.Brand.ApplicationName!);
             var encodedEmail = _urlEncoder.Encode(email);
 
             return $"otpauth://totp/{encodedUrl}:{encodedEmail}?secret={authenticatorKey}&issuer={encodedUrl}&digits=6";

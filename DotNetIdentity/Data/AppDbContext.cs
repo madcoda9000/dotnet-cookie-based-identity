@@ -16,23 +16,24 @@ namespace DotNetIdentity.Data
         /// </summary>
         /// <param name="options">type DbContextOptions</param>
         /// <returns></returns>
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {        
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
         }
         /// <summary>
         /// Property AppLogs
         /// </summary>
         /// <value></value>
-        public DbSet<AppLogs>? AppLogs {get;set;}
+        public DbSet<AppLogs>? AppLogs { get; set; }
         /// <summary>
         /// property AppSettings
         /// </summary>
         /// <value></value>
-        public DbSet<ApplicationSettings>? AppSettings {get;set;}
+        public DbSet<ApplicationSettings>? AppSettings { get; set; }
         /// <summary>
         /// property AppSessionCache
         /// </summary>
         /// <value></value>
-        public DbSet<SessionCache>? AppSessionCache {get;set;}
+        public DbSet<SessionCache>? AppSessionCache { get; set; }
 
         /// <summary>
         /// Overriding OnModelCreation to seed intitial data
@@ -40,30 +41,39 @@ namespace DotNetIdentity.Data
         /// <param name="builder">type ModelBuilder</param>
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);      
+            base.OnModelCreating(builder);
 
             builder.Entity<ApplicationSettings>()
                     .HasKey(x => new { x.Name, x.Type });
 
             builder.Entity<ApplicationSettings>()
-                        .Property(x => x.Value);    
+                        .Property(x => x.Value);
 
-            // seeding default settings
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "ApplicationName", Type = "GlobalSettings", Value = "SecPass"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SessionTimeoutWarnAfter", Type = "GlobalSettings", Value = "50000"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SessionTimeoutRedirAfter", Type = "GlobalSettings", Value = "70000"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SessionCookieExpiration", Type = "GlobalSettings", Value = "7"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "Username", Type = "MailSettings", Value = "YOUR_Smtp_Username"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "Password", Type = "MailSettings", Value = "YOUR_SmtpPassword"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpServer", Type = "MailSettings", Value = "YOUR_SmtpServer"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpPort", Type = "MailSettings", Value = "587"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpUseTls", Type = "MailSettings", Value = "true"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "SmtpFromAddress", Type = "MailSettings", Value = "YOUR_From_Address"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapDomainController", Type = "LdapSettings", Value = "YOUR_Domaincontroller_FQDN"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapDomainName", Type = "LdapSettings", Value = "YOUR_Domainname"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapBaseDn", Type = "LdapSettings", Value = "DC=YOUR,DC=Domain,DC=com"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapGroup", Type = "LdapSettings", Value = "YOUR_Ldap_Group"}); 
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings {Name = "LdapEnabled", Type = "LdapSettings", Value = "true"}); 
+            // seeding default settings            
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SessionTimeoutWarnAfter", Type = "GlobalSettings", Value = "50000" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SessionTimeoutRedirAfter", Type = "GlobalSettings", Value = "70000" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SessionCookieExpiration", Type = "GlobalSettings", Value = "7" });
+
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "Username", Type = "MailSettings", Value = "YOUR_Smtp_Username" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "Password", Type = "MailSettings", Value = "YOUR_SmtpPassword" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SmtpServer", Type = "MailSettings", Value = "YOUR_SmtpServer" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SmtpPort", Type = "MailSettings", Value = "587" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SmtpUseTls", Type = "MailSettings", Value = "true" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SmtpFromAddress", Type = "MailSettings", Value = "YOUR_From_Address" });
+
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "LdapDomainController", Type = "LdapSettings", Value = "YOUR_Domaincontroller_FQDN" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "LdapDomainName", Type = "LdapSettings", Value = "YOUR_Domainname" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "LdapBaseDn", Type = "LdapSettings", Value = "DC=YOUR,DC=Domain,DC=com" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "LdapGroup", Type = "LdapSettings", Value = "YOUR_Ldap_Group" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "LdapEnabled", Type = "LdapSettings", Value = "true" });
+
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ApplicationName", Type = "BrandSettings", Value = "YourApp" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorPrimary", Type = "BrandSettings", Value = "#090251" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorInfo", Type = "BrandSettings", Value = "#2196f3" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorSuccess", Type = "BrandSettings", Value = "#00c853" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorWarning", Type = "BrandSettings", Value = "#ff9800" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorDanger", Type = "BrandSettings", Value = "#f5023c" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorLightBackground", Type = "BrandSettings", Value = "#f2f7ff" });
 
             //Seeding roles to AspNetRoles table
             builder.Entity<AppRole>().HasData(new AppRole { Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca", Name = "Admin", NormalizedName = "ADMIN".ToUpper() });
@@ -71,8 +81,8 @@ namespace DotNetIdentity.Data
             builder.Entity<AppRole>().HasData(new AppRole { Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", Name = "Editor", NormalizedName = "EDITOR".ToUpper() });
             builder.Entity<AppRole>().HasData(new AppRole { Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b", Name = "Moderator", NormalizedName = "MODERATOR".ToUpper() });
 
-                      
-                
+
+
             //a hasher to hash the password before seeding the user to the db
             var hasher = new PasswordHasher<AppUser>();
 
@@ -107,5 +117,5 @@ namespace DotNetIdentity.Data
         }
     }
 
-    
+
 }

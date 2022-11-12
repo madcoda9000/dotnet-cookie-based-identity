@@ -64,6 +64,24 @@ namespace DotNetIdentity.Controllers
         }
 
         /// <summary>
+        /// Controller action for SettingsBrand view
+        /// </summary>
+        /// <returns>view SettingsLdap</returns>
+        public ActionResult SettingsBrand()
+        {
+            var viewModel = new UpdateBrandSettingsViewModel();
+            viewModel.ApplicationLogo = _settings.Brand.ApplicationLogo;
+            viewModel.ApplicationName = _settings.Brand.ApplicationName;
+            viewModel.ColorDanger = _settings.Brand.ColorDanger;
+            viewModel.ColorInfo = _settings.Brand.ColorInfo;
+            viewModel.ColorLightBackground = _settings.Brand.ColorLightBackground;
+            viewModel.ColorPrimary = _settings.Brand.ColorPrimary;
+            viewModel.ColorSuccess = _settings.Brand.ColorSuccess;
+            viewModel.ColorWarning = _settings.Brand.ColorWarning;
+            return View(viewModel);
+        }
+
+        /// <summary>
         /// Controller action for SettingsLdap view
         /// </summary>
         /// <returns>view SettingsLdap</returns>
@@ -91,6 +109,56 @@ namespace DotNetIdentity.Controllers
             var viewModel = new GlobalSettings();
             viewModel = _settings.Global;
             return View(viewModel);
+        }
+
+        /// <summary>
+        /// controller POST method to save Brand settings
+        /// </summary>
+        /// <param name="viewModel">BarndSettings</param>
+        /// <returns>view</returns>
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<IActionResult> SettingsBrand(UpdateBrandSettingsViewModel viewModel)
+        {
+
+            _settings.Brand.ApplicationName = viewModel.ApplicationName;
+            _settings.Brand.ColorDanger = viewModel.ColorDanger;
+            _settings.Brand.ColorInfo = viewModel.ColorInfo;
+            _settings.Brand.ColorLightBackground = viewModel.ColorLightBackground;
+            _settings.Brand.ColorPrimary = viewModel.ColorPrimary;
+            _settings.Brand.ColorSuccess = viewModel.ColorSuccess;
+            _settings.Brand.ColorWarning = viewModel.ColorWarning;
+
+            if (viewModel.UploadedLogo != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await viewModel.UploadedLogo.CopyToAsync(memoryStream);
+
+                    // Upload the file if less than 2 MB
+                    if (memoryStream.Length < 2097152)
+                    {
+                        var format = "image/png";
+                        var Content = memoryStream.ToArray();
+                        var imageData = $"data:{format};base64,{Convert.ToBase64String(Content)}";
+                        _settings.Brand.ApplicationLogo = imageData;
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("File", _localizer["7"]);
+                    }
+                }
+            }
+            else
+            {
+                _settings.Brand.ApplicationLogo = null;
+            }
+
+            await _settings.Save();
+            _logger.LogInformation("AUDIT: " + User.Identity!.Name + " modified Brand settings! ");
+            ViewData["message"] = _localizer["1"];
+            return View();
         }
 
         /// <summary>
@@ -122,8 +190,6 @@ namespace DotNetIdentity.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> SettingsMail(GlobalSettings viewModel) {
-   
-                _settings.Global.ApplicationName = viewModel.ApplicationName;
                 _settings.Global.SessionCookieExpiration = viewModel.SessionCookieExpiration;
                 _settings.Global.SessionTimeoutWarnAfter = viewModel.SessionTimeoutWarnAfter;
                 _settings.Global.SessionTimeoutRedirAfter = viewModel.SessionTimeoutRedirAfter;

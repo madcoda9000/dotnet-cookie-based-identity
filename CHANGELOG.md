@@ -2,9 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## \[Unreleased\]
 
-### [0.0.8350.17091] - 2022.11.09
+### \[0.0.8351.14425\] - 2022.11.12
+
+#### Added
+
+* added class BrandSettings.cs
+* added seeding values for BrandSettings to AppDbContext.cs
+* added property Brand type of BrandSettings to ISettingsService
+* extend SettingsService with Brandsettings
+* added ApplicationName property to BrendSettings class
+* added Controller action for SettingsBrand view
+* added controller POST method to update BrandSettings from SettingsBrand view
+* added view SettingsBrand.cshtml
+* added SettingsBrand to _NavMenu.cshtml
+* added Logo image property to BrandSettings class
+
+#### Modified
+* deleted ApplicationName property from GlobalSettings.cs
+* changed Seed command for ApplicationName in AppDbContext
+* used new properties of BrandSettings in style Tag of _MainLayout
+* used new properties of BrandSettings in style Tag of _AuthLayout
+* implemented dynamic Application Logo in SettingsBrand view
+* updated README.md
+
+### \[0.0.8350.17091\] - 2022.11.11
 
 #### Added
 
@@ -16,15 +39,16 @@ All notable changes to this project will be documented in this file.
 #### Modified
 
 * disabled check if username is part of the email address
-* modified Login POST methos in UserController.cs to set password on ldap login
+* modified Login POST method in UserController.cs to set password on ldap login
 * added IsLdapUser Claim in ClaimTransformation Class
 
 #### Fixed
 
 * wrong label translation in SettingsLdap.cshtml
 * wrong property assignment for domain controller
+* possible null reference in EditUser.cshtml
 
-### [0.0.8348.12196] - 2022.11.09
+### \[0.0.8348.12196\] - 2022.11.09
 
 #### Added
 
@@ -44,7 +68,7 @@ All notable changes to this project will be documented in this file.
 
 * fixed Error: Table AppSessionCache does not exist
 
-### [0.0.8347.13229] - 2022-12-07
+### \[0.0.8347.13229\] - 2022-12-07
 
 #### Added
 
@@ -54,7 +78,7 @@ All notable changes to this project will be documented in this file.
 * added Translation for AdminController.cs
 * added Translation for SettingsController.cs
 
-### [0.0.8346.16799] - 2022-11-07
+### \[0.0.8346.16799\] - 2022-11-07
 
 #### Added
 
@@ -77,7 +101,7 @@ All notable changes to this project will be documented in this file.
 
 * Nullable variable in _AuthLayout.cshtml
 
-### [0.0.8346.16425] - 2022-11-06
+### \[0.0.8346.16425\] - 2022-11-06
 
 #### Published
 

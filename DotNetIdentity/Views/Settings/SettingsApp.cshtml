@@ -5,36 +5,31 @@
 }
 
 <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>@L["1"]</h3>
-                <p class="text-subtitle text-muted">@L["2"]</p>
-            </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Settings / Application-Settings</li>
-                    </ol>
-                </nav>
-            </div>
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>@L["1"]</h3>
+            <p class="text-subtitle text-muted">@L["2"]</p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Settings / Application-Settings</li>
+                </ol>
+            </nav>
         </div>
     </div>
+</div>
 
 <div class="card card shadow p-3 mb-5 rounded">
     @if (ViewData["message"] != null)
-        {
-            <div class="alert alert-success"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
-            ViewData["message"] = null;
-        }
+    {
+        <div class="alert alert-success"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
+        ViewData["message"] = null;
+    }
     <div class="card-body">
-        <form asp-action="SettingsApp" >
+        <form asp-action="SettingsApp">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ApplicationName">@L["3"]</label>
-                <input asp-for="ApplicationName" class="form-control" />
-                <span asp-validation-for="ApplicationName" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="SessionCookieExpiration">@L["4"]</label>
                 <input asp-for="SessionCookieExpiration" class="form-control" />
@@ -51,7 +46,7 @@
                 <span asp-validation-for="SessionTimeoutRedirAfter" class="text-danger"></span>
             </div>
             <div class="d-flex flex-row-reverse">
-                <button type="submit" class="btn btn-primary mt-1" >@L["7"]</button>
+                <button type="submit" class="btn btn-primary mt-1">@L["7"]</button>
             </div>
         </form>
     </div>
@@ -59,5 +54,5 @@
 
 
 @section scripts {
-    <script src="~/assets/extensions/toastify-js/src/toastify.js"></script>    
+<script src="~/assets/extensions/toastify-js/src/toastify.js"></script>
 }
