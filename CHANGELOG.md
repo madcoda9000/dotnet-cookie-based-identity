@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8351.15971\] - 2022.11.12
+
+#### Added
+
+* restore Brand settings to SettingsBrand view
+* restore Brand settings action to Settings controller
+
 ### \[0.0.8351.14425\] - 2022.11.12
 
 #### Added

@@ -64,6 +64,27 @@ namespace DotNetIdentity.Controllers
         }
 
         /// <summary>
+        /// action to restore the brand settings to default
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public async Task<IActionResult> restoreStyle () {
+            _settings.Brand.ApplicationLogo = null;
+            _settings.Brand.ApplicationName = "YourApp";
+            _settings.Brand.ColorDanger = "#f5023c";
+            _settings.Brand.ColorInfo = "#2196f3";
+            _settings.Brand.ColorLightBackground = "#f2f7ff";
+            _settings.Brand.ColorPrimary = "#090251";
+            _settings.Brand.ColorSuccess = "#00c853";
+            _settings.Brand.ColorWarning = "#ff9800";
+            await _settings.Save();
+
+            _logger.LogInformation("AUDIT: " + User.Identity!.Name + " restored Brand settings to default! ");
+            ViewData["message"] = "Settings restired successfully";
+            return RedirectToAction("SettingsBrand", "Settings"); ;
+        }
+
+        /// <summary>
         /// Controller action for SettingsBrand view
         /// </summary>
         /// <returns>view SettingsLdap</returns>
@@ -85,6 +106,7 @@ namespace DotNetIdentity.Controllers
         /// Controller action for SettingsLdap view
         /// </summary>
         /// <returns>view SettingsLdap</returns>
+        [Authorize]
         public ActionResult SettingsLdap(){
             var viewModel = new LdapSettings();
             viewModel = _settings.Ldap;
@@ -95,6 +117,7 @@ namespace DotNetIdentity.Controllers
         /// Controller action for SettingsMail view
         /// </summary>
         /// <returns>view SettingsMail</returns>
+        [Authorize]
         public ActionResult SettingsMail(){
             var viewModel = new MailSettings();
             viewModel = _settings.Mail;
@@ -105,6 +128,7 @@ namespace DotNetIdentity.Controllers
         /// Controller action for SettingsApp view
         /// </summary>
         /// <returns>view SettingsApp</returns>
+        [Authorize]
         public ActionResult SettingsApp(){
             var viewModel = new GlobalSettings();
             viewModel = _settings.Global;

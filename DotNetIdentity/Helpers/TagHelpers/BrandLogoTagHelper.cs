@@ -41,6 +41,7 @@ namespace DotNetIdentity.Helpers.TagHelpers
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var sb = new StringBuilder();
+            await _sett.Save();
             if (_sett.Brand.ApplicationLogo == null)
             {
                 sb.Append($"<img src='/assets/images/logo/ylogo_colored.png' style='height:" + imgHeight + "px !important;'/>");
