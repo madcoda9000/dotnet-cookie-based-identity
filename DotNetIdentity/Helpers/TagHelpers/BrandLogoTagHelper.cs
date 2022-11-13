@@ -32,6 +32,8 @@ namespace DotNetIdentity.Helpers.TagHelpers
         [HtmlAttributeName("asp-BrandLogo")]
         public int imgHeight { get; set; } = default!;
 
+        #pragma warning disable 1998
+
         /// <summary>
         /// override ProcessAsync
         /// </summary>
@@ -53,5 +55,7 @@ namespace DotNetIdentity.Helpers.TagHelpers
 
             output.Content.SetHtmlContent(sb.ToString());
         }
+
+        #pragma warning restore 1998
     }
 }

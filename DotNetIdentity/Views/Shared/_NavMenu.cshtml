@@ -8,7 +8,7 @@
 
     <li class="sidebar-item has-sub @(_path.Contains("User/") && !_path.Contains("EditUser/") ? "active" : "")">
         <a href="#" class='sidebar-link'>
-            <i class="bi bi-person-fill @(_path.Contains("User/") ? "text-light" : "text-primary")"></i>
+                <i class="bi bi-person-fill @(_path.Contains("User/") ? "text-light" : "text-primary")"></i>
             <span>@L["1"]</span>
         </a>
         <ul class="submenu @(_path.Contains("User/") && !_path.Contains("EditUser/") ? "active" : "")" >
@@ -30,15 +30,12 @@
             <li class="submenu-item @(_path.Contains("debugUserInfo") ? "active" : "")">
                 <a href="/User/debugUserInfo">@L["5"]</a>
             </li>
-            <li class="submenu-item">
-                <a asp-controller="User" asp-action="Logout" asp-route-returnUrl="/Home/Index">@L["6"]</a>
-            </li>
         </ul>
     </li>
     if(Context.User.IsInRole("Admin")) {
         <li class="sidebar-item has-sub @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "active" : "")">
             <a href="#" class='sidebar-link '>
-                <i class="bi bi-shield-fill-exclamation @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "text-light" : "text-primary")"></i>
+                                <i class="bi bi-shield-fill-exclamation @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "text-light" : "text-primary")"></i>
                 <span>@L["7"]</span>
             </a>            
             <ul class="submenu @(_path.Contains("Admin/") && !_path.Contains("Logs") ? "active" : "")">
@@ -52,7 +49,7 @@
         </li>
         <li class="sidebar-item has-sub @(_path.Contains("Logs") ? "active" : "")">
             <a href="#" class='sidebar-link'>
-                <i class="bi bi-archive-fill @(_path.Contains("Logs") ? "text-light" : "text-primary")"></i>
+                                <i class="bi bi-archive-fill @(_path.Contains("Logs") ? "text-light" : "text-primary")"></i>
                 <span>@L["10"]</span>
             </a>
             <ul class="submenu @(_path.Contains("Logs") ? "active" : "")">
@@ -69,7 +66,7 @@
         </li>
         <li class="sidebar-item has-sub @(_path.Contains("Settings") ? "active" : "")">
             <a href="#" class='sidebar-link'>
-                <i class="bi bi-gear-fill @(_path.Contains("Settings") ? "text-light" : "text-primary")"></i>
+                        <i class="bi bi-gear-fill @(_path.Contains("Settings") ? "text-light" : "text-primary")"></i>
                 <span>@L["17"]</span>
             </a>
             <ul class="submenu @(_path.Contains("Settings") ? "active" : "")">

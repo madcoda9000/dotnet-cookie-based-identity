@@ -77,7 +77,7 @@ namespace DotNetIdentity.Data
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorLightBackground", Type = "BrandSettings", Value = "#f2f7ff" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorLink", Type = "BrandSettings", Value = "#f5023c" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorHeadlines", Type = "BrandSettings", Value = "#090251" });
-            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorTextMuted", Type = "BrandSettings", Value = "#f2f7ff" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorTextMuted", Type = "BrandSettings", Value = "#a0aabb" });
 
             //Seeding roles to AspNetRoles table
             builder.Entity<AppRole>().HasData(new AppRole { Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca", Name = "Admin", NormalizedName = "ADMIN".ToUpper() });

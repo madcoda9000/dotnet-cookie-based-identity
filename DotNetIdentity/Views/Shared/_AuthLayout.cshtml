@@ -23,6 +23,17 @@
     <link rel="shortcut icon" href="~/assets/images/logo/favicon-16x16.png" type="image/png">
     <script src="~/assets/extensions/jquery/jquery.min.js"></script>
     <style>
+        input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
         #auth-right {
             background-repeat: no-repeat;
             background-size: cover !important;
@@ -166,7 +177,7 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-                    <img src="@logonBg" style="height:100%;width100%;"/>
+                    <img src="@logonBg" style="height:100%;width:100%;"/>
                 </div>
             </div>
         </div>
