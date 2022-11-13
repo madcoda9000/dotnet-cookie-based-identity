@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8352.10688\] - 2022.11.12
+
+#### Added
+
+* added link color attribute to brand settings
+* added Headlines aatribute to brand settings
+* added muted text attribute to brand settings
+* added translations for new properties
+* added Auth pages Backround property to brand settings
++ added dynamic background to _AuthLayout.cshtml
+
+#### Modified
+
+* modified settings controller POST method to save custom images
+* replaced css values with brand settings property in _MainLayout.cshtml
+* replaced css values with brand settings property in _AuthLayout.cshtml
+* replaced css values with brand settings property in _ErrorLayout.cshtml
+* replaced static logo on login.cshtml with brand settings property
+
 ### \[0.0.8351.15971\] - 2022.11.12
 
 #### Added

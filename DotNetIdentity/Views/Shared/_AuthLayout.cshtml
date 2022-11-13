@@ -2,6 +2,14 @@
 @inject IConfiguration Configuration
 @inject ISettingsService _sett
 
+@{
+    var logonBg = "/assets/images/bg/bg.jpg";
+    if (_sett.Brand.LoginBackground != null)
+    {
+        logonBg = _sett.Brand.LoginBackground;
+    }
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,40 +24,103 @@
     <script src="~/assets/extensions/jquery/jquery.min.js"></script>
     <style>
         #auth-right {
-            background: url("/assets/images/bg/bg.jpg") center no-repeat !important;
+            background-repeat: no-repeat;
             background-size: cover !important;
             height: 100vh !important;
+            background-position: center !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: @_sett.Brand.ColorHeadlines !important;
+        }
+
+        a {
+            color: @_sett.Brand.ColorLink !important;
+        }
+
+        .text-muted {
+            color: @_sett.Brand.ColorTextMuted !important;
         }
 
         .bg-danger {
             background-color: @_sett.Brand.ColorDanger !important;
         }
+
         .bg-success {
             background-color: @_sett.Brand.ColorSuccess !important;
         }
+
         .bg-warning {
             background-color: @_sett.Brand.ColorWarning !important;
         }
+
         .bg-primary {
             background-color: @_sett.Brand.ColorPrimary !important;
         }
+
         .bg-info {
             background-color: @_sett.Brand.ColorInfo !important;
         }
+
         .text-danger {
             color: @_sett.Brand.ColorDanger !important;
         }
+
         .text-success {
             color: @_sett.Brand.ColorSuccess !important;
         }
+
         .text-warning {
             color: @_sett.Brand.ColorWarning !important;
         }
+
         .text-primary {
             color: @_sett.Brand.ColorPrimary !important;
         }
+
         .text-info {
             color: @_sett.Brand.ColorInfo !important;
+        }
+
+        .btn-primary {
+            background-color: @_sett.Brand.ColorPrimary !important;
+        }
+
+        a.btn-primary {
+            background-color: @_sett.Brand.ColorPrimary !important;
+            color: #fff !important;
+        }
+
+        .btn-warning {
+            background-color: @_sett.Brand.ColorWarning !important;
+        }
+
+        a.btn-warning {
+            background-color: @_sett.Brand.ColorWarning !important;
+            color: #000 !important
+        }
+
+        .btn-success {
+            background-color: @_sett.Brand.ColorSuccess !important;
+        }
+
+        .btn-success a {
+            background-color: @_sett.Brand.ColorSuccess !important;
+            color: #fff !important;
+        }
+
+        .btn-info {
+            background-color: @_sett.Brand.ColorInfo !important;
+        }
+
+        .btn-info a {
+            background-color: @_sett.Brand.ColorInfo !important;
+            color: #fff !important;
         }
 
         .alert-danger {
@@ -63,8 +134,19 @@
         .alert-success {
             background-color: @_sett.Brand.ColorSuccess !important;
         }
+
         .alert-info {
             background-color: @_sett.Brand.ColorInfo !important;
+        }
+
+        #auth #auth-left .auth-subtitle {
+            color: @_sett.Brand.ColorTextMuted !important;
+            ;
+        }
+
+        .form-check-input:checked {
+            background-color: @_sett.Brand.ColorPrimary !important;
+            border: 1px solid @_sett.Brand.ColorPrimary !important;
         }
     </style>
 </head>
@@ -78,18 +160,22 @@
                     @RenderBody()
                 </div>
                 <div class="text-center mb-0">
-                    <span class="text-muted">Release: none / Build: @GetType().Assembly.GetName().Version!.ToString()</span>
+                    <span class="text-muted">Release: none / Build:
+                        @GetType().Assembly.GetName().Version!.ToString()</span>
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-
+                    <img src="@logonBg" style="height:100%;width100%;"/>
                 </div>
             </div>
         </div>
 
     </div>
     <script src="~/assets/js/bootstrap.js"></script>
+    <script>
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

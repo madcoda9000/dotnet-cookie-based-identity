@@ -69,11 +69,15 @@ namespace DotNetIdentity.Data
 
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ApplicationName", Type = "BrandSettings", Value = "YourApp" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorPrimary", Type = "BrandSettings", Value = "#090251" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorSecondary", Type = "BrandSettings", Value = "#f5023c" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorInfo", Type = "BrandSettings", Value = "#2196f3" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorSuccess", Type = "BrandSettings", Value = "#00c853" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorWarning", Type = "BrandSettings", Value = "#ff9800" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorDanger", Type = "BrandSettings", Value = "#f5023c" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorLightBackground", Type = "BrandSettings", Value = "#f2f7ff" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorLink", Type = "BrandSettings", Value = "#f5023c" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorHeadlines", Type = "BrandSettings", Value = "#090251" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ColorTextMuted", Type = "BrandSettings", Value = "#f2f7ff" });
 
             //Seeding roles to AspNetRoles table
             builder.Entity<AppRole>().HasData(new AppRole { Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca", Name = "Admin", NormalizedName = "ADMIN".ToUpper() });

@@ -1,7 +1,14 @@
 @model UpdateBrandSettingsViewModel
 @inject IViewLocalizer L
+@inject ISettingsService _sett
 @{
     ViewData["Title"] = "Brand Settings";
+}
+@{
+    var logonBg = "/assets/images/bg/bg.jpg";
+    if(_sett.Brand.LoginBackground!=null) {
+        logonBg = _sett.Brand.LoginBackground;
+    }
 }
 
 <div class="page-title">
@@ -35,10 +42,38 @@
                 <input asp-for="ApplicationName" class="form-control" />
                 <span asp-validation-for="ApplicationName" class="text-danger"></span>
             </div>
+            <div class="row">
+                <div class="col-md-4 col-12">
+                    <div class="form-group">
+                        <label for="ColorLink" class="form-label">@L["16"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorLink"
+                            title="Choose your link color">
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="form-group">
+                        <label for="ColorHeadlines" class="form-label">@L["17"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorHeadlines"
+                            title="Choose your Headlines color">
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="form-group">
+                        <label for="ColorTextMuted" class="form-label">@L["18"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorTextMuted"
+                            title="Choose your muted text color">
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="ColorPrimary" class="form-label">@L["4"]</label>
                 <input type="color" class="form-control form-control-color" asp-for="ColorPrimary"
                     title="Choose your primary color">
+            </div>
+            <div class="form-group">
+                <label for="ColorSecondary" class="form-label">@L["15"]</label>
+                <input type="color" class="form-control form-control-color" asp-for="ColorSecondary"
+                    title="Choose your secondary color">
             </div>
             <div class="form-group">
                 <label for="ColorDanger" class="form-label">@L["5"]</label>
@@ -64,16 +99,32 @@
                 <label for="ColorLightBackground" class="form-label">@L["8"]</label>
                 <input type="color" class="form-control form-control-color" asp-for="ColorLightBackground"
                     title="Choose your light background color">
-            </div>
-            <div class="form-group">
-                <label for="UploadedLogo">@L["9"] (<i class="text-info"><b>@L["10"]</b></i>)</label><br>
-                <input type="file" asp-for="UploadedLogo" accept="image/png, image/gif, image/jpeg"
-                    class="form-control" />
-                <br />
-                <label>@L["11"]</label>
-                <div id="profImg" asp-BrandLogo="47" class="user-img d-flex align-items-center">
+            </div>            
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="UploadedLogo">@L["9"] (<i class="text-info"><b>@L["10"]</b></i>)</label><br>
+                        <input type="file" asp-for="UploadedLogo" accept="image/png, image/gif, image/jpeg"
+                            class="form-control" />
+                        <br />
+                        <label>@L["11"]</label>
+                        <div id="profImg" asp-BrandLogo="47" class="user-img d-flex align-items-center">
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="UploadedLogonBackground">@L["21"] (<i class="text-info"><b>@L["10"]</b></i>)</label><br>
+                        <input type="file" asp-for="UploadedLogonBackground" accept="image/png, image/gif, image/jpeg"
+                            class="form-control" />
+                        <br />
+                        <label>@L["20"]</label>
+                        <div id="logonImg" class="user-img d-flex align-items-center">
+                            <img src="@logonBg" height="50" />
+                        </div>
+                    </div>
+                </div>
+            </div>            
             <div class="d-flex flex-row-reverse">                
                 <button type="submit" class="btn btn-primary mt-1">@L["12"]</button>
                 <a data-bs-toggle="modal" data-bs-target="#danger" class="btn btn-warning mt-1" style="margin-right:10px !important;">@L["13"]</a>
@@ -87,7 +138,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <h5 class="modal-title white" id="myModalLabel120">Danger Modal
+                <h5 class="modal-title" style="color:#fff !important;" id="myModalLabel120">Danger Modal
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <i data-feather="x"></i>
@@ -97,11 +148,11 @@
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">
                     <span class="d-none d-sm-block">Cancel</span>
                 </button>
                 <form id="delForm">
-                    <button class="btn btn btn-danger" asp-action="restoreStyle">Yes, please reset the style!</button>
+                    <button class="btn btn-sm btn-danger" asp-action="restoreStyle">Yes, please reset the style!</button>
                 </form>
                 
             </div>

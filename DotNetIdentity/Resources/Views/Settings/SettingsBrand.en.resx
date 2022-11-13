@@ -134,7 +134,7 @@
     <comment/>
   </data>
   <data name="5" xml:space="preserve">
-    <value>Danger Color (used as secondary color also!)</value>
+    <value>Danger Color</value>
     <comment/>
   </data>
   <data name="6" xml:space="preserve">
@@ -171,6 +171,34 @@
   </data>
   <data name="14" xml:space="preserve">
     <value>Success Color</value>
+    <comment/>
+  </data>
+  <data name="15" xml:space="preserve">
+    <value>Secondary Color</value>
+    <comment/>
+  </data>
+  <data name="16" xml:space="preserve">
+    <value>Link Color</value>
+    <comment/>
+  </data>
+  <data name="17" xml:space="preserve">
+    <value>Headlines Color</value>
+    <comment/>
+  </data>
+  <data name="18" xml:space="preserve">
+    <value>Muted Text Color</value>
+    <comment/>
+  </data>
+  <data name="19" xml:space="preserve">
+    <value>Logon-Backgroundimage</value>
+    <comment/>
+  </data>
+  <data name="20" xml:space="preserve">
+    <value>Current Logon-Background</value>
+    <comment/>
+  </data>
+  <data name="21" xml:space="preserve">
+    <value>Upload your Logon Background image</value>
     <comment/>
   </data>
 </root>

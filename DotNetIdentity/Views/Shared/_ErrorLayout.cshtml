@@ -1,5 +1,3 @@
-
-
 @using Microsoft.Extensions.Configuration
 @inject IConfiguration Configuration
 @inject ISettingsService _sett
@@ -27,7 +25,7 @@
     clear: both;
 }
 body {
-    background: #f2f7ff !important;
+    background: @_sett.Brand.ColorLightBackground !important;
 }
 .page-404 .outer {
     position: absolute;
@@ -55,12 +53,12 @@ body {
     background-color: #ffffff;
 }
 .page-404 .outer .middle .inner .inner-circle:hover i {
-    color: #090251!important;
+    color: @_sett.Brand.ColorPrimary !important;
     background-color: #fff;
-    box-shadow: 0 0 0 15px #f5023c;
+    box-shadow: 0 0 0 15px @_sett.Brand.ColorSecondary;
 }
 .page-404 .outer .middle .inner .inner-circle:hover span {
-    color: #f5023c;
+    color: @_sett.Brand.ColorSecondary;
 }
 .page-404 .outer .middle .inner .inner-circle i {
     font-size: 5em;
@@ -78,10 +76,10 @@ body {
             transition: all .4s;
     text-align: center;
 
-    color: #f5023c!important;
+    color: @_sett.Brand.ColorSecondary !important;
     border-radius: 50%;
     background-color: #fff;
-    box-shadow: 0 0 0 15px #090251;
+    box-shadow: 0 0 0 15px @_sett.Brand.ColorPrimary;
 }
 .page-404 .outer .middle .inner .inner-circle span {
     font-size: 11em;
@@ -94,7 +92,7 @@ body {
             transition: all .4s;
     text-align: center;
 
-    color: #090251;
+    color: @_sett.Brand.ColorPrimary;
 }
 .page-404 .outer .middle .inner .inner-status {
     font-size: 20px;
@@ -106,7 +104,7 @@ body {
 
     text-align: center;
 
-    color: #f5023c;
+    color: @_sett.Brand.ColorDanger;
 }
 .page-404 .outer .middle .inner .inner-detail {
     line-height: 1.4em;
@@ -117,8 +115,15 @@ body {
 
     text-align: center;
 
-    color: #090251;
+    color: @_sett.Brand.ColorPrimary;
 }
+.btn-primary {
+            background-color: @_sett.Brand.ColorPrimary !important;
+        }
+        a.btn-primary{
+            background-color: @_sett.Brand.ColorPrimary !important;
+            color:#fff !important;
+        }
     </style>
 </head>
 

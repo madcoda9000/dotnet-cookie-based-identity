@@ -70,6 +70,7 @@ namespace DotNetIdentity.Controllers
         [Authorize]
         public async Task<IActionResult> restoreStyle () {
             _settings.Brand.ApplicationLogo = null;
+            _settings.Brand.LoginBackground = null;
             _settings.Brand.ApplicationName = "YourApp";
             _settings.Brand.ColorDanger = "#f5023c";
             _settings.Brand.ColorInfo = "#2196f3";
@@ -77,6 +78,10 @@ namespace DotNetIdentity.Controllers
             _settings.Brand.ColorPrimary = "#090251";
             _settings.Brand.ColorSuccess = "#00c853";
             _settings.Brand.ColorWarning = "#ff9800";
+            _settings.Brand.ColorSecondary = "#f5023c";
+            _settings.Brand.ColorHeadlines = "#090251";
+            _settings.Brand.ColorLink = "#f5023c";
+            _settings.Brand.ColorTextMuted = "#f2f7ff";
             await _settings.Save();
 
             _logger.LogInformation("AUDIT: " + User.Identity!.Name + " restored Brand settings to default! ");
@@ -99,6 +104,11 @@ namespace DotNetIdentity.Controllers
             viewModel.ColorPrimary = _settings.Brand.ColorPrimary;
             viewModel.ColorSuccess = _settings.Brand.ColorSuccess;
             viewModel.ColorWarning = _settings.Brand.ColorWarning;
+            viewModel.ColorSecondary = _settings.Brand.ColorSecondary;
+            viewModel.ColorTextMuted = _settings.Brand.ColorTextMuted;
+            viewModel.ColorLink = _settings.Brand.ColorLink;
+            viewModel.ColorHeadlines = _settings.Brand.ColorHeadlines;
+            viewModel.LoginBackground = _settings.Brand.LoginBackground;
             return View(viewModel);
         }
 
@@ -152,6 +162,10 @@ namespace DotNetIdentity.Controllers
             _settings.Brand.ColorPrimary = viewModel.ColorPrimary;
             _settings.Brand.ColorSuccess = viewModel.ColorSuccess;
             _settings.Brand.ColorWarning = viewModel.ColorWarning;
+            _settings.Brand.ColorSecondary = viewModel.ColorSecondary;
+            _settings.Brand.ColorLink = viewModel.ColorLink;
+            _settings.Brand.ColorHeadlines = viewModel.ColorHeadlines;
+            _settings.Brand.ColorTextMuted = viewModel.ColorTextMuted;
 
             if (viewModel.UploadedLogo != null)
             {
@@ -162,7 +176,7 @@ namespace DotNetIdentity.Controllers
                     // Upload the file if less than 2 MB
                     if (memoryStream.Length < 2097152)
                     {
-                        var format = "image/png";
+                        var format = "image/" + System.IO.Path.GetExtension(viewModel.UploadedLogo.FileName).Replace(".","");
                         var Content = memoryStream.ToArray();
                         var imageData = $"data:{format};base64,{Convert.ToBase64String(Content)}";
                         _settings.Brand.ApplicationLogo = imageData;
@@ -177,6 +191,32 @@ namespace DotNetIdentity.Controllers
             else
             {
                 _settings.Brand.ApplicationLogo = null;
+            }
+
+            if (viewModel.UploadedLogonBackground != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await viewModel.UploadedLogonBackground.CopyToAsync(memoryStream);
+
+                    // Upload the file if less than 2 MB
+                    if (memoryStream.Length < 2097152)
+                    {
+                        var format = "image/" + System.IO.Path.GetExtension(viewModel.UploadedLogonBackground.FileName).Replace(".", "");
+                        var Content = memoryStream.ToArray();
+                        var imageData = $"data:{format};base64,{Convert.ToBase64String(Content)}";
+                        _settings.Brand.LoginBackground = imageData;
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("File", _localizer["7"]);
+                    }
+                }
+            }
+            else
+            {
+                _settings.Brand.LoginBackground = null;
             }
 
             await _settings.Save();

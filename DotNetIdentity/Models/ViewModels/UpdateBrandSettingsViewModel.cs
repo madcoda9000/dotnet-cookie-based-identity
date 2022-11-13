@@ -6,9 +6,14 @@ namespace DotNetIdentity.Models.ViewModels {
     /// </summary>
     public class UpdateBrandSettingsViewModel : BrandSettings {
         /// <summary>
-        /// property to hole the new uploaded image
+        /// property to hold the new uploaded logo image
         /// </summary>
         /// <value></value>
         public IFormFile? UploadedLogo {get;set;}
+        /// <summary>
+        /// property to hold the new uploaded logon background image
+        /// </summary>
+        /// <value></value>
+        public IFormFile? UploadedLogonBackground { get; set; }
     }
 }

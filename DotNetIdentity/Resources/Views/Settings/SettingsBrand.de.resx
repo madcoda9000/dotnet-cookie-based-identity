@@ -134,7 +134,7 @@
     <comment/>
   </data>
   <data name="5" xml:space="preserve">
-    <value>Gefahrfarbe (wird auch als sekundäre Farbe verwendet!)</value>
+    <value>Gefahrfarbe</value>
     <comment/>
   </data>
   <data name="6" xml:space="preserve">
@@ -171,6 +171,34 @@
   </data>
   <data name="14" xml:space="preserve">
     <value>Erfolgsfarbe</value>
+    <comment/>
+  </data>
+  <data name="15" xml:space="preserve">
+    <value>Sekundärfarbe</value>
+    <comment/>
+  </data>
+  <data name="16" xml:space="preserve">
+    <value>Link Textfarbe</value>
+    <comment/>
+  </data>
+  <data name="17" xml:space="preserve">
+    <value>Überschriftenfarbe</value>
+    <comment/>
+  </data>
+  <data name="18" xml:space="preserve">
+    <value>Muted Textfarbe</value>
+    <comment/>
+  </data>
+  <data name="19" xml:space="preserve">
+    <value>Anmelde-Hintergrundbild</value>
+    <comment/>
+  </data>
+  <data name="20" xml:space="preserve">
+    <value>Derzeitiges Anmelde - Hintergrundbild</value>
+    <comment/>
+  </data>
+  <data name="21" xml:space="preserve">
+    <value>Laden Sie Ihr Anmeldehintergrundbild hoch</value>
     <comment/>
   </data>
 </root>

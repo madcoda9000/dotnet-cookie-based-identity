@@ -26,6 +26,15 @@
         body {
             background-color: @_sett.Brand.ColorLightBackground !important;
         }    
+        h1, h2, h3, h4, h5, h6 {
+            color: @_sett.Brand.ColorHeadlines !important;
+        }
+        a {
+            color: @_sett.Brand.ColorLink !important;
+        }
+        .text-muted {
+            color: @_sett.Brand.ColorTextMuted !important;
+        }
         input:focus,
         select:focus,
         textarea:focus,
@@ -40,6 +49,31 @@
         }
         input[type=text]:focus {
          
+        }
+        .form-check-input:checked {
+            background-color: @_sett.Brand.ColorPrimary !important;
+            border:1px solid @_sett.Brand.ColorPrimary !important;
+        }
+        .form-check.form-check-danger .form-check-input {
+            background-color: @_sett.Brand.ColorDanger !important;
+            border-color: @_sett.Brand.ColorDanger !important;
+        }
+        .page-link {
+            background-color: @_sett.Brand.ColorPrimary !important;
+            border-color: @_sett.Brand.ColorPrimary !important;
+            color: #fff !important;
+            display: block;
+            font-size: var(--bs-pagination-font-size);
+            padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+            position: relative;
+            text-decoration: none;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            margin-right:3px !important;
+        }
+        .active>.page-link, .page-link.active {
+            background-color: @_sett.Brand.ColorSecondary !important;
+            border-color: @_sett.Brand.ColorSecondary !important;
+            color: #fff !important;
         }
         .form-control {
             -webkit-appearance: none;
@@ -88,6 +122,45 @@
         .text-info {
             color: @_sett.Brand.ColorInfo !important;
         }
+        .btn-primary {
+            background-color: @_sett.Brand.ColorPrimary !important;
+        }
+        a.btn-primary{
+            background-color: @_sett.Brand.ColorPrimary !important;
+            color:#fff !important;
+        }
+        .btn-warning {
+            background-color: @_sett.Brand.ColorWarning !important;
+            border:1px solid @_sett.Brand.ColorWarning !important;
+        }
+        a.btn-warning{
+            background-color: @_sett.Brand.ColorWarning !important;
+            border:1px solid @_sett.Brand.ColorWarning !important;
+            color:#000 !important
+        }
+        .btn-success {
+            background-color: @_sett.Brand.ColorSuccess !important;
+        }
+        a.btn-success{
+            background-color: @_sett.Brand.ColorSuccess !important;
+            color:#fff !important;
+        }
+        .btn-info {
+            background-color: @_sett.Brand.ColorInfo !important;
+        }
+        a.btn-info {
+            background-color: @_sett.Brand.ColorInfo !important;
+            color:#fff !important;
+        }
+        .btn-danger {
+            background-color: @_sett.Brand.ColorDanger !important;
+            border:1px solid @_sett.Brand.ColorDanger !important;
+        }
+        a.btn-danger {
+            background-color: @_sett.Brand.ColorDanger !important;
+            border:1px solid @_sett.Brand.ColorDanger !important;
+            color:#fff !important;
+        }
 
         .alert-danger {
             background-color: @_sett.Brand.ColorDanger !important;
@@ -108,6 +181,21 @@
             background-color: @_sett.Brand.ColorLightBackground !important;
             color: @_sett.Brand.ColorPrimary !important;
             font-weight: 700;
+        }
+        .sidebar-wrapper .menu .sidebar-item.active>.sidebar-link {
+            background-color: @_sett.Brand.ColorPrimary !important;
+        }
+        .sidebar-wrapper .menu .sidebar-item.active>.sidebar-link span {
+            color:#fff !important;
+        }
+        .sidebar-wrapper .menu .sidebar-link span {
+            color: @_sett.Brand.ColorPrimary !important;
+        }
+        .sidebar-wrapper .menu .submenu .submenu-item a {
+            color:@_sett.Brand.ColorPrimary !important;
+        }
+        .sidebar-wrapper .menu .sidebar-title {
+            color:@_sett.Brand.ColorPrimary !important;
         }
         #langBtn {
             text-decoration: none !important;
@@ -146,7 +234,7 @@
         </div>
         <div id="main"  class='layout-navbar'>
             <header class="mb-3">
-                <nav class="navbar navbar-expand navbar-top" style="background-color:#090251 !important;">
+                <nav class="navbar navbar-expand navbar-top" style="background-color:@_sett.Brand.ColorPrimary !important;">
                     <div class="container-fluid">
                         <a href="#" class="burger-btn d-block text-light">
                             <i class="bi bi-justify fs-3"></i>
@@ -224,7 +312,7 @@
                         <p>2022 &copy; Sascha Heimann</p>
                     </div>
                     <div class="float-end">
-                        <p><span class="text-muted"><i class="bi bi-git text-danger"></i>&nbsp;Release: none / Build: @GetType().Assembly.GetName().Version!.ToString()</span>
+                        <p><span class="text-muted"><i class="bi bi-git" style="color:@_sett.Brand.ColorLink !important;"></i>&nbsp;Release: none / Build: @GetType().Assembly.GetName().Version!.ToString()</span>
                     </div>
                 </div>
             </footer>

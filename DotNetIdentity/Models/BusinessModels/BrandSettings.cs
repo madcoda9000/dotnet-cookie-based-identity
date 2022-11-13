@@ -14,6 +14,11 @@ namespace DotNetIdentity.Models.BusinessModels {
         /// <value></value>
         public string? ColorPrimary {get;set;}
         /// <summary>
+        /// secondary color property
+        /// </summary>
+        /// <value></value>
+        public string? ColorSecondary { get; set; }
+        /// <summary>
         /// Info color property
         /// </summary>
         /// <value></value>
@@ -43,5 +48,25 @@ namespace DotNetIdentity.Models.BusinessModels {
         /// </summary>
         /// <value></value>
         public string? ApplicationLogo {get;set;}
+        /// <summary>
+        /// headline color property
+        /// </summary>
+        /// <value></value>
+        public string? ColorHeadlines { get; set; }
+        /// <summary>
+        /// link color property
+        /// </summary>
+        /// <value></value>
+        public string? ColorLink { get; set; }
+        /// <summary>
+        /// muted text color property
+        /// </summary>
+        /// <value></value>
+        public string? ColorTextMuted { get; set; }
+        /// <summary>
+        /// AuthLayoutBgImage property
+        /// </summary>
+        /// <value></value>
+        public string? LoginBackground { get; set; }
     }
 }
