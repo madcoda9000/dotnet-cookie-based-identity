@@ -24,16 +24,26 @@
     <script src="~/assets/extensions/jquery/jquery.min.js"></script>
     <style>
         input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
-}
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px @_sett.Brand.ColorLightBackground inset !important;
+        }
+
+        input.form-control {
+            background-color: @_sett.Brand.ColorLightBackground !important;
+        }
+        select.form-control {
+            background-color: @_sett.Brand.ColorLightBackground !important;
+        }
+        .form-group[class*=has-icon-] .form-control-icon i, .form-group[class*=has-icon-] .form-control-icon svg{
+            color: @_sett.Brand.ColorPrimary !important;
+        }
         #auth-right {
             background-repeat: no-repeat;
             background-size: cover !important;
@@ -176,8 +186,8 @@ select:-webkit-autofill:focus {
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right">
-                    <img src="@logonBg" style="height:100%;width:100%;"/>
+                <div id="auth-right" style="background-image:url('@logonBg');background-repeat: no-repeat; background-size: cover;height: 100vh !important; background-position: top left !important;">
+                   <!-- <img src="@logonBg" style="max-height:100%;max-width:100%;display:inline;" /> -->
                 </div>
             </div>
         </div>

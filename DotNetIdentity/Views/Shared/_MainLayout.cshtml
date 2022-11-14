@@ -18,11 +18,11 @@
     <title>@ViewData["Title"] - @_sett.Brand.ApplicationName</title> 
 
     <link rel="stylesheet" href="~/assets/css/main/app.css">
-    <link rel="stylesheet" href="~/assets/css/main/app-dark.css">
     <link rel="shortcut icon" href="~/assets/images/logo/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="~/assets/images/logo/favicon-16x16.png" type="image/png">
     <script src="/assets/extensions/jquery/jquery.min.js"></script>
     <style>    
+        /* main styles */
         body {
             background-color: @_sett.Brand.ColorLightBackground !important;
         }    
@@ -35,6 +35,36 @@
         .text-muted {
             color: @_sett.Brand.ColorTextMuted !important;
         }
+        .page-link {
+            background-color: @_sett.Brand.ColorPrimary !important;
+            border-color: @_sett.Brand.ColorPrimary !important;
+            color: #fff !important;
+            display: block;
+            font-size: var(--bs-pagination-font-size);
+            padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+            position: relative;
+            text-decoration: none;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            margin-right:3px !important;
+        }
+        .active>.page-link, .page-link.active {
+            background-color: @_sett.Brand.ColorSecondary !important;
+            border-color: @_sett.Brand.ColorSecondary !important;
+            color: #fff !important;
+        }
+        #langBtn {
+            text-decoration: none !important;
+            margin-left:-12px !important;
+        }
+        .drpHead {
+            color: @_sett.Brand.ColorPrimary !important;
+        }
+        .drpHead:hover {
+            color: @_sett.Brand.ColorLink !important;
+        }
+        /* end main styles */
+
+        /* input styles */
         input:focus,
         select:focus,
         textarea:focus,
@@ -58,23 +88,6 @@
             background-color: @_sett.Brand.ColorDanger !important;
             border-color: @_sett.Brand.ColorDanger !important;
         }
-        .page-link {
-            background-color: @_sett.Brand.ColorPrimary !important;
-            border-color: @_sett.Brand.ColorPrimary !important;
-            color: #fff !important;
-            display: block;
-            font-size: var(--bs-pagination-font-size);
-            padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
-            position: relative;
-            text-decoration: none;
-            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-            margin-right:3px !important;
-        }
-        .active>.page-link, .page-link.active {
-            background-color: @_sett.Brand.ColorSecondary !important;
-            border-color: @_sett.Brand.ColorSecondary !important;
-            color: #fff !important;
-        }
         .form-control {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -92,6 +105,9 @@
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
             width: 100%;
         }
+        /* end input styles */
+
+        /* brand color bg styles */        
         .bg-danger {
             background-color: @_sett.Brand.ColorDanger !important;
         }
@@ -107,6 +123,9 @@
         .bg-info {
             background-color: @_sett.Brand.ColorInfo !important;
         }
+        /* end brand color bg styles */
+
+        /* brand color text styles */
         .text-secondary {
             color: @_sett.Brand.ColorSecondary !important;
         }
@@ -125,6 +144,9 @@
         .text-info {
             color: @_sett.Brand.ColorInfo !important;
         }
+        /* brand color text styles */
+
+        /* brand color button styles */
         .btn-primary {
             background-color: @_sett.Brand.ColorPrimary !important;
         }
@@ -164,7 +186,9 @@
             border:1px solid @_sett.Brand.ColorDanger !important;
             color:#fff !important;
         }
+        /* end brand color button styles */
 
+        /* brand color alert styles */
         .alert-danger {
             background-color: @_sett.Brand.ColorDanger !important;
         }
@@ -179,6 +203,9 @@
         .alert-info {
             background-color: @_sett.Brand.ColorInfo !important;
         }
+        /* end brand color alert styles */
+
+        /* brand color sidebar styles */
         .sidebar-wrapper .menu .submenu .submenu-item.active>a {
             border-radius: 0.5rem;
             background-color: @_sett.Brand.ColorLightBackground !important;
@@ -200,16 +227,9 @@
         .sidebar-wrapper .menu .sidebar-title {
             color:@_sett.Brand.ColorPrimary !important;
         }
-        #langBtn {
-            text-decoration: none !important;
-            margin-left:-12px !important;
-        }
-        .drpHead {
-            color: @_sett.Brand.ColorPrimary !important;
-        }
-        .drpHead:hover {
-            color: @_sett.Brand.ColorLink !important;
-        }
+        /* end brand color sidebar styles */
+
+        
     </style>
 </head>
 

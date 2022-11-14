@@ -328,7 +328,14 @@ namespace DotNetIdentity.Controllers
         /// controller action for Logout
         /// </summary>
         /// <returns></returns>
-        public async Task Logout() => await _signInManager.SignOutAsync();
+        public async Task Logout(string? res) {
+            if(res!=null && res=="sst") {
+                _logger.LogInformation("AUDIT: user " + User.Identity!.Name + " logged out due to inactivity timeout.");
+            } else {
+                _logger.LogInformation("AUDIT: user " + User.Identity!.Name + " logged out successfully.");
+            }            
+            await _signInManager.SignOutAsync();
+        }
 
         /// <summary>
         /// controller action for Profile view

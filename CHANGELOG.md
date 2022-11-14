@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8352.10688\] - 2022.11.13
+
+#### Fixed
+
+* image display on auth layout
+* css background theme color for inputs in AuthLayout
+
 ### \[0.0.8352.10688\] - 2022.11.12
 
 #### Added
@@ -13,7 +20,7 @@ All notable changes to this project will be documented in this file.
 * added muted text attribute to brand settings
 * added translations for new properties
 * added Auth pages Backround property to brand settings
-+ added dynamic background to _AuthLayout.cshtml
+* added dynamic background to _AuthLayout.cshtml
 
 #### Modified
 
