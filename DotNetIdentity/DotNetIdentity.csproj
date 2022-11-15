@@ -32,6 +32,7 @@
     <PackageReference Include="Pomelo.Extensions.Caching.MySql" Version="2.1.2" />
     <PackageReference Include="serilog.aspnetcore" Version="6.0.1" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="serilog.Sinks.Mariadb" Version="1.0.1" />
     <PackageReference Include="serilog.Sinks.Mssqlserver" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

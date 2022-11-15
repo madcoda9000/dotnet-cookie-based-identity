@@ -14,6 +14,8 @@ using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
 using DatatableJS.Data;
 using Microsoft.Extensions.Localization;
+using System.Data;
+using System.Reflection;
 
 namespace DotNetIdentity.Controllers
 {

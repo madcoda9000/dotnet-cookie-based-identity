@@ -4,14 +4,71 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 #pragma warning disable 1591
-
 namespace DotNetIdentity.Data.Migrations
 {
-    public partial class InitialMigrationMysql : Migration
+    public partial class Initial_MySql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterDatabase()
+                .Annotation("MySql:CharSet", "utf8mb4");
+            /*
+            migrationBuilder.CreateTable(
+                name: "AppLogs",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Exception = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Level = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Message = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MessageTemplate = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Properties = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppLogs", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+            */
+            migrationBuilder.CreateTable(
+                name: "AppSessionCache",
+                columns: table => new
+                {
+                    id = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Value = table.Column<byte[]>(type: "longblob", nullable: true),
+                    ExpiresAtTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    SlidingExpirationInSeconds = table.Column<int>(type: "int", nullable: false),
+                    AbsoluteExpiration = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppSessionCache", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "AppSettings",
+                columns: table => new
+                {
+                    Name = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Type = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Value = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppSettings", x => new { x.Name, x.Type });
+                })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
@@ -50,6 +107,13 @@ namespace DotNetIdentity.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     IsMfaForce = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     IsLdapLogin = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Department = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ProfilePicture = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsEnabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    RolesCombined = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
@@ -207,20 +271,52 @@ namespace DotNetIdentity.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.InsertData(
+                table: "AppSettings",
+                columns: new[] { "Name", "Type", "Value" },
+                values: new object[,]
+                {
+                    { "ApplicationName", "BrandSettings", "YourApp" },
+                    { "ColorDanger", "BrandSettings", "#f5023c" },
+                    { "ColorHeadlines", "BrandSettings", "#090251" },
+                    { "ColorInfo", "BrandSettings", "#2196f3" },
+                    { "ColorLightBackground", "BrandSettings", "#f2f7ff" },
+                    { "ColorLink", "BrandSettings", "#f5023c" },
+                    { "ColorPrimary", "BrandSettings", "#090251" },
+                    { "ColorSecondary", "BrandSettings", "#f5023c" },
+                    { "ColorSuccess", "BrandSettings", "#00c853" },
+                    { "ColorTextMuted", "BrandSettings", "#a0aabb" },
+                    { "ColorWarning", "BrandSettings", "#ff9800" },
+                    { "LdapBaseDn", "LdapSettings", "DC=YOUR,DC=Domain,DC=com" },
+                    { "LdapDomainController", "LdapSettings", "YOUR_Domaincontroller_FQDN" },
+                    { "LdapDomainName", "LdapSettings", "YOUR_Domainname" },
+                    { "LdapEnabled", "LdapSettings", "true" },
+                    { "LdapGroup", "LdapSettings", "YOUR_Ldap_Group" },
+                    { "Password", "MailSettings", "YOUR_SmtpPassword" },
+                    { "SessionCookieExpiration", "GlobalSettings", "7" },
+                    { "SessionTimeoutRedirAfter", "GlobalSettings", "70000" },
+                    { "SessionTimeoutWarnAfter", "GlobalSettings", "50000" },
+                    { "SmtpFromAddress", "MailSettings", "YOUR_From_Address" },
+                    { "SmtpPort", "MailSettings", "587" },
+                    { "SmtpServer", "MailSettings", "YOUR_SmtpServer" },
+                    { "SmtpUseTls", "MailSettings", "true" },
+                    { "Username", "MailSettings", "YOUR_Smtp_Username" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "02777964-1879-4805-98d5-498b6078cf3c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
-                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "c984a790-efc9-49c5-b3c2-30213ec5f615", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
-                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "b2236f39-1070-4476-87d3-abe32eb16fa8", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
-                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "c0c408e6-b279-438e-9de0-8acd866daa03", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
+                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "7b3855c7-17fa-4ff9-a55d-1666539bcfc2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
+                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "cab8ac7d-57c4-4337-9663-ef7205853e7e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
+                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "94ec1cb6-a8a5-4d4f-92e1-3a2c255b7785", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
+                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "976c32e3-74b8-43c6-af29-3940e5fc45b4", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "BirthDay", "ConcurrencyStamp", "CreatedOn", "Email", "EmailConfirmed", "FirstName", "Gender", "IsLdapLogin", "IsMfaForce", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "TwoFactorType", "UserName" },
-                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "b468dc01-1c53-48bf-882e-cf27afdc7640", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "super.admin@local.app", true, "Super", 0, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEJClOm3r29w6Eo+tBCaRuTfIFU4j3cN00LeSogD5cvzidE7tJLGqFVxGmBOgkVXnbg==", null, false, "76c0693e-e62c-4465-bc84-f2759e34e133", false, 0, "super.admin" });
+                columns: new[] { "Id", "AccessFailedCount", "BirthDay", "ConcurrencyStamp", "CreatedOn", "Department", "Email", "EmailConfirmed", "FirstName", "Gender", "IsEnabled", "IsLdapLogin", "IsMfaForce", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicture", "RolesCombined", "SecurityStamp", "TwoFactorEnabled", "TwoFactorType", "UserName" },
+                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "c6580361-31ef-4dd7-8c35-b7cbc448992b", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEFB0ktbNWIyN69krllZs74H9IJKJSg5+mzlXgnsJys6+qGtcnBrVurKB21CJhDalyQ==", null, false, null, "Admin", "5ba122e2-2d03-4a95-9df8-423a295659b8", false, 0, "super.admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -267,6 +363,16 @@ namespace DotNetIdentity.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            /*
+            migrationBuilder.DropTable(
+                name: "AppLogs");
+            */
+            migrationBuilder.DropTable(
+                name: "AppSessionCache");
+
+            migrationBuilder.DropTable(
+                name: "AppSettings");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -289,4 +395,5 @@ namespace DotNetIdentity.Data.Migrations
                 name: "AspNetUsers");
         }
     }
+    #pragma warning restore 1591
 }

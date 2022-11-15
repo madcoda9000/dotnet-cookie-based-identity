@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using DotNetIdentity.Models.DataModels;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetIdentity.Data
 {
     /// <summary>
     /// Application Database context class
     /// </summary>
+    [NotMapped]
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         /// <summary>

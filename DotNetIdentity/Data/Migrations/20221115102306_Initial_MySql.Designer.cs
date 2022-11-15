@@ -8,12 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 #pragma warning disable 1591
-
 namespace DotNetIdentity.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221019044126_Mod1_AppUser")]
-    partial class Mod1_AppUser
+    [Migration("20221115102306_Initial_MySql")]
+    partial class Initial_MySql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,6 +20,229 @@ namespace DotNetIdentity.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.ApplicationSettings", b =>
+                {
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Name", "Type");
+
+                    b.ToTable("AppSettings");
+
+                    b.HasData(
+                        new
+                        {
+                            Name = "SessionTimeoutWarnAfter",
+                            Type = "GlobalSettings",
+                            Value = "50000"
+                        },
+                        new
+                        {
+                            Name = "SessionTimeoutRedirAfter",
+                            Type = "GlobalSettings",
+                            Value = "70000"
+                        },
+                        new
+                        {
+                            Name = "SessionCookieExpiration",
+                            Type = "GlobalSettings",
+                            Value = "7"
+                        },
+                        new
+                        {
+                            Name = "Username",
+                            Type = "MailSettings",
+                            Value = "YOUR_Smtp_Username"
+                        },
+                        new
+                        {
+                            Name = "Password",
+                            Type = "MailSettings",
+                            Value = "YOUR_SmtpPassword"
+                        },
+                        new
+                        {
+                            Name = "SmtpServer",
+                            Type = "MailSettings",
+                            Value = "YOUR_SmtpServer"
+                        },
+                        new
+                        {
+                            Name = "SmtpPort",
+                            Type = "MailSettings",
+                            Value = "587"
+                        },
+                        new
+                        {
+                            Name = "SmtpUseTls",
+                            Type = "MailSettings",
+                            Value = "true"
+                        },
+                        new
+                        {
+                            Name = "SmtpFromAddress",
+                            Type = "MailSettings",
+                            Value = "YOUR_From_Address"
+                        },
+                        new
+                        {
+                            Name = "LdapDomainController",
+                            Type = "LdapSettings",
+                            Value = "YOUR_Domaincontroller_FQDN"
+                        },
+                        new
+                        {
+                            Name = "LdapDomainName",
+                            Type = "LdapSettings",
+                            Value = "YOUR_Domainname"
+                        },
+                        new
+                        {
+                            Name = "LdapBaseDn",
+                            Type = "LdapSettings",
+                            Value = "DC=YOUR,DC=Domain,DC=com"
+                        },
+                        new
+                        {
+                            Name = "LdapGroup",
+                            Type = "LdapSettings",
+                            Value = "YOUR_Ldap_Group"
+                        },
+                        new
+                        {
+                            Name = "LdapEnabled",
+                            Type = "LdapSettings",
+                            Value = "true"
+                        },
+                        new
+                        {
+                            Name = "ApplicationName",
+                            Type = "BrandSettings",
+                            Value = "YourApp"
+                        },
+                        new
+                        {
+                            Name = "ColorPrimary",
+                            Type = "BrandSettings",
+                            Value = "#090251"
+                        },
+                        new
+                        {
+                            Name = "ColorSecondary",
+                            Type = "BrandSettings",
+                            Value = "#f5023c"
+                        },
+                        new
+                        {
+                            Name = "ColorInfo",
+                            Type = "BrandSettings",
+                            Value = "#2196f3"
+                        },
+                        new
+                        {
+                            Name = "ColorSuccess",
+                            Type = "BrandSettings",
+                            Value = "#00c853"
+                        },
+                        new
+                        {
+                            Name = "ColorWarning",
+                            Type = "BrandSettings",
+                            Value = "#ff9800"
+                        },
+                        new
+                        {
+                            Name = "ColorDanger",
+                            Type = "BrandSettings",
+                            Value = "#f5023c"
+                        },
+                        new
+                        {
+                            Name = "ColorLightBackground",
+                            Type = "BrandSettings",
+                            Value = "#f2f7ff"
+                        },
+                        new
+                        {
+                            Name = "ColorLink",
+                            Type = "BrandSettings",
+                            Value = "#f5023c"
+                        },
+                        new
+                        {
+                            Name = "ColorHeadlines",
+                            Type = "BrandSettings",
+                            Value = "#090251"
+                        },
+                        new
+                        {
+                            Name = "ColorTextMuted",
+                            Type = "BrandSettings",
+                            Value = "#a0aabb"
+                        });
+                });
+
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.AppLogs", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Exception")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("MessageTemplate")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Properties")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("AppLogs");
+                });
+
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.SessionCache", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTime?>("AbsoluteExpiration")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("ExpiresAtTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("SlidingExpirationInSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("Value")
+                        .HasColumnType("longblob");
+
+                    b.HasKey("id");
+
+                    b.ToTable("AppSessionCache");
+                });
 
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppRole", b =>
                 {
@@ -54,7 +276,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "9a39f005-16f0-42d4-bb0d-33d5250177a4",
+                            ConcurrencyStamp = "7b3855c7-17fa-4ff9-a55d-1666539bcfc2",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -62,7 +284,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "2eab52be-daa1-4a52-aef1-322c41a5cd6f",
+                            ConcurrencyStamp = "cab8ac7d-57c4-4337-9663-ef7205853e7e",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -70,7 +292,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "60b81ca7-84d3-403f-9fa2-4312d4dd8167",
+                            ConcurrencyStamp = "94ec1cb6-a8a5-4d4f-92e1-3a2c255b7785",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -78,7 +300,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "e5e19bf7-09fe-4101-bb4a-0f9cdb206da4",
+                            ConcurrencyStamp = "976c32e3-74b8-43c6-af29-3940e5fc45b4",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -119,6 +341,9 @@ namespace DotNetIdentity.Data.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<bool>("IsLdapLogin")
                         .HasColumnType("tinyint(1)");
 
@@ -151,6 +376,12 @@ namespace DotNetIdentity.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("ProfilePicture")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RolesCombined")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
@@ -181,22 +412,24 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "17455578-a93e-4338-8e2d-091a1932702d",
+                            ConcurrencyStamp = "c6580361-31ef-4dd7-8c35-b7cbc448992b",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
                             EmailConfirmed = true,
                             FirstName = "Super",
                             Gender = 0,
+                            IsEnabled = true,
                             IsLdapLogin = false,
                             IsMfaForce = false,
                             LastName = "Admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEbierr9P0D8F/KxxDwS8DXQXrH7gWHHz9WDdOjGCHpSffhlfiAS0/82FKReADlA0g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFB0ktbNWIyN69krllZs74H9IJKJSg5+mzlXgnsJys6+qGtcnBrVurKB21CJhDalyQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "44c2e14c-f74d-4448-992d-cfc8f9b09cec",
+                            RolesCombined = "Admin",
+                            SecurityStamp = "5ba122e2-2d03-4a95-9df8-423a295659b8",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"
@@ -362,8 +595,7 @@ namespace DotNetIdentity.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618
+#pragma warning restore 612, 618, 1591
         }
     }
 }
-#pragma warning restore 1591 

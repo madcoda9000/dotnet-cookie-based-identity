@@ -42,65 +42,87 @@
                 <input asp-for="ApplicationName" class="form-control" />
                 <span asp-validation-for="ApplicationName" class="text-danger"></span>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-12">
+            <div class="row mt-5">
+                <h5>Element Colors</h5>
+                <div class="col-md-3 col-12">
                     <div class="form-group">
                         <label for="ColorLink" class="form-label">@L["16"]</label>
                         <input type="color" class="form-control form-control-color" asp-for="ColorLink"
                             title="Choose your link color">
                     </div>
                 </div>
-                <div class="col-md-4 col-12">
+                <div class="col-md-3 col-12">
                     <div class="form-group">
                         <label for="ColorHeadlines" class="form-label">@L["17"]</label>
                         <input type="color" class="form-control form-control-color" asp-for="ColorHeadlines"
                             title="Choose your Headlines color">
                     </div>
                 </div>
-                <div class="col-md-4 col-12">
+                <div class="col-md-3 col-12">
                     <div class="form-group">
                         <label for="ColorTextMuted" class="form-label">@L["18"]</label>
                         <input type="color" class="form-control form-control-color" asp-for="ColorTextMuted"
                             title="Choose your muted text color">
                     </div>
                 </div>
+                <div class="col-md-3 col-12">
+                    <div class="form-group">
+                        <label for="ColorLightBackground" class="form-label">@L["8"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorLightBackground"
+                            title="Choose your light background color">
+                    </div> 
+                </div>
             </div>
-            <div class="form-group">
-                <label for="ColorPrimary" class="form-label">@L["4"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorPrimary"
-                    title="Choose your primary color">
+            <div class="row mt-5">
+                <h5>Primary Theme Colors</h5>
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="ColorPrimary" class="form-label">@L["4"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorPrimary"
+                            title="Choose your primary color">
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="ColorSecondary" class="form-label">@L["15"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorSecondary"
+                            title="Choose your secondary color">
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="ColorSecondary" class="form-label">@L["15"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorSecondary"
-                    title="Choose your secondary color">
-            </div>
-            <div class="form-group">
-                <label for="ColorDanger" class="form-label">@L["5"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorDanger"
-                    title="Choose your danger color">
-            </div>
-            <div class="form-group">
-                <label for="ColorWarning" class="form-label">@L["6"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorWarning"
-                    title="Choose your warning color">
-            </div>
-            <div class="form-group">
-                <label for="ColorInfo" class="form-label">@L["7"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorInfo"
-                    title="Choose your info color">
-            </div>
-            <div class="form-group">
-                <label for="ColorSuccess" class="form-label">@L["14"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorSuccess"
-                    title="Choose your success color">
-            </div>
-            <div class="form-group">
-                <label for="ColorLightBackground" class="form-label">@L["8"]</label>
-                <input type="color" class="form-control form-control-color" asp-for="ColorLightBackground"
-                    title="Choose your light background color">
-            </div>            
-            <div class="row">
+            <div class="row mt-5">
+                <h5>Status Colors</h5>
+                <div class="col-md-3 col-12">
+                    <div class="form-group">
+                        <label for="ColorDanger" class="form-label">@L["5"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorDanger"
+                            title="Choose your danger color">
+                    </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="form-group">
+                        <label for="ColorWarning" class="form-label">@L["6"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorWarning"
+                            title="Choose your warning color">
+                    </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="form-group">
+                        <label for="ColorInfo" class="form-label">@L["7"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorInfo"
+                            title="Choose your info color">
+                    </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="form-group">
+                        <label for="ColorSuccess" class="form-label">@L["14"]</label>
+                        <input type="color" class="form-control form-control-color" asp-for="ColorSuccess"
+                            title="Choose your success color">
+                    </div>
+                </div>
+            </div> 
+            <div class="row mt-5">
+                <h5>Application Graphics</h5>
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="UploadedLogo">@L["9"] (<i class="text-info"><b>@L["10"]</b></i>)</label><br>

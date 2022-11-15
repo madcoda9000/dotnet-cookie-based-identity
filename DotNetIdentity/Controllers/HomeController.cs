@@ -29,7 +29,9 @@ public class HomeController : Controller
     /// </summary>
     /// <returns>view Index</returns>
     [Authorize]
-    public IActionResult Index() => View(); 
+    public IActionResult Index() {
+        return View();
+    } 
 
     /// <summary>
     /// controller action for view AccessDenied

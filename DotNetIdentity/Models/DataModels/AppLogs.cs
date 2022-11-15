@@ -37,7 +37,7 @@ namespace DotNetIdentity.Models.DataModels {
         /// property Timestamp
         /// </summary>
         /// <value>string</value>
-        public string Timestamp {get;set;} = string.Empty;
+        public DateTime Timestamp {get;set;}
 
     }
 }

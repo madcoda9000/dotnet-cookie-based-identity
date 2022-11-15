@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8354.20556\] - 2022.11.15
+
+#### Added
+
+* added condition to check if mysql or sqlserver is used for logger configuration in program.cs
+* added mysql SeriLog configuration to program.cs
+* added SqlServer SeriLog configuration to program.cs
+* added database type conditional automatic migration in program.cs
+* added DataBaseName extraction from connectionstring to set Schema name for the distributed Session cache
+
+
+### Modified
+
+* removed SeriLog Settings from appsettings.json
+* removed creating / deleting AppLogs table from intial migration as the table is genrated automatically by SeriLog
+* grouped Brand Settings in SettingsBrand.cshtml
+* changed Timestamp property in AppLogs.cs from string? to DateTime
+* removed SeriLogs Settings from appsettings.TEMPLATE.json
+* removed DataBaseName property from appsettings
+* removed DataBaseName property from appsettings.TEMPLATE.json
+
 ### \[0.0.8353.16277\] - 2022.11.14
 
 #### Fixed

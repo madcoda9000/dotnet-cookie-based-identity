@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
@@ -35,12 +35,6 @@ namespace DotNetIdentity.Data.Migrations
                     b.ToTable("AppSettings");
 
                     b.HasData(
-                        new
-                        {
-                            Name = "ApplicationName",
-                            Type = "GlobalSettings",
-                            Value = "SecPass"
-                        },
                         new
                         {
                             Name = "SessionTimeoutWarnAfter",
@@ -127,9 +121,21 @@ namespace DotNetIdentity.Data.Migrations
                         },
                         new
                         {
+                            Name = "ApplicationName",
+                            Type = "BrandSettings",
+                            Value = "YourApp"
+                        },
+                        new
+                        {
                             Name = "ColorPrimary",
                             Type = "BrandSettings",
                             Value = "#090251"
+                        },
+                        new
+                        {
+                            Name = "ColorSecondary",
+                            Type = "BrandSettings",
+                            Value = "#f5023c"
                         },
                         new
                         {
@@ -160,6 +166,24 @@ namespace DotNetIdentity.Data.Migrations
                             Name = "ColorLightBackground",
                             Type = "BrandSettings",
                             Value = "#f2f7ff"
+                        },
+                        new
+                        {
+                            Name = "ColorLink",
+                            Type = "BrandSettings",
+                            Value = "#f5023c"
+                        },
+                        new
+                        {
+                            Name = "ColorHeadlines",
+                            Type = "BrandSettings",
+                            Value = "#090251"
+                        },
+                        new
+                        {
+                            Name = "ColorTextMuted",
+                            Type = "BrandSettings",
+                            Value = "#a0aabb"
                         });
                 });
 
@@ -188,9 +212,8 @@ namespace DotNetIdentity.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Timestamp")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("id");
 
@@ -251,7 +274,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "42cb0a7a-ecc1-47c2-8705-ed00ddaade24",
+                            ConcurrencyStamp = "7b3855c7-17fa-4ff9-a55d-1666539bcfc2",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -259,7 +282,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "f0cf4b21-bee3-4121-b357-158111c12da9",
+                            ConcurrencyStamp = "cab8ac7d-57c4-4337-9663-ef7205853e7e",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -267,7 +290,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "4acdb6cb-7320-45b4-aae0-d2f0b214ab9a",
+                            ConcurrencyStamp = "94ec1cb6-a8a5-4d4f-92e1-3a2c255b7785",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -275,7 +298,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "45263e06-dd6b-48f4-ba84-8da371d1ea6c",
+                            ConcurrencyStamp = "976c32e3-74b8-43c6-af29-3940e5fc45b4",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -387,7 +410,7 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "a3ddbcc9-e8c1-4927-9314-da10ecf870b7",
+                            ConcurrencyStamp = "c6580361-31ef-4dd7-8c35-b7cbc448992b",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -401,10 +424,10 @@ namespace DotNetIdentity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIBS8bW+YssXHJWLSIxxw9YTyONlYnyeHDtev9n1ocpBxVZprHlvyPK+wn69DMw46Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFB0ktbNWIyN69krllZs74H9IJKJSg5+mzlXgnsJys6+qGtcnBrVurKB21CJhDalyQ==",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "fb78471a-7778-4bfa-b732-ff653a18042f",
+                            SecurityStamp = "5ba122e2-2d03-4a95-9df8-423a295659b8",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"
@@ -570,7 +593,7 @@ namespace DotNetIdentity.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618
+#pragma warning restore 612, 618, 1591
         }
     }
 }

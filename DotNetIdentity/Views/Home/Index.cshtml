@@ -1,12 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_MainLayout";
 }
-
-@HttpContextAccessor.HttpContext!.Session.GetString("your_gender")
-
 <div class="mb-5">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a target="_blank" href="https://burakneis.com/asp-net-core-identity">building Web apps with ASP.NET

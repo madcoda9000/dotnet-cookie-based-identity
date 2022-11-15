@@ -16,15 +16,137 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Serilog;
+using Serilog.Sinks.MSSqlServer;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
+using Serilog.Events;
+using Serilog.Sinks.SystemConsole.Themes;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: System.Reflection.AssemblyVersion("0.0.*")]
 
 var builder = WebApplication.CreateBuilder(args);
+var DbType = builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value;
+var connectionString = string.Empty;
+
+// database context
+if (DbType == "MySql")
+{
+    connectionString = builder.Configuration.GetConnectionString("MySql");
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient);
+
+    // add distributed mysql server session cache
+    System.Data.Common.DbConnectionStringBuilder connBuilder = new System.Data.Common.DbConnectionStringBuilder();
+    connBuilder.ConnectionString = connectionString;
+    string Schema = connBuilder["database"].ToString()!;
+
+    builder.Services.AddDistributedMySqlCache(options =>
+    {
+        options.ConnectionString = builder.Configuration.GetConnectionString("MySql");
+        options.SchemaName = Schema;
+        options.TableName = "AppSessionCache";
+        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(10);
+    });
+    builder.Services.AddSession(options =>
+        {
+            options.Cookie.Name = "SessionCookie";
+            options.IdleTimeout = TimeSpan.FromMinutes(7);
+            options.Cookie.IsEssential = true;
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            options.Cookie.SameSite = SameSiteMode.Lax;
+        });
+}
+else if (DbType == "SqlServer")
+{
+    connectionString = builder.Configuration.GetConnectionString("SqlServer");
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
+
+    // add distributed sqlserver server session cache
+    System.Data.Common.DbConnectionStringBuilder connBuilder = new System.Data.Common.DbConnectionStringBuilder();
+    connBuilder.ConnectionString = connectionString;
+    string Schema = connBuilder["Initial Catalog"].ToString()!;
+
+    builder.Services.AddDistributedSqlServerCache(options =>
+    {
+        options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
+        options.SchemaName = Schema; 
+        options.TableName = "AppSessionCache";
+        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(10);
+    });
+    builder.Services.AddSession(options =>
+        {
+            options.Cookie.Name = "SessionCookie";
+            options.IdleTimeout = TimeSpan.FromMinutes(7);
+            options.Cookie.IsEssential = true;
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            options.Cookie.SameSite = SameSiteMode.Lax;
+        });
+}
 
 // add serilog
-Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
+var SeriLogConnStr = string.Empty;
+if (DbType == "MySql") {
+    var MpropertiesToColumns = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
+    {
+        ["Exception"] = "Exception",
+        ["Level"] = "Level",
+        ["Message"] = "Message",
+        ["MessageTemplate"] = "MessageTemplate",
+        ["Properties"] = "Properties",
+        ["Timestamp"] = "Timestamp",
+    };
+    MariaDBSinkOptions mop = new MariaDBSinkOptions();
+    mop.PropertiesToColumnsMapping = MpropertiesToColumns;
+    mop.TimestampInUtc = false;
+    mop.ExcludePropertiesWithDedicatedColumn = true;
+    mop.EnumsAsInts = true;
+    mop.LogRecordsCleanupFrequency = TimeSpan.FromDays(1);
+    mop.LogRecordsExpiration = TimeSpan.FromDays(30);
+    Log.Logger = new LoggerConfiguration()
+        .MinimumLevel.Debug()
+        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+        // Filter out ASP.NET Core infrastructre logs that are Information and below
+        .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+        // Filter out ASP.NET EntityFramework logs that are Information and below
+        .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+        .Enrich.FromLogContext()
+        //.ReadFrom.Configuration(builder.Configuration)    
+        .WriteTo.MariaDB(
+            connectionString: connectionString,
+            tableName: "AppLogs",
+            autoCreateTable: true,
+            useBulkInsert: false,
+            options: mop
+        )
+        .WriteTo.Console(theme: AnsiConsoleTheme.Code)
+        .CreateLogger();
+} else if (DbType == "SqlServer") {
+    var sinkOpts = new MSSqlServerSinkOptions { 
+        TableName = "AppLogs", 
+        AutoCreateSqlTable=true,  
+    };
+    var columnOpts = new ColumnOptions();
+    Log.Logger = new LoggerConfiguration()
+        .MinimumLevel.Debug()
+        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+        // Filter out ASP.NET Core infrastructre logs that are Information and below
+        .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+        // Filter out ASP.NET EntityFramework logs that are Information and below
+        .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+        .Enrich.FromLogContext()
+        //.ReadFrom.Configuration(builder.Configuration)    
+        .WriteTo.MSSqlServer(
+            connectionString: connectionString,
+            sinkOptions: sinkOpts,
+            columnOptions: columnOpts
+        )
+        .WriteTo.Console(theme: AnsiConsoleTheme.Code)
+        .CreateLogger();
+}
 builder.Host.UseSerilog();
 
 // add localization 
@@ -49,6 +171,8 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
+
+// add own services
 builder.Services.AddScoped<ISettingsService, SettingsService>();
 builder.Services.AddScoped<IClaimsTransformation, ClaimsTransformation>();
 builder.Services.AddScoped<IAuthorizationHandler, FreeTrialExpireHandler>();
@@ -57,54 +181,7 @@ builder.Services.AddTransient<UserManager<AppUser>>();
 builder.Services.AddScoped<EmailHelper>();
 builder.Services.AddScoped<TwoFactorAuthenticationService>();
 
-// database context
-if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "MySql")
-{
-    var connectionString = builder.Configuration.GetConnectionString("MySql");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient);
-
-    // add distributed mysql server session cache
-    builder.Services.AddDistributedMySqlCache(options =>
-    {
-        options.ConnectionString = builder.Configuration.GetConnectionString("MySql");
-        options.SchemaName = builder.Configuration.GetSection("AppSettings").GetSection("DataBaseName").Value;
-        options.TableName = "AppSessionCache";
-        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);
-    });
-    builder.Services.AddSession(options =>
-        {
-            options.Cookie.Name = "SessionCookie";
-            options.IdleTimeout = TimeSpan.FromMinutes(180);
-            options.Cookie.IsEssential = true;
-            options.Cookie.HttpOnly = true;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-            options.Cookie.SameSite = SameSiteMode.Lax;
-        });
-}
-else if (builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqlServer")
-{
-    var connectionString = builder.Configuration.GetConnectionString("SqlServer");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
-
-    // add distributed mysql server session cache
-    builder.Services.AddDistributedSqlServerCache(options =>
-    {
-        options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
-        options.SchemaName = builder.Configuration.GetSection("AppSettings").GetSection("DataBaseName").Value;
-        options.TableName = "AppSessionCache";
-        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(60);
-    });
-    builder.Services.AddSession(options =>
-        {
-            options.Cookie.Name = "SessionCookie";
-            options.IdleTimeout = TimeSpan.FromMinutes(180);
-            options.Cookie.IsEssential = true;
-            options.Cookie.HttpOnly = true;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-            options.Cookie.SameSite = SameSiteMode.Lax;
-        });
-}
-
+// add AspNetCore.Identity options
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
@@ -127,6 +204,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
+// set cookie options
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = new PathString("/User/Login");
@@ -143,9 +221,9 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(Convert.ToInt32(builder.Configuration.GetSection("AppSettings").GetSection("SessionCookieExpiration").Value));
 });
+
+// add authentication & authorization
 builder.Services.AddAuthentication();
-
-
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("HrDepartmentPolicy", policy =>
@@ -174,9 +252,18 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
-
-
 var app = builder.Build();
+
+// migrate initial
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    if(DbType=="MySql") {
+        await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_MySql");
+    } else if(DbType=="SqlServer") {
+        await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqlServer");
+    }    
+}
 
 // enable localization in request parameters
 app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
@@ -193,8 +280,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -207,7 +292,7 @@ app.UseAuthorization();
 app.UseSession();
 
 // if you want to log every request detail, enable this
-//app.UseSerilogRequestLogging();
+app.UseSerilogRequestLogging();
 
 app.MapControllerRoute(
     name: "default",
