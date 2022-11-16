@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-#pragma warning disable 1591
+
 namespace DotNetIdentity.Data.Migrations.MySql
 {
     public partial class Initial_MySql : Migration
@@ -12,7 +12,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
         {
             migrationBuilder.AlterDatabase()
                 .Annotation("MySql:CharSet", "utf8mb4");
-            /*
+/*
             migrationBuilder.CreateTable(
                 name: "AppLogs",
                 columns: table => new
@@ -36,7 +36,29 @@ namespace DotNetIdentity.Data.Migrations.MySql
                     table.PrimaryKey("PK_AppLogs", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
-            */
+
+            migrationBuilder.CreateTable(
+                name: "AppLogsSqLite",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Timestamp = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Level = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Exception = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    RenderedMessage = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Properties = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppLogsSqLite", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+*/
             migrationBuilder.CreateTable(
                 name: "AppSessionCache",
                 columns: table => new
@@ -307,16 +329,16 @@ namespace DotNetIdentity.Data.Migrations.MySql
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "c6d2fe1b-f141-450b-bbdd-08566dffbb58", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
-                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "a3b960f6-073c-4d65-b69c-3dcef49b1c10", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
-                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "9a2b4cac-fb70-444c-afff-6b78c38e86cb", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
-                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "7bc1b2fd-a805-4eb0-b898-7bbf3c31f68b", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
+                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "4139db84-7f60-4f36-9519-6ba67da6f52d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
+                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "989ef05a-3295-45cc-be1a-64c853506dd7", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
+                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "319080bd-e7c3-4e00-bbd5-a5b21d1cd049", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
+                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "8272cd45-ae60-4b3a-bf2f-d0773fc1595a", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "BirthDay", "ConcurrencyStamp", "CreatedOn", "Department", "Email", "EmailConfirmed", "FirstName", "Gender", "IsEnabled", "IsLdapLogin", "IsMfaForce", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicture", "RolesCombined", "SecurityStamp", "TwoFactorEnabled", "TwoFactorType", "UserName" },
-                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "9869c22a-f52e-4175-aa06-3a7c82ada4e3", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEOu0iphn1LNfo2hBn5xSavrS2xyoxYTm+INAVlYJg8A71f37aCPxfWL4wG+Z+6UwUA==", null, false, null, "Admin", "6a300129-b642-4b13-9e31-237490a9b15d", false, 0, "super.admin" });
+                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "2aa575ec-76f1-4328-943c-1714168bc35b", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEF0yOtgP2SQ6K9j+cC8KYCFqcCkh/gEXRQE5uTY60gUGDNiV3BmjKA0dw8dP1Rp8Og==", null, false, null, "Admin", "adcf04b6-113a-4923-9467-3d09eed50290", false, 0, "super.admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -362,10 +384,13 @@ namespace DotNetIdentity.Data.Migrations.MySql
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
-        {   /*
+        {/*
             migrationBuilder.DropTable(
                 name: "AppLogs");
-            */
+
+            migrationBuilder.DropTable(
+                name: "AppLogsSqLite");
+*/
             migrationBuilder.DropTable(
                 name: "AppSessionCache");
 
@@ -394,5 +419,4 @@ namespace DotNetIdentity.Data.Migrations.MySql
                 name: "AspNetUsers");
         }
     }
-    #pragma warning restore 1591
 }

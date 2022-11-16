@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
-#pragma warning disable 1591
+
 namespace DotNetIdentity.Data.Migrations.MSSQL
 {
     [DbContext(typeof(AppDbContextSqlServer))]
@@ -17,7 +17,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("ProductVersion", "6.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -225,6 +225,37 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                     b.ToTable("AppLogs");
                 });
 
+            modelBuilder.Entity("DotNetIdentity.Models.DataModels.AppLogsSqLite", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<string>("Exception")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Properties")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RenderedMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("AppLogsSqLite");
+                });
+
             modelBuilder.Entity("DotNetIdentity.Models.DataModels.SessionCache", b =>
                 {
                     b.Property<string>("id")
@@ -280,7 +311,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "b7eb0c23-d996-41b9-b3fb-4ebebc444d9d",
+                            ConcurrencyStamp = "552635cd-e8cc-4c53-96e6-2346f891e6b8",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -288,7 +319,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "9ffc6b44-a1a4-4e6c-bba9-5b86d648e91b",
+                            ConcurrencyStamp = "085bc1fe-2ac1-4ed7-bd35-6729d9aa4db1",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -296,7 +327,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "20df6960-8031-4f33-bb9e-b166680fb921",
+                            ConcurrencyStamp = "4a433f9a-ffeb-49c2-824a-eeba34b29a59",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -304,7 +335,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "86ae12f4-539a-4587-96a5-1027d2cf1608",
+                            ConcurrencyStamp = "e6d85d05-5d61-4575-966c-6a2d6446991d",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -417,7 +448,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "6bd7067c-f0b4-4b4c-a8b4-c7b0bbc32b17",
+                            ConcurrencyStamp = "d1daed1a-d7ac-45a7-b0da-cf6c1925cf3e",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -431,10 +462,10 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENQUahxDaauJbFroXgY4d5e9ccPCVokjatrqyE+H11y7B0Q1O1pchsnsF9i9DHfywQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENC9FDHokzSCldoklKtvB9oSwZFxx2WRzZx8iKv3NEurKgNRFTo5YuIwYu+Uuk1wrQ==",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "c6418438-462f-43e9-b498-834fd0e8138b",
+                            SecurityStamp = "c4374f57-99ab-4c25-b12b-2768a4ec39f6",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"
@@ -604,7 +635,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618, 1591
+#pragma warning restore 612, 618
         }
     }
 }

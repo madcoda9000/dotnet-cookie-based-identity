@@ -3,6 +3,7 @@ using System.Net.Mail;
 using DotNetIdentity.Data;
 using DotNetIdentity.Models.BusinessModels;
 using Microsoft.Extensions.Options;
+using DotNetIdentity.Services.SettingsService;
 
 namespace DotNetIdentity.Helpers
 {

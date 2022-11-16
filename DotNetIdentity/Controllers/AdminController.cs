@@ -115,8 +115,15 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public IActionResult GetErrorLogs(DataRequest request)
         {
-            DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level == "Error").ToDataResult(request);
-            return Json(result);
+            if (_configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqLite")
+            {
+                DataResult<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == false && l.Level == "Error").ToDataResult(request);
+                return Json(result);
+            } else {
+                DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level == "Error").ToDataResult(request);
+                return Json(result);
+            }
+            
         }
 
         /// <summary>
@@ -127,8 +134,14 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public IActionResult GetAppLogs(DataRequest request)
         {
-            DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level != "Error").ToDataResult(request);
-            return Json(result);          
+            if(_configuration.GetSection("AppSettings").GetSection("DataBaseType").Value=="SqLite") {
+                DataResult<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == false && l.Level != "Error").ToDataResult(request);
+                return Json(result);
+            } else {
+                DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level != "Error").ToDataResult(request);
+                return Json(result);
+            }
+                     
         }
 
         /// <summary>
@@ -138,9 +151,15 @@ namespace DotNetIdentity.Controllers
         /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
         public IActionResult GetAuditLogs(DataRequest request)        {
-
-            DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == true).ToDataResult(request);
-            return Json(result);
+            if (_configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqLite")
+            {
+                DataResult<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == true).ToDataResult(request);
+                return Json(result);
+            } else {
+                DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == true).ToDataResult(request);
+                return Json(result);
+            }
+            
         }
 
         /// <summary>

@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Localization;
 using Novell.Directory.Ldap;
 using Novell.Directory.Ldap.Asn1;
+using DotNetIdentity.Services.SettingsService;
 
 namespace DotNetIdentity.Controllers
 {

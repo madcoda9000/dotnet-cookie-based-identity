@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8355.23480\] - 2022.11.16
+
+#### Added
+
+* added sqlite database contex
+* added sqlite condition for serilog in program.cs
+* added sqlite condition for intitial migration
+* added sqlite initial migration
+* added sqlite database connectionstring to appsettings.json
+* added sqlite database connectionstring to appsettings.TEMPLATE.json
+* added additional AppLogsSql.cs class to capture sqlite serilog sink table differences
+
+#### Modified
+
+* modified AdminController to reflect Serilog table differences using sqlite sink
+* added *.sqlite to gitignore
+
+
+#### Fixed
+
+* naming error in AdminController for Applicationsettings
+
 ### \[0.0.8355.18854\] - 2022.11.16
 
 #### Added

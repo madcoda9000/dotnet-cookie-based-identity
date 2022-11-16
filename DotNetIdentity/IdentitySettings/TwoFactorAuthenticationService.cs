@@ -1,4 +1,5 @@
 using System.Text.Encodings.Web;
+using DotNetIdentity.Services.SettingsService;
 
 namespace DotNetIdentity.IdentitySettings
 {

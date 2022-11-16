@@ -1,5 +1,6 @@
 @using DatatableJS;
 @inject IViewLocalizer L
+@inject IConfiguration _conf
 @{
     ViewData["Title"] = "Audit Logs";
 }
@@ -40,7 +41,29 @@
                 langRes = "/assets/extensions/dataTablesjs-1.12.1/german.json";
             }
         }
-        @(Html.JS().Datatable<AppLogs>()
+        @if (_conf.GetSection("AppSettings").GetSection("DataBaseType").Value=="SqLite") {
+            @(Html.JS().Datatable<AppLogsSqLite>()
+            .Name("AppLogsGrid")
+            .Selecting(true)
+            .Class("table table-striped")
+            .Language("" + @langRes + "")
+            .Columns(cols =>
+            {
+                cols.Field(a => a.id).Visible(true).Orderable(true);
+                cols.Field(a => a.Timestamp).Orderable(true).Title("Date").Format("YYYY.MM.DD - hh:mm:ss");
+                cols.Field(a => a.Level).Orderable(true).Title("Level").Template("(data=='Information') ? '<i class=\"bi bi-info-circle-fill text-info\"></i>' : '<i class=\"bi bi-info-circle-fill text-warning\"></i>'");
+                cols.Field(a => a.RenderedMessage).Orderable(true).Title("Message");
+            })
+            .URL(Url.Action("GetAppLogs", "Admin"), "POST")
+            .ServerSide(true)
+            .Orders(order => {
+                order.Add(p => p.id, OrderBy.Descending);
+            })
+            .Render()
+            )
+        } 
+        else {
+            @(Html.JS().Datatable<AppLogs>()
             .Name("AppLogsGrid")
             .Selecting(true)
             .Class("table table-striped")
@@ -58,7 +81,9 @@
                 order.Add(p => p.id, OrderBy.Descending);
             })
             .Render()
-        )        
+            )
+        }
+                
     </div>
 </div>
 

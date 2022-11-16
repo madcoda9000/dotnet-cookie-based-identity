@@ -20,6 +20,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="6.0.10" />
     <PackageReference Include="Novell.Directory.Ldap.NETStandard" Version="3.6.0" />
@@ -36,6 +37,7 @@
     <PackageReference Include="serilog.Sinks.Mariadb" Version="1.0.1" />
     <PackageReference Include="serilog.Sinks.Mssqlserver" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Serilog.Sinks.SQLite" Version="5.5.0" />
     <PackageReference Include="StackTraceFormatter.Source" Version="1.1.0" />
   </ItemGroup>
 

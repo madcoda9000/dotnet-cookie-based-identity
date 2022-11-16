@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
+using DotNetIdentity.Services.SettingsService;
 
 namespace DotNetIdentity.Controllers
 {
@@ -253,7 +254,7 @@ namespace DotNetIdentity.Controllers
         /// <returns>view</returns>
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> SettingsMail(GlobalSettings viewModel) {
+        public async Task<IActionResult> SettingsApp(GlobalSettings viewModel) {
                 _settings.Global.SessionCookieExpiration = viewModel.SessionCookieExpiration;
                 _settings.Global.SessionTimeoutWarnAfter = viewModel.SessionTimeoutWarnAfter;
                 _settings.Global.SessionTimeoutRedirAfter = viewModel.SessionTimeoutRedirAfter;

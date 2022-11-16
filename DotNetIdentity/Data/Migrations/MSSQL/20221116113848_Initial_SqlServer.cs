@@ -2,14 +2,13 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-#pragma warning disable 1591
+
 namespace DotNetIdentity.Data.Migrations.MSSQL
 {
     public partial class Initial_SqlServer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            /*
+        {/*
             migrationBuilder.CreateTable(
                 name: "AppLogs",
                 columns: table => new
@@ -26,6 +25,23 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AppLogs", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppLogsSqLite",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Level = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Exception = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RenderedMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Properties = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppLogsSqLite", x => x.id);
                 });
             */
             migrationBuilder.CreateTable(
@@ -251,16 +267,16 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "b7eb0c23-d996-41b9-b3fb-4ebebc444d9d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
-                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "9ffc6b44-a1a4-4e6c-bba9-5b86d648e91b", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
-                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "20df6960-8031-4f33-bb9e-b166680fb921", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
-                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "86ae12f4-539a-4587-96a5-1027d2cf1608", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
+                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "552635cd-e8cc-4c53-96e6-2346f891e6b8", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
+                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "085bc1fe-2ac1-4ed7-bd35-6729d9aa4db1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
+                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "4a433f9a-ffeb-49c2-824a-eeba34b29a59", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
+                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "e6d85d05-5d61-4575-966c-6a2d6446991d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "BirthDay", "ConcurrencyStamp", "CreatedOn", "Department", "Email", "EmailConfirmed", "FirstName", "Gender", "IsEnabled", "IsLdapLogin", "IsMfaForce", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicture", "RolesCombined", "SecurityStamp", "TwoFactorEnabled", "TwoFactorType", "UserName" },
-                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "6bd7067c-f0b4-4b4c-a8b4-c7b0bbc32b17", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAENQUahxDaauJbFroXgY4d5e9ccPCVokjatrqyE+H11y7B0Q1O1pchsnsF9i9DHfywQ==", null, false, null, "Admin", "c6418438-462f-43e9-b498-834fd0e8138b", false, 0, "super.admin" });
+                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "d1daed1a-d7ac-45a7-b0da-cf6c1925cf3e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAENC9FDHokzSCldoklKtvB9oSwZFxx2WRzZx8iKv3NEurKgNRFTo5YuIwYu+Uuk1wrQ==", null, false, null, "Admin", "c4374f57-99ab-4c25-b12b-2768a4ec39f6", false, 0, "super.admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -311,6 +327,9 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
         {/*
             migrationBuilder.DropTable(
                 name: "AppLogs");
+
+            migrationBuilder.DropTable(
+                name: "AppLogsSqLite");
 */
             migrationBuilder.DropTable(
                 name: "AppSessionCache");
@@ -340,5 +359,4 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                 name: "AspNetUsers");
         }
     }
-    #pragma warning restore 1591
 }

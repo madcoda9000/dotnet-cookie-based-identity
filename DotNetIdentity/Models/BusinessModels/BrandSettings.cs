@@ -1,3 +1,4 @@
+using DotNetIdentity.Services.SettingsService;
 namespace DotNetIdentity.Models.BusinessModels {
     /// <summary>
     /// class to define Brand settings properties

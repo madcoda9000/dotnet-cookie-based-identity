@@ -82,10 +82,26 @@ else if (DbType == "SqlServer")
             options.Cookie.SameSite = SameSiteMode.Lax;
         });
 }
+else if (DbType == "SqLite")
+{
+    connectionString = builder.Configuration.GetConnectionString("SqLite");
+    //builder.Services.AddDbContext<AppDbContextSqlServer>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
+    builder.Services.AddDbContext<AppDbContext, AppDbContextSqLite>();
+    builder.Services.AddSession(options =>
+        {
+            options.Cookie.Name = "SessionCookie";
+            options.IdleTimeout = TimeSpan.FromMinutes(7);
+            options.Cookie.IsEssential = true;
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            options.Cookie.SameSite = SameSiteMode.Lax;
+        });
+}
 
 // add serilog
 var SeriLogConnStr = string.Empty;
-if (DbType == "MySql") {
+if (DbType == "MySql")
+{
     var MpropertiesToColumns = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
     {
         ["Exception"] = "Exception",
@@ -120,10 +136,13 @@ if (DbType == "MySql") {
         )
         .WriteTo.Console(theme: AnsiConsoleTheme.Code)
         .CreateLogger();
-} else if (DbType == "SqlServer") {
-    var sinkOpts = new MSSqlServerSinkOptions { 
-        TableName = "AppLogs", 
-        AutoCreateSqlTable=true,          
+}
+else if (DbType == "SqlServer")
+{
+    var sinkOpts = new MSSqlServerSinkOptions
+    {
+        TableName = "AppLogs",
+        AutoCreateSqlTable = true,
     };
     var columnOpts = new ColumnOptions();
     Log.Logger = new LoggerConfiguration()
@@ -134,12 +153,25 @@ if (DbType == "MySql") {
         // Filter out ASP.NET EntityFramework logs that are Information and below
         .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
         .Enrich.FromLogContext()
-        //.ReadFrom.Configuration(builder.Configuration)    
         .WriteTo.MSSqlServer(
             connectionString: connectionString,
             sinkOptions: sinkOpts
         )
         .WriteTo.Console(theme: AnsiConsoleTheme.Code)
+        .CreateLogger();
+}
+else if (DbType == "SqLite")
+{
+    Log.Logger = new LoggerConfiguration()
+        .MinimumLevel.Debug()
+        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+        // Filter out ASP.NET Core infrastructre logs that are Information and below
+        .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+        // Filter out ASP.NET EntityFramework logs that are Information and below
+        .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+        .Enrich.FromLogContext()
+        .WriteTo.Console(theme: AnsiConsoleTheme.Code)
+        .WriteTo.SQLite(sqliteDbPath: Environment.CurrentDirectory + "/" + builder.Configuration.GetConnectionString("SqLite").Replace("Data Source=",""), tableName: "AppLogsSqLite", batchSize: 1)
         .CreateLogger();
 }
 builder.Host.UseSerilog();
@@ -251,14 +283,22 @@ var app = builder.Build();
 
 // migrate initial
 using (var scope = app.Services.CreateScope())
-{    
-    if(DbType=="MySql") {
+{
+    if (DbType == "MySql")
+    {
         var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_MySql");
-    } else if(DbType=="SqlServer") {
+    }
+    else if (DbType == "SqlServer")
+    {
         var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqlServer");
-    }    
+    }
+    else if (DbType == "SqLite")
+    {
+        var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqLite");
+    }
 }
 
 // enable localization in request parameters

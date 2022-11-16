@@ -3,6 +3,7 @@ using System;
 using DotNetIdentity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetIdentity.Data.Migrations.MySql
 {
     [DbContext(typeof(AppDbContextMySql))]
-    partial class AppDbContextMySqlModelSnapshot : ModelSnapshot
+    [Migration("20221116114138_Initial_MySql")]
+    partial class Initial_MySql
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

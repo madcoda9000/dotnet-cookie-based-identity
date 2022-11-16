@@ -6,6 +6,7 @@
 appsettings.json
 appsettings.Production.json
 .DS_Store
+*.sqlite
 
 # User-specific files
 *.rsuser

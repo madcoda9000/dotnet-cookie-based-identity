@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using DotNetIdentity.Services.SettingsService;
+using Microsoft.AspNetCore.Localization;
 
 namespace DotNetIdentity.Controllers
 {

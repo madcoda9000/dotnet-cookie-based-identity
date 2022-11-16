@@ -2,6 +2,7 @@ using System.Text;
 using DotNetIdentity.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using DotNetIdentity.Services.SettingsService;
 
 namespace DotNetIdentity.Helpers.TagHelpers
 {

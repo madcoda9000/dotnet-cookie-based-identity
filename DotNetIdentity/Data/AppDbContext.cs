@@ -17,6 +17,11 @@ namespace DotNetIdentity.Data
         /// Property AppLogs
         /// </summary>
         /// <value></value>
+        public DbSet<AppLogsSqLite>? AppLogsSqLite { get; set; }   
+        /// <summary>
+        /// Property AppLogs
+        /// </summary>
+        /// <value></value>
         public DbSet<AppLogs>? AppLogs { get; set; }
         /// <summary>
         /// property AppSettings
@@ -42,7 +47,6 @@ namespace DotNetIdentity.Data
         {
             Configuration = cnf;
         }        
-
         
     }
 
