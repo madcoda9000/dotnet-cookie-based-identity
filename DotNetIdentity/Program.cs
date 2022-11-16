@@ -35,8 +35,8 @@ var connectionString = string.Empty;
 if (DbType == "MySql")
 {
     connectionString = builder.Configuration.GetConnectionString("MySql");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient);
-
+    //builder.Services.AddDbContext<AppDbContextMySql>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient);
+    builder.Services.AddDbContext<AppDbContext, AppDbContextMySql>();
     // add distributed mysql server session cache
     System.Data.Common.DbConnectionStringBuilder connBuilder = new System.Data.Common.DbConnectionStringBuilder();
     connBuilder.ConnectionString = connectionString;
@@ -62,17 +62,13 @@ if (DbType == "MySql")
 else if (DbType == "SqlServer")
 {
     connectionString = builder.Configuration.GetConnectionString("SqlServer");
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
-
+    //builder.Services.AddDbContext<AppDbContextSqlServer>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
+    builder.Services.AddDbContext<AppDbContext, AppDbContextSqlServer>();
     // add distributed sqlserver server session cache
-    System.Data.Common.DbConnectionStringBuilder connBuilder = new System.Data.Common.DbConnectionStringBuilder();
-    connBuilder.ConnectionString = connectionString;
-    string Schema = connBuilder["Initial Catalog"].ToString()!;
-
     builder.Services.AddDistributedSqlServerCache(options =>
     {
         options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
-        options.SchemaName = Schema; 
+        options.SchemaName = "dbo";
         options.TableName = "AppSessionCache";
         options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(10);
     });
@@ -103,7 +99,7 @@ if (DbType == "MySql") {
     mop.PropertiesToColumnsMapping = MpropertiesToColumns;
     mop.TimestampInUtc = false;
     mop.ExcludePropertiesWithDedicatedColumn = true;
-    mop.EnumsAsInts = true;
+    mop.EnumsAsInts = false;
     mop.LogRecordsCleanupFrequency = TimeSpan.FromDays(1);
     mop.LogRecordsExpiration = TimeSpan.FromDays(30);
     Log.Logger = new LoggerConfiguration()
@@ -127,7 +123,7 @@ if (DbType == "MySql") {
 } else if (DbType == "SqlServer") {
     var sinkOpts = new MSSqlServerSinkOptions { 
         TableName = "AppLogs", 
-        AutoCreateSqlTable=true,  
+        AutoCreateSqlTable=true,          
     };
     var columnOpts = new ColumnOptions();
     Log.Logger = new LoggerConfiguration()
@@ -141,8 +137,7 @@ if (DbType == "MySql") {
         //.ReadFrom.Configuration(builder.Configuration)    
         .WriteTo.MSSqlServer(
             connectionString: connectionString,
-            sinkOptions: sinkOpts,
-            columnOptions: columnOpts
+            sinkOptions: sinkOpts
         )
         .WriteTo.Console(theme: AnsiConsoleTheme.Code)
         .CreateLogger();
@@ -183,26 +178,26 @@ builder.Services.AddScoped<TwoFactorAuthenticationService>();
 
 // add AspNetCore.Identity options
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
-{
-    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-    options.User.RequireUniqueEmail = true;
+    {
+        options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+        options.User.RequireUniqueEmail = true;
 
-    options.Password.RequireDigit = false;
-    options.Password.RequiredLength = 8;
-    options.Password.RequiredUniqueChars = 1;
-    options.Password.RequireLowercase = true;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 8;
+        options.Password.RequiredUniqueChars = 1;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireNonAlphanumeric = false;
 
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
-    options.Lockout.MaxFailedAccessAttempts = 5;
+        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+        options.Lockout.MaxFailedAccessAttempts = 5;
 
-    options.SignIn.RequireConfirmedEmail = true;
-}).AddUserValidator<UserValidator>()
-.AddPasswordValidator<PasswordValidator>()
-.AddErrorDescriber<ErrorDescriber>()
-.AddEntityFrameworkStores<AppDbContext>()
-.AddDefaultTokenProviders();
+        options.SignIn.RequireConfirmedEmail = true;
+    }).AddUserValidator<UserValidator>()
+    .AddPasswordValidator<PasswordValidator>()
+    .AddErrorDescriber<ErrorDescriber>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 // set cookie options
 builder.Services.ConfigureApplicationCookie(options =>
@@ -256,11 +251,12 @@ var app = builder.Build();
 
 // migrate initial
 using (var scope = app.Services.CreateScope())
-{
-    var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+{    
     if(DbType=="MySql") {
+        var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_MySql");
     } else if(DbType=="SqlServer") {
+        var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqlServer");
     }    
 }

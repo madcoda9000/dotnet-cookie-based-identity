@@ -62,7 +62,7 @@
             {
                 cols.Field(a => a.id).Visible(true).Orderable(true);
                 cols.Field(a => a.Timestamp).Orderable(true).Title("Date").Format("YYYY.MM.DD - hh:mm:ss");
-                cols.Field(a => a.Level).Orderable(true).Title("Level").Template("(data==4) ? '<i class=\"bi bi-info-circle-fill text-danger\"></i>' : '<i class=\"bi bi-info-circle-fill text-warning\"></i>'");
+                cols.Field(a => a.Level).Orderable(true).Title("Level").Template("(data=='Error') ? '<i class=\"bi bi-info-circle-fill text-danger\"></i>' : '<i class=\"bi bi-info-circle-fill text-warning\"></i>'");
                 cols.Field(a => a.Message).Orderable(true).Title("Message");
                 cols.Field(a => a.Exception).Title("Exception").Template("(data!=null) ? '<a class=\"btn btn-primary btn-sm\" data-excId=\"' + data.id + '\" data-trace=\"' + row.Exception + '\" data-bs-toggle=\"modal\" data-bs-target=\"#stackTrace\" >view StackTrace</a>' : ''");
             })

@@ -3,18 +3,16 @@ using System;
 using DotNetIdentity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 #pragma warning disable 1591
-namespace DotNetIdentity.Data.Migrations
+namespace DotNetIdentity.Data.Migrations.MySql
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20221115102306_Initial_MySql")]
-    partial class Initial_MySql
+    [DbContext(typeof(AppDbContextMySql))]
+    partial class AppDbContextMySqlModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -276,7 +274,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "7b3855c7-17fa-4ff9-a55d-1666539bcfc2",
+                            ConcurrencyStamp = "c6d2fe1b-f141-450b-bbdd-08566dffbb58",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -284,7 +282,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "cab8ac7d-57c4-4337-9663-ef7205853e7e",
+                            ConcurrencyStamp = "a3b960f6-073c-4d65-b69c-3dcef49b1c10",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -292,7 +290,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "94ec1cb6-a8a5-4d4f-92e1-3a2c255b7785",
+                            ConcurrencyStamp = "9a2b4cac-fb70-444c-afff-6b78c38e86cb",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -300,7 +298,7 @@ namespace DotNetIdentity.Data.Migrations
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "976c32e3-74b8-43c6-af29-3940e5fc45b4",
+                            ConcurrencyStamp = "7bc1b2fd-a805-4eb0-b898-7bbf3c31f68b",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -412,7 +410,7 @@ namespace DotNetIdentity.Data.Migrations
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "c6580361-31ef-4dd7-8c35-b7cbc448992b",
+                            ConcurrencyStamp = "9869c22a-f52e-4175-aa06-3a7c82ada4e3",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -426,10 +424,10 @@ namespace DotNetIdentity.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFB0ktbNWIyN69krllZs74H9IJKJSg5+mzlXgnsJys6+qGtcnBrVurKB21CJhDalyQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOu0iphn1LNfo2hBn5xSavrS2xyoxYTm+INAVlYJg8A71f37aCPxfWL4wG+Z+6UwUA==",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "5ba122e2-2d03-4a95-9df8-423a295659b8",
+                            SecurityStamp = "6a300129-b642-4b13-9e31-237490a9b15d",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"

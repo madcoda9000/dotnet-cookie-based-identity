@@ -16,6 +16,7 @@ using DatatableJS.Data;
 using Microsoft.Extensions.Localization;
 using System.Data;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DotNetIdentity.Controllers
 {
@@ -46,33 +47,33 @@ namespace DotNetIdentity.Controllers
         /// </summary>
         private readonly ILogger<AdminController> _logger;
         /// <summary>
-        /// Property of type DotNetIdentity.Data.AppDbContext
-        /// </summary>
-        private readonly AppDbContext _context;
-        /// <summary>
         /// Property of type IStringLocalizer
         /// </summary>
         private readonly IStringLocalizer<UserController> _localizer;
+        /// <summary>
+        /// sql server db context
+        /// </summary>
+        private readonly AppDbContext _context;
 
         /// <summary>
         /// Controller Class constructor
         /// </summary>
         /// <param name="localizer">type IStringLocalizer</param>
-        /// <param name="db">type DotNetIdentity.Data.AppDbContext</param>
         /// <param name="log">type Microsoft.Extensions.Logging.ILogger</param>
         /// <param name="conf">type Microsoft.Extensions.Configuration.IConfiguration</param>
         /// <param name="userManager">type Microsoft.AspNetCore.Identity.UserManager</param>
         /// <param name="roleManager">type Microsoft.AspNetCore.Identity.RoleManager</param>
         /// <param name="signInManager">type Microsoft.AspNetCore.Identity.SignInManager</param>
-        public AdminController(IStringLocalizer<UserController> localizer, AppDbContext db, ILogger<AdminController> log, IConfiguration conf, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, SignInManager<AppUser> signInManager)
+        /// <param name="con">type AppDbContextSqlServer</param>
+        public AdminController(AppDbContext con, IStringLocalizer<UserController> localizer, ILogger<AdminController> log, IConfiguration conf, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _configuration = conf;
             _logger = log;
-            _context = db;
             _localizer = localizer;
+            _context = con;
         }
 
         /// <summary>
@@ -114,7 +115,7 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public IActionResult GetErrorLogs(DataRequest request)
         {
-            DataResult<AppLogs> result = _context.AppLogs!.Where(l=>l.Message.ToLower().StartsWith("audit")==false && Convert.ToInt32(l.Level) == 4).ToDataResult(request);
+            DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level == "Error").ToDataResult(request);
             return Json(result);
         }
 
@@ -126,8 +127,8 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public IActionResult GetAppLogs(DataRequest request)
         {
-            DataResult<AppLogs> result = _context.AppLogs!.Where(l=>l.Message.ToLower().StartsWith("audit")==false && Convert.ToInt32(l.Level) < 4).ToDataResult(request);
-            return Json(result);
+            DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level != "Error").ToDataResult(request);
+            return Json(result);          
         }
 
         /// <summary>
@@ -136,9 +137,9 @@ namespace DotNetIdentity.Controllers
         /// <param name="request">type DatatablesJs.Data.DataRequest</param>
         /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
-        public IActionResult GetAuditLogs(DataRequest request)
-        {
-            DataResult<AppLogs> result = _context.AppLogs!.Where(l=>l.Message.ToLower().StartsWith("audit")==true).ToDataResult(request);
+        public IActionResult GetAuditLogs(DataRequest request)        {
+
+            DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == true).ToDataResult(request);
             return Json(result);
         }
 

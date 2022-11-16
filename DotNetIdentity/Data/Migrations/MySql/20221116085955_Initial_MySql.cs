@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 #pragma warning disable 1591
-namespace DotNetIdentity.Data.Migrations
+namespace DotNetIdentity.Data.Migrations.MySql
 {
     public partial class Initial_MySql : Migration
     {
@@ -307,16 +307,16 @@ namespace DotNetIdentity.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "7b3855c7-17fa-4ff9-a55d-1666539bcfc2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
-                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "cab8ac7d-57c4-4337-9663-ef7205853e7e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
-                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "94ec1cb6-a8a5-4d4f-92e1-3a2c255b7785", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
-                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "976c32e3-74b8-43c6-af29-3940e5fc45b4", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
+                    { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "c6d2fe1b-f141-450b-bbdd-08566dffbb58", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" },
+                    { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "a3b960f6-073c-4d65-b69c-3dcef49b1c10", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" },
+                    { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "9a2b4cac-fb70-444c-afff-6b78c38e86cb", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" },
+                    { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "7bc1b2fd-a805-4eb0-b898-7bbf3c31f68b", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "BirthDay", "ConcurrencyStamp", "CreatedOn", "Department", "Email", "EmailConfirmed", "FirstName", "Gender", "IsEnabled", "IsLdapLogin", "IsMfaForce", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicture", "RolesCombined", "SecurityStamp", "TwoFactorEnabled", "TwoFactorType", "UserName" },
-                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "c6580361-31ef-4dd7-8c35-b7cbc448992b", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEFB0ktbNWIyN69krllZs74H9IJKJSg5+mzlXgnsJys6+qGtcnBrVurKB21CJhDalyQ==", null, false, null, "Admin", "5ba122e2-2d03-4a95-9df8-423a295659b8", false, 0, "super.admin" });
+                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "9869c22a-f52e-4175-aa06-3a7c82ada4e3", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEOu0iphn1LNfo2hBn5xSavrS2xyoxYTm+INAVlYJg8A71f37aCPxfWL4wG+Z+6UwUA==", null, false, null, "Admin", "6a300129-b642-4b13-9e31-237490a9b15d", false, 0, "super.admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -362,8 +362,7 @@ namespace DotNetIdentity.Data.Migrations
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            /*
+        {   /*
             migrationBuilder.DropTable(
                 name: "AppLogs");
             */

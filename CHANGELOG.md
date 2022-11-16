@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8355.18854\] - 2022.11.16
+
+#### Added
+
+* added global AppDbContext.cs
+* added MS-SqlServer dbContext: AppDbContextSqlServer.cs
+* added MySql-Server dbContext: AppDbContextMySql.cs
+* added Intitial Migrations for SqlServer
+* added Initial MIgrations for MySql
+* added automatic intitial migration depending on db type in program.cs
+
+#### Modified
+
+* AdminController.cs modified Log actions to reflect new AppLogs Schema
+* ErrorLogs.cshtml to reflect new AppLogs Schema
+* AuditLogs.cshtml to reflect new AppLogs Schema
+* SystemLogs.shtml to reflect new AppLogs Schema
+* changed property EnumsAsInt to false for SeriLog configuration
+* changed DbContext Registration in program.cs
+* removed unneccessary comments from SettingsService.cs
+
 ### \[0.0.8354.20556\] - 2022.11.15
 
 #### Added

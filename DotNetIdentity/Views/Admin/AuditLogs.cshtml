@@ -49,7 +49,7 @@
             {
                 cols.Field(a => a.id).Visible(true).Orderable(true);
                 cols.Field(a => a.Timestamp).Orderable(true).Title("Date").Format("YYYY.MM.DD - hh:mm:ss");
-                cols.Field(a => a.Level).Orderable(true).Title("Level").Template("(data==2) ? '<i class=\"bi bi-info-circle-fill text-info\"></i>' : '<i class=\"bi bi-info-circle-fill text-warning\"></i>'");
+                cols.Field(a => a.Level).Orderable(true).Title("Level").Template("(data=='Information') ? '<i class=\"bi bi-info-circle-fill text-info\"></i>' : '<i class=\"bi bi-info-circle-fill text-warning\"></i>'");
                 cols.Field(a => a.Message).Orderable(true).Title("Message");                
             })
             .URL(Url.Action("GetAuditLogs", "Admin"), "POST")
