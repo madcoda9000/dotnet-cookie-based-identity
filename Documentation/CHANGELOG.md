@@ -1,4 +1,6 @@
-# .NET 6 Identity Cookie Based Authentication Changelog
+ ![image](Documentation/Screenshots/netBanner.png)
+
+# [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity) - Changelog
 
 All notable changes to this project will be documented in this file.
 
