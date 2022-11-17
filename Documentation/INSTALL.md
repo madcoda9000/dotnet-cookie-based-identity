@@ -5,7 +5,7 @@
 * install Microsoft .Net Core 6.0 SDK [(donload here)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
   - ensure .Net Framweork is installed by opening a Powershell or terminal window.
   - type: `dotnet --info`
-  If you get a list with installed SDK's, everything is fine.
+  - If you get a list with installed SDK's, everything is fine.
 * install Dotnet EntityFramework Core tools
   - open a powershell window (or a terminal on Linux or MacOs)
   - type: `dotnet tool install --global dotnet-ef`
@@ -21,11 +21,11 @@
 * download the latest [release](https://github.com/madcoda9000/dotnet-cookie-based-identity/releases)
 * extract the zip to a location of your choice
 * open a Powershell or Terminal (on Mac or Linux) and navigate into the extraced folder
-  **TIPP:** if you're using a development enviroment you can open that extracted folder with your developemnt enviroment and use the terminal builtin.
-  **NOTE**: ensure you're in the folder that contains the **DotNetIdentity.csproj** file!
+  - **TIPP:** if you're using a development enviroment you can open that extracted folder with your developemnt enviroment and use the terminal builtin.
+  - **NOTE**: ensure you're in the folder that contains the **DotNetIdentity.csproj** file!
 * rename appsettings.TEMPLATE.jso to appsettings.json
-  Mac / Linux Terminal: `mv appsettings.TEMPLATE.json appsettings.json`
-  Windows Powershell: `Rename-Item .\appsettings.TEMPLATE.json -NewName appsettings.json`
+  - Mac / Linux Terminal: `mv appsettings.TEMPLATE.json appsettings.json`
+  - Windows Powershell: `Rename-Item .\appsettings.TEMPLATE.json -NewName appsettings.json`
 * modify the appropiate connection string (MySql, SqlServer or SqLite) in appsettings.json to match your enviroment
 * modify the value of the Setting **DataBaseType** under **AppSettings** in appsettings.json to match your connectionstring
 * set the value of the Setting **MigrateOnStartup** under **AppSettings** in appsettings.json to **true** (if not already)
