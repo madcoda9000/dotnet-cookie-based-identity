@@ -50,7 +50,7 @@
   * The application will try to compile and start. Whe you've no typo in your connectionstring and your Database server is reachable, the application will try to create the database a  nd the tables. After that the application will start a browser and open the application.
     Your console window output should look like that:
      ![dotnet-run1](Screenshots/dotnet-run1.png)
-    **HINT**: if the browser is not launching automatically, open a browser manually an enter this url: https://localhost:7106
+    **HINT**: In your case the the https port typically would be 5001. So the url to your new app will be https://localhost:5001
 * stop the application by pressing the following in the terminal (or Powershell) window where you've started the application
   * Mac: CMD + C
   * Linux & Windows: STRG + C
