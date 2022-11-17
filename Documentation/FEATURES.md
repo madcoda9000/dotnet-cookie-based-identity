@@ -1,4 +1,4 @@
- ![image](Documentation/Screenshots/netBanner.png)
+ ![image](Screenshots/netBanner.png)
 
 # Features of [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
 
