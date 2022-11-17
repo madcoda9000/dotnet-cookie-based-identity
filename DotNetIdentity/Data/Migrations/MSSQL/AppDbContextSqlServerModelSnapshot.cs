@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations.MSSQL
 {
     [DbContext(typeof(AppDbContextSqlServer))]
@@ -635,7 +635,7 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618
+#pragma warning restore 612, 618, 1591
         }
     }
 }

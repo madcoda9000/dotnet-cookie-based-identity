@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations.MySql
 {
     public partial class Initial_MySql : Migration
@@ -419,4 +419,5 @@ namespace DotNetIdentity.Data.Migrations.MySql
                 name: "AspNetUsers");
         }
     }
+    #pragma warning restore 1591
 }

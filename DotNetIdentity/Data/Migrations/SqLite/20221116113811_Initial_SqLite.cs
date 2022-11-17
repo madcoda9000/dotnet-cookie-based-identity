@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations.SqLite
 {
     public partial class Initial_SqLite : Migration
@@ -459,4 +459,5 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 name: "AspNetUsers");
         }
     }
+    #pragma warning restore 1591
 }

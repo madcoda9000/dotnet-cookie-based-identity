@@ -282,6 +282,9 @@ builder.Services.AddAuthorization(options =>
 var app = builder.Build();
 
 // migrate initial
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine("[" + DateTime.Now.ToShortTimeString() + " INF] Databasy type is: " + DbType);
+Console.ForegroundColor = ConsoleColor.White;
 using (var scope = app.Services.CreateScope())
 {
     if (DbType == "MySql")

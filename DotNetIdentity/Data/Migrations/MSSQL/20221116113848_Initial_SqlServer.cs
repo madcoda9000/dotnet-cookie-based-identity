@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations.MSSQL
 {
     public partial class Initial_SqlServer : Migration
@@ -359,4 +359,5 @@ namespace DotNetIdentity.Data.Migrations.MSSQL
                 name: "AspNetUsers");
         }
     }
+    #pragma warning restore 1591
 }

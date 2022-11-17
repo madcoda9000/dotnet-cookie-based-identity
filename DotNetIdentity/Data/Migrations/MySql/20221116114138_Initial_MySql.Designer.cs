@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations.MySql
 {
     [DbContext(typeof(AppDbContextMySql))]
@@ -624,7 +624,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618
+#pragma warning restore 612, 618, 1591
         }
     }
 }

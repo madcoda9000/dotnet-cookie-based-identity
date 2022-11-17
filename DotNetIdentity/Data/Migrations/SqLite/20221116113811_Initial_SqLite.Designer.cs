@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
-
+#pragma warning disable 1591
 namespace DotNetIdentity.Data.Migrations.SqLite
 {
     [DbContext(typeof(AppDbContextSqLite))]
@@ -622,7 +622,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-#pragma warning restore 612, 618
+#pragma warning restore 612, 618, 1591
         }
     }
 }
