@@ -1,6 +1,6 @@
- ![image](DScreenshots/netBanner.png)
+ ![image](Screenshots/netBanner.png)
 
-# Screenshots from [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
+# [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity) - Screenshots
 
 ## Login
 
