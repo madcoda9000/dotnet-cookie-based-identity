@@ -3,13 +3,13 @@
 ## Requirements
 
 * install Microsoft .Net Core 6.0 SDK [(donload here)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-  * ensure .Net Framweork is installed by opening a Powershell or terminal window.
-  * type: `dotnet --info`
-    If you get a list with installed SDK's, everything is fine.
+  - ensure .Net Framweork is installed by opening a Powershell or terminal window.
+  - type: `dotnet --info`
+  - - If you get a list with installed SDK's, everything is fine.
 * install Dotnet EntityFramework Core tools
-  * open a powershell window (or a terminal on Linux or MacOs)
-  * type: `dotnet tool install --global dotnet-ef`
-  * verify successful installation by typing: `dotnet ef`
+  - open a powershell window (or a terminal on Linux or MacOs)
+  - type: `dotnet tool install --global dotnet-ef`
+  - verify successful installation by typing: `dotnet ef`
 * if you want to use a Database like MySql or MS-SqlServer, ensure that they are up and accessible. This ist not neccessary as this apllication can use SqLite too.
   But for a production enviroment i strongly recommend to use a seperate database server.
 * **OPTIONAL**: install a development enviroment of your choice (for ex.: VsCode, Rider etc..)
