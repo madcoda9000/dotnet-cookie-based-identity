@@ -61,10 +61,10 @@
 
   Otherwise the application will check and try to migrate the initial Database setup on every launch. That is not a problem in a development enviroment. But I would reccomend to disable this.
 * now you can start the application by typing `dotnet run`
-  Your console window output should look like that:
+  - Your console window output should look like that:
    ![dotnet-run2](Screenshots/dotnet-run2.png)
 * You can login using the following credentials:
-  **Username**: super.admin
-  **Password**: Test1000!
+  - **Username**: super.admin
+  - **Password**: Test1000!
 
 
