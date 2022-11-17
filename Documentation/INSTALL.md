@@ -51,8 +51,8 @@
   **HINT**: if the browser is not launching automatically, open a browser manually an enter this url: https://localhost:7106
 
 * stop the application by pressing the following in the terminal (or Powershell) window where you've started the application
-  Mac: CMD + C
-  Linux & Windows: STRG + C
+  - Mac: CMD + C
+  - Linux & Windows: STRG + C
   The application will shutdown now.
 * set the value of the Setting **MigrateOnStartup** under **AppSettings** in appsettings.json to **false**
 
