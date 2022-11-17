@@ -29,11 +29,6 @@ namespace DotNetIdentity.Data
         /// <value></value>
         public DbSet<ApplicationSettings>? AppSettings { get; set; }
         /// <summary>
-        /// property AppSessionCache
-        /// </summary>
-        /// <value></value>
-        public DbSet<SessionCache>? AppSessionCache { get; set; }
-        /// <summary>
         /// IConfiguration property
         /// </summary>
         protected readonly IConfiguration Configuration;

@@ -40,7 +40,9 @@
   for SqLite
    ![SqLite](Screenshots/sqlite1.png)
 
+  NOTE: make sure that you've no typo in the DatabaseType setting! Valid values are: MySql, SqLite and SqlServer. All other values will throw the following error.
 
+  ![Error - Wrong DatabaseType](Screenshots/error.png)
 
 ### the magic.. (if everthing goes well!)
 

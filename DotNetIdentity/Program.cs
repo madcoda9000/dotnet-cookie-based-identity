@@ -24,6 +24,7 @@ using Serilog.Sinks.SystemConsole.Themes;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.DataProtection;
 
 [assembly: System.Reflection.AssemblyVersion("0.0.*")]
 
@@ -35,59 +36,21 @@ var connectionString = string.Empty;
 if (DbType == "MySql")
 {
     connectionString = builder.Configuration.GetConnectionString("MySql");
-    //builder.Services.AddDbContext<AppDbContextMySql>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)), ServiceLifetime.Transient);
-    builder.Services.AddDbContext<AppDbContext, AppDbContextMySql>();
-    // add distributed mysql server session cache
-    System.Data.Common.DbConnectionStringBuilder connBuilder = new System.Data.Common.DbConnectionStringBuilder();
-    connBuilder.ConnectionString = connectionString;
-    string Schema = connBuilder["database"].ToString()!;
-
-    builder.Services.AddDistributedMySqlCache(options =>
-    {
-        options.ConnectionString = builder.Configuration.GetConnectionString("MySql");
-        options.SchemaName = Schema;
-        options.TableName = "AppSessionCache";
-        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(10);
-    });
-    builder.Services.AddSession(options =>
-        {
-            options.Cookie.Name = "SessionCookie";
-            options.IdleTimeout = TimeSpan.FromMinutes(7);
-            options.Cookie.IsEssential = true;
-            options.Cookie.HttpOnly = true;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-            options.Cookie.SameSite = SameSiteMode.Lax;
-        });
+    builder.Services.AddDbContext<AppDbContext, AppDbContextMySql>();    
 }
 else if (DbType == "SqlServer")
 {
     connectionString = builder.Configuration.GetConnectionString("SqlServer");
-    //builder.Services.AddDbContext<AppDbContextSqlServer>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
     builder.Services.AddDbContext<AppDbContext, AppDbContextSqlServer>();
-    // add distributed sqlserver server session cache
-    builder.Services.AddDistributedSqlServerCache(options =>
-    {
-        options.ConnectionString = builder.Configuration.GetConnectionString("SqlServer");
-        options.SchemaName = "dbo";
-        options.TableName = "AppSessionCache";
-        options.ExpiredItemsDeletionInterval = TimeSpan.FromMinutes(10);
-    });
-    builder.Services.AddSession(options =>
-        {
-            options.Cookie.Name = "SessionCookie";
-            options.IdleTimeout = TimeSpan.FromMinutes(7);
-            options.Cookie.IsEssential = true;
-            options.Cookie.HttpOnly = true;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-            options.Cookie.SameSite = SameSiteMode.Lax;
-        });
 }
 else if (DbType == "SqLite")
 {
     connectionString = builder.Configuration.GetConnectionString("SqLite");
-    //builder.Services.AddDbContext<AppDbContextSqlServer>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
     builder.Services.AddDbContext<AppDbContext, AppDbContextSqLite>();
-    builder.Services.AddSession(options =>
+}
+
+// add session
+builder.Services.AddSession(options =>
         {
             options.Cookie.Name = "SessionCookie";
             options.IdleTimeout = TimeSpan.FromMinutes(7);
@@ -95,8 +58,8 @@ else if (DbType == "SqLite")
             options.Cookie.HttpOnly = true;
             options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
             options.Cookie.SameSite = SameSiteMode.Lax;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
         });
-}
 
 // add serilog
 var SeriLogConnStr = string.Empty;
@@ -281,6 +244,14 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
+if (DbType != "SqlServer" && DbType != "MySql" && DbType != "SqLite")
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] " + DbType + " is an invalid Database type. Please take a look into your appsettings.json!");
+    Console.ForegroundColor = ConsoleColor.White;
+    await app.StopAsync();
+}
+
 // migrate initial
 Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] Database type is: " + DbType);
@@ -352,3 +323,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

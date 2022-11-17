@@ -33,7 +33,6 @@ I was tired of doing so and created this boilerplate. I was inspired by this Art
   * for exceptions
 * provides application settings service
   * easy to extend settings service with own settings classes
-* provides session cache in database
 * provides session timeout due to inactivity
 * provides loggin using serilog
   * audit logging
