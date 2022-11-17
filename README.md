@@ -111,7 +111,7 @@ The code I've written is provided using the MIT License. See [here](LICENSE.md)
 
 ### Ahhh, that's exactly what i need. How can i use that?
 
-so, then take a look at the install [instrunctions](Documentation/INSTALLmd)
+so, then take a look at the install [instrunctions](Documentation/INSTALL.md)
 
 ### Is there a changelog?
 
