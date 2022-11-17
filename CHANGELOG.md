@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8356.26140\] - 2022.11.17
+
+#### Added
+
+* added MigrationOnStartup parameter in appsettings.json
+* added condition to check if MigrationOnStartup is true in program.cs
+* added INSTALL.md
+
+#### Modified
+
+* changed Home/index content 
+* added PhoneNumber property to inital seed in dbContext
+* created new initial migrations for SqLite
+* created new initial migrations for MySql
+* created new initial migrations for MS-Sql
+
 ### \[0.0.8355.23480\] - 2022.11.16
 
 #### Added

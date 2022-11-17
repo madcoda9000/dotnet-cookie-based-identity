@@ -283,27 +283,40 @@ var app = builder.Build();
 
 // migrate initial
 Console.ForegroundColor = ConsoleColor.Cyan;
-Console.WriteLine("[" + DateTime.Now.ToShortTimeString() + " INF] Databasy type is: " + DbType);
+Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] Database type is: " + DbType);
+Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] check if initial migration is enbaled....");
 Console.ForegroundColor = ConsoleColor.White;
-using (var scope = app.Services.CreateScope())
-{
-    if (DbType == "MySql")
-    {
-        var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_MySql");
-    }
-    else if (DbType == "SqlServer")
-    {
-        var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqlServer");
-    }
-    else if (DbType == "SqLite")
-    {
-        var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqLite");
-    }
-}
 
+if(builder.Configuration.GetSection("AppSettings").GetSection("MigrateOnStartup").Value=="true") {
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] initial migration is enbaled! Try to apply migration for Database type: " + DbType);
+    Console.ForegroundColor = ConsoleColor.White;
+    using (var scope = app.Services.CreateScope())
+    {
+        if (DbType == "MySql")
+        {
+            var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_MySql");
+        }
+        else if (DbType == "SqlServer")
+        {
+            var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqlServer");
+        }
+        else if (DbType == "SqLite")
+        {
+            var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            await dataContext.GetInfrastructure().GetService<IMigrator>()!.MigrateAsync("Initial_SqLite");
+        }
+    }
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] initial migration migration successfully applied for Database type: " + DbType);
+    Console.ForegroundColor = ConsoleColor.White;
+} else {
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] initial migration is disabled! Skipping intial migration.");
+    Console.ForegroundColor = ConsoleColor.White;
+}
 // enable localization in request parameters
 app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
@@ -318,6 +331,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

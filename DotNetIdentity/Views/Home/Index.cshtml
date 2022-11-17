@@ -5,66 +5,15 @@
 }
 <div class="mb-5">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a target="_blank" href="https://burakneis.com/asp-net-core-identity">building Web apps with ASP.NET
-            Core Identity</a>.</p>
+    <p>ASP.NET Core Identity Cookie based application</p>
 </div>
 
-@{
-    var recoveryCodes = TempData["RecoveryCodes"];
-    if (recoveryCodes != null)
-    {
-        <div class="alert alert-info mb-5">
-            Your two-factor authenticator recovery codes below.
-            @string.Join(",", recoveryCodes as string[] ?? new string[] {})
-        </div>
-        
-    }
-}
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-    <div class="navbar-brand ms-3">Role-Based Authorization</div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRole"
-        aria-controls="navbarRole" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarRole">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="RoleBased" asp-action="Dashboard">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="RoleBased" asp-action="Users">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="RoleBased" asp-action="Articles">Articles</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="RoleBased" asp-action="Profile">Profile</a>
-            </li>
-        </ul>
+<div class="card shadow p-3 mb-5 rounded">
+    <div class="card-body">
+        <p>
+            <h5>Hello,</h5>
+            you've successfully installed the application. Feel free to customize this startpage (/Views/Home/index.cshtml). <br><br>
+            Or you can add new Datamodels and views to build your own application.
+        </p>
     </div>
-</nav>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-    <div class="navbar-brand ms-3">Claim-Based Authorization</div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRole"
-        aria-controls="navbarRole" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarRole">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="ClaimBased" asp-action="HR">HR</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="ClaimBased" asp-action="Software">Software</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="ClaimBased" asp-action="Employee">Employee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="ClaimBased" asp-action="Violence">Violence</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+</div>

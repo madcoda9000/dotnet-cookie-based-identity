@@ -102,7 +102,8 @@ namespace DotNetIdentity.Data
                     IsMfaForce = false,
                     IsLdapLogin = false,
                     IsEnabled = true,
-                    RolesCombined = "Admin"
+                    RolesCombined = "Admin",
+                    PhoneNumber = "111"
                 }
             );
 
