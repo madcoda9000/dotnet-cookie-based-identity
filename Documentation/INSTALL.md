@@ -20,7 +20,6 @@
   ![dotnet ef](Screenshots/18dotnetef.png)
 
 * if you want to use a Database like MySql or MS-SqlServer, ensure that they are up and accessible. This ist not neccessary as this application can use SqLite too. But for a production enviroment i strongly recommend to use a seperate database server.
-* **OPTIONAL**: install a development enviroment of your choice (for ex.: VsCode, Rider etc..)
 
 ## Installation
 
@@ -28,8 +27,7 @@
 
 * download the latest [release](https://github.com/madcoda9000/dotnet-cookie-based-identity/releases)
 * extract the zip to a location of your choice
-* open a Powershell or Terminal (on Mac or Linux) and navigate into the extraced folder
-  * **TIPP:** if you're using a development enviroment you can open that extracted folder with your developemnt enviroment and use the terminal builtin.
+* open a Powershell or Terminal (on Mac or Linux) and navigate into the extracted folder
 * rename appsettings.TEMPLATE.jso to appsettings.json
   * Mac / Linux Terminal: `mv appsettings.TEMPLATE.json appsettings.json`
   * Windows Powershell: `Rename-Item .\appsettings.TEMPLATE.json -NewName appsettings.json`
