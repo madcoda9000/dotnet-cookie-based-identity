@@ -4,7 +4,7 @@
 
 ## Requirements
 
-* install Microsoft .Net Core 6.0 SDK [(donload here)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* install Microsoft .Net Core 6.0 SDK [(download here)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
   * ensure .Net Framweork is installed by opening a Powershell or terminal window.
   * type: `dotnet --info`
   * If you get a list with installed SDK's, everything is fine.
