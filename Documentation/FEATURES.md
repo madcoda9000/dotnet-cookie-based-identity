@@ -31,6 +31,11 @@
 ### Application Admin Features
 * provides application settings service
   * easy to extend settings service with own settings classes
+* Settings available for
+  * LDAP
+  * Mailserver
+  * Session
+  * Branding
 * provides session timeout due to inactivity
 * provides loggin using serilog
   * audit logging
