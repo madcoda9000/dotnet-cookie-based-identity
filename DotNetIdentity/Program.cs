@@ -255,12 +255,12 @@ if (DbType != "SqlServer" && DbType != "MySql" && DbType != "SqLite")
 // migrate initial
 Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] Database type is: " + DbType);
-Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] check if initial migration is enbaled....");
+Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] check if initial migration is enabled....");
 Console.ForegroundColor = ConsoleColor.White;
 
 if(builder.Configuration.GetSection("AppSettings").GetSection("MigrateOnStartup").Value=="true") {
     Console.ForegroundColor = ConsoleColor.Cyan;
-    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] initial migration is enbaled! Try to apply migration for Database type: " + DbType);
+    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + " INF] initial migration is enabled! Try to apply migration for Database type: " + DbType);
     Console.ForegroundColor = ConsoleColor.White;
     using (var scope = app.Services.CreateScope())
     {
