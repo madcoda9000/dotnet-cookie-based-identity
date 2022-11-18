@@ -201,4 +201,36 @@
     <value>Laden Sie Ihr Anmeldehintergrundbild hoch</value>
     <comment/>
   </data>
+  <data name="22" xml:space="preserve">
+    <value>Element Farben</value>
+    <comment/>
+  </data>
+  <data name="23" xml:space="preserve">
+    <value>Primäre Farben</value>
+    <comment/>
+  </data>
+  <data name="24" xml:space="preserve">
+    <value>Status Farben</value>
+    <comment/>
+  </data>
+  <data name="25" xml:space="preserve">
+    <value>Anwendungs Bilder</value>
+    <comment/>
+  </data>
+  <data name="26" xml:space="preserve">
+    <value>Standard Style Laden</value>
+    <comment/>
+  </data>
+  <data name="27" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie den Standard Style wieder herstellen möchten&lt;br&gt;Ds kann nicht Rückgängig gemacht werden!</value>
+    <comment/>
+  </data>
+  <data name="28" xml:space="preserve">
+    <value>Ja, bitte Standard wieder herstellen!</value>
+    <comment/>
+  </data>
+  <data name="29" xml:space="preserve">
+    <value>Abbrechen</value>
+    <comment/>
+  </data>
 </root>

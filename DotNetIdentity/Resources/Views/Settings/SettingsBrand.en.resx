@@ -201,4 +201,36 @@
     <value>Upload your Logon Background image</value>
     <comment/>
   </data>
+  <data name="22" xml:space="preserve">
+    <value>Element Colors</value>
+    <comment/>
+  </data>
+  <data name="23" xml:space="preserve">
+    <value>Primary Theme Colors</value>
+    <comment/>
+  </data>
+  <data name="24" xml:space="preserve">
+    <value>Status Colors</value>
+    <comment/>
+  </data>
+  <data name="25" xml:space="preserve">
+    <value>Application Graphics</value>
+    <comment/>
+  </data>
+  <data name="26" xml:space="preserve">
+    <value>Restore default settings</value>
+    <comment/>
+  </data>
+  <data name="27" xml:space="preserve">
+    <value>Are you sure that you want to restore the default style settings?&lt;br&gt;This can not be made undone!</value>
+    <comment/>
+  </data>
+  <data name="28" xml:space="preserve">
+    <value>Yes, please reset the style!</value>
+    <comment/>
+  </data>
+  <data name="29" xml:space="preserve">
+    <value>Cancel</value>
+    <comment/>
+  </data>
 </root>

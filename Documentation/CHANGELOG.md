@@ -10,6 +10,12 @@ All notable changes to this project will be documented in this file.
 
 #### Added
 
+* added translation for Style groups in SettingsBrand.cshtml
+
+### \[1.0.8357.22226\] - 2022.11.18
+
+#### Added
+
 * added property ShowMfaWarningBanner<bool> to Models/Businessmodels/GlobalSettings.cs
 * added property seed for ShowMfaWarningBanner to AppDbContextMySql
 * added property seed for ShowMfaWarningBanner to AppDbContextSqlServer
