@@ -8,10 +8,17 @@
   * ensure .Net Framweork is installed by opening a Powershell or terminal window.
   * type: `dotnet --info`
   * If you get a list with installed SDK's, everything is fine.
+
+  ![dotnet --info](Screenshots/19dotnetimnfo.png)
+
+
 * install Dotnet EntityFramework Core tools
   * open a powershell window (or a terminal on Linux or MacOs)
   * type: `dotnet tool install --global dotnet-ef`
   * verify successful installation by typing: `dotnet ef`
+
+  ![dotnet ef](Screenshots/18dotnetef.png)
+
 * if you want to use a Database like MySql or MS-SqlServer, ensure that they are up and accessible. This ist not neccessary as this application can use SqLite too. But for a production enviroment i strongly recommend to use a seperate database server.
 * **OPTIONAL**: install a development enviroment of your choice (for ex.: VsCode, Rider etc..)
 
