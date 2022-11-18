@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ## \[Release v.1.0.0\]
 
-### \[1.0.8357.22226\] - 2022.11.18
+### \[1.0.8357.29989\] - 2022.11.18
 
 #### Added
 
