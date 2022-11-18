@@ -36,7 +36,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                     table.PrimaryKey("PK_AppLogs", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
-            */
+            
             migrationBuilder.CreateTable(
                 name: "AppLogsSqLite",
                 columns: table => new
@@ -58,7 +58,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                     table.PrimaryKey("PK_AppLogsSqLite", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
-
+*/
             migrationBuilder.CreateTable(
                 name: "AppSettings",
                 columns: table => new

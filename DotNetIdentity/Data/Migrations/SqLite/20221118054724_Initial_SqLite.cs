@@ -27,7 +27,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     table.PrimaryKey("PK_AppLogs", x => x.id);
                 });
-            */
+            
             migrationBuilder.CreateTable(
                 name: "AppLogsSqLite",
                 columns: table => new
@@ -44,7 +44,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     table.PrimaryKey("PK_AppLogsSqLite", x => x.id);
                 });
-
+*/
             migrationBuilder.CreateTable(
                 name: "AppSettings",
                 columns: table => new

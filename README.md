@@ -15,6 +15,7 @@ I was tired of doing so and created this boilerplate. I was inspired by this Art
 * [Screenshots](Documentation/SCREENSHOTS.md)
 * [Installation](Documentation/INSTALL.md)
 
+* [Download (v1.0.0)](https://github.com/madcoda9000/dotnet-cookie-based-identity/releases)
 
 
 

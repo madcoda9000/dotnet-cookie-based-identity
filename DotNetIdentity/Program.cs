@@ -26,7 +26,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.DataProtection;
 
-[assembly: System.Reflection.AssemblyVersion("0.0.*")]
+[assembly: System.Reflection.AssemblyVersion("1.0.*")]
 
 var builder = WebApplication.CreateBuilder(args);
 var DbType = builder.Configuration.GetSection("AppSettings").GetSection("DataBaseType").Value;
