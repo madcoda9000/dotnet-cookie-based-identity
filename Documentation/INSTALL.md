@@ -30,7 +30,6 @@
 * extract the zip to a location of your choice
 * open a Powershell or Terminal (on Mac or Linux) and navigate into the extraced folder
   * **TIPP:** if you're using a development enviroment you can open that extracted folder with your developemnt enviroment and use the terminal builtin.
-  * **NOTE**: ensure you're in the folder that contains the **DotNetIdentity.csproj** file!
 * rename appsettings.TEMPLATE.jso to appsettings.json
   * Mac / Linux Terminal: `mv appsettings.TEMPLATE.json appsettings.json`
   * Windows Powershell: `Rename-Item .\appsettings.TEMPLATE.json -NewName appsettings.json`
