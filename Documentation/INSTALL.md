@@ -28,7 +28,7 @@
 * download the latest [release](https://github.com/madcoda9000/dotnet-cookie-based-identity/releases)
 * extract the zip to a location of your choice
 * open a Powershell or Terminal (on Mac or Linux) and navigate into the extracted folder
-* rename appsettings.TEMPLATE.jso to appsettings.json
+* rename appsettings.TEMPLATE.json to appsettings.json
   * Mac / Linux Terminal: `mv appsettings.TEMPLATE.json appsettings.json`
   * Windows Powershell: `Rename-Item .\appsettings.TEMPLATE.json -NewName appsettings.json`
 * modify the appropiate connection string (MySql, SqlServer or SqLite) in appsettings.json to match your enviroment
@@ -67,9 +67,10 @@
    ![set to false](Screenshots/setMigToFalse.png)
 
   Otherwise the application will check and try to migrate the initial Database setup on every launch. That is not a problem in a development enviroment. But I would reccomend to disable this.
-* now you can start the application by typing `dotnet run`
+* now you can start the application by typing `dotnet run` or publish it using IIS, Apache2 or Nginx.
   * Your console window output should look like that:
      ![dotnet-run2](Screenshots/dotnet-run2.png)
+* open your Browser and navigate to https://localhost:5001
 * You can login using the following credentials:
   * **Username**: super.admin
   * **Password**: Test1000!
