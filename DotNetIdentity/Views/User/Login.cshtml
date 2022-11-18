@@ -47,6 +47,7 @@
     @if (Context.Request.Query.TryGetValue("res", out queryVal) &&
     queryVal.FirstOrDefault() == "sesst")
     {
+        
         <div class="alert alert-danger">
             @L["11"]
         </div>

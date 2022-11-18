@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using DotNetIdentity.Models.DataModels;
 using System.ComponentModel.DataAnnotations.Schema;
+using DotNetIdentity.Models;
 
 namespace DotNetIdentity.Data
 {
@@ -104,7 +105,8 @@ namespace DotNetIdentity.Data
                     IsLdapLogin = false,
                     IsEnabled = true,
                     RolesCombined = "Admin",
-                    PhoneNumber = "111"
+                    PhoneNumber = "111",
+                    Gender = Gender.Unknown
                 }
             );
 

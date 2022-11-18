@@ -11,6 +11,12 @@ All notable changes to this project will be documented in this file.
 #### Added
 
 * added translation for Style groups in SettingsBrand.cshtml
+* added audit log entry on logout due to session timeout
+* added gender Unknown on initial seed for user super.admin
+
+#### Fixed
+
+* displaying max image dimension for logon background in SettingsBrand.cshtml
 
 ### \[1.0.8357.22226\] - 2022.11.18
 

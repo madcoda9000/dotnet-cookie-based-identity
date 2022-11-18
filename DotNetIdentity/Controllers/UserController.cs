@@ -154,9 +154,12 @@ namespace DotNetIdentity.Controllers
         /// </summary>
         /// <param name="returnUrl"></param>
         /// <returns>view Login</returns>
-        public async Task<IActionResult> Login(string? returnUrl)
+        public async Task<IActionResult> Login(string? res, string? returnUrl)
         {
-            await _signInManager.SignOutAsync();
+            if (res!=null && res == "sesst") {
+                _logger.LogWarning("AUDIT: User " + User.Identity.Name + " logged out due to inactivity.");
+            }
+            await _signInManager.SignOutAsync();            
             if (returnUrl != null)
             {
                 TempData["ReturnUrl"] = returnUrl;

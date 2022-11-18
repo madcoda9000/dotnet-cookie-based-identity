@@ -386,7 +386,7 @@
             logoutUrl: '/User/Login',
             redirUrl: '/User/Login/?res=sesst',
             warnAfter: @SessionTimeoutWarnAfter,
-            redirAfter: @SessionTimeoutRedirAfter,
+            redirAfter: @SessionTimeoutWarnAfter + @SessionTimeoutRedirAfter,
             countdownBar: true,
             countdownSmart: false,
             appendTimestamp: true
