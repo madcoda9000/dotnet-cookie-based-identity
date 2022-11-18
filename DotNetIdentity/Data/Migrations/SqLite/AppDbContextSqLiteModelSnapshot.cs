@@ -247,28 +247,6 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                     b.ToTable("AppLogsSqLite");
                 });
 
-            modelBuilder.Entity("DotNetIdentity.Models.DataModels.SessionCache", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("AbsoluteExpiration")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("ExpiresAtTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("SlidingExpirationInSeconds")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<byte[]>("Value")
-                        .HasColumnType("BLOB");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AppSessionCache");
-                });
-
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
@@ -301,7 +279,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "5bafd067-52e4-4bd2-a1fb-19591ce5d9bf",
+                            ConcurrencyStamp = "334a6437-8875-4468-94cd-5d9fc1758f89",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -309,7 +287,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "8d9e5a58-ab1d-48b6-8605-59854af57f9b",
+                            ConcurrencyStamp = "329ebaf5-3726-4b3b-ade5-41567ab51b03",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -317,7 +295,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "c155312b-84a2-4756-a34c-0b7d00014df8",
+                            ConcurrencyStamp = "e1ecd2a6-ab93-4fa7-97c2-9b3b6e622522",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -325,7 +303,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "23e9dde7-9c7c-41f2-b293-fdd082a69527",
+                            ConcurrencyStamp = "27c76457-f6c8-4d47-a1da-ba74b46dee17",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -437,7 +415,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "62bc60b4-0249-4c15-83b7-86fa4a304701",
+                            ConcurrencyStamp = "96d1103f-961a-4e8c-86af-8b2ea84baff2",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -451,10 +429,11 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBajakWpU1W5+b01RbIFjsIt16GsDT8l5nThKUofFpfa0Fn6yE8M4NxyK/NbIS4ZOA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO3cISTsy9QCXy0k47qdYS8EL7X1nbNSngGxXU8IFF6zUA7IldmKGSJkZINQbnqwEw==",
+                            PhoneNumber = "111",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "6a70c821-99ff-4af6-a3ce-c4b768d5df86",
+                            SecurityStamp = "18612ebe-4b95-4e35-b06a-dc873b5eac18",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"

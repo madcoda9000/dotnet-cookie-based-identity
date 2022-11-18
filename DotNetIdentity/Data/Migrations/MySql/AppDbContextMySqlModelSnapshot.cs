@@ -249,28 +249,6 @@ namespace DotNetIdentity.Data.Migrations.MySql
                     b.ToTable("AppLogsSqLite");
                 });
 
-            modelBuilder.Entity("DotNetIdentity.Models.DataModels.SessionCache", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<DateTime?>("AbsoluteExpiration")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("ExpiresAtTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("SlidingExpirationInSeconds")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("Value")
-                        .HasColumnType("longblob");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AppSessionCache");
-                });
-
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
@@ -303,7 +281,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "4139db84-7f60-4f36-9519-6ba67da6f52d",
+                            ConcurrencyStamp = "9a7baf4f-11b0-463d-8ae0-1bf48c0a87a0",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -311,7 +289,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "989ef05a-3295-45cc-be1a-64c853506dd7",
+                            ConcurrencyStamp = "70f2a838-1e58-4412-86ca-627780a81d7e",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -319,7 +297,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "319080bd-e7c3-4e00-bbd5-a5b21d1cd049",
+                            ConcurrencyStamp = "e2e1f410-7a4b-4f8a-a159-5158f5556dd2",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -327,7 +305,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "8272cd45-ae60-4b3a-bf2f-d0773fc1595a",
+                            ConcurrencyStamp = "ab5f0d2a-1a1c-4785-967e-3c4048cfeaa4",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -439,7 +417,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "2aa575ec-76f1-4328-943c-1714168bc35b",
+                            ConcurrencyStamp = "3e15afd7-f71b-473c-a1db-b56d0d33ee8b",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -453,10 +431,11 @@ namespace DotNetIdentity.Data.Migrations.MySql
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF0yOtgP2SQ6K9j+cC8KYCFqcCkh/gEXRQE5uTY60gUGDNiV3BmjKA0dw8dP1Rp8Og==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPkNGejagoWWwCCKRt9Jfl+RvEzMcKqSJFMsTW2TXb6tcalC7TM5HkmEsDbtnkBgVA==",
+                            PhoneNumber = "111",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "adcf04b6-113a-4923-9467-3d09eed50290",
+                            SecurityStamp = "baa5458c-7e4c-4d3a-a821-81816146c393",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"

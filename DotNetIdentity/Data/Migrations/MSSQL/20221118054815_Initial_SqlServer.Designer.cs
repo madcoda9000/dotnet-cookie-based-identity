@@ -3,32 +3,37 @@ using System;
 using DotNetIdentity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 #pragma warning disable 1591
-namespace DotNetIdentity.Data.Migrations.SqLite
+namespace DotNetIdentity.Data.Migrations.MSSQL
 {
-    [DbContext(typeof(AppDbContextSqLite))]
-    [Migration("20221116113811_Initial_SqLite")]
-    partial class Initial_SqLite
+    [DbContext(typeof(AppDbContextSqlServer))]
+    [Migration("20221118054815_Initial_SqlServer")]
+    partial class Initial_SqlServer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.11");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "6.0.11")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("DotNetIdentity.Models.DataModels.ApplicationSettings", b =>
                 {
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Type")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Name", "Type");
 
@@ -191,29 +196,31 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<string>("Exception")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Level")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MessageTemplate")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Properties")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Timestamp")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("id");
 
@@ -224,78 +231,59 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<string>("Exception")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Level")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Properties")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RenderedMessage")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Timestamp")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("id");
 
                     b.ToTable("AppLogsSqLite");
                 });
 
-            modelBuilder.Entity("DotNetIdentity.Models.DataModels.SessionCache", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("AbsoluteExpiration")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("ExpiresAtTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("SlidingExpirationInSeconds")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<byte[]>("Value")
-                        .HasColumnType("BLOB");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AppSessionCache");
-                });
-
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
 
@@ -303,7 +291,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "5bafd067-52e4-4bd2-a1fb-19591ce5d9bf",
+                            ConcurrencyStamp = "c4f60060-6484-45a4-9f6c-ce1e70871c5c",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -311,7 +299,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "8d9e5a58-ab1d-48b6-8605-59854af57f9b",
+                            ConcurrencyStamp = "4415c699-8c20-4ab7-8000-334b096ae46a",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -319,7 +307,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "c155312b-84a2-4756-a34c-0b7d00014df8",
+                            ConcurrencyStamp = "c7bf2482-258a-4c66-a3e7-1e7a7f222bec",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -327,7 +315,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "23e9dde7-9c7c-41f2-b293-fdd082a69527",
+                            ConcurrencyStamp = "11fb19b0-94b8-4d32-8fed-1afb129fd491",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -337,90 +325,90 @@ namespace DotNetIdentity.Data.Migrations.SqLite
             modelBuilder.Entity("DotNetIdentity.Models.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("BirthDay")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Department")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Gender")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsLdapLogin")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsMfaForce")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<string>("ProfilePicture")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RolesCombined")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<int>("TwoFactorType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
@@ -429,7 +417,8 @@ namespace DotNetIdentity.Data.Migrations.SqLite
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
 
@@ -439,7 +428,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "62bc60b4-0249-4c15-83b7-86fa4a304701",
+                            ConcurrencyStamp = "b649b5e5-e594-4013-aec8-7bdb86375cf3",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -453,10 +442,11 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBajakWpU1W5+b01RbIFjsIt16GsDT8l5nThKUofFpfa0Fn6yE8M4NxyK/NbIS4ZOA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJKIWwGzYFURO2V2TqQX6RUuggIs54/8YqDqYpf/drGPRzWz8CEqtPY+kiwLTa34Uw==",
+                            PhoneNumber = "111",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "6a70c821-99ff-4af6-a3ce-c4b768d5df86",
+                            SecurityStamp = "5e8bb951-e302-4fab-92dc-a8bf5db2ff66",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"
@@ -467,17 +457,19 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -490,17 +482,19 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -512,17 +506,17 @@ namespace DotNetIdentity.Data.Migrations.SqLite
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -534,10 +528,10 @@ namespace DotNetIdentity.Data.Migrations.SqLite
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -556,16 +550,16 @@ namespace DotNetIdentity.Data.Migrations.SqLite
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 

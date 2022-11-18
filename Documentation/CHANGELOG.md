@@ -6,6 +6,23 @@ All notable changes to this project will be documented in this file.
 
 ## \[Unreleased\]
 
+### \[0.0.8357.12450\] - 2022.11.18
+
+#### Added
+
+* added new initial migrations
+* added favicon.ico
+* added images for documentation
+
+#### Modified
+
+* changed images in SCREENSHOTS.md
+* updated INSTALL.md
+
+#### Removed
+
+* removed distributed session cache
+
 ### \[0.0.8356.26140\] - 2022.11.17
 
 #### Added
