@@ -20,5 +20,10 @@ namespace DotNetIdentity.Models.BusinessModels {
         /// </summary>
         /// <value>string</value>
         public string? SessionCookieExpiration {get; set;}
+        /// <summary>
+        /// mfa warning property
+        /// </summary>
+        /// <value></value>
+        public bool ShowMfaEnableBanner {get;set;}
     }
 }

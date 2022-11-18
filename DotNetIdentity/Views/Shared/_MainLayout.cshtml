@@ -229,11 +229,38 @@
         }
         /* end brand color sidebar styles */
 
-        
+        /* notification style */          
+        #topnote {
+            position: absolute;
+            z-index: 6001;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: @_sett.Brand.ColorDanger;
+            text-align: center;
+            line-height: 4.5;
+            overflow: hidden;
+            -webkit-box-shadow: 0 0 5px black;
+            -moz-box-shadow:    0 0 5px black;
+            box-shadow:         0 0 5px black;
+        }     
+        .alMsg {
+            color:#fff;
+        }
     </style>
 </head>
 
 <body>
+    @if(_sett.Global.ShowMfaEnableBanner==true) {
+        <div id="topnote">
+            <span class="alMsg">@L["11"]</span> 
+        </div>
+        <script>
+            $("#topnote").hide();
+            $("#topnote").delay('500').slideToggle('slow');
+            $("#topnote").delay('10000').slideToggle('slow');
+        </script>
+    }
     <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active" style="border-right:1px solid #EDECEC !important;">

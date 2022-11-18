@@ -145,4 +145,8 @@
     <value>Einstellungen Speichern</value>
     <comment/>
   </data>
+  <data name="8" xml:space="preserve">
+    <value>Warn-Banner anzeigen, wenn 2fa nicht aktiviert ist?</value>
+    <comment/>
+  </data>
 </root>

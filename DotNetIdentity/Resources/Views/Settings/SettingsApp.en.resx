@@ -145,4 +145,8 @@
     <value>Save Application Settings</value>
     <comment/>
   </data>
+  <data name="8" xml:space="preserve">
+    <value>activate 2fa disabled banner?</value>
+    <comment/>
+  </data>
 </root>

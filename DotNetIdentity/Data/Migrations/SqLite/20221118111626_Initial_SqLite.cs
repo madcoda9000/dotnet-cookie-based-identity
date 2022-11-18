@@ -8,8 +8,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
     public partial class Initial_SqLite : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            /*
+        {   /*
             migrationBuilder.CreateTable(
                 name: "AppLogs",
                 columns: table => new
@@ -27,7 +26,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     table.PrimaryKey("PK_AppLogs", x => x.id);
                 });
-            
+
             migrationBuilder.CreateTable(
                 name: "AppLogsSqLite",
                 columns: table => new
@@ -44,7 +43,7 @@ namespace DotNetIdentity.Data.Migrations.SqLite
                 {
                     table.PrimaryKey("PK_AppLogsSqLite", x => x.id);
                 });
-*/
+            */
             migrationBuilder.CreateTable(
                 name: "AppSettings",
                 columns: table => new
@@ -319,6 +318,11 @@ namespace DotNetIdentity.Data.Migrations.SqLite
             migrationBuilder.InsertData(
                 table: "AppSettings",
                 columns: new[] { "Name", "Type", "Value" },
+                values: new object[] { "ShowMfaEnableBanner", "GlobalSettings", "true" });
+
+            migrationBuilder.InsertData(
+                table: "AppSettings",
+                columns: new[] { "Name", "Type", "Value" },
                 values: new object[] { "SmtpFromAddress", "MailSettings", "YOUR_From_Address" });
 
             migrationBuilder.InsertData(
@@ -344,27 +348,27 @@ namespace DotNetIdentity.Data.Migrations.SqLite
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
-                values: new object[] { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "334a6437-8875-4468-94cd-5d9fc1758f89", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" });
+                values: new object[] { "dffc6dd5-b145-41e9-a861-c87ff673e9ca", "afccf341-9625-4bbc-a483-1f433136c306", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
-                values: new object[] { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "329ebaf5-3726-4b3b-ade5-41567ab51b03", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" });
+                values: new object[] { "f8a527ac-d7f6-4d9d-aca6-46b2261b042b", "f7c032ac-3813-43ac-874f-38472b1aacbf", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
-                values: new object[] { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "e1ecd2a6-ab93-4fa7-97c2-9b3b6e622522", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" });
+                values: new object[] { "g7a527ac-d7t6-4d7z-aca6-45t2261b042b", "f6a38197-e597-4529-9162-ff5ec39b046f", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Editor", "EDITOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedOn", "Name", "NormalizedName" },
-                values: new object[] { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "27c76457-f6c8-4d47-a1da-ba74b46dee17", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" });
+                values: new object[] { "p9a527ac-d77w-4d3r-aca6-35b2261b042b", "322a6312-fa2e-40ff-a49d-e688b7d3b3ca", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Moderator", "MODERATOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "BirthDay", "ConcurrencyStamp", "CreatedOn", "Department", "Email", "EmailConfirmed", "FirstName", "Gender", "IsEnabled", "IsLdapLogin", "IsMfaForce", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicture", "RolesCombined", "SecurityStamp", "TwoFactorEnabled", "TwoFactorType", "UserName" },
-                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "96d1103f-961a-4e8c-86af-8b2ea84baff2", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEO3cISTsy9QCXy0k47qdYS8EL7X1nbNSngGxXU8IFF6zUA7IldmKGSJkZINQbnqwEw==", "111", false, null, "Admin", "18612ebe-4b95-4e35-b06a-dc873b5eac18", false, 0, "super.admin" });
+                values: new object[] { "6fbfb682-568c-4f5b-a298-85937ca4f7f3", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "a0e13812-8148-4a48-98b9-bd9a5e55b579", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "super.admin@local.app", true, "Super", 0, true, false, false, "Admin", false, null, "SUPER.ADMIN@LOCAL.APP", "SUPER.ADMIN", "AQAAAAEAACcQAAAAEMGLPihHRbfd3P+25PpK4CjQLu8kCTiH0HqJPJt48a6/RoTZNpjB5p1Fz43Cl3/ECQ==", "111", false, null, "Admin", "15e8bf29-6f48-498a-a120-37acba88d352", false, 0, "super.admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -410,14 +414,13 @@ namespace DotNetIdentity.Data.Migrations.SqLite
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            /*
+        {   /*
             migrationBuilder.DropTable(
                 name: "AppLogs");
-            */
+
             migrationBuilder.DropTable(
                 name: "AppLogsSqLite");
-
+            */
             migrationBuilder.DropTable(
                 name: "AppSettings");
 

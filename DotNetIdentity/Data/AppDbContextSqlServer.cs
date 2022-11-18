@@ -49,6 +49,7 @@ namespace DotNetIdentity.Data
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SessionTimeoutWarnAfter", Type = "GlobalSettings", Value = "50000" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SessionTimeoutRedirAfter", Type = "GlobalSettings", Value = "70000" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "SessionCookieExpiration", Type = "GlobalSettings", Value = "7" });
+            builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "ShowMfaEnableBanner", Type = "GlobalSettings", Value = "true" });
 
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "Username", Type = "MailSettings", Value = "YOUR_Smtp_Username" });
             builder.Entity<ApplicationSettings>().HasData(new ApplicationSettings { Name = "Password", Type = "MailSettings", Value = "YOUR_SmtpPassword" });

@@ -258,6 +258,7 @@ namespace DotNetIdentity.Controllers
                 _settings.Global.SessionCookieExpiration = viewModel.SessionCookieExpiration;
                 _settings.Global.SessionTimeoutWarnAfter = viewModel.SessionTimeoutWarnAfter;
                 _settings.Global.SessionTimeoutRedirAfter = viewModel.SessionTimeoutRedirAfter;
+                _settings.Global.ShowMfaEnableBanner = viewModel.ShowMfaEnableBanner;
                 await _settings.Save();
                 _logger.LogInformation("AUDIT: " + User.Identity!.Name + " modified Application settings! ");
                 ViewData["message"] = _localizer["1"];

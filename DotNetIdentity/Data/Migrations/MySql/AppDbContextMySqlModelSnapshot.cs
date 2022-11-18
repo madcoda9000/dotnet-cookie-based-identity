@@ -55,6 +55,12 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         },
                         new
                         {
+                            Name = "ShowMfaEnableBanner",
+                            Type = "GlobalSettings",
+                            Value = "true"
+                        },
+                        new
+                        {
                             Name = "Username",
                             Type = "MailSettings",
                             Value = "YOUR_Smtp_Username"
@@ -281,7 +287,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "dffc6dd5-b145-41e9-a861-c87ff673e9ca",
-                            ConcurrencyStamp = "9a7baf4f-11b0-463d-8ae0-1bf48c0a87a0",
+                            ConcurrencyStamp = "3bb1f0ea-14a1-4a86-994f-6414b25a5786",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -289,7 +295,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "f8a527ac-d7f6-4d9d-aca6-46b2261b042b",
-                            ConcurrencyStamp = "70f2a838-1e58-4412-86ca-627780a81d7e",
+                            ConcurrencyStamp = "dd571384-f86e-4089-9b7a-6d27f8979b5c",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             NormalizedName = "USER"
@@ -297,7 +303,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "g7a527ac-d7t6-4d7z-aca6-45t2261b042b",
-                            ConcurrencyStamp = "e2e1f410-7a4b-4f8a-a159-5158f5556dd2",
+                            ConcurrencyStamp = "a185a65c-3f51-4d01-a9a6-112914c6f222",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Editor",
                             NormalizedName = "EDITOR"
@@ -305,7 +311,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                         new
                         {
                             Id = "p9a527ac-d77w-4d3r-aca6-35b2261b042b",
-                            ConcurrencyStamp = "ab5f0d2a-1a1c-4785-967e-3c4048cfeaa4",
+                            ConcurrencyStamp = "34521ddf-12cd-4b76-838d-57698946b504",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
@@ -417,7 +423,7 @@ namespace DotNetIdentity.Data.Migrations.MySql
                             Id = "6fbfb682-568c-4f5b-a298-85937ca4f7f3",
                             AccessFailedCount = 0,
                             BirthDay = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "3e15afd7-f71b-473c-a1db-b56d0d33ee8b",
+                            ConcurrencyStamp = "4359aa4c-b11b-4932-ab28-e689320bf470",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Department = "",
                             Email = "super.admin@local.app",
@@ -431,11 +437,11 @@ namespace DotNetIdentity.Data.Migrations.MySql
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPER.ADMIN@LOCAL.APP",
                             NormalizedUserName = "SUPER.ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPkNGejagoWWwCCKRt9Jfl+RvEzMcKqSJFMsTW2TXb6tcalC7TM5HkmEsDbtnkBgVA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECXKMz46BaMf+aT34osok0hYtU1jgZgPEMm6+VpLsA1QylBPVBySS20E0VCaBQvGyA==",
                             PhoneNumber = "111",
                             PhoneNumberConfirmed = false,
                             RolesCombined = "Admin",
-                            SecurityStamp = "baa5458c-7e4c-4d3a-a821-81816146c393",
+                            SecurityStamp = "6b94d987-1a3c-4512-a7a8-bf4d94a0600e",
                             TwoFactorEnabled = false,
                             TwoFactorType = 0,
                             UserName = "super.admin"

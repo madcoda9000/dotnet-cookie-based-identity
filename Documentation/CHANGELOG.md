@@ -4,6 +4,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## \[Release v.1.0.0\]
+
+### \[1.0.8357.22226\] - 2022.11.18
+
+#### Added
+
+* added property ShowMfaWarningBanner<bool> to Models/Businessmodels/GlobalSettings.cs
+* added property seed for ShowMfaWarningBanner to AppDbContextMySql
+* added property seed for ShowMfaWarningBanner to AppDbContextSqlServer
+* added property seed for ShowMfaWarningBanner to AppDbContextSqLite
+* added checkbox for ShowMfaWarningBanner to SettingsGlobal view
+* added translations for SettingsGlobal view
+* added jquery 2fa disabled warning based on global settings to _MainLayout.cshtml
+* added translations for 2fa warning banner in _MainLayout.de.resx
+* added translations for 2fa warning banner in _MainLayout.de.resx
+* generated new Migrations for SqlServer context
+* generated new Migration for MySql context
+* generated new MIgration for SqLite context
+* updated SettingsApp POST method in SettingsController to save new property
+
+#### Fixed
+
+* wrong title color in Sessiontimeout dialog
+
 ## \[Unreleased\]
 
 ### \[0.0.8357.12450\] - 2022.11.18

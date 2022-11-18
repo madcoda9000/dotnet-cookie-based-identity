@@ -64,7 +64,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document"> \
                     <div class="modal-content"> \
                         <div class="modal-header bg-danger"> \
-                            <h5 class="modal-title white" id="myModalLabel120">' + opt.title + '</h5> \
+                            <h5 class="modal-title white" id="myModalLabel120" style="color:#fff !important">' + opt.title + '</h5> \
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"> \
                                 <i data-feather="x"></i> \
                             </button> \
