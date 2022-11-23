@@ -9,7 +9,7 @@
   * type: `dotnet --info`
   * If you get a list with installed SDK's, everything is fine.
 
-  ![dotnet --info](Screenshots/19dotnetimnfo.png)
+   ![dotnet --info](Screenshots/19dotnetimnfo.png)
 
 
 * install Dotnet EntityFramework Core tools
@@ -17,8 +17,7 @@
   * type: `dotnet tool install --global dotnet-ef`
   * verify successful installation by typing: `dotnet ef`
 
-  ![dotnet ef](Screenshots/18dotnetef.png)
-
+   ![dotnet ef](Screenshots/18dotnetef.png)
 * if you want to use a Database like MySql or MS-SqlServer, ensure that they are up and accessible. This ist not neccessary as this application can use SqLite too. But for a production enviroment i strongly recommend to use a seperate database server.
 
 ## Installation
@@ -48,10 +47,13 @@
 
   NOTE: make sure that you've no typo in the DatabaseType setting! Valid values are: MySql, SqLite and SqlServer. All other values will throw the following error.
 
-  ![Error - Wrong DatabaseType](Screenshots/error.png)
+   ![Error - Wrong DatabaseType](Screenshots/error.png)
 
 ### the magic.. (if everthing goes well!)
 
+* navigate into the DatatablesJs folder (by typing  `cd ..` and then `cd DatatablesJs`)
+* type `dotnet build` and wait until the build is finished
+* type `cd ..` and then `cd DotNetIdentity`
 * type `dotnet run`
   * The application will try to compile and start. Whe you've no typo in your connectionstring and your Database server is reachable, the application will try to create the database a  nd the tables. After that the application will start a browser and open the application.
     Your console window output should look like that:
