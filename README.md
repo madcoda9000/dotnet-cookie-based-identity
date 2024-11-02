@@ -1,6 +1,6 @@
  ![image](Documentation/Screenshots/netBanner.png)
 
-# .NET 6 Identity Cookie based
+# .NET 8 Identity Cookie based
 
 ### What's this?
 

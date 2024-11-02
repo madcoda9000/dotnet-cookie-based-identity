@@ -1,10 +1,17 @@
  ![image](Screenshots/netBanner.png)
 
-# [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity) - Changelog
+# [.NET 8 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity) - Changelog
 
 All notable changes to this project will be documented in this file.
 
-### \[Build: 1.0.9072.34217\] - 2024.11.18
+## \[Release v.1.1.0\]
+
+### \[Build: 1.1.9072.35247\] - 2024.11.02
+
+* Updated complete project to .NET Core 8.0 LTS
+
+
+### \[Build: 1.0.9072.34217\] - 2024.11.02
 
 ### Modified
 

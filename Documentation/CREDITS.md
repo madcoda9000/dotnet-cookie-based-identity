@@ -7,8 +7,6 @@
 - Parts of this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
 - [Identity Server 4](https://github.com/IdentityServer/IdentityServer4) for ASP.NET Core Identity management. I've used this version because the actual version is not free anymore! Duende decided to force a fee for commercial use of Identity Server 5.
   - License: [Apache License 2.0](https://github.com/IdentityServer/IdentityServer4/blob/main/LICENSE)
-- [DatatablesJs](https://github.com/ekondur/DatatableJS) (I've modified that and included the modified source [here](DatatablesJs). The changes I've made are documented [here](https://github.com/ekondur/DatatableJS/issues)
-  - License: [MIT](https://github.com/ekondur/DatatableJS/blob/main/LICENSE.md)
 - [Datatables Js](https://datatables.net/) (the client library!).
   - License: [MIT](https://datatables.net/license/mit)
 - [DoxyGen](Https://doxygen.nl) for generating the class documantation, which can be found [here](Documentation/generated/html/)
