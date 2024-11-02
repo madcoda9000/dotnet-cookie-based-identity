@@ -3,7 +3,7 @@
 # Features of [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
 
 ### Core Features
-* using .NET Core 6
+* using .NET Core 8 LTS
 * using entity Framework
 * supports MySql, MariaDb, SqLite and SqlServer
 * Provides Authentication with Identity Framework and LDAP
