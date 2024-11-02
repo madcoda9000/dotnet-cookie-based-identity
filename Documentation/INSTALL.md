@@ -51,9 +51,7 @@
 
 ### the magic.. (if everthing goes well!)
 
-* navigate into the DatatablesJs folder (by typing  `cd ..` and then `cd DatatablesJs`)
-* type `dotnet build` and wait until the build is finished
-* type `cd ..` and then `cd DotNetIdentity`
+* navigate into the DotNetIdentity folder
 * type `dotnet run`
   * The application will try to compile and start. Whe you've no typo in your connectionstring and your Database server is reachable, the application will try to create the database a  nd the tables. After that the application will start a browser and open the application.
     Your console window output should look like that:

@@ -1,0 +1,98 @@
+﻿@inject IViewLocalizer L
+@inject IConfiguration _conf
+@{
+    ViewData["Title"] = "System Logs";
+}
+<link rel="stylesheet" href="~/assets/extensions/toastify-js/src/toastify.css">
+<link rel="stylesheet" href="~/assets/css/pages/toastify.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>@L["1"]</h3>
+            <p class="text-subtitle text-muted">@L["2"] </p>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Logs / System Logs</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="card card shadow p-3 mb-5 rounded">
+    <div class="card-body">
+        <table class="table" id="dt2">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>timestamp</th>
+                    <th>level</th>
+                    <th>message</th>
+                </tr>
+            </thead>
+        </table>
+
+
+    </div>
+</div>
+
+
+
+@section scripts {
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/assets/extensions/toastify-js/src/toastify.js"></script>
+    <script src="~/assets/js/extensions/moment-with-locales.min.js"></script>
+    <script>
+        window.DataTables2 = {
+            dataTable: null,
+            buildDataTable: function () {
+                this.dataTable = $("#dt2").DataTable({
+                    "ajax": {
+                        "url": "GetAppLogs",
+                        "dataSrc": "",
+                        "method": "POST",
+                    },
+                    "columns": [
+                        { "data": "id" },
+                        {
+                            "data": "Timestamp",
+                            "render": function (data, type, row, meta) {
+                                var dateValue = new Date(data);
+                                if (type === 'display') {
+                                    return dateValue.toLocaleDateString();
+                                }
+                                else {
+                                    return dateValue.valueOf();
+                                }
+                            }
+                        },
+                        {
+                            "data": "Level",
+                            "render": function (data, type, row, meta) {
+                                return data === "Information" ? '<i class=\"bi bi-info-circle-fill text-info\"></i>' : '<i class=\"bi bi-info-circle-fill text-warning\"></i>'
+                            }
+                        },
+                        { "data": "Message" },
+                    ]
+                });
+            },
+            destroyDataTable: function () {
+                if (this.dataTable) {
+                    this.dataTable.destroy();
+                }
+            },
+            refreshDataTable: function () {
+                if (this.dataTable) {
+                    this.dataTable.ajax.reload();
+                }
+            }
+        }
+        DataTables2.buildDataTable();
+    </script>
+}

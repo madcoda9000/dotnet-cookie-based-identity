@@ -1,4 +1,3 @@
-@using DatatableJS;
 @model List<AppUser>
 @inject IViewLocalizer L
 
@@ -8,13 +7,7 @@
 <link rel="stylesheet" href="~/assets/extensions/toastify-js/src/toastify.css">
 <link rel="stylesheet" href="~/assets/css/pages/toastify.css">
 <link rel="stylesheet" type="text/css" href="~/assets/extensions/dataTablesjs-1.12.1/dataTables.bootstrap5.min.css">
-<script>
-function ExtendGrid() {
-            $('#PersonGrid_filter').append('&nbsp;&nbsp;<a class=\"btn btn-primary\" href=\"/Admin/NewUser\">@L["0"]</a>');
-            $('#PersonGrid_filter').parent('div').parent('div').addClass('mb-5');
-            $('.dataTables_paginate').parent('div').parent('div').addClass('mt-3');
-        }
-    </script>
+
 <style>
     .dataTables_filter {
         
@@ -41,41 +34,26 @@ function ExtendGrid() {
 
 <div class="card card shadow p-3 mb-5 rounded">
     <div class="card-body">
-        @{
-            var langRes = "/assets/extensions/dataTablesjs-1.12.1/english.json";
-            var culture = System.Globalization.CultureInfo.CurrentCulture;
-            if(culture.ToString().ToLower()=="de") {
-                langRes = "/assets/extensions/dataTablesjs-1.12.1/german.json";
-            }
-        }
         @if (ViewData["message"] != null)
         {
             <div class="alert alert-success mb-3"><i class="bi bi-check-circle"></i> @ViewData["message"]</div>
             ViewData["message"] = null;
         }
-        @(Html.JS().Datatable<AppUser>()
-            .Name("PersonGrid")
-            .Selecting(true)
-            .Class("table table-striped")
-            .Language("" + @langRes + "")
-            .Columns(cols =>
-            {
-                cols.Field(a => a.Id).Visible(false);
-                cols.Field(a => a.ProfilePicture).Width(1).Orderable(false).Title("Avatar").Template("(data==null) ? '<div class=\"avatar avatar-md\"><img src=\"/assets/images/faces/user.png\" height=\"32\"></div>' : '<div class=\"avatar avatar-md\"><img src=\"' + data + '\" height=\"32\"></div>'");
-                cols.Field(a=>a.UserName).Width(2);
-                cols.Field(a=>a.Email).Width(2);
-                cols.Field(a=>a.RolesCombined).Title("Roles").Width(40);
-                cols.Field(a => a.TwoFactorEnabled).Orderable(false).Title("2fa-act").Template("(data==true) ? '<div class=\"form-check form-check-success\"><input class=\"form-check-input\" type=\"radio\"></div>' : '<div class=\"form-check form-check-danger\"><input class=\"form-check-input\" type=\"radio\"></div>'");
-                cols.Field(a => a.IsMfaForce).Orderable(false).Title("2fa-enf").Template("(data==false) ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>'");
-                cols.Field(a => a.IsLdapLogin).Orderable(false).Title("Ldap").Template("(data==false) ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>'");
-                cols.Field(a => a.IsEnabled).Orderable(false).Title("Active").Template("(data==false) ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>'");
-                cols.Field(a => a.Id).Orderable(false).Title("Ops").Template("'<div class=\"btn-group\" role=\"group\" aria-label=\"role actions\"><a href=\"/Admin/EditUser/' + row.Id + '\" class=\"btn btn-primary btn-sm\">Edit</a>&nbsp;<a href=\"#\" class=\"btn btn-danger btn-sm\" data-bs-toggle=\"modal\" data-bs-target=\"#danger\" data-userid=\"' + row.Id + '\" data-username=\"' + row.UserName + '\">Delete</a></div>'");
-            })
-            .URL(Url.Action("GetUsers", "Admin"), "POST")
-            .ServerSide(true)
-            .FunctionAfterLoad("ExtendGrid")
-            .Render()
-        )        
+        <table class="table table-striped" id="dt2">
+            <thead>
+                <tr>
+                    <th style="max-width:50px !important;min-width:50px !important;">Avatar</th>
+                    <th style="max-width:140px !important; min-width:140px !important;">Username</th>
+                    <th style="max-width:160px !important; min-width:160px !important;">Email</th>
+                    <th style="max-width:100%">roles</th>
+                    <th style="max-width:60px !important; min-width:60px !important;">2fa-act</th>
+                    <th style="max-width:60px !important; min-width:60px !important;">2fa-enf</th>
+                    <th style="max-width:60px !important; min-width:60px !important;">ldap</th>
+                    <th style="max-width:60px !important; min-width:60px !important;">active</th>
+                    <th style="max-width:100px !important; min-width:100px !important;">action</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
 
@@ -234,6 +212,77 @@ function ExtendGrid() {
                         $('.alMsg').html('<div class="alert alert-light-danger"><i class="bi bi-check-circle"></i> There was an error!</div>');
                     }
                 });
-            }            
+            }
+
+        function ExtendGrid() {
+            $('#dt2_filter').append('&nbsp;&nbsp;<a class=\"btn btn-primary\" href=\"/Admin/NewUser\">@L["0"]</a>');
+            $('#dt2_filter').parent('div').parent('div').addClass('mb-5');
+            $('.dataTables_paginate').parent('div').parent('div').addClass('mt-3');
+        }
+    </script>
+    <script>
+        window.DataTables2 = {
+            dataTable: null,
+            buildDataTable: function () {
+                this.dataTable = $("#dt2").DataTable({
+                    "ajax": {
+                        "url": "GetUsers",
+                        "dataSrc": "",
+                        "method": "POST",
+                    },
+                    "columns": [
+                        { "data": "ProfilePicture",
+                          "render": function (data, type, row, meta) {
+                              return data === null ? '<div class=\"avatar avatar-md\"><img src=\"/assets/images/faces/user.png\" height=\"32\"></div>' : '<div class=\"avatar avatar-md\"><img src=\"' + data + '\" height=\"32\"></div>';
+                          }
+                        },
+                        { "data": "UserName" },
+                        { "data": "Email"},
+                        { "data": "RolesCombined" },
+                        {
+                            "data": "TwoFactorEnabled",
+                            "render": function (data, type, row, meta) {
+                                return data === true ? '<div class=\"form-check form-check-success\"><input class=\"form-check-input\" type=\"radio\"></div>' : '<div class=\"form-check form-check-danger\"><input class=\"form-check-input\" type=\"radio\"></div>'
+                            }
+                        },
+                        {
+                            "data": "IsMfaForce",
+                            "render": function (data, type, row, meta) {
+                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>'
+                            }
+                        },
+                        {
+                            "data": "IsLdapLogin",
+                            "render": function (data, type, row, meta) {
+                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>'
+                            }
+                        },
+                        {
+                            "data": "IsEnabled",
+                            "render": function (data, type, row, meta) {
+                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>'
+                            }
+                        },
+                        { "data": null,
+                            "render": function (data, type, row, meta) {
+                                        return '<div class=\"btn-group\" role=\"group\" aria-label=\"role actions\"><a href=\"/Admin/EditUser/' + row.Id + '\" class=\"btn btn-primary btn-sm\">Edit</a>&nbsp;<a href=\"#\" class=\"btn btn-danger btn-sm\" data-bs-toggle=\"modal\" data-bs-target=\"#danger\" data-userid=\"' + row.Id + '\" data-username=\"' + row.UserName + '\">Delete</a></div>'
+                            }
+                        }
+                    ]
+                });
+                ExtendGrid();
+            },
+            destroyDataTable: function () {
+                if (this.dataTable) {
+                    this.dataTable.destroy();
+                }
+            },
+            refreshDataTable: function () {
+                if (this.dataTable) {
+                    this.dataTable.ajax.reload();
+                }
+            }
+        }
+        DataTables2.buildDataTable();
     </script>
 }

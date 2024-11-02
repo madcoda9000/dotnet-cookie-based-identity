@@ -4,6 +4,21 @@
 
 All notable changes to this project will be documented in this file.
 
+### \[Build: 1.0.9072.34217\] - 2024.11.18
+
+### Modified
+
+* Removed DataTablesJs dependencies
+* Removed DataTablesJs folder
+* Removed DataTables objects and methods from AdminController.cs
+* Removed AuditLogs.cshtml
+* Removed SystemLogs.cshtml
+* Removed ErrorLOgs.cshtml
+* Added LogsError.cshtml
+* Added LogsSystem.cshtml
+* Added LogsAudit.cshtml
+* Updated Documentation
+
 ## \[Release v.1.0.0\]
 
 ### \[1.0.8357.29989\] - 2022.11.18

@@ -43,20 +43,10 @@
 
   <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
-    <None Remove="DatatableJS" />
-    <None Remove="DatatableJS.Data" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="docfx.console" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\assets\images\bg\4853433.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="DatatableJS">
-      <HintPath>..\DatatableJS\DatatableJS\bin\Debug\netstandard2.0\DatatableJS.dll</HintPath>
-    </Reference>
-    <Reference Include="DatatableJS.Data">
-      <HintPath>..\DatatableJS\DatatableJS.Data\bin\Debug\netstandard2.0\DatatableJS.Data.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>

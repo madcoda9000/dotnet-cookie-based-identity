@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
-using DatatableJS.Data;
 using Microsoft.Extensions.Localization;
 using System.Data;
 using System.Reflection;
@@ -85,17 +84,17 @@ namespace DotNetIdentity.Controllers
         /// Controller Action for SystemLogs
         /// </summary>
         /// <returns>View of type DotnetIdentity.Views.Admin.SystemLogs</returns>
-        public IActionResult SystemLogs() => View();
+        public IActionResult LogsSystem() => View();
         /// <summary>
         /// Controller Action for AutditLogs
         /// </summary>
-        /// <returns>View of type DotnetIdentity.Views.Admin.AuditLogs</returns>
-        public IActionResult AuditLogs() => View();
+        /// <returns>View of type DotnetIdentity.Views.Admin.LogsAudit</returns>
+        public IActionResult LogsAudit() => View();
         /// <summary>
         /// Controller Action for ErrorLogs
         /// </summary>
         /// <returns>View of type DotnetIdentity.Views.Admin.Errorogs</returns>
-        public IActionResult ErrorLogs() => View();
+        public IActionResult LogsError() => View();
         /// <summary>
         /// Controller Action for Users
         /// </summary>
@@ -110,17 +109,16 @@ namespace DotNetIdentity.Controllers
         /// <summary>
         /// Controller Post Method to fetch ErrorLogs
         /// </summary>
-        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
         /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
-        public IActionResult GetErrorLogs(DataRequest request)
+        public IActionResult GetErrorLogs()
         {
             if (_configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqLite")
             {
-                DataResult<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == false && l.Level == "Error").ToDataResult(request);
+                List<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == false && l.Level == "Error").ToList();
                 return Json(result);
             } else {
-                DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level == "Error").ToDataResult(request);
+                List<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level == "Error").ToList();
                 return Json(result);
             }
             
@@ -129,16 +127,15 @@ namespace DotNetIdentity.Controllers
         /// <summary>
         /// Controller Post Method to fetch Applicationlogs
         /// </summary>
-        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
         /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
-        public IActionResult GetAppLogs(DataRequest request)
+        public IActionResult GetAppLogs()
         {
             if(_configuration.GetSection("AppSettings").GetSection("DataBaseType").Value=="SqLite") {
-                DataResult<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == false && l.Level != "Error").ToDataResult(request);
+                List<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == false && l.Level != "Error").ToList();
                 return Json(result);
             } else {
-                DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level != "Error").ToDataResult(request);
+                List<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == false && l.Level != "Error").ToList();
                 return Json(result);
             }
                      
@@ -147,16 +144,15 @@ namespace DotNetIdentity.Controllers
         /// <summary>
         /// Controller Post Method to fetch AuditLogs
         /// </summary>
-        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
         /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
-        public IActionResult GetAuditLogs(DataRequest request)        {
+        public IActionResult GetAuditLogs()        {
             if (_configuration.GetSection("AppSettings").GetSection("DataBaseType").Value == "SqLite")
             {
-                DataResult<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == true).ToDataResult(request);
+                List<AppLogsSqLite> result = _context.AppLogsSqLite!.Where(l => l.RenderedMessage.ToLower().StartsWith("audit") == true).ToList();
                 return Json(result);
             } else {
-                DataResult<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == true).ToDataResult(request);
+                List<AppLogs> result = _context.AppLogs!.Where(l => l.Message.ToLower().StartsWith("audit") == true).ToList();
                 return Json(result);
             }
             
@@ -165,11 +161,10 @@ namespace DotNetIdentity.Controllers
         /// <summary>
         /// Controller Post Method to fetch Users
         /// </summary>
-        /// <param name="request">type DatatablesJs.Data.DataRequest</param>
         /// <returns>Jason-Array of DatatablesJs.Data.DataResult</returns>
         [HttpPost]
-        public JsonResult GetUsers(DataRequest request) {
-            DataResult<AppUser> result = _userManager.Users.ToDataResult(request);
+        public JsonResult GetUsers() {
+            List<AppUser> result = _userManager.Users.ToList();
             return Json(result);
         }
 

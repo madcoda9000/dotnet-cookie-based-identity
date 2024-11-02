@@ -148,16 +148,17 @@ namespace DotNetIdentity.Controllers
             }
             return View(viewModel);
         }
-        
+
         /// <summary>
         /// Controller action for Login view
         /// </summary>
+        /// <param name="res"></param>
         /// <param name="returnUrl"></param>
         /// <returns>view Login</returns>
         public async Task<IActionResult> Login(string? res, string? returnUrl)
         {
             if (res!=null && res == "sesst") {
-                _logger.LogWarning("AUDIT: User " + User.Identity.Name + " logged out due to inactivity.");
+                _logger.LogWarning("AUDIT: User " + User.Identity!.Name + " logged out due to inactivity.");
             }
             await _signInManager.SignOutAsync();            
             if (returnUrl != null)
