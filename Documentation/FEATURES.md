@@ -1,6 +1,6 @@
  ![image](Screenshots/netBanner.png)
 
-# Features of [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
+# Features of [.NET 8 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
 
 ### Core Features
 * using .NET Core 8 LTS

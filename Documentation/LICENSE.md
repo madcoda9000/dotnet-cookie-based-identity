@@ -1,6 +1,6 @@
  ![image](Screenshots/netBanner.png)
 
-# [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity) is using MIT License
+# [.NET 8 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity) is using MIT License
 
 ## Copyright (c) 2022 Sascha Heimann
 

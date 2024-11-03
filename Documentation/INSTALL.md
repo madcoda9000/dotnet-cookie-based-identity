@@ -1,6 +1,6 @@
  ![image](Screenshots/netBanner.png)
 
-# Installation instructions for [.NET 6 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
+# Installation instructions for [.NET 8 Identity Cookie based](https://github.com/madcoda9000/dotnet-cookie-based-identity)
 
 ## Requirements
 
