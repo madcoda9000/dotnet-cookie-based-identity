@@ -4,6 +4,8 @@
 
 All notable changes to this project will be documented in this file.
 
+## \[Release v.1.1.0\]
+
 ### \[Build: 1.1.9073.11202\] - 2024-11-03
 
 * added seceral fixes to ensure web standards are fullfilled
@@ -11,8 +13,6 @@ All notable changes to this project will be documented in this file.
 * tested stndard compliance and page speed with Lighthouse
 * updated Documentation
 
-
-## \[Release v.1.1.0\]
 
 ### \[Build: 1.1.9072.35247\] - 2024.11.02
 
