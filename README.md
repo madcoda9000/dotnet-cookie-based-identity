@@ -8,7 +8,7 @@ Everyone knows, if you start a new project you've to implement core things like:
 
 I was tired of doing so and created this boilerplate. I was inspired by this Article [ASP.NET Core: From Beginner to advanced](https://burakneis.com/asp-net-core-identity/)
 
-![Login](Screenshots/1login.png)
+![Login](Documentation/Screenshots/1login.png)
 
 * [Features](Documentation/FEATURES.md)
 * [Changelog](Documentation/CHANGELOG.md)
