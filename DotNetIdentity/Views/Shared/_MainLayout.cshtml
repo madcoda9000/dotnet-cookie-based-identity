@@ -15,6 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=".NET 8 Identity boilerplate">
     <title>@ViewData["Title"] - @_sett.Brand.ApplicationName</title> 
 
     <link rel="stylesheet" href="~/assets/css/main/app.css">
@@ -286,7 +287,7 @@
             <header class="mb-3">
                 <nav class="navbar navbar-expand navbar-top" style="background-color:@_sett.Brand.ColorPrimary !important;">
                     <div class="container-fluid">
-                        <a href="#" class="burger-btn d-block text-light">
+                        <a href="#" class="burger-btn d-block text-light" aria-label="Sidebar switcher">
                             <i class="bi bi-justify fs-3"></i>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -296,13 +297,13 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-lg-0">
-                             <div class="dropdown ">
+                             <li class="dropdown ">
                                 @{
                                     var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
                                     var culture = System.Globalization.CultureInfo.CurrentCulture.ToString().ToLower();
                                     
                                 }
-                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
                                             <h6 class="mb-0 text-light">@L["2"], @User.FindFirst(System.Security.Claims.ClaimTypes.GivenName)!.Value @User.FindFirst(System.Security.Claims.ClaimTypes.Surname)!.Value</h6>
@@ -327,7 +328,7 @@
                                     }                                    
                                     <li>
                                         <form id="selectLanguage" asp-controller="Culture" asp-action="SetCulture" asp-route-returnUrl="@returnUrl" method="post">
-                                            <a class="dropdown-item drpHead"><i class="icon-mid bi bi-translate me-2"></i>
+                                            <span class="dropdown-item drpHead"><i class="icon-mid bi bi-translate me-2" style="cursor: pointer;"></i>
                                             @if(culture=="en") {
                                                 <input type="hidden" name="culture" value="de" />
                                                 <button id="langBtn" type="submit" class="btn btn-link drpHead">German</button>
@@ -335,7 +336,7 @@
                                                 <input type="hidden" name="culture" value="en" />
                                                 <button id="langBtn" type="submit" class="btn btn-link drpHead">English</button>
                                             }   
-                                            </a>                                         
+                                            </span>                                         
                                         </form>
                                     </li>
                                     <li>
@@ -344,7 +345,7 @@
                                     <li><a class="dropdown-item drpHead" asp-controller="User" asp-action="Logout" asp-route-returnUrl="/Home/Index"><i
                                                 class="icon-mid bi bi-box-arrow-left me-2"></i> @L["6"]</a></li>
                                 </ul>
-                            </div>
+                            </li>
                             </ul>
                         </div>
                     </div>

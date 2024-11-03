@@ -233,7 +233,7 @@
                     "columns": [
                         { "data": "ProfilePicture",
                           "render": function (data, type, row, meta) {
-                              return data === null ? '<div class=\"avatar avatar-md\"><img src=\"/assets/images/faces/user.png\" height=\"32\"></div>' : '<div class=\"avatar avatar-md\"><img src=\"' + data + '\" height=\"32\"></div>';
+                              return data === null ? '<div class=\"avatar avatar-md\"><img src=\"/assets/images/faces/user.png\" height=\"36\" alt=\"User avatar image\""></div>' : '<div class=\"avatar avatar-md\"><img src=\"' + data + '\" height=\"36\" alt=\"User avatar image\"></div>';
                           }
                         },
                         { "data": "UserName" },
@@ -242,25 +242,25 @@
                         {
                             "data": "TwoFactorEnabled",
                             "render": function (data, type, row, meta) {
-                                return data === true ? '<div class=\"form-check form-check-success\"><input class=\"form-check-input\" type=\"radio\"></div>' : '<div class=\"form-check form-check-danger\"><input class=\"form-check-input\" type=\"radio\"></div>'
+                                return data === true ? '<div class=\"form-check form-check-success\"><input class=\"form-check-input\" type=\"radio\" aria-label=\"2fa check\"></div>' : '<div class=\"form-check form-check-danger\"><input class=\"form-check-input\" aria-label=\"2fa check\" type=\"radio\"></div>'
                             }
                         },
                         {
                             "data": "IsMfaForce",
                             "render": function (data, type, row, meta) {
-                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>'
+                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" aria-label=\"2fa enforce check\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input aria-label=\"2fa enforce check\" class=\"form-check-input\" type=\"checkbox\" id=\"2fa' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleMfaForce(\"' + row.Id + '\"); /></div>'
                             }
                         },
                         {
                             "data": "IsLdapLogin",
                             "render": function (data, type, row, meta) {
-                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>'
+                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" aria-label=\"ldap check\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input aria-label=\"ldap check\" class=\"form-check-input\" type=\"checkbox\" id=\"ldap' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleLdapLogin(\"' + row.Id + '\"); /></div>'
                             }
                         },
                         {
                             "data": "IsEnabled",
                             "render": function (data, type, row, meta) {
-                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>'
+                                return data === false ? '<div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"checkbox\" aria-label=\"account check\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>' : '<div class=\"form-check form-switch\"><input aria-label=\"account check\" class=\"form-check-input\" type=\"checkbox\" id=\"active' + row.Id + '\" data-uid=\"' + row.Id + '\" checked=\"checked\"  onclick=toggleAccountEnabled(\"' + row.Id + '\"); /></div>'
                             }
                         },
                         { "data": null,

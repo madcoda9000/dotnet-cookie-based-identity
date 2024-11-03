@@ -47,11 +47,11 @@ namespace DotNetIdentity.Helpers.TagHelpers
             await _sett.Save();
             if (_sett.Brand.ApplicationLogo == null)
             {
-                sb.Append($"<img src='/assets/images/logo/ylogo_colored.png' style='height:" + imgHeight + "px !important;'/>");
+                sb.Append($"<img src='/assets/images/logo/ylogo_colored.png' style='height:" + imgHeight + "px !important;' alt='Application logo'/>");
             }
             else
             {
-                sb.Append($"<img src='" + _sett.Brand.ApplicationLogo + "' style='height:" + imgHeight + "px !important;'/>");
+                sb.Append($"<img src='" + _sett.Brand.ApplicationLogo + "' style='height:" + imgHeight + "px !important;' alt='Application logo'/>");
             }
 
             output.Content.SetHtmlContent(sb.ToString());

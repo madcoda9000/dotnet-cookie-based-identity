@@ -21090,11 +21090,11 @@ body .bi:before {
 
 .form-control.form-control-xl {
     font-size: 1.2rem;
-    padding: 0.85rem 1rem;
+    padding: 0.45rem 1rem;
 }
 
 .form-control.form-control-xl~.form-control-icon {
-    top: 0.55rem;
+    top: 0.15rem;
 }
 
 .form-check .form-check-input[class*="bg-"] {

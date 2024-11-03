@@ -17,18 +17,18 @@ body {
 }
 
 #auth #auth-left .auth-title {
-    font-size: 4rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 #auth #auth-left .auth-subtitle {
     color: #a8aebb;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     line-height: 2.5rem;
 }
 
 #auth #auth-left .auth-logo {
-    margin-bottom: 7rem;
+    margin-bottom: 3rem;
 }
 
 #auth #auth-left .auth-logo img {

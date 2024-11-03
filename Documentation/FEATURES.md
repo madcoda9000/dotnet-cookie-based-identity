@@ -27,6 +27,14 @@
 * provides a bootstrap based theme
   * only three layout files (Main, Auth, Error)
   * easy to customize
+* Meets almost all requirements for:
+  * Performance
+  * Accessibility
+  * Best Practices
+  * SEO
+
+  ![WebStandards](Screenshots/webstandards.png)
+
 
 ### Application Admin Features
 * provides application settings service
