@@ -63,7 +63,7 @@
                         <td>@item.Id</td>
                         <td>@item.Name</td>
                         <td>
-                            @if(item.Name.ToLower()=="admin" || item.Name.ToLower()=="user") {
+                            @if(item.Name!.ToLower()=="admin" || item.Name!.ToLower()=="user") {
                                 <span class="text-danger">@L["5"]</span>
                             } else {
                                 <div class="btn-group" role="group" aria-label="role actions">

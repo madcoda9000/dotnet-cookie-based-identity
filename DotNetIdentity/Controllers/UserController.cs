@@ -276,13 +276,13 @@ namespace DotNetIdentity.Controllers
 
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
 
-            if(user.TwoFactorType == DotNetIdentity.Models.TwoFactorType.Email) {
+            if(user!.TwoFactorType == DotNetIdentity.Models.TwoFactorType.Email) {
                 var token = await _userManager.GenerateTwoFactorTokenAsync(user, "Email");
                 await _emailHelper.SendAsync(new()
                     {
                         Subject = "Your 2fa code",
                         Body = $"Please use this " + token + " 2fa code to verify your login.",
-                        To = user.Email
+                        To = user.Email ?? string.Empty
                     });
                     _logger.LogInformation("AUDIT: send otp code to " + user.Email);
             }
@@ -303,7 +303,7 @@ namespace DotNetIdentity.Controllers
         {
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
 
-            if (user.TwoFactorType == Models.TwoFactorType.Authenticator)
+            if (user!.TwoFactorType == Models.TwoFactorType.Authenticator)
             {
                 var result = vieWModel.IsRecoveryCode ? await _signInManager.TwoFactorRecoveryCodeSignInAsync(vieWModel.VerificationCode) : await _signInManager.TwoFactorAuthenticatorSignInAsync(vieWModel.VerificationCode, true, false);
                 if (result.Succeeded)
@@ -349,17 +349,17 @@ namespace DotNetIdentity.Controllers
         [Authorize]
         public async Task<IActionResult> Profile()
         {
-            var me = await _userManager.FindByNameAsync(User.Identity?.Name);
+            var me = await _userManager.FindByNameAsync(User.Identity?.Name ?? string.Empty);
             if (me == null)
             {
                 await _signInManager.SignOutAsync();
                 return RedirectToAction("Index", "Home");
             }
             var mod = new UpdateProfileViewModel();
-            mod.Email = me.Email;
+            mod.Email = me.Email ?? string.Empty;
             mod.BirthDay = me.BirthDay;
-            mod.UserName = me.UserName;
-            mod.PhoneNumber = me.PhoneNumber;
+            mod.UserName = me.UserName ?? string.Empty;
+            mod.PhoneNumber = me.PhoneNumber ?? string.Empty;
             mod.Gender = me.Gender;            
             //return View(me.Adapt<UpdateProfileViewModel>());
             return View(mod);
@@ -376,7 +376,7 @@ namespace DotNetIdentity.Controllers
         {
             if (ModelState.IsValid)
             {
-                var me = await _userManager.FindByNameAsync(User.Identity?.Name);
+                var me = await _userManager.FindByNameAsync(User.Identity?.Name ?? string.Empty);
                 if (me != null)
                 {
                     if (me.PhoneNumber != viewModel.PhoneNumber && _userManager.Users.Any(a => a.PhoneNumber == viewModel.PhoneNumber))
@@ -456,28 +456,28 @@ namespace DotNetIdentity.Controllers
         {
             if (ModelState.IsValid)
             {
-                var me = await _userManager.FindByNameAsync(User.Identity?.Name);
+                var me = await _userManager.FindByNameAsync(User.Identity?.Name ?? string.Empty);
 
-                var passwordValid = await _userManager.CheckPasswordAsync(me, viewModel.Password);
+                var passwordValid = await _userManager.CheckPasswordAsync(me!, viewModel.Password);
                 if (passwordValid)
                 {
-                    var result = await _userManager.ChangePasswordAsync(me, viewModel.Password, viewModel.NewPassword);
+                    var result = await _userManager.ChangePasswordAsync(me!, viewModel.Password, viewModel.NewPassword);
                     if (result.Succeeded)
                     {
-                        await _userManager.UpdateSecurityStampAsync(me);
+                        await _userManager.UpdateSecurityStampAsync(me!);
 
                         await _signInManager.SignOutAsync();
-                        await _signInManager.SignInAsync(me, true);
-                        _logger.LogInformation("AUDIT: " + me.UserName + " successfully changed own password!");
+                        await _signInManager.SignInAsync(me!, true);
+                        _logger.LogInformation("AUDIT: " + me!.UserName + " successfully changed own password!");
 
                         return RedirectToAction("Index", "Admin");
                     }
-                    _logger.LogWarning("AUDIT: " + me.UserName + "tried to change password. Error: " + result.Errors.FirstOrDefault()!.ToString());
+                    _logger.LogWarning("AUDIT: " + me!.UserName + "tried to change password. Error: " + result.Errors.FirstOrDefault()!.ToString());
                     result.Errors.ToList().ForEach(f => ModelState.AddModelError(string.Empty, f.Description));
                 }
                 else
                 {
-                    _logger.LogWarning("AUDIT: " + me.UserName + " tried to change password. But provided invalid current pasword!");
+                    _logger.LogWarning("AUDIT: " + me!.UserName + " tried to change password. But provided invalid current pasword!");
                     ModelState.AddModelError(string.Empty, _localizer["8"]);
                 }
             }
@@ -516,7 +516,7 @@ namespace DotNetIdentity.Controllers
                     {
                         Subject = "Reset password",
                         Body = $"Please <a href='{passwordLink}'>click</a> to reset your password.",
-                        To = user.Email
+                        To = user.Email ?? string.Empty
                     });
                     _logger.LogWarning("AUDIT: " + user.UserName + " requested a password reset!");
                     return RedirectToAction("Index", "Home");
@@ -610,11 +610,11 @@ namespace DotNetIdentity.Controllers
         [Authorize]
         public async Task<IActionResult> TwoFactorType()
         {
-            var user = await _userManager.FindByNameAsync(User.Identity?.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity?.Name!);
 
             return View(new TwoFactorTypeViewModel
             {
-                TwoFactorType = user.TwoFactorType
+                TwoFactorType = user!.TwoFactorType
             });
         }
 
@@ -627,8 +627,8 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public async Task<IActionResult> TwoFactorType(TwoFactorTypeViewModel viewModel)
         {
-            var user = await _userManager.FindByNameAsync(User.Identity?.Name);
-            user.TwoFactorType = viewModel.TwoFactorType;
+            var user = await _userManager.FindByNameAsync(User!.Identity?.Name!);
+            user!.TwoFactorType = viewModel.TwoFactorType;
             await _userManager.UpdateAsync(user);
             await _userManager.SetTwoFactorEnabledAsync(user, user.TwoFactorType != Models.TwoFactorType.None);
 
@@ -647,8 +647,8 @@ namespace DotNetIdentity.Controllers
         /// <returns>view EnforceTwoFactorAuthenticator</returns>
         public async Task<IActionResult> EnforceTwoFactorAuthenticator()
         {
-            var user = await _userManager.FindByNameAsync(User.Identity?.Name);
-            user.TwoFactorType = Models.TwoFactorType.Authenticator;
+            var user = await _userManager.FindByNameAsync(User.Identity?.Name!);
+            user!.TwoFactorType = Models.TwoFactorType.Authenticator;
             await _userManager.UpdateAsync(user);
 
             var authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);
@@ -660,8 +660,8 @@ namespace DotNetIdentity.Controllers
 
             return View(new TwoFactorAuthenticatorViewModel
             {
-                SharedKey = authenticatorKey,
-                AuthenticationUri = _twoFactorAuthService.GenerateQrCodeUri(user.Email, authenticatorKey)
+                SharedKey = authenticatorKey ?? string.Empty,
+                AuthenticationUri = _twoFactorAuthService.GenerateQrCodeUri(user.Email!, authenticatorKey!)
             });
         }
 
@@ -673,14 +673,14 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public async Task<IActionResult> EnforceTwoFactorAuthenticator(TwoFactorAuthenticatorViewModel viewModel)
         {
-            var user = await _userManager.FindByNameAsync(User.Identity?.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity?.Name!);
             
             var verificationCode = viewModel.VerificationCode.Replace(" ", string.Empty).Replace("-", string.Empty);
 
-            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
+            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user!, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
             if (isTokenValid)
             {
-                if(user.IsMfaForce && user.TwoFactorEnabled==false) {
+                if(user!.IsMfaForce && user.TwoFactorEnabled==false) {
                     await _userManager.SetTwoFactorEnabledAsync(user, true);
                     user.IsMfaForce = false;
                     await _userManager.UpdateAsync(user);
@@ -688,7 +688,7 @@ namespace DotNetIdentity.Controllers
                 
                 TempData["RecoveryCodes"] = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);
             }
-            _logger.LogInformation("AUDIT: " + user.UserName + " successfully configured 2fa after enforcement. Redirecting to action: EnforceTwoFactorResult");
+            _logger.LogInformation("AUDIT: " + user!.UserName + " successfully configured 2fa after enforcement. Redirecting to action: EnforceTwoFactorResult");
             return RedirectToAction("EnforceTwoFactorResult", "User");
         }
 
@@ -707,8 +707,8 @@ namespace DotNetIdentity.Controllers
         /// <returns>view TwoFActorAuthenticator</returns>
         public async Task<IActionResult> TwoFactorAuthenticator()
         {
-            var user = await _userManager.FindByNameAsync(User.Identity?.Name);
-            if (user.TwoFactorEnabled && user.TwoFactorType == Models.TwoFactorType.Authenticator)
+            var user = await _userManager.FindByNameAsync(User.Identity?.Name!);
+            if (user!.TwoFactorEnabled && user.TwoFactorType == Models.TwoFactorType.Authenticator)
             {
                 var authenticatorKey = await _userManager.GetAuthenticatorKeyAsync(user);
                 if (authenticatorKey == null)
@@ -719,8 +719,8 @@ namespace DotNetIdentity.Controllers
 
                 return View(new TwoFactorAuthenticatorViewModel
                 {
-                    SharedKey = authenticatorKey,
-                    AuthenticationUri = _twoFactorAuthService.GenerateQrCodeUri(user.Email, authenticatorKey)
+                    SharedKey = authenticatorKey ?? string.Empty,
+                    AuthenticationUri = _twoFactorAuthService.GenerateQrCodeUri(user.Email!, authenticatorKey!)
                 });
             }
             return RedirectToAction("Index", "Home");
@@ -734,14 +734,14 @@ namespace DotNetIdentity.Controllers
         [HttpPost]
         public async Task<IActionResult> TwoFactorAuthenticator(TwoFactorAuthenticatorViewModel viewModel)
         {
-            var user = await _userManager.FindByNameAsync(User.Identity?.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity?.Name!);
             
             var verificationCode = viewModel.VerificationCode.Replace(" ", string.Empty).Replace("-", string.Empty);
 
-            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
+            var isTokenValid = await _userManager.VerifyTwoFactorTokenAsync(user!, _userManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
             if (isTokenValid)
             {
-                if(user.IsMfaForce && user.TwoFactorEnabled==false) {
+                if(user!.IsMfaForce && user.TwoFactorEnabled==false) {
                     await _userManager.SetTwoFactorEnabledAsync(user, true);
                     user.IsMfaForce = false;
                     await _userManager.UpdateAsync(user);
@@ -749,7 +749,7 @@ namespace DotNetIdentity.Controllers
                 
                 TempData["RecoveryCodes"] = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 5);
             }
-            _logger.LogInformation("AUDIT: " + user.UserName + " successfully configured 2fa!");
+            _logger.LogInformation("AUDIT: " + user!.UserName + " successfully configured 2fa!");
             return RedirectToAction("TwoFactorType", "User");
         }    
 
@@ -856,7 +856,7 @@ namespace DotNetIdentity.Controllers
             if (authDN.ToString().Contains(loginDN) == true)
             {
 
-                Stack<string> gr = createGroupsTable(lc, _usr.UserName, _sett.Ldap.LdapBaseDn!);
+                Stack<string> gr = createGroupsTable(lc, _usr.UserName!, _sett.Ldap.LdapBaseDn!);
                 bool erg = gr.Contains(_sett.Ldap.LdapGroup!);
 
                 if (erg)

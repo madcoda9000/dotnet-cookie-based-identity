@@ -174,10 +174,11 @@ namespace DotNetIdentity.Controllers
         /// <returns>view of type DotnetIdentity.Views.Admin.NewUser</returns>
         public async Task<IActionResult> NewUser() {
             var mod = new NewUserModel();
+            
             mod.Roles = await _roleManager.Roles.Select(s => new AssignRoleViewModel
             {
                 RoleId = s.Id,
-                RoleName = s.Name,
+                RoleName = s.Name ?? "",
                 IsAssigned = false
             }).ToListAsync();
 
@@ -386,14 +387,14 @@ namespace DotNetIdentity.Controllers
             {
                 var isUpdate = viewModel.Id != null;
 
-                var role = isUpdate ? await _roleManager.FindByIdAsync(viewModel.Id) : new AppRole() { Name = viewModel.Name, CreatedOn = DateTime.Now };
+                var role = isUpdate ? await _roleManager.FindByIdAsync(viewModel.Id!) : new AppRole() { Name = viewModel.Name, CreatedOn = DateTime.Now };
 
                 if (isUpdate)
                 {
-                    role.Name = viewModel.Name;
+                    role!.Name = viewModel.Name;
                 }
 
-                var result = isUpdate ? await _roleManager.UpdateAsync(role) : await _roleManager.CreateAsync(role);
+                var result = isUpdate ? await _roleManager.UpdateAsync(role!) : await _roleManager.CreateAsync(role!);
                 if (result.Succeeded)
                 {                    
                     if(isUpdate) {
@@ -475,7 +476,7 @@ namespace DotNetIdentity.Controllers
             viewModel.Roles = await _roleManager.Roles.Select(s => new AssignRoleViewModel
             {
                 RoleId = s.Id,
-                RoleName = s.Name,
+                RoleName = s.Name ?? "",
                 IsAssigned = userRoles.Any(a => a == s.Name)
             }).ToListAsync();
 

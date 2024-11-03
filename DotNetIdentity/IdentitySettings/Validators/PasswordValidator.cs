@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using DotNetIdentity.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 
@@ -15,9 +16,13 @@ namespace DotNetIdentity.IdentitySettings.Validators
         /// <param name="user">AppUser</param>
         /// <param name="password">string</param>
         /// <returns>Task of type IdentityResult</returns>
-        public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user, string password)
+        public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user, string? password)
         {
             var errors = new List<IdentityError>();
+            if(String.IsNullOrEmpty(password))
+            {
+                errors.Add(ErrorDescriber.PasswordIsEmpty());
+            }
 
             if (user.UserName == password)
             {

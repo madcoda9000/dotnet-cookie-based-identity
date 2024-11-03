@@ -22,5 +22,10 @@ namespace DotNetIdentity.IdentitySettings
         /// </summary>
         /// <returns>IdentityError</returns>
         public static IdentityError UserNameContainsEmail() => new() { Code = "UserNameContainsEmail", Description = "User name can not contains email name." };
+        /// <summary>
+        /// custom identity error if password is empty
+        /// </summary>
+        /// <returns>IdentityError</returns>
+        public static IdentityError PasswordIsEmpty() => new() { Code = "PasswordIsEmpty", Description = "Password should not be an empty strign!." };
     }
 }

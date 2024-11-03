@@ -134,7 +134,7 @@ else if (DbType == "SqLite")
         .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
         .Enrich.FromLogContext()
         .WriteTo.Console(theme: AnsiConsoleTheme.Code)
-        .WriteTo.SQLite(sqliteDbPath: Environment.CurrentDirectory + "/" + builder.Configuration.GetConnectionString("SqLite").Replace("Data Source=",""), tableName: "AppLogsSqLite", batchSize: 1)
+        .WriteTo.SQLite(sqliteDbPath: Environment.CurrentDirectory + "/" + builder.Configuration.GetConnectionString("SqLite")!.Replace("Data Source=",""), tableName: "AppLogsSqLite", batchSize: 1)
         .CreateLogger();
 }
 builder.Host.UseSerilog();

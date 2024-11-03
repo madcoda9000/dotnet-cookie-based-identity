@@ -41,7 +41,7 @@ namespace DotNetIdentity.Helpers.TagHelpers
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var user = await _userManager.FindByIdAsync(UserId);
-            var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _userManager.GetRolesAsync(user!);
 
             var sb = new StringBuilder();
 

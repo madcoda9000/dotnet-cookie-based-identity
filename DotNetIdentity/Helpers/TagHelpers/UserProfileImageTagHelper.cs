@@ -43,7 +43,7 @@ namespace DotNetIdentity.Helpers.TagHelpers
             var user = await _userManager.FindByIdAsync(UserId);
 
             var sb = new StringBuilder();
-            if(user.ProfilePicture==null) {
+            if(user!.ProfilePicture==null) {
                 sb.Append($"<img src='/assets/images/faces/user.png' height='32' alt='User avatar image'/>");
             } else {
                 sb.Append($"<img src='" + user.ProfilePicture + "' height='32' alt='User avatar image'/>");

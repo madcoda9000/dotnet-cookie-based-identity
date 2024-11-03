@@ -18,7 +18,7 @@ namespace DotNetIdentity.IdentitySettings.Validators
         {
             var errors = new List<IdentityError>();
 
-            if (user.UserName.Length < 6)
+            if (user.UserName!.Length < 6)
             {
                 errors.Add(ErrorDescriber.UserNameLength());
             }

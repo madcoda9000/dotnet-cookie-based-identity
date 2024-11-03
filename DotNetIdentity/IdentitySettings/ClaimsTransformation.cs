@@ -38,7 +38,7 @@ namespace DotNetIdentity.IdentitySettings
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
             var identity = principal.Identity as ClaimsIdentity;
-            var user = await _userManager.FindByNameAsync(identity?.Name);
+            var user = await _userManager.FindByNameAsync(identity?.Name!);
             if (user != null)
             {
                 if (!principal.HasClaim(c => c.Type == ClaimTypes.Gender))
