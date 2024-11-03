@@ -51,9 +51,8 @@
 
 ### the magic.. (if everthing goes well!)
 
-* navigate into the DotNetIdentity folder
 * type `dotnet run`
-  * The application will try to compile and start. Whe you've no typo in your connectionstring and your Database server is reachable, the application will try to create the database a  nd the tables. After that the application will start a browser and open the application.
+  * When you've no typo in your connectionstring and your Database server is reachable, the application will try to create the database and the tables. After that the application will start a browser and open the application.
     Your console window output should look like that:
      ![dotnet-run1](Screenshots/dotnet-run1.png)
     **HINT**: In your case the the https port typically would be 5001. So the url to your new app will be https://localhost:5001
